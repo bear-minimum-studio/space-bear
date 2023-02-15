@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ipudwk3mtkbw"
-path="res://.godot/imported/moto.png-b83eb126b566cae272c89e046a5eb840.ctex"
+uid="uid://cgdmolk0kdsay"
+path="res://.godot/imported/projectile.png-6de3f51e42d26775be4938569df4f1e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://moto.png"
-dest_files=["res://.godot/imported/moto.png-b83eb126b566cae272c89e046a5eb840.ctex"]
+source_file="res://player/projectile.png"
+dest_files=["res://.godot/imported/projectile.png-6de3f51e42d26775be4938569df4f1e1.ctex"]
 
 [params]
 

@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcmc5618pu5uw"]
 
-[ext_resource type="Texture2D" uid="uid://ipudwk3mtkbw" path="res://moto.png" id="1_6kesp"]
 [ext_resource type="Script" path="res://Bullet.gd" id="2_a4jyv"]
+[ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_u7h4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyl3h"]
-size = Vector2(84, 48)
+size = Vector2(8, 6)
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("2_a4jyv")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.14095, 0.14095)
-texture = ExtResource("1_6kesp")
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(0.519198, 0.519198)
+texture = ExtResource("2_u7h4i")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
