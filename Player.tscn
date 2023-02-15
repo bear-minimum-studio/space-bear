@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdmod1k47gntm"]
+[gd_scene load_steps=5 format=3 uid="uid://cdmod1k47gntm"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rsmvc"]
-[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="1_snwga"]
+[ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
+[ext_resource type="Texture2D" uid="uid://bohe0t548s4xp" path="res://player/vaisseau.png" id="2_yo8sm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v6u5"]
 size = Vector2(136, 132)
@@ -9,10 +10,17 @@ size = Vector2(136, 132)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_rsmvc")
 
+[node name="Flammes" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.57079
+scale = Vector2(0.622253, 0.622253)
+texture = ExtResource("2_blk12")
+
 [node name="Player" type="Sprite2D" parent="."]
+texture_filter = 1
 rotation = 1.5708
-scale = Vector2(0.379658, 0.379658)
-texture = ExtResource("1_snwga")
+scale = Vector2(0.5413, 0.5413)
+texture = ExtResource("2_yo8sm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.348005, 0.348005)
