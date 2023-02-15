@@ -5,22 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://bohe0t548s4xp" path="res://player/vaisseau.png" id="2_yo8sm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v6u5"]
-size = Vector2(136, 132)
+size = Vector2(189.652, 155.17)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_rsmvc")
 
 [node name="Flammes" type="Sprite2D" parent="."]
-texture_filter = 1
+texture_filter = 3
+position = Vector2(0, -9.09495e-13)
 rotation = 1.57079
-scale = Vector2(0.622253, 0.622253)
 texture = ExtResource("2_blk12")
 
 [node name="Player" type="Sprite2D" parent="."]
 z_index = 10
-texture_filter = 1
+texture_filter = 3
 rotation = 1.5708
-scale = Vector2(0.5413, 0.5413)
 texture = ExtResource("2_yo8sm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

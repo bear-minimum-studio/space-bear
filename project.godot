@@ -15,6 +15,10 @@ run/main_scene="res://World.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 accelerate={
@@ -55,3 +59,4 @@ fire={
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.14902, 0.0509804, 0.203922, 1)
+textures/canvas_textures/default_texture_filter=0
