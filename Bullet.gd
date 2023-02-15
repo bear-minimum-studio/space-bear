@@ -8,4 +8,5 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	print("hit!")
+	if (body.has_method("on_hit")):
+		body.on_hit()
