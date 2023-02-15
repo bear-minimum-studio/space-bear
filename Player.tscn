@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdmod1k47gntm"]
+
+[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="1_snwga"]
+
+[node name="Player" type="Sprite2D"]
+position = Vector2(114, 99)
+texture = ExtResource("1_snwga")
