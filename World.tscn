@@ -13,7 +13,8 @@ script = ExtResource("1_kjg2t")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(128, 128)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(512, 512)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
@@ -23,8 +24,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2048, 2048)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.9, 0.9)
-motion_mirroring = Vector2(128, 128)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(512, 512)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_repeat = 2
@@ -34,8 +35,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2048, 2048)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(128, 128)
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(512, 512)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_repeat = 2
