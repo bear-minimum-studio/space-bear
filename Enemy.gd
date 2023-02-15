@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-var hp = 10
+var health = 10
 
 func on_hit():
-	hp -= 1
-	print("oh no I lost 1 hp")
-	print(hp)
+	health -= 1
+
+	if (health <= 0):
+		self.queue_free()
