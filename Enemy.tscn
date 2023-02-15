@@ -6,6 +6,7 @@
 size = Vector2(108, 96)
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.104918, 0.104918)
