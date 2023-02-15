@@ -9,8 +9,6 @@ func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("turn_left", "turn_right")
 	self.rotation += rotation_intensity * ROTATION_SPEED
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var intensity = Input.get_axis("decelerate", "accelerate")
 	if intensity:
 		var v = delta * intensity * ACCEL
