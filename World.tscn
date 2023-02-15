@@ -1,14 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw4w3ebkgwrpc"]
+[gd_scene load_steps=5 format=3 uid="uid://bw4w3ebkgwrpc"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://cdmod1k47gntm" path="res://Player.tscn" id="1_yasag"]
-[ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://Enemy.tscn" id="3_dv0ok"]
+[ext_resource type="Texture2D" uid="uid://tvjvd66hj1o2" path="res://background.png" id="2_u5tv3"]
+[ext_resource type="PackedScene" path="res://Enemy.tscn" id="3_dv0ok"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kjg2t")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(800, 800)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_u5tv3")
+
 [node name="Player" parent="." instance=ExtResource("1_yasag")]
 position = Vector2(159, 130)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Enemy" parent="." instance=ExtResource("3_dv0ok")]
 position = Vector2(403, 125)
