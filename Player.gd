@@ -4,6 +4,7 @@ signal shoot
 
 const ACCEL = 90.0
 const ROTATION_SPEED = 0.04
+const MAX_SPEED = 400
 
 @onready var flammes = $Flammes
 
@@ -20,6 +21,12 @@ func _physics_process(delta):
 	else:
 		flammes.visible = false
 
+	if velocity.length() > MAX_SPEED:
+		var max_x = abs(MAX_SPEED * cos(velocity.angle()))
+		var max_y = abs(MAX_SPEED * sin(velocity.angle()))
+		velocity.x = clamp(velocity.x, -max_x, max_x)
+		velocity.y = clamp(velocity.y, -max_y, max_y)
+		
 	if (Input.is_action_pressed("fire")):
 		emit_signal("shoot", global_position, global_rotation)
 		
