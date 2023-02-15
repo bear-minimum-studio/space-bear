@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const ACCEL = 60.0
-const ROTATION_SPEED = 0.005
+const ACCEL = 90.0
+const ROTATION_SPEED = 0.02
 
 func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("ui_left", "ui_right")
