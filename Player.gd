@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal shoot
 
 const ACCEL = 90.0
 const ROTATION_SPEED = 0.04
@@ -13,9 +14,12 @@ func _physics_process(delta):
 	var intensity = Input.get_axis("decelerate", "accelerate")
 	if intensity:
 		var v = delta * intensity * ACCEL
-		velocity.x += v * sin(self.rotation)
-		velocity.y += -v * cos(self.rotation)
+		velocity.x += v * cos(self.rotation)
+		velocity.y += v * sin(self.rotation)
 
+	if (Input.is_action_pressed("fire")):
+		emit_signal("shoot", global_position, global_rotation)
+		
 	# TODO max speed
 
 	move_and_slide()
