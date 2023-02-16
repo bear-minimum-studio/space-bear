@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7yah4os8ycbq"]
+[gd_scene load_steps=6 format=3 uid="uid://b7yah4os8ycbq"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://bk1rhiy8j2j8h" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
+
+[sub_resource type="Environment" id="Environment_uyldo"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.13
+glow_strength = 0.98
+glow_bloom = 0.42
+glow_blend_mode = 0
+adjustment_brightness = 1.57
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kjg2t")
@@ -57,5 +67,8 @@ position = Vector2(159, 130)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.5, 0.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uyldo")
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
