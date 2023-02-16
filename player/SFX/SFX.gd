@@ -4,7 +4,7 @@ extends Node
 @onready var fire_start = $FireStart
 @onready var fire_sustain = $FireSustain
 
-@onready var fx_bus_id = 1
+@onready var fx_bus_id = AudioServer.get_bus_index("Propulsion")
 @onready var default_volume = AudioServer.get_bus_volume_db(fx_bus_id)
 
 @export var fade_out_duration = 0.5
