@@ -12,6 +12,7 @@ const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND
 var _reloading = false
 
 @onready var flammes = $Flammes
+@onready var sfx = $SFX
 
 func _shoot():
 	if _reloading:
@@ -33,9 +34,11 @@ func _physics_process(delta):
 		velocity.x += v * cos(self.rotation)
 		velocity.y += v * sin(self.rotation)
 		flammes.visible = true
+		sfx.play()
 	else:
 		flammes.visible = false
-
+		sfx.stop()
+	
 	if velocity.length() > MAX_SPEED:
 		var max_x = abs(MAX_SPEED * cos(velocity.angle()))
 		var max_y = abs(MAX_SPEED * sin(velocity.angle()))

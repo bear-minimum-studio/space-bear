@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdmod1k47gntm"]
+[gd_scene load_steps=10 format=3 uid="uid://cdmod1k47gntm"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
 [ext_resource type="Texture2D" uid="uid://bohe0t548s4xp" path="res://player/vaisseau.png" id="2_yo8sm"]
+[ext_resource type="Script" path="res://SFX.gd" id="4_ttiwy"]
+[ext_resource type="AudioStream" uid="uid://c512majfn8np2" path="res://player/SFX/fire_start_1.wav" id="5_i5xdt"]
+[ext_resource type="AudioStream" uid="uid://b1tet3gmnkbmx" path="res://player/SFX/fire_start_2.wav" id="6_qqyb8"]
+[ext_resource type="AudioStream" uid="uid://dpf6bolfupe66" path="res://player/SFX/fire_start_3.wav" id="7_7a63n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v6u5"]
 size = Vector2(189.652, 155.17)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c822x"]
+streams_count = 3
+random_volume_offset_db = 1.26
+stream_0/stream = ExtResource("7_7a63n")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_i5xdt")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_qqyb8")
+stream_2/weight = 1.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_rsmvc")
@@ -28,3 +42,9 @@ texture = ExtResource("2_yo8sm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.348005, 0.348005)
 shape = SubResource("RectangleShape2D_0v6u5")
+
+[node name="SFX" type="Node" parent="."]
+script = ExtResource("4_ttiwy")
+
+[node name="FireStart" type="AudioStreamPlayer" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_c822x")
