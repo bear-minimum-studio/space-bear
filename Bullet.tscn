@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcmc5618pu5uw"]
+[gd_scene load_steps=5 format=3 uid="uid://bv0m50m0r2ml3"]
 
 [ext_resource type="Script" path="res://Bullet.gd" id="2_a4jyv"]
 [ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_u7h4i"]
+[ext_resource type="AudioStream" uid="uid://b2geekj3ugfba" path="res://Bullets.wav" id="3_k5ub5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyl3h"]
 size = Vector2(8, 6)
@@ -21,5 +22,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_fyl3h")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k5ub5")
+volume_db = -7.682
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
