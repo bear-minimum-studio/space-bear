@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm0sum8oi2m1s"]
+
+[ext_resource type="Texture2D" uid="uid://bmb3kxcws53c8" path="res://background/etoiles_loin.png" id="1_wf5oh"]
+[ext_resource type="Texture2D" uid="uid://cpsip7famptfr" path="res://background/nebula_bigger.png" id="2_33v0d"]
+[ext_resource type="Texture2D" uid="uid://b6scl32qej5cw" path="res://background/nebula2.png" id="3_t58jw"]
+[ext_resource type="Texture2D" uid="uid://dqqo5fr3qj188" path="res://background/nebula1.png" id="4_wpyb0"]
+[ext_resource type="Texture2D" uid="uid://twufk2gd3ibk" path="res://background/etoiles_moyennes.png" id="5_l70pj"]
+[ext_resource type="Texture2D" uid="uid://bhc56kw4vat4c" path="res://background/etoiles_grosses.png" id="6_opg52"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="FarthestStars" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(512, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarthestStars"]
+texture_repeat = 2
+texture = ExtResource("1_wf5oh")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="FurthestNebula" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(4096, 4096)
+
+[node name="NebulaBigger" type="Sprite2D" parent="FurthestNebula"]
+position = Vector2(249, 226)
+texture = ExtResource("2_33v0d")
+
+[node name="Nebula2" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Nebula2" type="Sprite2D" parent="Nebula2"]
+position = Vector2(406, 1136)
+scale = Vector2(2.95312, 2.95312)
+texture = ExtResource("3_t58jw")
+
+[node name="Nebula1" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Nebula1" type="Sprite2D" parent="Nebula1"]
+position = Vector2(1090, 13)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("4_wpyb0")
+
+[node name="AverageDistanceStars" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(512, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="AverageDistanceStars"]
+texture_repeat = 2
+texture = ExtResource("5_l70pj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="CloseStars" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(512, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="CloseStars"]
+texture_repeat = 2
+texture = ExtResource("6_opg52")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
