@@ -13,8 +13,7 @@ var sprites = [
 @onready var animation_player = $AnimationPlayer
 
 func _ready():
-	var rand_index = randi() % sprites.size()
-	sprite.texture = sprites[rand_index]
+	sprite.texture = sprites.pick_random()
 	
 	sprite_container.rotation = randf_range(0, 2*PI)
 	animation_player.speed_scale = randf_range(0.2, 2)
