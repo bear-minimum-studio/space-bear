@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7yah4os8ycbq"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
-[ext_resource type="PackedScene" path="res://player/Player.tscn" id="1_yasag"]
+[ext_resource type="PackedScene" uid="uid://bk1rhiy8j2j8h" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
 

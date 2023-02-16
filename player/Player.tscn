@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://bk1rhiy8j2j8h"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
 [ext_resource type="Texture2D" uid="uid://bohe0t548s4xp" path="res://player/vaisseau.png" id="2_yo8sm"]
-[ext_resource type="Script" path="res://SFX.gd" id="4_ttiwy"]
+[ext_resource type="Script" path="res://player/SFX/SFX.gd" id="4_fm7y1"]
 [ext_resource type="AudioStream" uid="uid://c512majfn8np2" path="res://player/SFX/fire_start_1.wav" id="5_i5xdt"]
 [ext_resource type="AudioStream" uid="uid://b1tet3gmnkbmx" path="res://player/SFX/fire_start_2.wav" id="6_qqyb8"]
 [ext_resource type="AudioStream" uid="uid://dpf6bolfupe66" path="res://player/SFX/fire_start_3.wav" id="7_7a63n"]
@@ -44,7 +44,7 @@ scale = Vector2(0.348005, 0.348005)
 shape = SubResource("RectangleShape2D_0v6u5")
 
 [node name="SFX" type="Node" parent="."]
-script = ExtResource("4_ttiwy")
+script = ExtResource("4_fm7y1")
 
 [node name="FireStart" type="AudioStreamPlayer" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_c822x")
