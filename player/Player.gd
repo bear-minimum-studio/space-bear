@@ -18,7 +18,7 @@ func _shoot():
 	if _reloading:
 		return
 
-	emit_signal("shoot", global_position, global_rotation)
+	emit_signal("shoot", global_position, global_rotation, velocity)
 	
 	_reloading = true
 	await get_tree().create_timer(SHOOTING_SPEED).timeout

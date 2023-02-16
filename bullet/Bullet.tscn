@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cx41bv33edtnq"]
 
 [ext_resource type="Script" path="res://bullet/Bullet.gd" id="2_a4jyv"]
 [ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_u7h4i"]
@@ -7,8 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyl3h"]
 size = Vector2(8, 6)
 
-[node name="Bullet" type="Node2D"]
+[node name="Area2D" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_a4jyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fyl3h")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -16,15 +21,6 @@ rotation = 1.5708
 scale = Vector2(0.519198, 0.519198)
 texture = ExtResource("2_u7h4i")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_fyl3h")
-
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k5ub5")
 volume_db = -7.682
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
