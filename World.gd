@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = $Player
 
-var bullet_scene = preload("res://Bullet.tscn")
+var bullet_scene = preload("res://bullet/Bullet.tscn")
 
 func _on_player_shoot(global_player_position, global_player_rotation):
 	var new_bullet = bullet_scene.instantiate()
