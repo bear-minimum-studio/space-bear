@@ -24,3 +24,5 @@ texture = ExtResource("2_u7h4i")
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_k5ub5")
 volume_db = -7.682
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

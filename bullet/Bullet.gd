@@ -9,7 +9,8 @@ func _ready():
 func _process(delta):
 	translate(delta * velocity)
 
-func _on_area_2d_body_entered(body):
+
+func _on_body_entered(body):
 	if (body.has_method("on_hit")):
 		body.on_hit()
 
