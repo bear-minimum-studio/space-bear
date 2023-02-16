@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs6jmmclexxuu"]
 
-[ext_resource type="Script" path="res://Enemy.gd" id="1_nn8bu"]
+[ext_resource type="Script" path="res://Asteroid.gd" id="1_qocee"]
 [ext_resource type="Texture2D" uid="uid://ckx1poxyuopep" path="res://asteroids/asteroide1.png" id="2_t8pnc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wvsd"]
-size = Vector2(108, 96)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncwxg"]
+radius = 44.0454
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Asteroid" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_nn8bu")
+script = ExtResource("1_qocee")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2.59375, 2.59375)
 texture = ExtResource("2_t8pnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6wvsd")
+shape = SubResource("CircleShape2D_ncwxg")
