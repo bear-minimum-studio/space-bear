@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx41bv33edtnq"]
+[gd_scene load_steps=6 format=3 uid="uid://cx41bv33edtnq"]
 
 [ext_resource type="Script" path="res://bullet/Bullet.gd" id="2_a4jyv"]
 [ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_u7h4i"]
@@ -6,6 +6,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyl3h"]
 size = Vector2(8, 6)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n0l7c"]
+streams_count = 1
+random_pitch = 1.05
+random_volume_offset_db = 0.75
+stream_0/stream = ExtResource("3_k5ub5")
+stream_0/weight = 1.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 0
@@ -22,7 +29,8 @@ scale = Vector2(0.519198, 0.519198)
 texture = ExtResource("2_u7h4i")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_k5ub5")
+stream = SubResource("AudioStreamRandomizer_n0l7c")
 volume_db = -7.682
+bus = &"FX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
