@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://cdmod1k47gntm" path="res://Player.tscn" id="1_yasag"]
 [ext_resource type="Texture2D" uid="uid://bhc56kw4vat4c" path="res://background/etoiles_grosses.png" id="2_hu6fp"]
-[ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://Asteroid.tscn" id="3_dv0ok"]
+[ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
 [ext_resource type="Texture2D" uid="uid://twufk2gd3ibk" path="res://background/etoiles_moyennes.png" id="3_wh12g"]
 [ext_resource type="Texture2D" uid="uid://bmb3kxcws53c8" path="res://background/etoiles_loin.png" id="4_thixu"]
 
