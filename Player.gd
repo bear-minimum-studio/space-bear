@@ -7,7 +7,7 @@ const ROTATION_SPEED = 0.04
 const MAX_SPEED = 400
 const BULLETS_PER_SECOND = 5.0
 
-const SHOOTING_SPEED = 1 / BULLETS_PER_SECOND 
+const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
 
 var _reloading = false
 
