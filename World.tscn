@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://di0ri37fkrs3n"]
+[gd_scene load_steps=10 format=3 uid="uid://b7yah4os8ycbq"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
-[ext_resource type="PackedScene" uid="uid://cdmod1k47gntm" path="res://Player.tscn" id="1_yasag"]
+[ext_resource type="PackedScene" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="Texture2D" uid="uid://bhc56kw4vat4c" path="res://background/etoiles_grosses.png" id="2_hu6fp"]
 [ext_resource type="Texture2D" uid="uid://cpsip7famptfr" path="res://background/nebula_bigger.png" id="2_uiba5"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
