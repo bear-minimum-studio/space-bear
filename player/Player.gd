@@ -24,9 +24,13 @@ func _shoot():
 	await get_tree().create_timer(SHOOTING_SPEED).timeout
 	_reloading = false
 
+func _custom_set_rotation(rotation_value: float):
+	self.rotation = rotation_value
+	$Turret.rotation = -self.rotation
+
 func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("turn_left", "turn_right")
-	self.rotation += rotation_intensity * ROTATION_SPEED
+	_custom_set_rotation(self.rotation + rotation_intensity * ROTATION_SPEED)
 	
 	var intensity = Input.get_axis("decelerate", "accelerate")
 	if intensity:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://br6bfdr7gif8a"]
+[gd_scene load_steps=13 format=3 uid="uid://br6bfdr7gif8a"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://cmyt7701js27u" path="res://player/SFX/fire_start_2.wav" id="6_qqyb8"]
 [ext_resource type="AudioStream" uid="uid://daxhmq4deiyhr" path="res://player/SFX/fire_start_3.wav" id="7_7a63n"]
 [ext_resource type="AudioStream" uid="uid://ceejpknwjtsq0" path="res://player/SFX/fire_sustain.wav" id="8_xrqab"]
+[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="9_kydv7"]
+[ext_resource type="Script" path="res://player/TurretControl.gd" id="9_oqrpk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v6u5"]
 size = Vector2(189.652, 155.17)
@@ -54,3 +56,13 @@ bus = &"Propulsion"
 [node name="FireSustain" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("8_xrqab")
 bus = &"Propulsion"
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="TurretControl" type="Node2D" parent="Turret"]
+script = ExtResource("9_oqrpk")
+
+[node name="TurretCrosshair" type="Sprite2D" parent="Turret/TurretControl"]
+position = Vector2(0, 46)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("9_kydv7")
