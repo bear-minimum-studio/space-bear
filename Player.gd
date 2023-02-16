@@ -5,8 +5,23 @@ signal shoot
 const ACCEL = 90.0
 const ROTATION_SPEED = 0.04
 const MAX_SPEED = 400
+const BULLETS_PER_SECOND = 5.0
+
+const SHOOTING_SPEED = 1 / BULLETS_PER_SECOND 
+
+var _reloading = false
 
 @onready var flammes = $Flammes
+
+func _shoot():
+	if _reloading:
+		return
+
+	emit_signal("shoot", global_position, global_rotation)
+	
+	_reloading = true
+	await get_tree().create_timer(SHOOTING_SPEED).timeout
+	_reloading = false
 
 func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("turn_left", "turn_right")
@@ -28,7 +43,7 @@ func _physics_process(delta):
 		velocity.y = clamp(velocity.y, -max_y, max_y)
 		
 	if (Input.is_action_pressed("fire")):
-		emit_signal("shoot", global_position, global_rotation)
+		_shoot()
 		
 	# TODO max speed
 
