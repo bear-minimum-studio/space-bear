@@ -52,13 +52,13 @@ position = Vector2(159, 130)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Enemy" parent="." instance=ExtResource("3_dv0ok")]
-position = Vector2(403, 125)
+position = Vector2(377, 51)
 
 [node name="Enemy2" parent="." instance=ExtResource("3_dv0ok")]
-position = Vector2(352, 250)
+position = Vector2(286, 246)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_dv0ok")]
-position = Vector2(342, 7)
+position = Vector2(320, -67)
 
 [node name="Enemy4" parent="." instance=ExtResource("3_dv0ok")]
 position = Vector2(552, -55)
@@ -67,6 +67,27 @@ position = Vector2(552, -55)
 position = Vector2(581, 132)
 
 [node name="Enemy6" parent="." instance=ExtResource("3_dv0ok")]
-position = Vector2(563, 301)
+position = Vector2(577, 291)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(22, 302)
+
+[node name="Enemy8" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(-238, 111)
+
+[node name="Enemy9" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(79, -65)
+
+[node name="Enemy10" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(-252, -73)
+rotation = -0.765589
+
+[node name="Enemy11" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(-26, 112)
+rotation = -0.765589
+
+[node name="Enemy12" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(-249, 357)
+rotation = -0.765589
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs6jmmclexxuu"]
+[gd_scene load_steps=7 format=3 uid="uid://bs6jmmclexxuu"]
 
 [ext_resource type="Script" path="res://asteroids/Asteroid.gd" id="1_81esk"]
 [ext_resource type="Texture2D" uid="uid://ckx1poxyuopep" path="res://asteroids/asteroide1.png" id="2_yim38"]
@@ -6,13 +6,60 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncwxg"]
 radius = 44.0454
 
+[sub_resource type="Animation" id="Animation_cwm7n"]
+resource_name = "Idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_nqbci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8juyh"]
+_data = {
+"Idle": SubResource("Animation_cwm7n"),
+"RESET": SubResource("Animation_nqbci")
+}
+
 [node name="Asteroid" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_81esk")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="SpriteContainer" type="Node2D" parent="."]
+rotation = 0.958186
+
+[node name="Sprite" type="Sprite2D" parent="SpriteContainer"]
 scale = Vector2(2.59375, 2.59375)
 texture = ExtResource("2_yim38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ncwxg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_8juyh")
+}
