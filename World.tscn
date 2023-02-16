@@ -54,4 +54,19 @@ zoom = Vector2(0.5, 0.5)
 [node name="Enemy" parent="." instance=ExtResource("3_dv0ok")]
 position = Vector2(403, 125)
 
+[node name="Enemy2" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(352, 250)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(342, 7)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(552, -55)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(581, 132)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_dv0ok")]
+position = Vector2(563, 301)
+
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
