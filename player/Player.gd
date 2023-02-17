@@ -6,11 +6,12 @@ const ACCEL = 90.0
 const ROTATION_SPEED = 2.0
 const MAX_SPEED = 400
 const BULLETS_PER_SECOND = 5.0
+const MAX_HEALTH = 10
 
 const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
 
 var _reloading = false
-var health = 10
+var health = MAX_HEALTH
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
@@ -63,4 +64,4 @@ func _on_turret_control_shoot():
 
 func on_hit():
 	health -= 1
-	print("ship health: ",health)
+	Events.emit_signal("player_hp_changed", health, MAX_HEALTH)

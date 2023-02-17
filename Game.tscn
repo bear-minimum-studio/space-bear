@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://tqed60ohjuwv"]
+[gd_scene load_steps=5 format=3 uid="uid://tqed60ohjuwv"]
 
 [ext_resource type="PackedScene" uid="uid://b7yah4os8ycbq" path="res://World.tscn" id="1_os38u"]
 [ext_resource type="Texture2D" uid="uid://y8k8tjlbaga2" path="res://ui/progress_bar.png" id="2_ghdyu"]
 [ext_resource type="Texture2D" uid="uid://bjrex6bt8fjba" path="res://ui/progress_bar_fill.png" id="3_egoyd"]
+[ext_resource type="Script" path="res://Health.gd" id="4_f1l8c"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,7 +11,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="Health" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,7 +21,8 @@ offset_right = -324.0
 offset_bottom = -241.0
 grow_horizontal = 2
 grow_vertical = 2
-value = 40.0
+max_value = 10.0
+value = 10.0
 nine_patch_stretch = true
 stretch_margin_left = 8
 stretch_margin_top = 8
@@ -28,3 +30,4 @@ stretch_margin_right = 8
 stretch_margin_bottom = 8
 texture_under = ExtResource("2_ghdyu")
 texture_progress = ExtResource("3_egoyd")
+script = ExtResource("4_f1l8c")
