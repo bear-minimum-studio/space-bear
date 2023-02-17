@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal shoot
 
 const ACCEL = 90.0
-const ROTATION_SPEED = 0.04
+const ROTATION_SPEED = 2.0
 const MAX_SPEED = 400
 const BULLETS_PER_SECOND = 5.0
 
@@ -14,6 +14,7 @@ var _reloading = false
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
 @onready var turret_control = $Turret/TurretControl
+@onready var turret = $Turret
 
 func _shoot():
 	if _reloading:
@@ -27,11 +28,11 @@ func _shoot():
 
 func _custom_set_rotation(rotation_value: float):
 	self.rotation = rotation_value
-	$Turret.rotation = -self.rotation
+	turret.rotation = -self.rotation
 
 func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("turn_left", "turn_right")
-	_custom_set_rotation(self.rotation + rotation_intensity * ROTATION_SPEED)
+	_custom_set_rotation(self.rotation + rotation_intensity * ROTATION_SPEED * delta)
 	
 	var intensity = Input.get_axis("decelerate", "accelerate")
 	if intensity:
@@ -52,8 +53,6 @@ func _physics_process(delta):
 		
 	if (Input.is_action_pressed("fire")):
 		_shoot()
-		
-	# TODO max speed
 
 	move_and_slide()
 

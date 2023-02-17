@@ -2,7 +2,7 @@ extends Node2D
 
 signal shoot
 
-const ROTATION_SPEED = 0.04
+const ROTATION_SPEED = 2.0
 const BULLETS_PER_SECOND = 5.0
 
 const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
@@ -21,7 +21,7 @@ func _shoot():
 
 func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("turret_left", "turret_right")
-	self.rotation = self.rotation + rotation_intensity * ROTATION_SPEED
+	self.rotation = self.rotation + rotation_intensity * ROTATION_SPEED * delta
 	
 	if (Input.is_action_pressed("turret_fire")):
 		_shoot()
