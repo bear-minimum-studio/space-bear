@@ -82,6 +82,10 @@ turret_fire={
 2d_physics/layer_4="ally"
 2d_physics/layer_5="ally hitbox"
 
+[physics]
+
+2d/default_gravity=0.0
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.14902, 0.0509804, 0.203922, 1)

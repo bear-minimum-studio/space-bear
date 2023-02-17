@@ -11,7 +11,7 @@ size = Vector2(126, 98)
 
 [node name="MotherShip" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 0
 script = ExtResource("1_gfdas")
 
 [node name="Ship" type="Sprite2D" parent="."]
