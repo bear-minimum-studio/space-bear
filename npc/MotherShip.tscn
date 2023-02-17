@@ -5,19 +5,24 @@
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mothership_flammes.png" id="3_jo5lu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5o51"]
-size = Vector2(116, 90)
+size = Vector2(160, 148)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q26qw"]
-size = Vector2(126, 98)
+size = Vector2(174, 158)
 
 [node name="MotherShip" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_3b6up")
 
+[node name="MothershipFlammes" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("3_jo5lu")
+
 [node name="Ship" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(2.125, 2.125)
+scale = Vector2(3, 3)
 texture = ExtResource("2_sw53n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,10 +35,5 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_q26qw")
 debug_color = Color(0.976471, 0.117647, 0.270588, 0.419608)
-
-[node name="MothershipFlammes" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(2.125, 2.125)
-texture = ExtResource("3_jo5lu")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
