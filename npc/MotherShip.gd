@@ -12,7 +12,7 @@ func on_hit():
 	if health > 0:
 		health -= 1
 		print("mothership health: ",health)
-	elif health == 0:
+	if health <= 0:
 		print("Mothership Ded")
 
 func _on_hit_box_body_entered(body):

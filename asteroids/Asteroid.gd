@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var health = 10
+var health = 11 # self hits once at creation
 
 var sprites = [
 	preload("res://asteroids/asteroide1.png"),

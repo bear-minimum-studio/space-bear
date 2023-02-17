@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
-[ext_resource type="PackedScene" uid="uid://biu0yaddqrv53" path="res://npc/MotherShip.tscn" id="5_fx687"]
+[ext_resource type="PackedScene" uid="uid://dw2u35ifrntlp" path="res://npc/MotherShip.tscn" id="5_fx687"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
