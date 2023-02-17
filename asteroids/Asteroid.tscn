@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ckx1poxyuopep" path="res://asteroids/asteroide1.png" id="2_yim38"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncwxg"]
-radius = 44.0454
+radius = 33.0151
 
 [sub_resource type="Animation" id="Animation_cwm7n"]
 resource_name = "Idle"

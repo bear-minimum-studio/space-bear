@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="9_kydv7"]
 [ext_resource type="Script" path="res://player/TurretControl.gd" id="9_oqrpk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v6u5"]
-size = Vector2(189.652, 155.17)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
+radius = 57.4704
+height = 126.435
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c822x"]
 streams_count = 3
@@ -25,6 +26,7 @@ stream_2/stream = ExtResource("6_qqyb8")
 stream_2/weight = 1.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_rsmvc")
 
 [node name="Flammes" type="Sprite2D" parent="."]
@@ -43,8 +45,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_yo8sm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 7.10543e-15)
+rotation = 1.5708
 scale = Vector2(0.348005, 0.348005)
-shape = SubResource("RectangleShape2D_0v6u5")
+shape = SubResource("CapsuleShape2D_nobpd")
 
 [node name="SFX" type="Node" parent="."]
 script = ExtResource("4_fm7y1")
