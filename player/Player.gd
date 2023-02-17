@@ -10,6 +10,7 @@ const BULLETS_PER_SECOND = 5.0
 const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
 
 var _reloading = false
+var health = 10
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
@@ -59,3 +60,7 @@ func _physics_process(delta):
 
 func _on_turret_control_shoot():
 	emit_signal("shoot", turret_control.global_position, turret_control.global_rotation, velocity)
+
+func on_hit():
+	health -= 1
+	print("ship health: ",health)

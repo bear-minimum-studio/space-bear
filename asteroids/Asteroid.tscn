@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs6jmmclexxuu"]
+[gd_scene load_steps=8 format=3 uid="uid://bs6jmmclexxuu"]
 
 [ext_resource type="Script" path="res://asteroids/Asteroid.gd" id="1_81esk"]
 [ext_resource type="Texture2D" uid="uid://ckx1poxyuopep" path="res://asteroids/asteroide1.png" id="2_yim38"]
@@ -44,6 +44,9 @@ _data = {
 "RESET": SubResource("Animation_nqbci")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdse8"]
+radius = 35.3553
+
 [node name="Asteroid" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_81esk")
@@ -63,3 +66,13 @@ autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_8juyh")
 }
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_qdse8")
+debug_color = Color(0.996078, 0, 0.223529, 0.419608)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
