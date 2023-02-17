@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7yah4os8ycbq"]
+[gd_scene load_steps=8 format=3 uid="uid://b7yah4os8ycbq"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
 [ext_resource type="PackedScene" uid="uid://dw2u35ifrntlp" path="res://npc/MotherShip.tscn" id="5_fx687"]
+[ext_resource type="PackedScene" uid="uid://tdcet0f58sah" path="res://npc/civilians/CivilianShip.tscn" id="6_l8dh5"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -663,5 +664,75 @@ environment = SubResource("Environment_uyldo")
 [node name="MotherShip" parent="." instance=ExtResource("5_fx687")]
 position = Vector2(452, 95)
 rotation = -0.698132
+
+[node name="Flock" type="Node2D" parent="."]
+
+[node name="CivilianShip" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(357, 194)
+rotation = 0.872665
+
+[node name="CivilianShip2" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(365, 247)
+rotation = 0.872665
+
+[node name="CivilianShip3" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(315, 255)
+rotation = 0.872665
+
+[node name="CivilianShip4" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(286, 195)
+rotation = 0.872665
+
+[node name="CivilianShip5" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(331, 154)
+rotation = 0.872665
+
+[node name="CivilianShip6" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(273, 134)
+rotation = 0.872665
+
+[node name="CivilianShip7" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(227, 156)
+rotation = 0.872665
+
+[node name="CivilianShip8" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(279, 297)
+rotation = 0.872665
+
+[node name="CivilianShip9" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(349, 299)
+rotation = 0.872665
+
+[node name="CivilianShip10" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(305, 344)
+rotation = 0.872665
+
+[node name="CivilianShip17" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(273, 410)
+rotation = 0.872665
+
+[node name="CivilianShip11" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(184, 286)
+rotation = 0.872665
+
+[node name="CivilianShip16" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(205, 360)
+rotation = 0.872665
+
+[node name="CivilianShip12" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(249, 243)
+rotation = 0.872665
+
+[node name="CivilianShip13" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(196, 209)
+rotation = 0.872665
+
+[node name="CivilianShip15" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(120, 266)
+rotation = 0.872665
+
+[node name="CivilianShip14" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(139, 197)
+rotation = 0.872665
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
