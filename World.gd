@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player = $Player
+@onready var mother_ship = $MotherShip
 
 # TODO : Move it elsewhere
 const BULLET_SPEED = 500
@@ -28,3 +29,6 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 	if new_bullet_velocity.length() < MINIMAL_BULLET_SPEED:
 		new_bullet_velocity = MINIMAL_BULLET_SPEED * new_bullet_velocity.normalized()
 	return new_bullet_velocity
+
+func _physics_process(delta):
+	get_tree().call_group("flock", "set_movement_target", mother_ship.global_transform.origin )

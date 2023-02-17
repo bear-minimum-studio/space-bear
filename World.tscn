@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7yah4os8ycbq"]
+[gd_scene load_steps=9 format=3 uid="uid://b7yah4os8ycbq"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
@@ -16,6 +16,11 @@ glow_strength = 0.98
 glow_bloom = 0.42
 glow_blend_mode = 0
 adjustment_brightness = 1.57
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tbroh"]
+vertices = PackedVector2Array(10, -1710, 2122, -5190, 4418, -5991, 6593, -4042, 6454, -2855, 5694, -1460, 3821, 462, 964, 549, 1, 547, 1, 1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 1, 547, 964, 549, 3821, 462, 5694, -1460, 6454, -2855, 6593, -4042, 4418, -5991, 2122, -5190, 10, -1710)])
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kjg2t")
@@ -734,5 +739,8 @@ rotation = 0.872665
 [node name="CivilianShip14" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(139, 197)
 rotation = 0.872665
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_tbroh")
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
