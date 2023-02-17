@@ -1,16 +1,27 @@
 extends Node2D
 
+signal shoot
+
 const ROTATION_SPEED = 0.04
+const BULLETS_PER_SECOND = 5.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
 
+var _reloading = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _shoot():
+	if _reloading:
+		return
+
+	emit_signal("shoot")
+	
+	_reloading = true
+	await get_tree().create_timer(SHOOTING_SPEED).timeout
+	_reloading = false
 
 func _physics_process(delta):
 	var rotation_intensity = Input.get_axis("turret_left", "turret_right")
 	self.rotation = self.rotation + rotation_intensity * ROTATION_SPEED
+	
+	if (Input.is_action_pressed("turret_fire")):
+		_shoot()

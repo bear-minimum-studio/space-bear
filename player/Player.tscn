@@ -63,6 +63,9 @@ bus = &"Propulsion"
 script = ExtResource("9_oqrpk")
 
 [node name="TurretCrosshair" type="Sprite2D" parent="Turret/TurretControl"]
-position = Vector2(0, 46)
+position = Vector2(45, 0)
+rotation = -1.57079
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("9_kydv7")
+
+[connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]

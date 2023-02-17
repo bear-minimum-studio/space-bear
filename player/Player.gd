@@ -13,6 +13,7 @@ var _reloading = false
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
+@onready var turret_control = $Turret/TurretControl
 
 func _shoot():
 	if _reloading:
@@ -55,3 +56,7 @@ func _physics_process(delta):
 	# TODO max speed
 
 	move_and_slide()
+
+
+func _on_turret_control_shoot():
+	emit_signal("shoot", turret_control.global_position, turret_control.global_rotation, velocity)
