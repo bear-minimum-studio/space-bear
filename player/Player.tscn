@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://cmyt7701js27u" path="res://player/SFX/fire_start_2.wav" id="6_qqyb8"]
 [ext_resource type="AudioStream" uid="uid://daxhmq4deiyhr" path="res://player/SFX/fire_start_3.wav" id="7_7a63n"]
 [ext_resource type="AudioStream" uid="uid://ceejpknwjtsq0" path="res://player/SFX/fire_sustain.wav" id="8_xrqab"]
-[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="9_kydv7"]
 [ext_resource type="Script" path="res://player/TurretControl.gd" id="9_oqrpk"]
+[ext_resource type="Texture2D" uid="uid://k8ufmnwchaff" path="res://player/crosshair.png" id="10_vv4oi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
 radius = 57.4704
@@ -67,9 +67,9 @@ bus = &"Propulsion"
 script = ExtResource("9_oqrpk")
 
 [node name="TurretCrosshair" type="Sprite2D" parent="Turret/TurretControl"]
-position = Vector2(45, 0)
+position = Vector2(39, 0)
 rotation = -1.57079
-scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("9_kydv7")
+scale = Vector2(0.783817, 0.783817)
+texture = ExtResource("10_vv4oi")
 
 [connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]
