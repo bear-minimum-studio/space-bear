@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://biu0yaddqrv53"]
+
+[ext_resource type="Script" path="res://MotherShip.gd" id="1_gfdas"]
+[ext_resource type="Texture2D" uid="uid://l4u35sxytx7x" path="res://mothership.jpeg" id="1_pkvgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5o51"]
+size = Vector2(116, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q26qw"]
+size = Vector2(126, 98)
+
+[node name="MotherShip" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("1_gfdas")
+
+[node name="Ship" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_pkvgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b5o51")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_q26qw")
+debug_color = Color(0.976471, 0.117647, 0.270588, 0.419608)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
