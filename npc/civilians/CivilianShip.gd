@@ -36,7 +36,7 @@ func _physics_process(delta):
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
 	move_and_slide()
-	sprite.rotation = lerp_angle(sprite.rotation, velocity.angle(), 10.0*get_physics_process_delta_time())
+	self.rotation = lerp_angle(self.rotation, velocity.angle()+PI/2, 10.0*get_physics_process_delta_time())
 
 func set_target_offset(initial_target_position):
 	target_offset = initial_target_position - self.global_transform.origin

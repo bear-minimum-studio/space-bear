@@ -16,7 +16,6 @@ script = ExtResource("1_fv8tp")
 [node name="Sprite" type="Node2D" parent="."]
 
 [node name="Ship" type="Sprite2D" parent="Sprite"]
-rotation = 1.5708
 texture = ExtResource("2_2kdh0")
 
 [node name="Flammes" type="Sprite2D" parent="Sprite"]
