@@ -76,4 +76,6 @@ collision_mask = 11
 shape = SubResource("CircleShape2D_qdse8")
 debug_color = Color(0.996078, 0, 0.223529, 0.419608)
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
