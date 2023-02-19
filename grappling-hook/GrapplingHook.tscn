@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8is02ri1yjth"]
+
+[ext_resource type="Script" path="res://grappling-hook/GrapplingHook.gd" id="1_yrvak"]
+[ext_resource type="PackedScene" uid="uid://b5p7pst5boqck" path="res://grappling-hook/HookFragment.tscn" id="2_k8m01"]
+[ext_resource type="Script" path="res://grappling-hook/HookFragment.gd" id="3_i5y5g"]
+
+[node name="GrapplingHook" type="Node2D"]
+script = ExtResource("1_yrvak")
+
+[node name="HookFragment" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
+script = ExtResource("3_i5y5g")
+neighbour_fragment = NodePath("/root/@@16539/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9769/@@9596/@@9598/@@9600/@@9601/@@9602/@@9603/GrapplingHook/@HookFragment@79967")
+
+[node name="@HookFragment@79967" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
+position = Vector2(0, 15)
+script = ExtResource("3_i5y5g")
+neighbour_fragment = NodePath("/root/@@16539/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9769/@@9596/@@9598/@@9600/@@9601/@@9602/@@9603/GrapplingHook/@HookFragment@79968")
+
+[node name="@HookFragment@79968" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
+position = Vector2(0, 30)
+script = ExtResource("3_i5y5g")
+neighbour_fragment = NodePath("/root/@@16539/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9769/@@9596/@@9598/@@9600/@@9601/@@9602/@@9603/GrapplingHook/@HookFragment@79969")
+
+[node name="@HookFragment@79969" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
+position = Vector2(0, 45)
+script = ExtResource("3_i5y5g")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5p7pst5boqck"]
+
+[ext_resource type="Script" path="res://grappling-hook/HookFragment.gd" id="1_b313g"]
+[ext_resource type="Texture2D" uid="uid://b2rqy741b7hag" path="res://grappling-hook/hook.png" id="1_lqnob"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdg7f"]
+radius = 5.0
+
+[node name="HookFragment" type="Node2D"]
+script = ExtResource("1_b313g")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_kdg7f")
+
+[node name="Hook" type="Sprite2D" parent="RigidBody2D"]
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_lqnob")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 8)
+node_a = NodePath("../RigidBody2D")
+disable_collision = false
