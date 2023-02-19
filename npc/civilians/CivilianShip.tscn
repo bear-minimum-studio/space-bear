@@ -1,35 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://tdcet0f58sah"]
+[gd_scene load_steps=7 format=3 uid="uid://ce1oqpsnnine6"]
 
 [ext_resource type="Script" path="res://npc/civilians/CivilianShip.gd" id="1_fv8tp"]
+[ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_rberd"]
 [ext_resource type="Texture2D" uid="uid://dnfexlynuag6t" path="res://npc/civilians/vaisseau_civil_1.png" id="2_2kdh0"]
 [ext_resource type="Texture2D" uid="uid://5u7y1ei2tu6r" path="res://npc/civilians/vaisseau_civil_1_flammes.png" id="3_0664p"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fnssh"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qci6c"]
 radius = 7.0
 height = 24.0
 
-[node name="CivilianShip" type="CharacterBody2D" groups=["flock"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncmi1"]
+radius = 12.0
+
+[node name="CivilianShip" groups=["flock"] instance=ExtResource("1_rberd")]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 15
 script = ExtResource("1_fv8tp")
+SPEED = 60.0
 
-[node name="Sprite" type="Node2D" parent="."]
+[node name="Ship" parent="." index="0"]
 rotation = 1.5708
-
-[node name="Ship" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("2_2kdh0")
 
-[node name="Flammes" type="Sprite2D" parent="Sprite"]
+[node name="Flammes" parent="." index="1"]
+rotation = 1.5708
 texture = ExtResource("3_0664p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" parent="." index="2"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_fnssh")
+shape = SubResource("CapsuleShape2D_qci6c")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_max_distance = 200.0
-avoidance_enabled = true
-radius = 20.0
-debug_enabled = true
-
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[node name="AvoidanceCircle" parent="." index="3"]
+shape = SubResource("CircleShape2D_ncmi1")

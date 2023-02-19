@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7yah4os8ycbq"]
+[gd_scene load_steps=9 format=3 uid="uid://dvdqq10lhxisx"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
-[ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
+[ext_resource type="PackedScene" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
-[ext_resource type="PackedScene" uid="uid://dw2u35ifrntlp" path="res://npc/MotherShip.tscn" id="5_fx687"]
-[ext_resource type="PackedScene" uid="uid://tdcet0f58sah" path="res://npc/civilians/CivilianShip.tscn" id="6_l8dh5"]
+[ext_resource type="PackedScene" uid="uid://ce1oqpsnnine6" path="res://npc/civilians/CivilianShip.tscn" id="6_l8dh5"]
+[ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="6_ncofa"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -18,14 +18,17 @@ glow_blend_mode = 0
 adjustment_brightness = 1.57
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tbroh"]
-vertices = PackedVector2Array(10, -1710, 2122, -5190, 4418, -5991, 6593, -4042, 6454, -2855, 5694, -1460, 3821, 462, 964, 549, 1, 547, 1, 1)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 1, 547, 964, 549, 3821, 462, 5694, -1460, 6454, -2855, 6593, -4042, 4418, -5991, 2122, -5190, 10, -1710)])
+vertices = PackedVector2Array(4677, -2317, 3131, -222, 964, 549, 1, 547, 1, 1, 394, -1298, 2845, -4037, 4307, -4992, 6593, -4042, 6416, -2861)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), PackedInt32Array(0, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 1, 547, 964, 549, 3131, -222, 4677, -2317, 6416, -2861, 6593, -4042, 4307, -4992, 2845, -4037, 394, -1298)])
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kjg2t")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_3j3ax")]
+
+[node name="Target" type="Node2D" parent="."]
+position = Vector2(4707, -3614)
 
 [node name="Asteroids" type="Node2D" parent="."]
 position = Vector2(159, 130)
@@ -58,7 +61,7 @@ position = Vector2(1194, -130)
 position = Vector2(2654, -519)
 
 [node name="Asteroid9" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(731, -541)
+position = Vector2(788, -527)
 
 [node name="Asteroid10" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1498, -592)
@@ -92,9 +95,6 @@ position = Vector2(437, -1385)
 
 [node name="Asteroid19" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(726, -1645)
-
-[node name="Asteroid20" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(1106, -918)
 
 [node name="Asteroid21" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1848, -217)
@@ -131,10 +131,6 @@ position = Vector2(1858, -817)
 position = Vector2(2056, -1657)
 rotation = -1.309
 
-[node name="Asteroid31" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(1646, -1016)
-rotation = -1.309
-
 [node name="Asteroid32" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1547, -1695)
 
@@ -148,14 +144,6 @@ rotation = -2.09439
 [node name="Asteroid35" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1353, -1352)
 rotation = -0.765589
-
-[node name="Asteroid36" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2038, -1101)
-rotation = -2.09439
-
-[node name="Asteroid37" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2374, -1220)
-rotation = -1.309
 
 [node name="Asteroid38" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(2209, -477)
@@ -245,12 +233,6 @@ position = Vector2(1537, -2351)
 [node name="Asteroid64" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(2213, -2565)
 
-[node name="Asteroid65" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2360, -2236)
-
-[node name="Asteroid66" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2559, -2362)
-
 [node name="Asteroid67" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1897, -2293)
 
@@ -269,14 +251,6 @@ position = Vector2(1713, -1467)
 [node name="Asteroid72" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1592, -2803)
 
-[node name="Asteroid73" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(1465, -1049)
-rotation = -0.765589
-
-[node name="Asteroid74" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(1199, -911)
-rotation = -0.765589
-
 [node name="Asteroid75" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(786, -1236)
 rotation = -0.765589
@@ -287,13 +261,6 @@ position = Vector2(1792, -1832)
 [node name="Asteroid77" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(2590, -1372)
 
-[node name="Asteroid78" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2231, -1900)
-
-[node name="Asteroid79" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2373, -2147)
-rotation = -1.309
-
 [node name="Asteroid80" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(2472, -1921)
 rotation = -1.309
@@ -302,17 +269,9 @@ rotation = -1.309
 position = Vector2(2214, -1494)
 rotation = -1.309
 
-[node name="Asteroid82" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2285, -1704)
-rotation = -2.09439
-
 [node name="Asteroid83" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(2022, -2126)
 rotation = -0.765589
-
-[node name="Asteroid84" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(2431, -1549)
-rotation = -2.09439
 
 [node name="Asteroid85" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1422, -1637)
@@ -403,9 +362,6 @@ position = Vector2(3556, -1834)
 
 [node name="Asteroid110" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(3776, -1614)
-
-[node name="Asteroid111" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(3014, -2740)
 
 [node name="Asteroid112" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(2462, -3178)
@@ -510,9 +466,6 @@ position = Vector2(2852, -3151)
 
 [node name="Asteroid142" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(3548, -1943)
-
-[node name="Asteroid143" parent="Asteroids" instance=ExtResource("3_dv0ok")]
-position = Vector2(3275, -2904)
 
 [node name="Asteroid144" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(3641, -3204)
@@ -669,62 +622,61 @@ zoom = Vector2(0.5, 0.5)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uyldo")
 
-[node name="MotherShip" parent="." instance=ExtResource("5_fx687")]
-position = Vector2(452, 95)
+[node name="MotherShip" parent="." instance=ExtResource("6_ncofa")]
+position = Vector2(452, 94)
 rotation = -0.698132
 
 [node name="Flock" type="Node2D" parent="."]
 
 [node name="CivilianShip" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(357, 194)
+position = Vector2(256, 205)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip2" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(365, 247)
+position = Vector2(336, 223)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip3" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(315, 255)
+position = Vector2(308, 162)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip4" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(286, 195)
+position = Vector2(240, 153)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip5" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(331, 154)
+position = Vector2(376, 268)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip6" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(273, 134)
+position = Vector2(309, 287)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip7" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(227, 156)
-
-[node name="CivilianShip8" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(279, 297)
-
-[node name="CivilianShip9" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(349, 299)
+position = Vector2(251, 316)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="CivilianShip10" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(305, 344)
+position = Vector2(320, 372)
+rotation = -0.698132
+SPEED = 50.0
 
-[node name="CivilianShip17" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(273, 410)
+[node name="CivilianShip8" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(217, 256)
+rotation = -0.698132
+SPEED = 50.0
 
-[node name="CivilianShip11" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(184, 286)
-
-[node name="CivilianShip16" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(205, 360)
-
-[node name="CivilianShip12" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(249, 243)
-
-[node name="CivilianShip13" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(196, 209)
-
-[node name="CivilianShip15" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(120, 266)
-
-[node name="CivilianShip14" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(139, 197)
+[node name="CivilianShip9" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(162, 184)
+rotation = -0.698132
+SPEED = 50.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

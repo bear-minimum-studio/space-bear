@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw2u35ifrntlp"]
+[gd_scene load_steps=6 format=3 uid="uid://nmv87iuus7lu"]
 
-[ext_resource type="Script" path="res://npc/MotherShip.gd" id="1_3b6up"]
-[ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mothership.png" id="2_sw53n"]
-[ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mothership_flammes.png" id="3_jo5lu"]
+[ext_resource type="Script" path="res://npc/mother-ship/MotherShipOld.gd" id="1_baeiq"]
+[ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_sehgd"]
+[ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_hk1ww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5o51"]
 size = Vector2(160, 148)
@@ -10,20 +10,20 @@ size = Vector2(160, 148)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q26qw"]
 size = Vector2(174, 158)
 
-[node name="MotherShip" type="CharacterBody2D"]
+[node name="MotherShipOld" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_3b6up")
+script = ExtResource("1_baeiq")
 
 [node name="MothershipFlammes" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(3, 3)
-texture = ExtResource("3_jo5lu")
+texture = ExtResource("2_sehgd")
 
 [node name="Ship" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(3, 3)
-texture = ExtResource("2_sw53n")
+texture = ExtResource("3_hk1ww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b5o51")

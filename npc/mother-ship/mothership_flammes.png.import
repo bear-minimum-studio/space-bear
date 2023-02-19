@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btbb3mr4sxjg4"
-path="res://.godot/imported/mothership_flammes.png-391ccb2594f141b08913b78726df5330.ctex"
+path="res://.godot/imported/mothership_flammes.png-ffe18fe4832f2e26bea6d688851fa84c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npc/mothership_flammes.png"
-dest_files=["res://.godot/imported/mothership_flammes.png-391ccb2594f141b08913b78726df5330.ctex"]
+source_file="res://npc/mother-ship/mothership_flammes.png"
+dest_files=["res://.godot/imported/mothership_flammes.png-ffe18fe4832f2e26bea6d688851fa84c.ctex"]
 
 [params]
 

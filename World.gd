@@ -3,6 +3,7 @@ extends Node2D
 @onready var player = $Player
 @onready var mother_ship = $MotherShip
 @onready var flock = $Flock
+@onready var target = $Target
 
 # TODO : Move it elsewhere
 const BULLET_SPEED = 500
@@ -13,6 +14,7 @@ var bullet_scene = preload("res://bullet/Bullet.tscn")
 
 func _ready():
 	get_tree().call_group("flock", "set_target_offset", mother_ship.global_transform.origin)
+	mother_ship.set_movement_target(target.global_transform.origin)
 
 
 func _on_player_shoot(global_player_position, global_player_rotation, player_velocity):
