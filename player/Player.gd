@@ -2,11 +2,10 @@ extends RigidBody2D
 
 signal shoot
 
-# TODO : FineTune Parameters
 const THRUST = 200.0
 const THRUST_FRICTION = 0.5
-const TORQUE = 400.0
-const TORQUE_FRICTION = 0.5
+const TORQUE = 25000.0
+const TORQUE_FRICTION = 10000
 const BULLETS_PER_SECOND = 5.0
 const MAX_HEALTH = 10
 
