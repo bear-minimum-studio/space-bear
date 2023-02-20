@@ -656,7 +656,6 @@ position = Vector2(2510, -4271)
 position = Vector2(159, 130)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.5, 0.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uyldo")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2rqy741b7hag" path="res://grappling-hook/hook.png" id="1_lqnob"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdg7f"]
-radius = 5.0
+radius = 4.0
 
 [node name="HookFragment" type="RigidBody2D" groups=["hook_fragment"]]
 collision_layer = 2048

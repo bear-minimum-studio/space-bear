@@ -7,7 +7,7 @@
 radius = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6tqa"]
-radius = 6.0
+radius = 4.0
 
 [node name="GrapplingHookThrowable" type="RigidBody2D"]
 collision_layer = 0
@@ -33,4 +33,3 @@ shape = SubResource("CircleShape2D_d6tqa")
 node_a = NodePath("..")
 
 [connection signal="body_exited" from="SpawnIfOutOfThis" to="." method="_on_spawn_if_out_of_this_body_exited"]
-[connection signal="body_entered" from="HookFragment" to="." method="_on_hook_fragment_body_entered"]
