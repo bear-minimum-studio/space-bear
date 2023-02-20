@@ -41,9 +41,9 @@ func _thrust(state):
 	var intensity = Input.get_axis("decelerate", "accelerate")
 	if intensity:
 		var thrust = intensity * THRUST * Vector2.from_angle(rotation)
-		state.apply_force(thrust)
+		state.apply_central_force(thrust)
 		var thrust_friction = - THRUST_FRICTION * linear_velocity
-		state.apply_force(thrust_friction)
+		state.apply_central_force(thrust_friction)
 		flammes.visible = true
 		sfx.play()
 	else:
