@@ -20,6 +20,7 @@ var health = MAX_HEALTH
 @onready var sfx = $SFX
 @onready var turret_control = $Turret/TurretControl
 @onready var turret = $Turret
+@onready var turret_nozzle = $Turret/TurretControl/Nozzle
 
 func _shoot():
 	if _reloading:
@@ -35,7 +36,7 @@ func _shoot_hook():
 	if _reloading_hook:
 		return
 
-	emit_signal("shoot_grappling_hook", global_position, global_rotation, velocity)
+	emit_signal("shoot_grappling_hook", turret_nozzle.global_position, turret_control.global_rotation, velocity)
 	
 	_reloading_hook = true
 	await get_tree().create_timer(HOOK_COOLDOWN).timeout

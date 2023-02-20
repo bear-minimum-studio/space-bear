@@ -35,6 +35,7 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation, player_velocity):
 	var player_direction = Vector2.from_angle(global_player_rotation);
 	var new_hook = grappling_hook_scene.instantiate()
+	new_hook.hook_length = 10
 	
 	new_hook.global_position = global_player_position
 	new_hook.global_rotation = global_player_rotation
