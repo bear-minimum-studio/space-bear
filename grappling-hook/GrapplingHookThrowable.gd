@@ -1,5 +1,4 @@
-
-extends Node2D
+extends RigidBody2D
 
 const FRAGMENT_SIZE = 10
 const MAX_LENGTH = 5
@@ -15,14 +14,14 @@ var hook_fragment = preload("res://grappling-hook/HookFragment.tscn")
 
 @onready var first_fragment = $HookFragment
 @onready var fragments = [$HookFragment]
-var _should_keep_spawning = false
+var _should_stop_spawning = false
 
 func _on_spawn_if_out_of_this_body_exited(body):
 	# TODO attention verifier que c'est bien un enfant de notre scene
 	if !body.is_in_group("hook_fragment"):
 		return
 	
-	if fragments.size() == MAX_LENGTH and !_should_keep_spawning:
+	if fragments.size() == MAX_LENGTH and !_should_stop_spawning:
 		_stop_spawning()
 		return
 	
@@ -51,5 +50,5 @@ func launch(thrower: CharacterBody2D, thrower_rotation: float):
 
 func _stop_spawning():
 	print("stop spawning")
-	_should_keep_spawning = true
+	_should_stop_spawning = true
 	throwing_reference.node_b = fragments[fragments.size() - 1].get_path()
