@@ -38,5 +38,5 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 		new_bullet_velocity = MINIMAL_BULLET_SPEED * new_bullet_velocity.normalized()
 	return new_bullet_velocity
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_tree().call_group("flock", "set_movement_target", mother_ship.global_transform.origin)

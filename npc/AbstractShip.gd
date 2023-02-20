@@ -17,7 +17,7 @@ func _ready():
 	assert(avoidance_circle.shape is CircleShape2D, 'Define AvoidanceCircle for navigation')
 	nav_agent.radius = avoidance_circle.shape.radius * max(self.scale.x, self.scale.y)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if nav_agent.is_navigation_finished():
 		return
 

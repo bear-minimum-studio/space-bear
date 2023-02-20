@@ -1,10 +1,12 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 signal shoot
 
-const ACCEL = 90.0
-const ROTATION_SPEED = 2.0
-const MAX_SPEED = 400
+# TODO : FineTune Parameters
+const THRUST = 200.0
+const THRUST_FRICTION = 0.5
+const TORQUE = 400.0
+const TORQUE_FRICTION = 0.5
 const BULLETS_PER_SECOND = 5.0
 const MAX_HEALTH = 10
 
@@ -22,7 +24,7 @@ func _shoot():
 	if _reloading:
 		return
 
-	emit_signal("shoot", global_position, global_rotation, velocity)
+	emit_signal("shoot", global_position, global_rotation, linear_velocity)
 	
 	_reloading = true
 	await get_tree().create_timer(SHOOTING_SPEED).timeout
@@ -32,35 +34,36 @@ func _custom_set_rotation(rotation_value: float):
 	self.rotation = rotation_value
 	turret.rotation = -self.rotation
 
-func _physics_process(delta):
-	var rotation_intensity = Input.get_axis("turn_left", "turn_right")
-	_custom_set_rotation(self.rotation + rotation_intensity * ROTATION_SPEED * delta)
-	
+func _integrate_forces(state):
+	_thrust(state)
+	_torque(state)
+		
+func _thrust(state):
 	var intensity = Input.get_axis("decelerate", "accelerate")
 	if intensity:
-		var v = delta * intensity * ACCEL
-		velocity.x += v * cos(self.rotation)
-		velocity.y += v * sin(self.rotation)
+		var thrust = intensity * THRUST * Vector2.from_angle(rotation)
+		state.apply_force(thrust)
+		var thrust_friction = - THRUST_FRICTION * linear_velocity
+		state.apply_force(thrust_friction)
 		flammes.visible = true
 		sfx.play()
 	else:
 		flammes.visible = false
 		sfx.stop()
 	
-	if velocity.length() > MAX_SPEED:
-		var max_x = abs(MAX_SPEED * cos(velocity.angle()))
-		var max_y = abs(MAX_SPEED * sin(velocity.angle()))
-		velocity.x = clamp(velocity.x, -max_x, max_x)
-		velocity.y = clamp(velocity.y, -max_y, max_y)
-		
+func _torque(state):
+	var intensity = Input.get_axis("turn_left", "turn_right")
+	var torque = intensity * TORQUE
+	state.apply_torque(torque)
+	var torque_friction = - TORQUE_FRICTION * angular_velocity
+	state.apply_torque(torque_friction)
+
+func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
 		_shoot()
 
-	move_and_slide()
-
-
 func _on_turret_control_shoot():
-	emit_signal("shoot", turret_control.global_position, turret_control.global_rotation, velocity)
+	emit_signal("shoot", turret_control.global_position, turret_control.global_rotation, linear_velocity)
 
 func on_hit():
 	health -= 1
