@@ -4,10 +4,10 @@ signal shoot
 
 const THRUST = 200.0
 const THRUST_FRICTION = 0.5
-const TORQUE = 25000.0
-const TORQUE_FRICTION = 10000
 const BULLETS_PER_SECOND = 5.0
 const MAX_HEALTH = 10
+
+var rotation_speed = 2.0
 
 const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
 
@@ -52,10 +52,8 @@ func _thrust(state):
 	
 func _torque(state):
 	var intensity = Input.get_axis("turn_left", "turn_right")
-	var torque = intensity * TORQUE
-	state.apply_torque(torque)
-	var torque_friction = - TORQUE_FRICTION * angular_velocity
-	state.apply_torque(torque_friction)
+	angular_velocity = rotation_speed * intensity
+
 
 func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
