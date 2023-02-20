@@ -3,23 +3,24 @@ extends RigidBody2D
 signal shoot
 
 # TODO : FineTune Parameters
-const MAX_SPEED = 400.0
-const TIME_TO_MAX_SPEED = 1.0
-const MAX_ROTATION_SPEED = 2*PI
-const TIME_TO_MAX_ROTATION_SPEED = 0.5
+@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 400.0
+@export_range(0.0,3.0,0.05,"or_greater") var time_to_max_speed = 1.0
+@export_range(0.0,4.0,0.1,"or_greater") var max_rotation_per_second = 0.7
+@export_range(0.0,2.0,0.01,"or_greater") var time_to_max_rotation_speed = 0.07
 
 @export_range(1,100) var max_health : int = 10
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 
+@onready var max_rotation_speed = 2 * PI * max_rotation_per_second
 @onready var health = max_health
 @onready var shooting_speed = 1.0 / bullets_per_second
 
 var _reloading = false
 
-var thrust_friction_ratio = mass / TIME_TO_MAX_SPEED
-var thrust_intensity = MAX_SPEED * thrust_friction_ratio
-var torque_friction_ratio = inertia / TIME_TO_MAX_ROTATION_SPEED
-var torque_intensity = MAX_ROTATION_SPEED * torque_friction_ratio
+@onready var thrust_friction_ratio = mass / time_to_max_speed
+@onready var thrust_intensity = max_speed * thrust_friction_ratio
+@onready var torque_friction_ratio = inertia / time_to_max_rotation_speed
+@onready var torque_intensity = max_rotation_speed * torque_friction_ratio
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
