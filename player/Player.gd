@@ -2,10 +2,12 @@ extends RigidBody2D
 
 signal shoot
 
-const THRUST = 200.0
-const THRUST_FRICTION = 0.5
+# TODO : FineTune Parameters
+const MAX_SPEED = 400.0
+const TIME_TO_MAX_SPEED = 1.0
+const MAX_ROTATION_SPEED = 2*PI
+const TIME_TO_MAX_ROTATION_SPEED = 0.5
 
-@export_range(0.0,10.0,0.1) var rotation_speed :float = 2.0
 @export_range(1,100) var max_health : int = 10
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 
@@ -13,6 +15,11 @@ const THRUST_FRICTION = 0.5
 @onready var shooting_speed = 1.0 / bullets_per_second
 
 var _reloading = false
+
+var thrust_friction_ratio = mass / TIME_TO_MAX_SPEED
+var thrust_intensity = MAX_SPEED * thrust_friction_ratio
+var torque_friction_ratio = inertia / TIME_TO_MAX_ROTATION_SPEED
+var torque_intensity = MAX_ROTATION_SPEED * torque_friction_ratio
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
@@ -38,12 +45,12 @@ func _integrate_forces(state):
 	_custom_set_rotation()
 		
 func _thrust(state):
+	var thrust_friction = - thrust_friction_ratio * linear_velocity
+	state.apply_central_force(thrust_friction)
 	var intensity = Input.get_axis("decelerate", "accelerate")
+	var thrust = intensity * thrust_intensity * Vector2.from_angle(rotation)
+	state.apply_central_force(thrust)
 	if intensity:
-		var thrust = intensity * THRUST * Vector2.from_angle(rotation)
-		state.apply_central_force(thrust)
-		var thrust_friction = - THRUST_FRICTION * linear_velocity
-		state.apply_central_force(thrust_friction)
 		flammes.visible = true
 		sfx.play()
 	else:
@@ -52,8 +59,10 @@ func _thrust(state):
 	
 func _torque(state):
 	var intensity = Input.get_axis("turn_left", "turn_right")
-	angular_velocity = rotation_speed * intensity
-
+	var torque = intensity * torque_intensity
+	state.apply_torque(torque)
+	var torque_friction = - torque_friction_ratio * angular_velocity
+	state.apply_torque(torque_friction)
 
 func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
