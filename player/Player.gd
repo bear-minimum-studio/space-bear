@@ -4,15 +4,15 @@ signal shoot
 
 const THRUST = 200.0
 const THRUST_FRICTION = 0.5
-const BULLETS_PER_SECOND = 5.0
-const MAX_HEALTH = 10
 
-var rotation_speed = 2.0
+@export_range(0.0,10.0,0.1) var rotation_speed :float = 2.0
+@export_range(1,100) var max_health : int = 10
+@export_range(0.5,50.0) var bullets_per_second = 5.0
 
-const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
+@onready var health = max_health
+@onready var shooting_speed = 1.0 / bullets_per_second
 
 var _reloading = false
-var health = MAX_HEALTH
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
@@ -26,7 +26,7 @@ func _shoot():
 	emit_signal("shoot", global_position, global_rotation, linear_velocity)
 	
 	_reloading = true
-	await get_tree().create_timer(SHOOTING_SPEED).timeout
+	await get_tree().create_timer(shooting_speed).timeout
 	_reloading = false
 
 func _custom_set_rotation():
@@ -64,4 +64,4 @@ func _on_turret_control_shoot():
 
 func on_hit():
 	health -= 1
-	Events.emit_signal("player_hp_changed", health, MAX_HEALTH)
+	Events.emit_signal("player_hp_changed", health, max_health)
