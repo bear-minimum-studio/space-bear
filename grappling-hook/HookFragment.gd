@@ -6,7 +6,7 @@ extends Node2D
 		neighbour_fragment = new_neighbour_fragment
 		_set_node_b_value(new_neighbour_fragment)
 
-@onready var pin_joint_2d = $PinJoint2D
+@onready var pin_joint_2d = $RigidBody2D/PinJoint2D
 
 func _ready():
 	_set_node_b_value(neighbour_fragment)

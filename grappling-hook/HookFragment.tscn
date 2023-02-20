@@ -19,7 +19,7 @@ shape = SubResource("CircleShape2D_kdg7f")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lqnob")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
+[node name="PinJoint2D" type="PinJoint2D" parent="RigidBody2D"]
 position = Vector2(11, 0)
-node_a = NodePath("../RigidBody2D")
+node_a = NodePath("..")
 disable_collision = false
