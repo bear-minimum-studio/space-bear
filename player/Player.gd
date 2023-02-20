@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal shoot
+signal shoot_grappling_hook
 
 const ACCEL = 90.0
 const ROTATION_SPEED = 2.0
@@ -9,8 +10,10 @@ const BULLETS_PER_SECOND = 5.0
 const MAX_HEALTH = 10
 
 const SHOOTING_SPEED = 1.0 / BULLETS_PER_SECOND 
+const HOOK_COOLDOWN = 1.0
 
 var _reloading = false
+var _reloading_hook = false
 var health = MAX_HEALTH
 
 @onready var flammes = $Flammes
@@ -27,6 +30,16 @@ func _shoot():
 	_reloading = true
 	await get_tree().create_timer(SHOOTING_SPEED).timeout
 	_reloading = false
+
+func _shoot_hook():
+	if _reloading_hook:
+		return
+
+	emit_signal("shoot_grappling_hook", global_position, global_rotation, velocity)
+	
+	_reloading_hook = true
+	await get_tree().create_timer(HOOK_COOLDOWN).timeout
+	_reloading_hook = false
 
 func _custom_set_rotation(rotation_value: float):
 	self.rotation = rotation_value
@@ -55,6 +68,8 @@ func _physics_process(delta):
 		
 	if (Input.is_action_pressed("fire")):
 		_shoot()
+	if (Input.is_action_pressed("grappling_hook")):
+		_shoot_hook()
 
 	move_and_slide()
 

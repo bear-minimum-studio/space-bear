@@ -16,11 +16,10 @@ mass = 0.08
 shape = SubResource("CircleShape2D_kdg7f")
 
 [node name="Hook" type="Sprite2D" parent="RigidBody2D"]
-rotation = 1.57079
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lqnob")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(11, 0)
 node_a = NodePath("../RigidBody2D")
 disable_collision = false

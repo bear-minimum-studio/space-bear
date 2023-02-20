@@ -736,3 +736,4 @@ position = Vector2(139, 197)
 rotation = 0.872665
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
+[connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
