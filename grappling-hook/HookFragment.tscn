@@ -6,20 +6,22 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdg7f"]
 radius = 5.0
 
-[node name="HookFragment" type="Node2D"]
+[node name="HookFragment" type="RigidBody2D" groups=["hook_fragment"]]
+collision_layer = 2048
+collision_mask = 2059
+mass = 0.08
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_b313g")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mass = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kdg7f")
 
-[node name="Hook" type="Sprite2D" parent="RigidBody2D"]
+[node name="Hook" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lqnob")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="RigidBody2D"]
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(11, 0)
 node_a = NodePath("..")
 disable_collision = false

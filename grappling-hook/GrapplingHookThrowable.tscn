@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://8b7j5k3qnmve"]
+
+[ext_resource type="Script" path="res://grappling-hook/GrapplingHookThrowable.gd" id="1_l2i8d"]
+[ext_resource type="PackedScene" uid="uid://b5p7pst5boqck" path="res://grappling-hook/HookFragment.tscn" id="2_4s0yp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v06yb"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6tqa"]
+radius = 6.0
+
+[node name="GrapplingHookThrowable" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_l2i8d")
+
+[node name="Useless" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v06yb")
+disabled = true
+
+[node name="SpawnIfOutOfThis" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnIfOutOfThis"]
+shape = SubResource("CircleShape2D_d6tqa")
+
+[node name="HookFragment" parent="." instance=ExtResource("2_4s0yp")]
+
+[node name="ThrowingReference" type="PinJoint2D" parent="."]
+
+[node name="JointToPlayer" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+
+[connection signal="body_exited" from="SpawnIfOutOfThis" to="." method="_on_spawn_if_out_of_this_body_exited"]
+[connection signal="body_entered" from="HookFragment" to="." method="_on_hook_fragment_body_entered"]

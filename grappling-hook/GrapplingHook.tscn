@@ -7,20 +7,28 @@
 [node name="GrapplingHook" type="Node2D"]
 script = ExtResource("1_yrvak")
 
-[node name="HookFragment" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
+[node name="HookFragment" type="RigidBody2D" parent="." groups=["hook_fragment"] instance=ExtResource("2_k8m01")]
+collision_mask = 0
+mass = 0.08
 script = ExtResource("3_i5y5g")
-neighbour_fragment = NodePath("/root/@@16539/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9769/@@9596/@@9598/@@9600/@@9601/@@9602/@@9603/GrapplingHook/@HookFragment@79967")
+neighbour_fragment = NodePath("/root/@@16542/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9772/@@9599/@@9601/@@9603/@@9604/@@9605/@@9606/GrapplingHook/@HookFragment@18147")
 
-[node name="@HookFragment@79967" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
-position = Vector2(0, 15)
+[node name="@HookFragment@18147" type="RigidBody2D" parent="." groups=["hook_fragment"] instance=ExtResource("2_k8m01")]
+position = Vector2(15, 0)
+collision_mask = 0
+mass = 0.08
 script = ExtResource("3_i5y5g")
-neighbour_fragment = NodePath("/root/@@16539/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9769/@@9596/@@9598/@@9600/@@9601/@@9602/@@9603/GrapplingHook/@HookFragment@79968")
+neighbour_fragment = NodePath("/root/@@16542/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9772/@@9599/@@9601/@@9603/@@9604/@@9605/@@9606/GrapplingHook/@HookFragment@18148")
 
-[node name="@HookFragment@79968" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
-position = Vector2(0, 30)
+[node name="@HookFragment@18148" type="RigidBody2D" parent="." groups=["hook_fragment"] instance=ExtResource("2_k8m01")]
+position = Vector2(30, 0)
+collision_mask = 0
+mass = 0.08
 script = ExtResource("3_i5y5g")
-neighbour_fragment = NodePath("/root/@@16539/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9769/@@9596/@@9598/@@9600/@@9601/@@9602/@@9603/GrapplingHook/@HookFragment@79969")
+neighbour_fragment = NodePath("/root/@@16542/@@655/@@656/@@664/@@667/@@675/@@683/@@684/@@686/@@712/@@713/@@752/MainScreen/@@9772/@@9599/@@9601/@@9603/@@9604/@@9605/@@9606/GrapplingHook/@HookFragment@18149")
 
-[node name="@HookFragment@79969" type="Node2D" parent="." instance=ExtResource("2_k8m01")]
-position = Vector2(0, 45)
+[node name="@HookFragment@18149" type="RigidBody2D" parent="." groups=["hook_fragment"] instance=ExtResource("2_k8m01")]
+position = Vector2(45, 0)
+collision_mask = 0
+mass = 0.08
 script = ExtResource("3_i5y5g")
