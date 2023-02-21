@@ -87,6 +87,7 @@ func _physics_process(delta):
 	# If we miss the target, we simply stop the grappling hook and say that we're done
 	if _get_distance() > max_length:
 		_spawning_state = SpawningState.SPAWNED
+		self.queue_free()
 
 func _get_distance() -> float:
 	return (self.global_transform.origin - player.global_transform.origin).length()

@@ -43,16 +43,19 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 	return new_bullet_velocity
 
 func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation):
+	# If shooting again while a grappling hook exists, delete the current one
+	if current_hook != null:
+		current_hook.queue_free()
+		current_hook = null
+		return
+
 	var new_hook = grappling_hook_scene.instantiate()
 	
 	new_hook.global_position = global_player_position
 	new_hook.global_rotation = global_player_rotation
 
 	self.add_child(new_hook)
-	
-	if current_hook:
-		current_hook.queue_free()
-		
+
 	current_hook = new_hook
 	new_hook.launch(player, global_player_rotation)
 
