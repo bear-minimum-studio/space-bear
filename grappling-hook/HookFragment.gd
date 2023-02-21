@@ -7,6 +7,7 @@ extends RigidBody2D
 		_set_node_b_value(new_neighbour_fragment)
 
 @onready var pin_joint_2d = $PinJoint2D
+@onready var collision_shape_2d = $CollisionShape2D
 
 func _ready():
 	_set_node_b_value(neighbour_fragment)

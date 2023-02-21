@@ -14,5 +14,6 @@ grapple_speed = 1000.0
 shape = SubResource("RectangleShape2D_lworx")
 
 [node name="PlayerPinJoint" type="PinJoint2D" parent="."]
+softness = 16.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
