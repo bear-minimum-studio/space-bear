@@ -16,7 +16,7 @@ radius = 12.0
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_fv8tp")
-SPEED = 60.0
+speed = 60.0
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708

@@ -631,52 +631,42 @@ rotation = -0.698132
 [node name="CivilianShip" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(256, 205)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip2" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(336, 223)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip3" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(308, 162)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip4" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(240, 153)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip5" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(376, 268)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip6" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(309, 287)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip7" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(251, 316)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip10" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(320, 372)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip8" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(217, 256)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="CivilianShip9" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(162, 184)
 rotation = -0.698132
-SPEED = 50.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

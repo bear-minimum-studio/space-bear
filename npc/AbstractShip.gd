@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export_category("Ship properties")
-@export_range(0,300,5,"or_greater") var SPEED : float = 50
-@export_range(0.0,50.0,0.1,"or_greater") var ROTATION_SPEED : float = 10.0
+@export_range(0,300,5,"or_greater") var speed : float = 50
+@export_range(0.0,50.0,0.1,"or_greater") var rotation_speed : float = 10.0
 
 @onready var ship = $Ship
 @onready var flammes = $Flammes
@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 	_next_path_position = nav_agent.get_next_path_position()
 	_current_agent_position = global_transform.origin
-	_new_velocity = (_next_path_position - _current_agent_position).normalized() * SPEED
+	_new_velocity = (_next_path_position - _current_agent_position).normalized() * speed
 	nav_agent.set_velocity(_new_velocity)
 
 func set_movement_target(movement_target : Vector2):
@@ -32,5 +32,5 @@ func set_movement_target(movement_target : Vector2):
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
 	move_and_slide()
-	self.rotation = lerp_angle(self.rotation, velocity.angle(), ROTATION_SPEED * get_physics_process_delta_time())
+	self.rotation = lerp_angle(self.rotation, velocity.angle(), rotation_speed * get_physics_process_delta_time())
 
