@@ -74,4 +74,7 @@ rotation = -1.57079
 scale = Vector2(0.783817, 0.783817)
 texture = ExtResource("10_vv4oi")
 
+[node name="Nozzle" type="Node2D" parent="Turret/TurretControl"]
+position = Vector2(29, 0)
+
 [connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]

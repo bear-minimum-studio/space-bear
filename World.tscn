@@ -673,3 +673,4 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_tbroh")
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
+[connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]

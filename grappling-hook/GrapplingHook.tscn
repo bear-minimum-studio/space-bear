@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvfvuyxow62jl"]
+
+[ext_resource type="Script" path="res://grappling-hook/GrapplingHook.gd" id="1_tv3hx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lworx"]
+
+[node name="GrapplingHook" type="Area2D"]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("1_tv3hx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lworx")
+
+[node name="PlayerPinJoint" type="PinJoint2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

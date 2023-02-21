@@ -10,6 +10,10 @@ const BULLET_SPEED = 500
 const MINIMAL_BULLET_SPEED = BULLET_SPEED
 
 var bullet_scene = preload("res://bullet/Bullet.tscn")
+var grappling_hook_scene = preload("res://grappling-hook/GrapplingHook.tscn")
+
+var current_hook : Node2D
+
 
 
 func _ready():
@@ -37,6 +41,20 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 	if new_bullet_velocity.length() < MINIMAL_BULLET_SPEED:
 		new_bullet_velocity = MINIMAL_BULLET_SPEED * new_bullet_velocity.normalized()
 	return new_bullet_velocity
+
+func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation):
+	var new_hook = grappling_hook_scene.instantiate()
+	
+	new_hook.global_position = global_player_position
+	new_hook.global_rotation = global_player_rotation
+
+	self.add_child(new_hook)
+	
+	if current_hook:
+		current_hook.queue_free()
+		
+	current_hook = new_hook
+	new_hook.launch(player, global_player_rotation)
 
 func _physics_process(_delta):
 	get_tree().call_group("flock", "set_movement_target", mother_ship.global_transform.origin)
