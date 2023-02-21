@@ -26,6 +26,7 @@ collision_mask = 2048
 shape = SubResource("CircleShape2D_d6tqa")
 
 [node name="HookFragment" parent="." instance=ExtResource("2_4s0yp")]
+visible = false
 
 [node name="ThrowingReference" type="PinJoint2D" parent="."]
 
