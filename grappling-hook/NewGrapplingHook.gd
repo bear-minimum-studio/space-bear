@@ -1,6 +1,6 @@
 extends Area2D
 
-const DISTANCE_BETWEEN_FRAGMENTS = 20
+const DISTANCE_BETWEEN_FRAGMENTS = 15
 
 @export_range(0,400) var max_length: int = 300
 @export var grapple_speed: float = 10.0
@@ -85,7 +85,7 @@ func _get_distance() -> float:
 func _get_number_of_fragments() -> int:
 	return floor(_get_distance() / float(DISTANCE_BETWEEN_FRAGMENTS))
 
-func launch(thrower: Node2D, rotation: float, offset_velocity: Vector2):
+func launch(thrower: Node2D, rotation: float):
 	player = thrower
 	player_pin_joint.node_a = thrower.get_path()
 	velocity =  Vector2.from_angle(rotation) * grapple_speed

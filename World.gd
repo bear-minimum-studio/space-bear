@@ -42,7 +42,7 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 		new_bullet_velocity = MINIMAL_BULLET_SPEED * new_bullet_velocity.normalized()
 	return new_bullet_velocity
 
-func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation, player_velocity):
+func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation):
 	var player_direction = Vector2.from_angle(global_player_rotation);
 	var new_hook = grappling_hook_scene.instantiate()
 	
@@ -55,7 +55,7 @@ func _on_player_shoot_grappling_hook(global_player_position, global_player_rotat
 		current_hook.queue_free()
 		
 	current_hook = new_hook
-	new_hook.launch(player, global_player_rotation, player_velocity)
+	new_hook.launch(player, global_player_rotation)
 
 func _physics_process(_delta):
 	get_tree().call_group("flock", "set_movement_target", mother_ship.global_transform.origin)

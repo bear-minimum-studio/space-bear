@@ -51,7 +51,7 @@ func _shoot_hook():
 	if _reloading_hook:
 		return
 
-	emit_signal("shoot_grappling_hook", turret_nozzle.global_position, turret_control.global_rotation, velocity)
+	emit_signal("shoot_grappling_hook", turret_nozzle.global_position, turret_control.global_rotation)
 	
 	_reloading_hook = true
 	await get_tree().create_timer(HOOK_COOLDOWN).timeout
