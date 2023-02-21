@@ -52,10 +52,11 @@ func _physics_process(delta):
 		return
 
 	self.translate(velocity * delta)
+	self.look_at(player.global_transform.origin)
+	self.rotate(PI)
 	
 	if _get_distance() > max_length:
 		_spawn_grappling_fragments()
-		
 
 func _get_distance() -> float:
 	return (self.global_transform.origin - player.global_transform.origin).length()
