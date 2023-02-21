@@ -15,13 +15,12 @@ var velocity = Vector2.ZERO
 
 var _has_been_spawned = false
 
-func _spawn_grappling_fragments():
+func _spawn_grappling_fragments(body):
 	if _has_been_spawned:
 		return
 	
 	_has_been_spawned = true
 	
-	# TODO longueur du segment
 	for i in range(_get_number_of_fragments()):
 		var new_hook: Node2D = hook_fragment.instantiate()
 
@@ -32,20 +31,24 @@ func _spawn_grappling_fragments():
 			player_pin_joint.transform.origin.x -= offset
 			new_hook.transform.origin.x -= offset
 
-		self.add_child(new_hook)
+		if i == _get_number_of_fragments():
+			# never freed
+			body.add_child(new_hook)
+		else:
+			self.add_child(new_hook)
 
 		if fragments.size() == 0:
 			player_pin_joint.node_b = new_hook.get_path()
 
 		fragments.append(new_hook)
 
-	# TODO longueur du segment
 	for i in range(_get_number_of_fragments()):
 		if i < fragments.size() - 1:
 			var child = fragments[i]
 			var next_child = fragments[i + 1]
 			if next_child && next_child.is_inside_tree():
 				child.neighbour_fragment = next_child.get_path()
+		fragments[-1].neighbour_fragment = body.get_path()
 
 func _physics_process(delta):
 	if _has_been_spawned:
@@ -56,7 +59,7 @@ func _physics_process(delta):
 	self.rotate(PI)
 	
 	if _get_distance() > max_length:
-		_spawn_grappling_fragments()
+		_has_been_spawned = true
 
 func _get_distance() -> float:
 	return (self.global_transform.origin - player.global_transform.origin).length()
@@ -70,7 +73,8 @@ func launch(thrower: Node2D, rotation: float, offset_velocity: Vector2):
 	velocity =  Vector2.from_angle(rotation) * grapple_speed
 
 
-func _on_body_entered(_body):
-	call_deferred("_spawn_grappling_fragments")
+func _on_body_entered(body):
+	if body is RigidBody2D:
+		call_deferred("_spawn_grappling_fragments",body)
 	set_deferred("monitoring", false)
 	set_deferred("monitorable", false)
