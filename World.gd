@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var player = $Player
+@onready var mother_ship = $MotherShip
+@onready var flock = $Flock
+@onready var target = $Target
 
 # TODO : Move it elsewhere
 const BULLET_SPEED = 500
@@ -10,6 +13,12 @@ var bullet_scene = preload("res://bullet/Bullet.tscn")
 var grappling_hook_scene = preload("res://grappling-hook/NewGrapplingHook.tscn")
 
 var current_hook : Node2D
+
+
+
+func _ready():
+	get_tree().call_group("flock", "set_target_offset", mother_ship.global_transform.origin)
+	mother_ship.set_movement_target(target.global_transform.origin)
 
 
 func _on_player_shoot(global_player_position, global_player_rotation, player_velocity):
@@ -33,8 +42,6 @@ func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vect
 		new_bullet_velocity = MINIMAL_BULLET_SPEED * new_bullet_velocity.normalized()
 	return new_bullet_velocity
 
-
-
 func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation, player_velocity):
 	var player_direction = Vector2.from_angle(global_player_rotation);
 	var new_hook = grappling_hook_scene.instantiate()
@@ -49,3 +56,6 @@ func _on_player_shoot_grappling_hook(global_player_position, global_player_rotat
 		
 	current_hook = new_hook
 	new_hook.launch(player, global_player_rotation, player_velocity)
+
+func _physics_process(_delta):
+	get_tree().call_group("flock", "set_movement_target", mother_ship.global_transform.origin)

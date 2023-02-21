@@ -1,7 +1,7 @@
-extends CharacterBody2D
+extends "res://npc/AbstractShip.gd"
 
 var health = 2
-var SPEED = 30
+var target_offset = Vector2.ZERO
 
 var sprites = [
 	[preload("res://npc/civilians/vaisseau_civil_1.png"), preload("res://npc/civilians/vaisseau_civil_1_flammes.png")],
@@ -9,17 +9,19 @@ var sprites = [
 	[preload("res://npc/civilians/vaisseau_civil_3.png"), preload("res://npc/civilians/vaisseau_civil_3_flammes.png")]
 ]
 
-@onready var ship = $Ship
-@onready var flammes = $Flammes
 
 func _ready():
+	super._ready()
 	var ship_and_flammes = sprites.pick_random()
 	ship.texture = ship_and_flammes[0]
 	flammes.texture = ship_and_flammes[1]
 
-func _physics_process(delta):
-	velocity = Vector2(SPEED, 0).rotated(-PI/4.5); # up right
-	move_and_slide()
+
+func set_target_offset(initial_target_position):
+	target_offset = initial_target_position - self.global_transform.origin
+
+func set_movement_target(movement_target : Vector2):
+	nav_agent.set_target_position(movement_target - target_offset)
 
 func on_hit():
 	if health > 0:

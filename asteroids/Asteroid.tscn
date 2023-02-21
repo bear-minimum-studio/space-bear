@@ -50,6 +50,7 @@ radius = 35.3553
 [node name="Asteroid" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 11
+mass = 1.72
 script = ExtResource("1_81esk")
 
 [node name="SpriteContainer" type="Node2D" parent="."]
@@ -75,5 +76,7 @@ collision_mask = 11
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_qdse8")
 debug_color = Color(0.996078, 0, 0.223529, 0.419608)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

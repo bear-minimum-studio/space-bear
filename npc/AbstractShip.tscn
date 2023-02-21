@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dowswmgssgp2f"]
+
+[ext_resource type="Script" path="res://npc/AbstractShip.gd" id="1_efvdm"]
+
+[node name="AbstractShip" type="CharacterBody2D"]
+script = ExtResource("1_efvdm")
+
+[node name="Ship" type="Sprite2D" parent="."]
+
+[node name="Flammes" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AvoidanceCircle" type="CollisionShape2D" parent="."]
+disabled = true
+debug_color = Color(0, 0.635294, 0.431373, 0.419608)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 200.0
+avoidance_enabled = true
+radius = 20.0
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

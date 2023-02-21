@@ -25,8 +25,10 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_qqyb8")
 stream_2/weight = 1.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-collision_mask = 8
+[node name="Player" type="RigidBody2D"]
+collision_mask = 10
+mass = 50.0
+inertia = 15000.0
 script = ExtResource("1_rsmvc")
 
 [node name="Flammes" type="Sprite2D" parent="."]
