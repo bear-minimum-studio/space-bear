@@ -24,4 +24,5 @@ texture = ExtResource("1_lqnob")
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(11, 0)
 node_a = NodePath("..")
-disable_collision = false
+bias = 0.5
+softness = 1.0
