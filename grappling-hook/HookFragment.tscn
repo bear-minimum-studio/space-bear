@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5p7pst5boqck"]
+[gd_scene load_steps=5 format=3 uid="uid://b5p7pst5boqck"]
 
 [ext_resource type="Script" path="res://grappling-hook/HookFragment.gd" id="1_b313g"]
 [ext_resource type="Texture2D" uid="uid://b2rqy741b7hag" path="res://grappling-hook/hook.png" id="1_lqnob"]
+[ext_resource type="Texture2D" uid="uid://ducbsxrrtocrx" path="res://grappling-hook/hook_joint.png" id="3_xiuun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdg7f"]
 radius = 4.0
@@ -18,11 +19,13 @@ script = ExtResource("1_b313g")
 shape = SubResource("CircleShape2D_kdg7f")
 
 [node name="Hook" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lqnob")
 
+[node name="HookJoint" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("3_xiuun")
+
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(11, 0)
+position = Vector2(8, 0)
 node_a = NodePath("..")
-bias = 0.5
-softness = 1.0
+bias = 0.1
