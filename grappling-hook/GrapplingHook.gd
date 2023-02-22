@@ -9,6 +9,7 @@ const DISTANCE_TO_PLAYER = 40
 const DISTANCE_BETWEEN_FRAGMENTS = 15
 
 @onready var player_pin_joint = $PlayerPinJoint
+@onready var hook_joint = $HookJoint
 
 var hook_fragment = preload("res://grappling-hook/HookFragment.tscn")
 
@@ -30,6 +31,7 @@ func _spawn_grappling_fragments(grappled_body: RigidBody2D):
 		return
 
 	_spawning_state = SpawningState.SPAWNING
+	hook_joint.visible = false
 
 	# Create all fragments
 	for i in range(_get_number_of_fragments()):

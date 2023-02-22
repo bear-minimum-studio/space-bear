@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvfvuyxow62jl"]
+[gd_scene load_steps=4 format=3 uid="uid://dvfvuyxow62jl"]
 
 [ext_resource type="Script" path="res://grappling-hook/GrapplingHook.gd" id="1_tv3hx"]
+[ext_resource type="Texture2D" uid="uid://ducbsxrrtocrx" path="res://grappling-hook/hook_joint.png" id="2_8jfhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lworx"]
 
@@ -13,5 +14,8 @@ script = ExtResource("1_tv3hx")
 shape = SubResource("RectangleShape2D_lworx")
 
 [node name="PlayerPinJoint" type="PinJoint2D" parent="."]
+
+[node name="HookJoint" type="Sprite2D" parent="."]
+texture = ExtResource("2_8jfhx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
