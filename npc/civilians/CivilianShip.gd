@@ -1,6 +1,6 @@
 extends "res://npc/AbstractShip.gd"
 
-var health = 5
+var health = 3
 var target_offset = Vector2.ZERO
 
 var sprites = [

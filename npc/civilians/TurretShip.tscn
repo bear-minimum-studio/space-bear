@@ -12,9 +12,10 @@ radius = 126.004
 
 [node name="TurretShip" groups=["flock"] instance=ExtResource("1_63j1f")]
 modulate = Color(0.478431, 1, 0, 1)
+collision_layer = 8
 script = ExtResource("2_b6ro3")
 bullets_per_second = 5.0
-health = 5
+health = 10
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]

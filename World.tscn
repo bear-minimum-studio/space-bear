@@ -331,6 +331,26 @@ rotation = -0.698132
 position = Vector2(272, 426)
 rotation = -0.698132
 
+[node name="TurretShip4" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(598, 126)
+rotation = -0.698132
+
+[node name="TurretShip5" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(429, -46)
+rotation = -0.698132
+
+[node name="TurretShip6" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(75, 585)
+rotation = -0.698132
+
+[node name="TurretShip7" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(-241, 477)
+rotation = -0.698132
+
+[node name="TurretShip8" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(-133, 724)
+rotation = -0.698132
+
 [node name="TurretShip2" parent="Flock" instance=ExtResource("8_ryaps")]
 position = Vector2(-45.0001, 361)
 rotation = -0.698132
@@ -363,24 +383,39 @@ position = Vector2(1677, -657)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("7_fjohj")]
-position = Vector2(971, 362)
+position = Vector2(1702, 904)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(971, 856)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(566, 713)
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("7_fjohj")]
-position = Vector2(437, -392)
+position = Vector2(989, -1991)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("7_fjohj")]
-position = Vector2(-64, -259)
+position = Vector2(-600, -2252)
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource("7_fjohj")]
-position = Vector2(35, -640)
+position = Vector2(2123, -2875)
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource("7_fjohj")]
-position = Vector2(856, -781)
+position = Vector2(1871, -2580)
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource("7_fjohj")]
-position = Vector2(1356, -156)
+position = Vector2(1903, -3133)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(1608, -2907)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(2418, -3265)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(2623, -2881)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(2323, -2523)
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
