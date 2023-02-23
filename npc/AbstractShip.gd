@@ -12,7 +12,6 @@ var _next_path_position : Vector2
 var _current_agent_position : Vector2
 var _new_velocity : Vector2
 
-
 func _physics_process(_delta):
 	if nav_agent.is_navigation_finished():
 		return

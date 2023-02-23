@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://singletons/Events.gd"
+Helpers="*res://helpers/Helpers.gd"
 
 [display]
 

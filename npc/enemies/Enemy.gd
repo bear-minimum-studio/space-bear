@@ -10,19 +10,9 @@ var _reloading = false
 func _physics_process(delta):
 	super._physics_process(delta)
 	var bodies: Array[Node2D] = fire_range.get_overlapping_bodies()
-	
-	var nearest_body = null
-	var distance = null
-	for body in bodies:
-		if body.is_in_group("flock"):
-			var current_distance = self.transform.origin.distance_to(body.transform.origin)
-			if distance == null:
-				nearest_body = body
-				distance = current_distance
-			elif current_distance < distance:
-				nearest_body = body
-				distance = current_distance
-	
+	var flock_bodies = bodies.filter(func(body): return body.is_in_group("flock"))
+
+	var nearest_body = Helpers.find_nearest_node(self, flock_bodies)
 	if nearest_body != null:
 		_shoot_towards(nearest_body)
 		self.set_movement_target(self.global_position)
@@ -32,17 +22,7 @@ func _physics_process(delta):
 			self.set_movement_target(closest_ship.global_position)
 
 func _find_closest_flock_ship():
-	var nearest_body = null
-	var distance = null
-	for ship in get_tree().get_nodes_in_group("flock"):
-		var current_distance = self.transform.origin.distance_to(ship.transform.origin)
-		if distance == null:
-			nearest_body = ship
-			distance = current_distance
-		elif current_distance < distance:
-			nearest_body = ship
-			distance = current_distance
-	return nearest_body
+	return Helpers.find_nearest_node(self, get_tree().get_nodes_in_group("flock"))
 
 func _shoot_towards(body: Node2D):
 	self.look_at(body.global_transform.origin)
