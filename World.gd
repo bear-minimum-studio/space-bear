@@ -17,7 +17,7 @@ var current_hook : Node2D
 
 
 func _ready():
-	get_tree().call_group("flock", "set_target_offset", mother_ship.global_transform.origin)
+	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
 	mother_ship.set_movement_target(target.global_transform.origin)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
 
@@ -67,6 +67,3 @@ func _on_player_shoot_grappling_hook(global_player_position, global_player_rotat
 
 	current_hook = new_hook
 	new_hook.launch(player, global_player_rotation)
-
-func _physics_process(_delta):
-	get_tree().call_group("flock", "set_movement_target", mother_ship.global_transform.origin)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1kn511h34n6d"]
+[gd_scene load_steps=7 format=3 uid="uid://c1kn511h34n6d"]
 
 [ext_resource type="Script" path="res://npc/mother-ship/MotherShip.gd" id="1_vdseo"]
 [ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_yo7vv"]
@@ -8,16 +8,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfv0e"]
 size = Vector2(54, 50)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h6264"]
-radius = 40.3347
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evvvw"]
 size = Vector2(58, 54)
 
 [node name="MotherShip" instance=ExtResource("1_yo7vv")]
 scale = Vector2(3, 3)
 collision_layer = 8
-collision_mask = 0
 script = ExtResource("1_vdseo")
 speed = 30.0
 
@@ -31,9 +27,6 @@ texture = ExtResource("2_mye72")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_mfv0e")
-
-[node name="AvoidanceCircle" parent="." index="3"]
-shape = SubResource("CircleShape2D_h6264")
 
 [node name="HitBox" type="Area2D" parent="." index="4"]
 collision_layer = 16

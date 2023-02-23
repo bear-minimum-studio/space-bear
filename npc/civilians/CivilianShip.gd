@@ -11,17 +11,10 @@ var sprites = [
 
 
 func _ready():
-	super._ready()
 	var ship_and_flammes = sprites.pick_random()
 	ship.texture = ship_and_flammes[0]
 	flammes.texture = ship_and_flammes[1]
 
-
-func set_target_offset(initial_target_position):
-	target_offset = initial_target_position - self.global_transform.origin
-
-func set_movement_target(movement_target : Vector2):
-	nav_agent.set_target_position(movement_target - target_offset)
 
 func on_hit():
 	if health > 0:
