@@ -9,9 +9,9 @@ extends Node2D
 const BULLET_SPEED = 500
 const MINIMAL_BULLET_SPEED = BULLET_SPEED
 
-var bullet_scene = preload("res://bullet/Bullet.tscn")
+var player_bullet_scene = preload("res://bullet/PlayerBullet.tscn")
+var enemy_bullet_scene = preload("res://bullet/EnemyBullet.tscn")
 var grappling_hook_scene = preload("res://grappling-hook/GrapplingHook.tscn")
-
 var current_hook : Node2D
 
 
@@ -24,7 +24,7 @@ func _ready():
 
 func _on_player_shoot(global_player_position, global_player_rotation, player_velocity):
 	var player_direction = Vector2.from_angle(global_player_rotation);
-	var new_bullet = bullet_scene.instantiate()
+	var new_bullet = player_bullet_scene.instantiate()
 	new_bullet.global_position = global_player_position
 	new_bullet.global_rotation = global_player_rotation
 	new_bullet.velocity = _compute_bullet_velocity(player_velocity, player_direction)
@@ -32,7 +32,7 @@ func _on_player_shoot(global_player_position, global_player_rotation, player_vel
 
 func _on_enemy_shoot(global_enemy_position, global_enemy_rotation, enemy_velocity):
 	var enemy_direction = Vector2.from_angle(global_enemy_rotation);
-	var new_bullet = bullet_scene.instantiate()
+	var new_bullet = enemy_bullet_scene.instantiate()
 	new_bullet.global_position = global_enemy_position
 	new_bullet.global_rotation = global_enemy_rotation
 	new_bullet.velocity = _compute_bullet_velocity(enemy_velocity, enemy_direction)
