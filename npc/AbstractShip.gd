@@ -19,6 +19,7 @@ func _physics_process(_delta):
 	_next_path_position = nav_agent.get_next_path_position()
 	_current_agent_position = global_transform.origin
 	velocity = (_next_path_position - _current_agent_position).normalized() * speed
+	self.rotation = velocity.angle()
 	move_and_slide()
 
 func set_movement_target(movement_target : Vector2):
