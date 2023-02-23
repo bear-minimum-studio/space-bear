@@ -327,6 +327,7 @@ position = Vector2(-684, 1133)
 rotation = -0.698132
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_tbroh")
 
 [node name="Asteroids" type="Node2D" parent="."]
@@ -346,25 +347,27 @@ position = Vector2(1284, -936)
 [node name="Asteroid5" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1677, -657)
 
-[node name="Enemy" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(971, 362)
 
-[node name="Enemy2" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(566, 713)
 
-[node name="Enemy3" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemy3" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(437, -392)
 
-[node name="Enemy4" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemy4" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(-64, -259)
 
-[node name="Enemy5" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemy5" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(35, -640)
 
-[node name="Enemy6" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemy6" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(856, -781)
 
-[node name="Enemy7" parent="." instance=ExtResource("7_fjohj")]
+[node name="Enemy7" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(1356, -156)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
