@@ -10,6 +10,7 @@ size = Vector2(54, 50)
 [node name="MotherShip" groups=["flock"] instance=ExtResource("1_yo7vv")]
 scale = Vector2(3, 3)
 collision_layer = 8
+speed = 30.0
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708

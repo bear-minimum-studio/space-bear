@@ -32,3 +32,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange" index="0"]
 shape = SubResource("CircleShape2D_d6bky")
 debug_color = Color(0.701961, 0.466667, 0, 0.419608)
+
+[node name="HealthSystem" parent="." index="5"]
+max_health = 20
