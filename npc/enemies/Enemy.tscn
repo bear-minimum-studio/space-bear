@@ -15,6 +15,7 @@ collision_layer = 2
 script = ExtResource("2_36u4k")
 bullets_per_second = 5.0
 health = 5
+speed = 30.0
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.57079
