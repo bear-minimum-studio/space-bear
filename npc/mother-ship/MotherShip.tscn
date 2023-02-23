@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1kn511h34n6d"]
+[gd_scene load_steps=6 format=3 uid="uid://c1kn511h34n6d"]
 
 [ext_resource type="Script" path="res://npc/mother-ship/MotherShip.gd" id="1_vdseo"]
 [ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_yo7vv"]
@@ -7,9 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfv0e"]
 size = Vector2(54, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_evvvw"]
-size = Vector2(58, 54)
 
 [node name="MotherShip" groups=["flock"] instance=ExtResource("1_yo7vv")]
 scale = Vector2(3, 3)
@@ -27,14 +24,3 @@ texture = ExtResource("2_mye72")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_mfv0e")
-
-[node name="HitBox" type="Area2D" parent="." index="4"]
-collision_layer = 16
-collision_mask = 2
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
-shape = SubResource("RectangleShape2D_evvvw")
-debug_color = Color(0.976471, 0.117647, 0.270588, 0.419608)
-
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
