@@ -7,8 +7,8 @@ extends "res://npc/AbstractShip.gd"
 @onready var fire_range = $FireRange
 var _reloading = false
 
-
 func _physics_process(delta):
+	super._physics_process(delta)
 	var bodies: Array[Node2D] = fire_range.get_overlapping_bodies()
 	
 	var nearest_body = null
@@ -25,7 +25,24 @@ func _physics_process(delta):
 	
 	if nearest_body != null:
 		_shoot_towards(nearest_body)
+		self.set_movement_target(self.global_position)
+	else:
+		var closest_ship = _find_closest_flock_ship()
+		if closest_ship != null:
+			self.set_movement_target(closest_ship.global_position)
 
+func _find_closest_flock_ship():
+	var nearest_body = null
+	var distance = null
+	for ship in get_tree().get_nodes_in_group("flock"):
+		var current_distance = self.transform.origin.distance_to(ship.transform.origin)
+		if distance == null:
+			nearest_body = ship
+			distance = current_distance
+		elif current_distance < distance:
+			nearest_body = ship
+			distance = current_distance
+	return nearest_body
 
 func _shoot_towards(body: Node2D):
 	self.look_at(body.global_transform.origin)

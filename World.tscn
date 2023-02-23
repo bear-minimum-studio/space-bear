@@ -63,7 +63,7 @@ position = Vector2(240, 153)
 rotation = -0.698132
 
 [node name="CivilianShip5" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(376, 268)
+position = Vector2(381, 273)
 rotation = -0.698132
 
 [node name="CivilianShip6" parent="Flock" instance=ExtResource("6_l8dh5")]
@@ -111,7 +111,7 @@ position = Vector2(1677, -657)
 position = Vector2(298, 7)
 
 [node name="Enemy" parent="." instance=ExtResource("7_fjohj")]
-position = Vector2(449, 287)
+position = Vector2(703, 291)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
