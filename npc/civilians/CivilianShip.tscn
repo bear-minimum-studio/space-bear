@@ -25,3 +25,6 @@ texture = ExtResource("3_0664p")
 [node name="CollisionShape2D" parent="." index="2"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_l23cd")
+
+[node name="HealthSystem" parent="." index="4"]
+max_health = 3

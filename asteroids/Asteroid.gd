@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-var health = 11 # self hits once at creation
-
 var sprites = [
 	preload("res://asteroids/asteroide1.png"),
 	preload("res://asteroids/asteroide2.png"),
@@ -18,13 +16,8 @@ func _ready():
 	sprite_container.rotation = randf_range(0, 2*PI)
 	animation_player.speed_scale = randf_range(0.2, 2)
 
-func on_hit():
-	health -= 1
-
-	if (health <= 0):
-		self.queue_free()
-
 
 func _on_hit_box_body_entered(body):
-	if body.has_method("on_hit"):
-		body.on_hit()
+	var health_system = body.find_child("HealthSystem")
+	if health_system != null:
+		health_system.on_hit()

@@ -7,11 +7,9 @@ signal shoot_grappling_hook
 @export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.7
 @export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
 
-@export_range(1,100) var max_health : int = 10
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 
 @onready var rotation_speed = 2 * PI * rotation_per_second
-@onready var health = max_health
 @onready var shooting_speed = 1.0 / bullets_per_second
 const HOOK_COOLDOWN = 1.0
 
@@ -29,6 +27,8 @@ var brake_intensity:
 @onready var turret_control = $Turret/TurretControl
 @onready var turret = $Turret
 @onready var turret_nozzle = $Turret/TurretControl/Nozzle
+@onready var health_system = $HealthSystem
+
 
 func _shoot():
 	if _reloading:
@@ -94,6 +94,5 @@ func _physics_process(_delta):
 func _on_turret_control_shoot():
 	emit_signal("shoot", turret_control.global_position, turret_control.global_rotation, linear_velocity)
 
-func on_hit():
-	health -= 1
+func _on_health_system_hp_changed(health, max_health):
 	Events.emit_signal("player_hp_changed", health, max_health)

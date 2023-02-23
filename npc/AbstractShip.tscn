@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dowswmgssgp2f"]
+[gd_scene load_steps=3 format=3 uid="uid://dowswmgssgp2f"]
 
 [ext_resource type="Script" path="res://npc/AbstractShip.gd" id="1_efvdm"]
+[ext_resource type="PackedScene" uid="uid://bxp3athf08mnv" path="res://HealthSystem.tscn" id="2_butel"]
 
 [node name="AbstractShip" type="CharacterBody2D"]
 collision_layer = 0
@@ -14,5 +15,7 @@ script = ExtResource("1_efvdm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="HealthSystem" parent="." instance=ExtResource("2_butel")]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

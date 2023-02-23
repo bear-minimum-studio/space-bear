@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://br6bfdr7gif8a"]
+[gd_scene load_steps=14 format=3 uid="uid://br6bfdr7gif8a"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://ceejpknwjtsq0" path="res://player/SFX/fire_sustain.wav" id="8_xrqab"]
 [ext_resource type="Script" path="res://player/TurretControl.gd" id="9_oqrpk"]
 [ext_resource type="Texture2D" uid="uid://k8ufmnwchaff" path="res://player/crosshair.png" id="10_vv4oi"]
+[ext_resource type="PackedScene" uid="uid://bxp3athf08mnv" path="res://HealthSystem.tscn" id="11_htup2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
 radius = 57.4704
@@ -76,4 +77,8 @@ texture = ExtResource("10_vv4oi")
 [node name="Nozzle" type="Node2D" parent="Turret/TurretControl"]
 position = Vector2(29, 0)
 
+[node name="HealthSystem" parent="." instance=ExtResource("11_htup2")]
+max_health = 10
+
 [connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]
+[connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
