@@ -25,7 +25,7 @@ func _find_closest_flock_ship():
 	return Helpers.find_nearest_node(self, get_tree().get_nodes_in_group("flock"))
 
 func _shoot_towards(body: Node2D):
-	self.look_at(body.global_transform.origin)
+	self.look_at(body.global_position)
 
 	if _reloading:
 		return
