@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends "res://npc/AbstractShip.gd"
 
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 @export_range(1, 50) var health = 5

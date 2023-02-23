@@ -1,29 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvkesa5v60dj4"]
+[gd_scene load_steps=6 format=3 uid="uid://bb8wbwlfnjaxt"]
 
-[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="1_bptl7"]
-[ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="1_vo5bf"]
+[ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_oxqnl"]
+[ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="2_36u4k"]
+[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="3_n6c30"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_764n1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dcnw"]
+radius = 41.1096
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0thyc"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6bky"]
 radius = 126.004
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" instance=ExtResource("1_oxqnl")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_vo5bf")
+script = ExtResource("2_36u4k")
+bullets_per_second = 5.0
+health = 5
 
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.140625, 0.140625)
-texture = ExtResource("1_bptl7")
+[node name="Ship" parent="." index="0"]
+rotation = 1.57079
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("3_n6c30")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_764n1")
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_3dcnw")
 
-[node name="FireRange" type="Area2D" parent="."]
+[node name="FireRange" type="Area2D" parent="." index="5"]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange"]
-shape = SubResource("CircleShape2D_0thyc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange" index="0"]
+shape = SubResource("CircleShape2D_d6bky")
 debug_color = Color(0.701961, 0.466667, 0, 0.419608)
