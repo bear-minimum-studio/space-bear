@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @export_range(0.5,50.0) var bullets_per_second = 5.0
+@export_range(1, 50) var health = 5
 
 @onready var shooting_speed = 1.0 / bullets_per_second
 @onready var fire_range = $FireRange
 var _reloading = false
+
 
 func _physics_process(delta):
 	var bodies: Array[Node2D] = fire_range.get_overlapping_bodies()
@@ -36,3 +38,9 @@ func _shoot_towards(body: Node2D):
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout
 	_reloading = false
+
+func on_hit():
+	if health > 0:
+		health -= 1
+	if health <= 0:
+		self.queue_free()
