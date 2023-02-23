@@ -28,7 +28,6 @@ stream_2/weight = 1.0
 [node name="Player" type="RigidBody2D"]
 collision_mask = 0
 mass = 50.0
-inertia = 15000.0
 script = ExtResource("1_rsmvc")
 
 [node name="Flammes" type="Sprite2D" parent="."]
