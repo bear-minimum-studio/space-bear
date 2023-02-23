@@ -11,7 +11,7 @@ size = Vector2(54, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evvvw"]
 size = Vector2(58, 54)
 
-[node name="MotherShip" instance=ExtResource("1_yo7vv")]
+[node name="MotherShip" groups=["flock"] instance=ExtResource("1_yo7vv")]
 scale = Vector2(3, 3)
 collision_layer = 8
 script = ExtResource("1_vdseo")

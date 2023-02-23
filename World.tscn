@@ -19,9 +19,9 @@ glow_blend_mode = 0
 adjustment_brightness = 1.57
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_tbroh"]
-vertices = PackedVector2Array(4677, -2317, 3131, -222, 964, 549, 1, 547, 1, 1, 394, -1298, 2845, -4037, 4307, -4992, 6593, -4042, 6416, -2861)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), PackedInt32Array(0, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 1, 547, 964, 549, 3131, -222, 4677, -2317, 6416, -2861, 6593, -4042, 4307, -4992, 2845, -4037, 394, -1298)])
+vertices = PackedVector2Array(982, 1420, -979, 1433, -916, 38, 394, -1298, 3131, -222, 4677, -2317, 2845, -4037, 4307, -4992, 6593, -4042, 6416, -2861)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 4, 3, 6, 7), PackedInt32Array(5, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-916, 38, -979, 1433, 982, 1420, 3131, -222, 4677, -2317, 6416, -2861, 6593, -4042, 4307, -4992, 2845, -4037, 394, -1298)])
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kjg2t")
@@ -74,10 +74,6 @@ rotation = -0.698132
 position = Vector2(251, 316)
 rotation = -0.698132
 
-[node name="CivilianShip10" parent="Flock" instance=ExtResource("6_l8dh5")]
-position = Vector2(320, 372)
-rotation = -0.698132
-
 [node name="CivilianShip8" parent="Flock" instance=ExtResource("6_l8dh5")]
 position = Vector2(217, 256)
 rotation = -0.698132
@@ -86,8 +82,251 @@ rotation = -0.698132
 position = Vector2(162, 184)
 rotation = -0.698132
 
+[node name="CivilianShip10" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(320, 372)
+rotation = -0.698132
+
+[node name="CivilianShip11" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(105, 328)
+rotation = -0.698132
+
+[node name="CivilianShip12" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(185, 346)
+rotation = -0.698132
+
+[node name="CivilianShip13" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(157, 285)
+rotation = -0.698132
+
+[node name="CivilianShip14" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(89, 276)
+rotation = -0.698132
+
+[node name="CivilianShip15" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(230, 396)
+rotation = -0.698132
+
+[node name="CivilianShip16" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(158, 410)
+rotation = -0.698132
+
+[node name="CivilianShip17" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(100, 439)
+rotation = -0.698132
+
+[node name="CivilianShip18" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(66, 379)
+rotation = -0.698132
+
+[node name="CivilianShip19" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(11, 307)
+rotation = -0.698132
+
+[node name="CivilianShip20" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(169, 495)
+rotation = -0.698132
+
+[node name="CivilianShip21" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-62, 457)
+rotation = -0.698132
+
+[node name="CivilianShip22" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(18, 475)
+rotation = -0.698132
+
+[node name="CivilianShip23" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-10, 414)
+rotation = -0.698132
+
+[node name="CivilianShip24" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-78, 405)
+rotation = -0.698132
+
+[node name="CivilianShip25" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(63, 525)
+rotation = -0.698132
+
+[node name="CivilianShip26" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-9, 539)
+rotation = -0.698132
+
+[node name="CivilianShip27" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-67, 568)
+rotation = -0.698132
+
+[node name="CivilianShip28" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-101, 508)
+rotation = -0.698132
+
+[node name="CivilianShip29" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-156, 436)
+rotation = -0.698132
+
+[node name="CivilianShip30" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(2, 624)
+rotation = -0.698132
+
+[node name="CivilianShip31" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-238, 581)
+rotation = -0.698132
+
+[node name="CivilianShip32" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-158, 599)
+rotation = -0.698132
+
+[node name="CivilianShip33" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-186, 538)
+rotation = -0.698132
+
+[node name="CivilianShip34" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-254, 529)
+rotation = -0.698132
+
+[node name="CivilianShip35" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-113, 649)
+rotation = -0.698132
+
+[node name="CivilianShip36" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-185, 663)
+rotation = -0.698132
+
+[node name="CivilianShip37" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-243, 692)
+rotation = -0.698132
+
+[node name="CivilianShip38" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-277, 632)
+rotation = -0.698132
+
+[node name="CivilianShip39" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-332, 560)
+rotation = -0.698132
+
+[node name="CivilianShip40" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-174, 748)
+rotation = -0.698132
+
+[node name="CivilianShip41" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-407, 704)
+rotation = -0.698132
+
+[node name="CivilianShip42" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-327, 722)
+rotation = -0.698132
+
+[node name="CivilianShip43" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-355, 661)
+rotation = -0.698132
+
+[node name="CivilianShip44" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-423, 652)
+rotation = -0.698132
+
+[node name="CivilianShip45" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-282, 772)
+rotation = -0.698132
+
+[node name="CivilianShip46" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-354, 786)
+rotation = -0.698132
+
+[node name="CivilianShip47" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-412, 815)
+rotation = -0.698132
+
+[node name="CivilianShip48" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-446, 755)
+rotation = -0.698132
+
+[node name="CivilianShip49" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-501, 683)
+rotation = -0.698132
+
+[node name="CivilianShip50" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-343, 871)
+rotation = -0.698132
+
+[node name="CivilianShip51" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-581, 830)
+rotation = -0.698132
+
+[node name="CivilianShip52" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-501, 848)
+rotation = -0.698132
+
+[node name="CivilianShip53" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-529, 787)
+rotation = -0.698132
+
+[node name="CivilianShip54" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-597, 778)
+rotation = -0.698132
+
+[node name="CivilianShip55" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-456, 898)
+rotation = -0.698132
+
+[node name="CivilianShip56" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-528, 912)
+rotation = -0.698132
+
+[node name="CivilianShip57" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-586, 941)
+rotation = -0.698132
+
+[node name="CivilianShip58" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-620, 881)
+rotation = -0.698132
+
+[node name="CivilianShip59" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-675, 809)
+rotation = -0.698132
+
+[node name="CivilianShip60" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-517, 997)
+rotation = -0.698132
+
+[node name="CivilianShip61" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-748, 966)
+rotation = -0.698132
+
+[node name="CivilianShip62" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-668, 984)
+rotation = -0.698132
+
+[node name="CivilianShip63" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-696, 923)
+rotation = -0.698132
+
+[node name="CivilianShip64" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-764, 914)
+rotation = -0.698132
+
+[node name="CivilianShip65" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-623, 1034)
+rotation = -0.698132
+
+[node name="CivilianShip66" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-695, 1048)
+rotation = -0.698132
+
+[node name="CivilianShip67" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-753, 1077)
+rotation = -0.698132
+
+[node name="CivilianShip68" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-787, 1017)
+rotation = -0.698132
+
+[node name="CivilianShip69" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-842, 945)
+rotation = -0.698132
+
+[node name="CivilianShip70" parent="Flock" instance=ExtResource("6_l8dh5")]
+position = Vector2(-684, 1133)
+rotation = -0.698132
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_tbroh")
 
 [node name="Asteroids" type="Node2D" parent="."]
@@ -107,11 +346,26 @@ position = Vector2(1284, -936)
 [node name="Asteroid5" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1677, -657)
 
-[node name="Enemy3" parent="." instance=ExtResource("7_fjohj")]
-position = Vector2(298, 7)
-
 [node name="Enemy" parent="." instance=ExtResource("7_fjohj")]
-position = Vector2(703, 291)
+position = Vector2(971, 362)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_fjohj")]
+position = Vector2(566, 713)
+
+[node name="Enemy3" parent="." instance=ExtResource("7_fjohj")]
+position = Vector2(437, -392)
+
+[node name="Enemy4" parent="." instance=ExtResource("7_fjohj")]
+position = Vector2(-64, -259)
+
+[node name="Enemy5" parent="." instance=ExtResource("7_fjohj")]
+position = Vector2(35, -640)
+
+[node name="Enemy6" parent="." instance=ExtResource("7_fjohj")]
+position = Vector2(856, -781)
+
+[node name="Enemy7" parent="." instance=ExtResource("7_fjohj")]
+position = Vector2(1356, -156)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
