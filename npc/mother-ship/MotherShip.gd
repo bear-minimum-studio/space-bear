@@ -1,6 +1,6 @@
 extends "res://npc/AbstractShip.gd"
 
-var health = 10
+var health = 30
 
 func on_hit():
 	if health > 0:
