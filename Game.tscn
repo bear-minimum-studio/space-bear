@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://h883oog84sj2"]
 
-[ext_resource type="PackedScene" uid="uid://dvdqq10lhxisx" path="res://World.tscn" id="1_os38u"]
+[ext_resource type="PackedScene" uid="uid://bmpcpd0o3w7g5" path="res://World.tscn" id="1_os38u"]
 [ext_resource type="Texture2D" uid="uid://y8k8tjlbaga2" path="res://ui/progress_bar.png" id="2_ghdyu"]
 [ext_resource type="Texture2D" uid="uid://bjrex6bt8fjba" path="res://ui/progress_bar_fill.png" id="3_egoyd"]
 [ext_resource type="Script" path="res://hud/Health.gd" id="4_ux4s4"]

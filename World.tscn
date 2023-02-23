@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvdqq10lhxisx"]
+[gd_scene load_steps=10 format=3 uid="uid://bmpcpd0o3w7g5"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
 [ext_resource type="PackedScene" uid="uid://ce1oqpsnnine6" path="res://npc/civilians/CivilianShip.tscn" id="6_l8dh5"]
 [ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="6_ncofa"]
+[ext_resource type="PackedScene" uid="uid://cvkesa5v60dj4" path="res://npc/enemies/Enemy.tscn" id="7_s1ipq"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -105,6 +106,12 @@ position = Vector2(1284, -936)
 
 [node name="Asteroid5" parent="Asteroids" instance=ExtResource("3_dv0ok")]
 position = Vector2(1677, -657)
+
+[node name="Enemy" parent="." instance=ExtResource("7_s1ipq")]
+position = Vector2(484, 259)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_s1ipq")]
+position = Vector2(325, -25)
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]

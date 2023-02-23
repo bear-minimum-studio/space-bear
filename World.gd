@@ -19,6 +19,7 @@ var current_hook : Node2D
 func _ready():
 	get_tree().call_group("flock", "set_target_offset", mother_ship.global_transform.origin)
 	mother_ship.set_movement_target(target.global_transform.origin)
+	Events.enemy_shoot.connect(_on_enemy_shoot)
 
 
 func _on_player_shoot(global_player_position, global_player_rotation, player_velocity):
@@ -27,6 +28,14 @@ func _on_player_shoot(global_player_position, global_player_rotation, player_vel
 	new_bullet.global_position = global_player_position
 	new_bullet.global_rotation = global_player_rotation
 	new_bullet.velocity = _compute_bullet_velocity(player_velocity, player_direction)
+	self.add_child(new_bullet)
+
+func _on_enemy_shoot(global_enemy_position, global_enemy_rotation, enemy_velocity):
+	var enemy_direction = Vector2.from_angle(global_enemy_rotation);
+	var new_bullet = bullet_scene.instantiate()
+	new_bullet.global_position = global_enemy_position
+	new_bullet.global_rotation = global_enemy_rotation
+	new_bullet.velocity = _compute_bullet_velocity(enemy_velocity, enemy_direction)
 	self.add_child(new_bullet)
 
 # Computes new bullet speed using player orientation and velocity
