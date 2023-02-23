@@ -3,8 +3,9 @@ extends RigidBody2D
 signal shoot
 signal shoot_grappling_hook
 
-@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 150.0
+@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 200.0
 @export_range(0.0,3.0,0.05,"or_greater") var time_to_max_speed = 1.0
+@export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.7
 @export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
 
 @export_range(1,100) var max_health : int = 10
@@ -21,6 +22,8 @@ var _reloading_hook = false
 var thrust_intensity :
 	get: return mass * max_speed / time_to_max_speed
 
+var brake_intensity:
+	get: return mass * max_speed / time_to_stop
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
@@ -52,9 +55,11 @@ func _custom_set_rotation():
 	turret.rotation = -self.rotation
 
 func _integrate_forces(state):
-	print(linear_velocity.length())
-	_thrust(state)
 	_torque()
+	if (Input.is_action_pressed("brake")):
+		_brake(state)
+	else:
+		_thrust(state)
 	_custom_set_rotation()
 		
 func _thrust(state):
@@ -74,6 +79,12 @@ func _thrust(state):
 func _torque():
 	var intensity = Input.get_axis("turn_left", "turn_right")
 	angular_velocity = rotation_speed * intensity
+
+func _brake(state):
+	if linear_velocity.length() > 10:
+		state.apply_central_force(- brake_intensity * linear_velocity.normalized())
+	elif linear_velocity.length() > 0:
+		linear_velocity = linear_velocity.move_toward(Vector2.ZERO, 5)
 
 func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
