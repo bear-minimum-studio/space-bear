@@ -10,7 +10,7 @@ radius = 41.1096
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6bky"]
 radius = 126.004
 
-[node name="Enemy" instance=ExtResource("1_oxqnl")]
+[node name="Enemy" groups=["enemy"] instance=ExtResource("1_oxqnl")]
 collision_layer = 2
 script = ExtResource("2_36u4k")
 bullets_per_second = 5.0

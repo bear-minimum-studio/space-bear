@@ -20,6 +20,7 @@ func _ready():
 	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
 	mother_ship.set_movement_target(target.global_transform.origin)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
+	Events.shoot.connect(_on_player_shoot)
 
 
 func _on_player_shoot(global_player_position, global_player_rotation, player_velocity):

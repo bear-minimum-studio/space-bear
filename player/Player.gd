@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-signal shoot
 signal shoot_grappling_hook
 
 @export_range(0.0,500.0,5.0,"or_greater") var max_speed = 200.0
@@ -35,7 +34,7 @@ func _shoot():
 	if _reloading:
 		return
 
-	emit_signal("shoot", global_position, global_rotation, linear_velocity)
+	Events.emit_signal("shoot", global_position, global_rotation, linear_velocity)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout

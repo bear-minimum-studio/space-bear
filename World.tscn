@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyrldebce7csf"]
+[gd_scene load_steps=11 format=3 uid="uid://dyrldebce7csf"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
-[ext_resource type="PackedScene" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
+[ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
 [ext_resource type="PackedScene" uid="uid://ce1oqpsnnine6" path="res://npc/civilians/CivilianShip.tscn" id="6_l8dh5"]
 [ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="6_ncofa"]
 [ext_resource type="PackedScene" uid="uid://bb8wbwlfnjaxt" path="res://npc/enemies/Enemy.tscn" id="7_fjohj"]
+[ext_resource type="PackedScene" uid="uid://iawoyehjjxoa" path="res://npc/civilians/TurretShip.tscn" id="8_ryaps"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -326,6 +327,18 @@ rotation = -0.698132
 position = Vector2(-684, 1133)
 rotation = -0.698132
 
+[node name="TurretShip" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(272, 426)
+rotation = -0.698132
+
+[node name="TurretShip2" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(-45.0001, 361)
+rotation = -0.698132
+
+[node name="TurretShip3" parent="Flock" instance=ExtResource("8_ryaps")]
+position = Vector2(205, 199)
+rotation = -0.698132
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_tbroh")
@@ -370,5 +383,4 @@ position = Vector2(856, -781)
 [node name="Enemy7" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(1356, -156)
 
-[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
