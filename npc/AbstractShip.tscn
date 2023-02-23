@@ -19,3 +19,4 @@ script = ExtResource("1_efvdm")
 [node name="HealthSystem" parent="." instance=ExtResource("2_butel")]
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]

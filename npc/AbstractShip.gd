@@ -23,3 +23,7 @@ func _physics_process(_delta):
 
 func set_movement_target(movement_target : Vector2):
 	nav_agent.set_target_position(movement_target)
+
+
+func _on_health_system_dead():
+	Events.dead_ship.emit(self)
