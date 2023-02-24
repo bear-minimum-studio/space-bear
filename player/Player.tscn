@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://k8ufmnwchaff" path="res://player/crosshair.png" id="10_vv4oi"]
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="11_n0jhs"]
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="12_uwy2g"]
-[ext_resource type="PackedScene" path="res://player/SelectionZone.tscn" id="13_n8rio"]
+[ext_resource type="PackedScene" uid="uid://ba06loe142qwy" path="res://player/SelectionZone.tscn" id="13_n8rio"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
 radius = 57.4704

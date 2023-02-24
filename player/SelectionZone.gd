@@ -2,11 +2,12 @@ extends Area2D
 
 @onready var selection_reference = $SelectionReference
 
+var current_selection: Node2D = null
+
 func _physics_process(delta):
 	var bodies = get_overlapping_bodies()
 	var selectable_bodies = bodies.filter(func(body): return body.has_method("select"))
 	var nearest = Helpers.find_nearest_node(selection_reference, selectable_bodies)
-	
 	if nearest == null:
 		return
 	
@@ -16,7 +17,10 @@ func _physics_process(delta):
 		body.unselect()
 
 	nearest.select()
+	current_selection = nearest
 
 func _on_body_exited(body):
 	if body.has_method("unselect"):
 		body.unselect()
+		if body == current_selection:
+			current_selection = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://ba06loe142qwy"]
 
 [ext_resource type="Script" path="res://player/SelectionZone.gd" id="1_n6spw"]
 
@@ -18,5 +18,4 @@ position = Vector2(64, -1)
 shape = SubResource("CircleShape2D_w7hp4")
 debug_color = Color(0, 0.701961, 0.0235294, 0.419608)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
