@@ -30,5 +30,5 @@ func _on_health_system_dead():
 	Events.dead_ship.emit(self)
 
 
-func _on_health_system_hp_changed(_a, _b):
+func _on_health_system_hp_changed(_health, _max_health):
 	hurt_animation.animate_hurt($Ship)
