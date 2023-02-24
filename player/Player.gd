@@ -29,7 +29,9 @@ var brake_intensity:
 @onready var turret_nozzle = $Turret/TurretControl/Nozzle
 @onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
+@onready var selection_zone = $SelectionZone
 
+var turret_ship_scene = preload("res://npc/civilians/TurretShip.tscn")
 
 func _shoot():
 	if _reloading:
@@ -98,3 +100,26 @@ func _on_turret_control_shoot():
 func _on_health_system_hp_changed(health, max_health):
 	Events.emit_signal("player_hp_changed", health, max_health)
 	hurt_animation.animate_hurt($Player)
+
+func _input(event):
+	if event.is_action_pressed("upgrade"):
+		_upgrade_selected_ship()
+
+func _upgrade_selected_ship():
+	var selected_ship = selection_zone.current_selection
+	if selected_ship == null:
+		return
+	
+	var movement_target = selected_ship.movement_target
+	var selected_ship_parent = selected_ship.get_parent()
+	
+	# This should probably be a factory function inside ship?
+	var new_ship = turret_ship_scene.instantiate()
+	new_ship.global_rotation = selected_ship.global_rotation
+	new_ship.global_position = selected_ship.global_position
+	new_ship.velocity = selected_ship.velocity
+	
+	selected_ship.queue_free()
+	selected_ship_parent.add_child(new_ship)
+	
+	new_ship.set_movement_target(movement_target)

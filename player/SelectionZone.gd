@@ -4,7 +4,7 @@ extends Area2D
 
 var current_selection: Node2D = null
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()
 	var selectable_bodies = bodies.filter(func(body): return body.has_method("select"))
 	var nearest = Helpers.find_nearest_node(selection_reference, selectable_bodies)

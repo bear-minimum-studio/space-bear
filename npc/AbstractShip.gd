@@ -12,6 +12,8 @@ extends CharacterBody2D
 var _next_path_position : Vector2
 var _current_agent_position : Vector2
 
+var movement_target: Vector2
+
 func _physics_process(_delta):
 	if nav_agent.is_navigation_finished():
 		return
@@ -22,7 +24,8 @@ func _physics_process(_delta):
 	self.rotation = velocity.angle()
 	move_and_slide()
 
-func set_movement_target(movement_target : Vector2):
+func set_movement_target(new_movement_target : Vector2):
+	movement_target = new_movement_target
 	nav_agent.set_target_position(movement_target)
 
 
