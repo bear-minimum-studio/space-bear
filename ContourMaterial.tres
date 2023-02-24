@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqwiaryw2lwtr"]
+
+[ext_resource type="Shader" path="res://Contour.gdshader" id="1_8agpu"]
+
+[resource]
+shader = ExtResource("1_8agpu")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true

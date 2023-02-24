@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://br6bfdr7gif8a"]
+[gd_scene load_steps=17 format=3 uid="uid://br6bfdr7gif8a"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://k8ufmnwchaff" path="res://player/crosshair.png" id="10_vv4oi"]
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="11_n0jhs"]
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="12_uwy2g"]
+[ext_resource type="Script" path="res://player/SelectZone.gd" id="13_dy2rj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
 radius = 57.4704
@@ -26,6 +27,9 @@ stream_1/stream = ExtResource("5_i5xdt")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_qqyb8")
 stream_2/weight = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7hp4"]
+radius = 34.5579
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 0
@@ -83,5 +87,20 @@ max_health = 10
 
 [node name="HurtAnimation" parent="." instance=ExtResource("12_uwy2g")]
 
+[node name="SelectZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("13_dy2rj")
+
+[node name="SelectionReference" type="Node2D" parent="SelectZone"]
+position = Vector2(41, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectZone"]
+position = Vector2(64, -1)
+shape = SubResource("CircleShape2D_w7hp4")
+debug_color = Color(0, 0.701961, 0.0235294, 0.419608)
+
 [connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
+[connection signal="body_entered" from="SelectZone" to="SelectZone" method="_on_body_entered"]
+[connection signal="body_exited" from="SelectZone" to="SelectZone" method="_on_body_exited"]

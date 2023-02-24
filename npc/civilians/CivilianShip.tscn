@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce1oqpsnnine6"]
+[gd_scene load_steps=6 format=3 uid="uid://cb8xhpqcuwf8r"]
 
 [ext_resource type="Script" path="res://npc/civilians/CivilianShip.gd" id="1_fv8tp"]
 [ext_resource type="PackedScene" uid="uid://cqcgvgl6nu228" path="res://npc/AbstractShip.tscn" id="1_rberd"]
@@ -15,10 +15,12 @@ script = ExtResource("1_fv8tp")
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]
+use_parent_material = true
 rotation = 1.5708
 texture = ExtResource("2_2kdh0")
 
 [node name="Flammes" parent="." index="1"]
+use_parent_material = true
 rotation = 1.5708
 texture = ExtResource("3_0664p")
 
