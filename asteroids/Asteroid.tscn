@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://asteroids/Asteroid.gd" id="1_81esk"]
 [ext_resource type="Texture2D" uid="uid://ckx1poxyuopep" path="res://asteroids/asteroide1.png" id="2_yim38"]
-[ext_resource type="PackedScene" uid="uid://bxp3athf08mnv" path="res://HealthSystem.tscn" id="3_eoh8t"]
+[ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="3_6qulr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncwxg"]
 radius = 33.0151
@@ -80,7 +80,7 @@ debug_color = Color(0.996078, 0, 0.223529, 0.419608)
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 
-[node name="HealthSystem" parent="." instance=ExtResource("3_eoh8t")]
+[node name="HealthSystem" parent="." instance=ExtResource("3_6qulr")]
 max_health = 11
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
