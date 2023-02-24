@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bb8wbwlfnjaxt"]
 
-[ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_oxqnl"]
+[ext_resource type="PackedScene" uid="uid://cqcgvgl6nu228" path="res://npc/AbstractShip.tscn" id="1_oxqnl"]
 [ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="2_36u4k"]
 [ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="3_n6c30"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="4_s7kpp"]

@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var ship = $Ship
 @onready var flammes = $Flammes
 @onready var nav_agent = $NavigationAgent2D
+@onready var health_system = $HealthSystem
+@onready var hurt_animation = $HurtAnimation
 
 var _next_path_position : Vector2
 var _current_agent_position : Vector2
@@ -28,3 +30,7 @@ func set_movement_target(movement_target : Vector2):
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)
+
+
+func _on_health_system_hp_changed(_a, _b):
+	hurt_animation.animate_hurt($Ship)

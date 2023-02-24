@@ -28,6 +28,7 @@ var brake_intensity:
 @onready var turret = $Turret
 @onready var turret_nozzle = $Turret/TurretControl/Nozzle
 @onready var health_system = $HealthSystem
+@onready var hurt_animation = $HurtAnimation
 
 
 func _shoot():
@@ -96,3 +97,4 @@ func _on_turret_control_shoot():
 
 func _on_health_system_hp_changed(health, max_health):
 	Events.emit_signal("player_hp_changed", health, max_health)
+	hurt_animation.animate_hurt($Player)
