@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
-[ext_resource type="PackedScene" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
+[ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 [ext_resource type="PackedScene" uid="uid://bs6jmmclexxuu" path="res://asteroids/Asteroid.tscn" id="3_dv0ok"]
 [ext_resource type="PackedScene" uid="uid://ce1oqpsnnine6" path="res://npc/civilians/CivilianShip.tscn" id="6_l8dh5"]
 [ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="6_ncofa"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ce1oqpsnnine6"]
 
 [ext_resource type="Script" path="res://npc/civilians/CivilianShip.gd" id="1_fv8tp"]
-[ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_rberd"]
+[ext_resource type="PackedScene" uid="uid://cqcgvgl6nu228" path="res://npc/AbstractShip.tscn" id="1_rberd"]
 [ext_resource type="Texture2D" uid="uid://dnfexlynuag6t" path="res://npc/civilians/vaisseau_civil_1.png" id="2_2kdh0"]
 [ext_resource type="Texture2D" uid="uid://5u7y1ei2tu6r" path="res://npc/civilians/vaisseau_civil_1_flammes.png" id="3_0664p"]
 
