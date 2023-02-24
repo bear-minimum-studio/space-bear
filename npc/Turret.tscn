@@ -19,3 +19,6 @@ debug_color = Color(0.701961, 0.466667, 0, 0.419608)
 position = Vector2(24, 0)
 scale = Vector2(0.375, 0.09375)
 texture = ExtResource("1_ah7dg")
+
+[node name="Nozzle" type="Node2D" parent="."]
+position = Vector2(48, 0)

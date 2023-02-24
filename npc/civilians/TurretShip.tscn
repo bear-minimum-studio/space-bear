@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://iawoyehjjxoa"]
+[gd_scene load_steps=6 format=3 uid="uid://iawoyehjjxoa"]
 
 [ext_resource type="PackedScene" uid="uid://dowswmgssgp2f" path="res://npc/AbstractShip.tscn" id="1_63j1f"]
-[ext_resource type="Script" path="res://npc/civilians/TurretShip.gd" id="2_b6ro3"]
 [ext_resource type="Texture2D" uid="uid://dnfexlynuag6t" path="res://npc/civilians/vaisseau_civil_1.png" id="3_kvqmc"]
 [ext_resource type="Texture2D" uid="uid://5u7y1ei2tu6r" path="res://npc/civilians/vaisseau_civil_1_flammes.png" id="4_mxpyj"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="5_34wb2"]
@@ -11,8 +10,6 @@
 [node name="TurretShip" groups=["flock"] instance=ExtResource("1_63j1f")]
 modulate = Color(0.478431, 1, 0, 1)
 collision_layer = 8
-script = ExtResource("2_b6ro3")
-health = 10
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]

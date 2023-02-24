@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dowswmgssgp2f"]
 
 [ext_resource type="Script" path="res://npc/AbstractShip.gd" id="1_efvdm"]
-[ext_resource type="PackedScene" uid="uid://bxp3athf08mnv" path="res://HealthSystem.tscn" id="2_butel"]
+[ext_resource type="PackedScene" uid="uid://dty4lqafdgk2c" path="res://HealthSystem.tscn" id="2_butel"]
 
 [node name="AbstractShip" type="CharacterBody2D"]
 collision_layer = 0

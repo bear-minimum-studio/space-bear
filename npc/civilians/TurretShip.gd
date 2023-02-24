@@ -1,6 +1,5 @@
 extends "res://npc/AbstractShip.gd"
 
-@export_range(1, 50) var health = 5
 @onready var turret = $Turret
 
 func _physics_process(delta):
