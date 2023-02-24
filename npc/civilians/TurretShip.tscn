@@ -4,17 +4,14 @@
 [ext_resource type="Script" path="res://npc/civilians/TurretShip.gd" id="2_b6ro3"]
 [ext_resource type="Texture2D" uid="uid://dnfexlynuag6t" path="res://npc/civilians/vaisseau_civil_1.png" id="3_kvqmc"]
 [ext_resource type="Texture2D" uid="uid://5u7y1ei2tu6r" path="res://npc/civilians/vaisseau_civil_1_flammes.png" id="4_mxpyj"]
+[ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="5_34wb2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t24if"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0uq2m"]
-radius = 126.004
 
 [node name="TurretShip" groups=["flock"] instance=ExtResource("1_63j1f")]
 modulate = Color(0.478431, 1, 0, 1)
 collision_layer = 8
 script = ExtResource("2_b6ro3")
-bullets_per_second = 5.0
 health = 10
 speed = 30.0
 
@@ -29,13 +26,8 @@ texture = ExtResource("4_mxpyj")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_t24if")
 
-[node name="FireRange" type="Area2D" parent="." index="4"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange" index="0"]
-shape = SubResource("CircleShape2D_0uq2m")
-debug_color = Color(0.701961, 0.466667, 0, 0.419608)
+[node name="Turret" parent="." index="4" instance=ExtResource("5_34wb2")]
+bullet_type = 1
 
 [node name="HealthSystem" parent="." index="5"]
 max_health = 5

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://boraidb6nocfq"]
+
+[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="1_ah7dg"]
+[ext_resource type="Script" path="res://npc/Turret.gd" id="1_s1iw8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0uq2m"]
+radius = 126.004
+
+[node name="Turret" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_s1iw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0uq2m")
+debug_color = Color(0.701961, 0.466667, 0, 0.419608)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(24, 0)
+scale = Vector2(0.375, 0.09375)
+texture = ExtResource("1_ah7dg")
