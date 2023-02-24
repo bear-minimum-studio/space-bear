@@ -7,12 +7,10 @@ extends CharacterBody2D
 @onready var ship = $Ship
 @onready var flammes = $Flammes
 @onready var nav_agent = $NavigationAgent2D
-@onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
 
 var _next_path_position : Vector2
 var _current_agent_position : Vector2
-var _new_velocity : Vector2
 
 func _physics_process(_delta):
 	if nav_agent.is_navigation_finished():

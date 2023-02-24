@@ -15,7 +15,7 @@ var _reloading = false
 
 @onready var nozzle = $Nozzle
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var bodies: Array[Node2D] = self.get_overlapping_bodies()
 	var potential_targets = bodies.filter(func(body): return body.is_in_group(targets_group))
 
