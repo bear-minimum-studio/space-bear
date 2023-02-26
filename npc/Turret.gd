@@ -31,8 +31,14 @@ func shoot_towards(shooter: Node2D, body: Node2D):
 
 	if _reloading:
 		return
+	
+	var shooter_velocity
+	if shooter is RigidBody2D:
+		shooter_velocity = shooter.linear_velocity
+	else:
+		shooter_velocity = shooter.velocity
 
-	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, self.global_rotation, shooter.velocity)
+	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, self.global_rotation, shooter_velocity)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout
