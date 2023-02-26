@@ -34,6 +34,8 @@ position = Vector2(4707, -3614)
 
 [node name="Player" parent="." instance=ExtResource("1_yasag")]
 position = Vector2(159, 130)
+max_speed = 245.0
+time_to_max_speed = 0.45
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.4, 0.4)
@@ -384,6 +386,21 @@ position = Vector2(1677, -657)
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(1702, 904)
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(1737, 426)
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(2157, 117)
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(2235, 841)
+
+[node name="Enemy16" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(1959, 547)
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("7_fjohj")]
+position = Vector2(1781, 105)
 
 [node name="Enemy12" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(971, 856)

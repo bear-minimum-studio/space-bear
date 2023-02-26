@@ -9,6 +9,8 @@ const bullet_type_mapping = {
 	BulletType.ALLY: "shoot"
 }
 
+const TRUCQUIARROSE = PI/24
+
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 @onready var shooting_speed = 1.0 / bullets_per_second
 var _reloading = false
@@ -37,8 +39,10 @@ func shoot_towards(shooter: Node2D, body: Node2D):
 		shooter_velocity = shooter.linear_velocity
 	else:
 		shooter_velocity = shooter.velocity
+	
+	var imprecision = randf_range(-TRUCQUIARROSE, TRUCQUIARROSE)
 
-	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, self.global_rotation, shooter_velocity)
+	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, self.global_rotation + imprecision, shooter_velocity)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout

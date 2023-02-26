@@ -34,8 +34,6 @@ var brake_intensity:
 var turret_ship_scene = preload("res://npc/civilians/TurretShip.tscn")
 
 func _shoot():
-	if _reloading:
-		return
 
 	Events.emit_signal("shoot", global_position, global_rotation, linear_velocity)
 	

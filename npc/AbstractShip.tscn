@@ -18,6 +18,7 @@ script = ExtResource("1_efvdm")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="HealthSystem" parent="." instance=ExtResource("2_butel")]
+max_health = 1
 
 [node name="HurtAnimation" parent="." instance=ExtResource("3_e5uby")]
 

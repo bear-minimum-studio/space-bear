@@ -30,13 +30,11 @@ shape = SubResource("CircleShape2D_3dcnw")
 position = Vector2(0, 25)
 collision_mask = 8
 targets_group = "flock"
-bullets_per_second = 2.0
 
 [node name="Turret2" parent="." index="5" instance=ExtResource("4_s7kpp")]
 position = Vector2(0, -24)
 collision_mask = 8
 targets_group = "flock"
-bullets_per_second = 2.0
 
 [node name="HealthSystem" parent="." index="6"]
-max_health = 20
+max_health = 200
