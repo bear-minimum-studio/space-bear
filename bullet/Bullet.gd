@@ -1,5 +1,9 @@
 extends Area2D
 
+class_name Bullet
+
+const BULLET_SPEED = 500
+
 var velocity = Vector2.ZERO;
 
 func _ready():

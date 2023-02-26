@@ -5,8 +5,7 @@ extends Node2D
 @onready var flock = $Flock
 @onready var target = $Target
 
-# TODO : Move it elsewhere
-const BULLET_SPEED = 500
+const BULLET_SPEED = Bullet.BULLET_SPEED
 const MINIMAL_BULLET_SPEED = BULLET_SPEED
 
 var player_bullet_scene = preload("res://bullet/PlayerBullet.tscn")
