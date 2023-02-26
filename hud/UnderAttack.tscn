@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://djt0jq7486mc6"]
 
 [ext_resource type="Script" path="res://hud/UnderAttack.gd" id="1_r635j"]
 
@@ -18,6 +18,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You are under attack!"
+text = "The fleet is suffering damages!"
 horizontal_alignment = 2
 vertical_alignment = 2
