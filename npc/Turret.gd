@@ -1,6 +1,10 @@
 extends Area2D
 
 @export var targets_group = "enemy"
+@export_range(0.0, 100.0) var bullet_spread = 0.0
+
+var bullet_spread_angle:
+	get: return (bullet_spread / 100) * PI / 2
 
 enum BulletType { ENEMY, ALLY }
 @export var bullet_type: BulletType= BulletType.ENEMY
@@ -38,7 +42,9 @@ func shoot_towards(shooter: Node2D, body: Node2D):
 	else:
 		shooter_velocity = shooter.velocity
 
-	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, self.global_rotation, shooter_velocity)
+	var imprecision = randf_range(-bullet_spread_angle, bullet_spread_angle)
+	var shooting_angle = self.global_rotation + imprecision
+	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, shooting_angle, shooter_velocity)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout

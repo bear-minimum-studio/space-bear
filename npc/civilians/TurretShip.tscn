@@ -26,4 +26,4 @@ shape = SubResource("CircleShape2D_t24if")
 bullet_type = 1
 
 [node name="HealthSystem" parent="." index="5"]
-max_health = 5
+max_health = 40

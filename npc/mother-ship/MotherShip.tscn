@@ -28,7 +28,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tks0q")
 
 [node name="HealthSystem" parent="." index="4"]
-max_health = 30
+max_health = 500
 
 [node name="Turret2" parent="." index="5" instance=ExtResource("4_niboy")]
 position = Vector2(-15, -80)

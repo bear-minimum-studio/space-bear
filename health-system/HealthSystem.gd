@@ -2,7 +2,7 @@
 class_name HealthSystem
 extends Node2D
 
-@export_range(1, 200) var max_health = 1
+@export_range(1, 200, 1, "or_greater") var max_health = 1
 
 @onready var health = max_health
 
