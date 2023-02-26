@@ -32,6 +32,6 @@ func set_movement_target(new_movement_target : Vector2):
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)
 
-
 func _on_health_system_hp_changed(_health, _max_health):
 	hurt_animation.animate_hurt($Ship)
+	Events.ship_hurt.emit(self)
