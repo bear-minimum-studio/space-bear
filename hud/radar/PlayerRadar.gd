@@ -1,10 +1,5 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 var radar_element_scene = preload("res://hud/radar/RadarElement.tscn")
 
 func _physics_process(_delta):
@@ -17,7 +12,8 @@ func _physics_process(_delta):
 	for enemy in enemies:
 		self.get_child(index).rotation = (enemy.global_position - self.global_position).angle()
 		index += 1
-	
+
+# Makes sure that there are as many children scenes as enemies in the world
 func _sync_children(nb_enemies: int):
 	var nb_children = self.get_child_count()
 	if nb_children == nb_enemies:
