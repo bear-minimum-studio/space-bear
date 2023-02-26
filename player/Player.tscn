@@ -66,18 +66,18 @@ bus = &"Propulsion"
 stream = ExtResource("8_xrqab")
 bus = &"Propulsion"
 
-[node name="Turret" type="Node2D" parent="."]
+[node name="P2Turret" type="Node2D" parent="."]
 
-[node name="TurretControl" type="Node2D" parent="Turret"]
+[node name="P2TurretControl" type="Node2D" parent="P2Turret"]
 script = ExtResource("9_oqrpk")
 
-[node name="TurretCrosshair" type="Sprite2D" parent="Turret/TurretControl"]
+[node name="P2TurretCrosshair" type="Sprite2D" parent="P2Turret/P2TurretControl"]
 position = Vector2(39, 0)
 rotation = -1.57079
 scale = Vector2(0.783817, 0.783817)
 texture = ExtResource("10_vv4oi")
 
-[node name="Nozzle" type="Node2D" parent="Turret/TurretControl"]
+[node name="P2Nozzle" type="Node2D" parent="P2Turret/P2TurretControl"]
 position = Vector2(29, 0)
 
 [node name="HealthSystem" parent="." instance=ExtResource("11_n0jhs")]
@@ -89,5 +89,5 @@ max_health = 10
 
 [node name="PlayerRadar" parent="." instance=ExtResource("14_fhr4g")]
 
-[connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]
+[connection signal="shoot" from="P2Turret/P2TurretControl" to="." method="_on_turret_control_shoot"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]

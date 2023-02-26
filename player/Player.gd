@@ -24,9 +24,9 @@ var brake_intensity:
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
-@onready var turret_control = $Turret/TurretControl
-@onready var turret = $Turret
-@onready var turret_nozzle = $Turret/TurretControl/Nozzle
+@onready var turret_control = $P2Turret/P2TurretControl
+@onready var turret = $P2Turret
+@onready var turret_nozzle = $P2Turret/P2TurretControl/P2Nozzle
 @onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
