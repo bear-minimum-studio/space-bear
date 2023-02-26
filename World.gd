@@ -5,15 +5,10 @@ extends Node2D
 @onready var flock = $Flock
 @onready var target = $Target
 
-const BULLET_SPEED = Bullet.BULLET_SPEED
-const MINIMAL_BULLET_SPEED = BULLET_SPEED
-
 var player_bullet_scene = preload("res://bullet/PlayerBullet.tscn")
 var enemy_bullet_scene = preload("res://bullet/EnemyBullet.tscn")
 var grappling_hook_scene = preload("res://grappling-hook/GrapplingHook.tscn")
 var current_hook : Node2D
-
-
 
 func _ready():
 	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
