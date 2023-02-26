@@ -27,7 +27,7 @@ func _on_player_shoot(global_player_position, global_player_rotation, player_vel
 	var new_bullet = player_bullet_scene.instantiate()
 	new_bullet.global_position = global_player_position
 	new_bullet.global_rotation = global_player_rotation
-	new_bullet.velocity = _compute_bullet_velocity(player_velocity, player_direction)
+	new_bullet.set_initial_velocity(player_velocity, player_direction)
 	self.add_child(new_bullet)
 
 func _on_enemy_shoot(global_enemy_position, global_enemy_rotation, enemy_velocity):
@@ -35,21 +35,8 @@ func _on_enemy_shoot(global_enemy_position, global_enemy_rotation, enemy_velocit
 	var new_bullet = enemy_bullet_scene.instantiate()
 	new_bullet.global_position = global_enemy_position
 	new_bullet.global_rotation = global_enemy_rotation
-	new_bullet.velocity = _compute_bullet_velocity(enemy_velocity, enemy_direction)
+	new_bullet.set_initial_velocity(enemy_velocity, enemy_direction)
 	self.add_child(new_bullet)
-
-# Computes new bullet speed using player orientation and velocity
-# Ensures that no bullet is slower than the minimal bullet speed
-func _compute_bullet_velocity(player_velocity : Vector2, player_direction : Vector2) -> Vector2:
-	var new_bullet_velocity = player_velocity + BULLET_SPEED * player_direction
-	# If we cant get a direction from the bullet velocity we use
-	# the player_direction as the bullet direction.
-	if new_bullet_velocity == Vector2.ZERO:
-		new_bullet_velocity = MINIMAL_BULLET_SPEED * player_direction
-	# Making sure no bullet goes slower than the minimal bullet speed
-	if new_bullet_velocity.length() < MINIMAL_BULLET_SPEED:
-		new_bullet_velocity = MINIMAL_BULLET_SPEED * new_bullet_velocity.normalized()
-	return new_bullet_velocity
 
 func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation):
 	# If shooting again while a grappling hook exists, delete the current one
