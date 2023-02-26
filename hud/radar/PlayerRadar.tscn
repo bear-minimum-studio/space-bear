@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://g2uw1el2x1ea"]
+
+[ext_resource type="Script" path="res://hud/radar/PlayerRadar.gd" id="1_4kkmh"]
+[ext_resource type="PackedScene" uid="uid://cp3h88sl6c0xk" path="res://hud/radar/RadarElement.tscn" id="2_ag66o"]
+
+[node name="PlayerRadar" type="Node2D"]
+script = ExtResource("1_4kkmh")
+
+[node name="RadarElement" parent="." instance=ExtResource("2_ag66o")]

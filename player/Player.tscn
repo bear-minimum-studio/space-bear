@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://br6bfdr7gif8a"]
+[gd_scene load_steps=17 format=3 uid="uid://br6bfdr7gif8a"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="11_n0jhs"]
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="12_uwy2g"]
 [ext_resource type="PackedScene" uid="uid://ba06loe142qwy" path="res://player/SelectionZone.tscn" id="13_n8rio"]
+[ext_resource type="PackedScene" uid="uid://g2uw1el2x1ea" path="res://hud/radar/PlayerRadar.tscn" id="14_fhr4g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
 radius = 57.4704
@@ -85,6 +86,8 @@ max_health = 10
 [node name="HurtAnimation" parent="." instance=ExtResource("12_uwy2g")]
 
 [node name="SelectionZone" parent="." instance=ExtResource("13_n8rio")]
+
+[node name="PlayerRadar" parent="." instance=ExtResource("14_fhr4g")]
 
 [connection signal="shoot" from="Turret/TurretControl" to="." method="_on_turret_control_shoot"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
