@@ -14,15 +14,15 @@ func _ready():
 	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
 	mother_ship.set_movement_target(target.global_transform.origin)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
-	Events.shoot.connect(_on_player_shoot)
+	Events.shoot.connect(_on_ally_shoot)
 
 
-func _on_player_shoot(global_player_position, global_player_rotation, player_velocity):
-	var player_direction = Vector2.from_angle(global_player_rotation);
+func _on_ally_shoot(global_ally_position, global_ally_rotation, ally_velocity):
+	var ally_direction = Vector2.from_angle(global_ally_rotation);
 	var new_bullet = player_bullet_scene.instantiate()
-	new_bullet.global_position = global_player_position
-	new_bullet.global_rotation = global_player_rotation
-	new_bullet.set_initial_velocity(player_velocity, player_direction)
+	new_bullet.global_position = global_ally_position
+	new_bullet.global_rotation = global_ally_rotation
+	new_bullet.set_initial_velocity(ally_velocity, ally_direction)
 	self.add_child(new_bullet)
 
 func _on_enemy_shoot(global_enemy_position, global_enemy_rotation, enemy_velocity):
