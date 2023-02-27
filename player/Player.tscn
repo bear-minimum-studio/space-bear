@@ -82,7 +82,7 @@ texture = ExtResource("10_vv4oi")
 position = Vector2(29, 0)
 
 [node name="HealthSystem" parent="." instance=ExtResource("11_n0jhs")]
-max_health = 10
+max_health = 50
 
 [node name="HurtAnimation" parent="." instance=ExtResource("12_uwy2g")]
 
