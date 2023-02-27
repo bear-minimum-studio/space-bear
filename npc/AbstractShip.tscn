@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqcgvgl6nu228"]
+[gd_scene load_steps=7 format=3 uid="uid://dujcwt8umqhfd"]
 
 [ext_resource type="Script" path="res://npc/AbstractShip.gd" id="1_efvdm"]
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="2_butel"]
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="3_e5uby"]
+[ext_resource type="Script" path="res://npc/UI.gd" id="4_7qtu0"]
+[ext_resource type="PackedScene" uid="uid://cy5srf1xm0us3" path="res://ui/ProgressBar.tscn" id="4_t6fe4"]
+[ext_resource type="Script" path="res://npc/ShipHealth.gd" id="6_pc2kh"]
 
 [node name="AbstractShip" type="CharacterBody2D"]
 collision_layer = 0
@@ -20,6 +23,22 @@ script = ExtResource("1_efvdm")
 [node name="HealthSystem" parent="." instance=ExtResource("2_butel")]
 
 [node name="HurtAnimation" parent="." instance=ExtResource("3_e5uby")]
+
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource("4_7qtu0")
+
+[node name="Health" parent="UI" node_paths=PackedStringArray("health_system") instance=ExtResource("4_t6fe4")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = 18.0
+offset_right = 23.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_pc2kh")
+health_system = NodePath("../../HealthSystem")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]

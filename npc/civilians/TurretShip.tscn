@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://iawoyehjjxoa"]
 
-[ext_resource type="PackedScene" uid="uid://cqcgvgl6nu228" path="res://npc/AbstractShip.tscn" id="1_63j1f"]
+[ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_63j1f"]
 [ext_resource type="Texture2D" uid="uid://876ifecl54ww" path="res://npc/civilians/vaisseau_defense.png" id="2_0o62w"]
 [ext_resource type="Texture2D" uid="uid://dg1k0isxxsv4q" path="res://npc/civilians/vaisseau_defense_flammes.png" id="3_qquy2"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="5_34wb2"]
