@@ -36,3 +36,8 @@ collision_mask = 8
 
 [node name="HealthSystem" parent="." index="6"]
 max_health = 200
+
+[node name="Health" parent="UI" index="0"]
+offset_top = 29.0
+offset_bottom = 45.0
+tint_progress = Color(0.552941, 0.196078, 0.298039, 1)
