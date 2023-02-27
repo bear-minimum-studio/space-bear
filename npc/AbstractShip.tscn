@@ -27,7 +27,7 @@ script = ExtResource("1_efvdm")
 [node name="UI" type="Node2D" parent="."]
 script = ExtResource("4_7qtu0")
 
-[node name="Health" parent="UI" node_paths=PackedStringArray("health_system") instance=ExtResource("4_t6fe4")]
+[node name="HealthBar" parent="UI" node_paths=PackedStringArray("health_system") instance=ExtResource("4_t6fe4")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

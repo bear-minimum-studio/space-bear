@@ -8,8 +8,10 @@ var selected = false :
 		selected = new_value
 		if (selected):
 			self.material = contour_material
+			self.health_bar.force_visibility(true)
 		else:
 			self.material = null
+			self.health_bar.force_visibility(false)
 
 var sprites = [
 	[preload("res://npc/civilians/vaisseau_civil_1.png"), preload("res://npc/civilians/vaisseau_civil_1_flammes.png")],

@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var flammes = $Flammes
 @onready var nav_agent = $NavigationAgent2D
 @onready var hurt_animation = $HurtAnimation
+@onready var health_bar = $UI/HealthBar
 
 var _next_path_position : Vector2
 var _current_agent_position : Vector2

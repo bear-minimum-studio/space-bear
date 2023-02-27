@@ -7,15 +7,8 @@ const DISPLAY_DURATION = 2
 const ANIMATION_IN_DURATION = 0.2
 const ANIMATION_OUT_DURATION = 1
 
-func _ready():
-	_toggle_visibility(false, true)
-	health_system.hp_changed.connect(_on_hp_changed)
-
-func _on_hp_changed(health, max_health):
+func show_temporarily():
 	_toggle_visibility(true)
-	self.max_value = max_health
-	self.value = health
-
 	if timer == null:
 		timer = get_tree().create_timer(DISPLAY_DURATION)
 	else:
@@ -24,6 +17,18 @@ func _on_hp_changed(health, max_health):
 	await timer.timeout
 	timer = null
 	_toggle_visibility(false)
+
+func force_visibility(new_visibility: bool):
+	_toggle_visibility(new_visibility, true)
+
+func _ready():
+	_toggle_visibility(false, true)
+	health_system.hp_changed.connect(_on_hp_changed)
+
+func _on_hp_changed(health, max_health):
+	self.max_value = max_health
+	self.value = health
+	show_temporarily()
 
 func _toggle_visibility(new_visibility: bool, disable_animation = false):
 	if disable_animation:
