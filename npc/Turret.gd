@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var targets_group = "enemy"
 @export_range(0.0, 100.0) var bullet_spread = 0.0
 
 var bullet_spread_angle:
@@ -8,9 +7,15 @@ var bullet_spread_angle:
 
 enum BulletType { ENEMY, ALLY }
 @export var bullet_type: BulletType= BulletType.ENEMY
+
 const bullet_type_mapping = {
 	BulletType.ENEMY: "enemy_shoot",
 	BulletType.ALLY: "shoot"
+}
+
+const bullet_target_mapping = {
+	BulletType.ENEMY: "flock",
+	BulletType.ALLY: "enemy"
 }
 
 @export_range(0.5,50.0) var bullets_per_second = 5.0
@@ -21,7 +26,7 @@ var _reloading = false
 
 func _physics_process(_delta):
 	var bodies: Array[Node2D] = self.get_overlapping_bodies()
-	var potential_targets = bodies.filter(func(body): return body.is_in_group(targets_group))
+	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
 
 	var nearest_body = Helpers.find_nearest_node(self.get_parent(), potential_targets)
 	if nearest_body != null:
