@@ -35,8 +35,10 @@ const COLLISION_MARGIN = 10
 		queue_redraw()
 
 func _ready():
-	health_system.hp_changed.connect(_on_hit)
 	_update_collision_shape_margin()
+	if Engine.is_editor_hint():
+		return
+	health_system.hp_changed.connect(_on_hit)
 	_initialize_max_health()
 
 func _draw():
