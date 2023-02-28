@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="3_feixo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07fai"]
-radius = 130.0
+radius = 110.0
 
 [node name="Shield" type="Area2D"]
 collision_layer = 9

@@ -2,7 +2,7 @@
 extends Node2D
 class_name Shield
 
-const COLLISION_MARGIN_PERCENT = 15
+const COLLISION_MARGIN_PERCENT = 10
 
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var hurt_animation = $HurtAnimation
