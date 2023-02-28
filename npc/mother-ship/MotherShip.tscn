@@ -51,6 +51,12 @@ position = Vector2(-13, 77)
 scale = Vector2(2, 2)
 bullet_type = 1
 
+[node name="HealthBar" parent="UI" index="0"]
+offset_left = -94.0
+offset_top = 83.0
+offset_right = 94.0
+offset_bottom = 99.0
+
 [node name="Shield" parent="." index="11" instance=ExtResource("5_7a3ox")]
 position = Vector2(-1, 0)
 max_health = 50
