@@ -6,6 +6,7 @@ extends Node2D
 func _ready():
 	Events.dead_ship.connect(_on_dead_civilian)
 	Events.game_over.connect(_on_game_over)
+	Events.restart.connect(_on_restart)
 	_update_text(_count_civilians())
 
 func _on_dead_civilian(dead_ship: Node2D):
@@ -31,3 +32,7 @@ func _update_text(nb_of_civilians_left: int):
 func _on_game_over():
 	get_tree().paused = true
 	game_over.visible = true
+
+func _on_restart():
+	get_tree().paused = false
+	get_tree().reload_current_scene()
