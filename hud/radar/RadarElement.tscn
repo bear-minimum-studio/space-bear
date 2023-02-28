@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp3h88sl6c0xk"]
 
-[ext_resource type="Texture2D" uid="uid://k8ufmnwchaff" path="res://player/crosshair.png" id="1_4tlg7"]
+[ext_resource type="Texture2D" uid="uid://c205f5577olo1" path="res://hud/radar/arrow.png" id="1_upq0y"]
 
 [node name="RadarElement" type="Node2D"]
 
 [node name="Arrow" type="Sprite2D" parent="."]
 modulate = Color(0.917647, 0.231373, 0.427451, 1)
 position = Vector2(60, 0)
-texture = ExtResource("1_4tlg7")
+rotation = 1.57079
+texture = ExtResource("1_upq0y")
