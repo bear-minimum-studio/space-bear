@@ -2,7 +2,7 @@
 extends Node2D
 class_name Shield
 
-const COLLISION_MARGIN_PERCENT = 10
+const COLLISION_MARGIN = 10
 
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var hurt_animation = $HurtAnimation
@@ -48,7 +48,7 @@ func _on_hit(_health, _max_health):
 
 func _update_collision_shape_margin():
 	if collision_shape_2d != null:
-		collision_shape_2d.shape.radius = shield_size * (100 + COLLISION_MARGIN_PERCENT) / 100
+		collision_shape_2d.shape.radius = shield_size + COLLISION_MARGIN
 
 func _initialize_max_health():
 	if health_system != null:
