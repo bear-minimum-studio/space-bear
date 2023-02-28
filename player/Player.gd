@@ -125,3 +125,6 @@ func _upgrade_selected_ship():
 	selected_ship_parent.add_child(new_ship)
 	
 	new_ship.set_movement_target(movement_target)
+
+func _on_health_system_dead():
+	Events.dead_ship.emit(self)

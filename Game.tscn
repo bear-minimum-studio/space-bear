@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h883oog84sj2"]
+[gd_scene load_steps=9 format=3 uid="uid://h883oog84sj2"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_hd8hp"]
 [ext_resource type="PackedScene" uid="uid://dyrldebce7csf" path="res://World.tscn" id="1_os38u"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://hud/Health.gd" id="4_ux4s4"]
 [ext_resource type="Script" path="res://hud/CiviliansLeft.gd" id="5_oa3xf"]
 [ext_resource type="PackedScene" uid="uid://djt0jq7486mc6" path="res://hud/UnderAttack.tscn" id="7_kacti"]
+[ext_resource type="PackedScene" uid="uid://dsmalws6v4e8y" path="res://ui/game-over/GameOver.tscn" id="8_rpob0"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hd8hp")
@@ -48,3 +49,6 @@ horizontal_alignment = 2
 script = ExtResource("5_oa3xf")
 
 [node name="UnderAttack" parent="CanvasLayer" instance=ExtResource("7_kacti")]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("8_rpob0")]
+visible = false

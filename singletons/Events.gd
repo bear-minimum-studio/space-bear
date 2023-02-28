@@ -8,3 +8,4 @@ signal ship_hurt
 
 signal convoy_reached_wormhole
 signal player_reached_wormhole
+signal game_over

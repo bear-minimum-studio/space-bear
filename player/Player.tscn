@@ -100,4 +100,5 @@ position = Vector2(0, 21)
 bullet_type = 1
 
 [connection signal="shoot" from="P2Turret/P2TurretControl" to="." method="_on_turret_control_shoot"]
+[connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
