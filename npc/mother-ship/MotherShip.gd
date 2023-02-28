@@ -1,1 +1,1 @@
-extends "res://npc/AbstractShip.gd"
+extends "res://npc/AbstractCivilianShip.gd"

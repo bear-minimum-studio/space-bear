@@ -1,4 +1,4 @@
-extends "res://npc/AbstractShip.gd"
+extends "res://npc/civilians/AbstractCivilianShip.gd"
 
 var contour_material = preload("res://ContourMaterial.tres")
 

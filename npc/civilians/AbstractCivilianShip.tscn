@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://etyatu5407jp"]
+
+[ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_0bdkf"]
+[ext_resource type="Script" path="res://npc/civilians/AbstractCivilianShip.gd" id="2_obvko"]
+
+[node name="AbstractCivilianShip" groups=["flock"] instance=ExtResource("1_0bdkf")]
+script = ExtResource("2_obvko")
+number_of_passengers = 0

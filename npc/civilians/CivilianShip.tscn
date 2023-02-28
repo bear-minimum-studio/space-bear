@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cb8xhpqcuwf8r"]
 
+[ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
 [ext_resource type="Script" path="res://npc/civilians/CivilianShip.gd" id="1_fv8tp"]
-[ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_rberd"]
 [ext_resource type="Texture2D" uid="uid://dnfexlynuag6t" path="res://npc/civilians/vaisseau_civil_1.png" id="2_2kdh0"]
 [ext_resource type="Texture2D" uid="uid://5u7y1ei2tu6r" path="res://npc/civilians/vaisseau_civil_1_flammes.png" id="3_0664p"]
 
@@ -9,9 +9,10 @@
 radius = 8.0
 height = 24.0
 
-[node name="CivilianShip" groups=["flock"] instance=ExtResource("1_rberd")]
+[node name="CivilianShip" instance=ExtResource("1_0bdkf")]
 collision_layer = 8
 script = ExtResource("1_fv8tp")
+number_of_passengers = 50
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]
