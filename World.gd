@@ -5,6 +5,7 @@ extends Node2D
 @onready var flock = $Flock
 @onready var target = $Target
 
+var explosion_scene = preload("res://explosion/Explosion.tscn")
 var player_bullet_scene = preload("res://bullet/PlayerBullet.tscn")
 var enemy_bullet_scene = preload("res://bullet/EnemyBullet.tscn")
 var grappling_hook_scene = preload("res://grappling-hook/GrapplingHook.tscn")
@@ -12,6 +13,7 @@ var current_hook : Node2D
 
 func _ready():
 	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
+	Events.dead_ship.connect(_on_dead)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
 	Events.shoot.connect(_on_ally_shoot)
 	Events.convoy_reached_wormhole.connect(_on_convoy_reached_wormhole)
@@ -57,3 +59,8 @@ func _on_convoy_reached_wormhole():
 
 func _on_player_reached_wormhole():
 	print('you reached the level end')
+
+func _on_dead(dead_body: Node2D):
+	var new_explosion = explosion_scene.instantiate()
+	new_explosion.global_position = dead_body.global_position
+	self.add_child(new_explosion)

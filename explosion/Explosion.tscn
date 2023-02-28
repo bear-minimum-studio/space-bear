@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2chiv71mayve"]
+
+[ext_resource type="Texture2D" uid="uid://d08dihk78x5q6" path="res://explosion/explosion-Sheet.png" id="1_su76n"]
+[ext_resource type="Script" path="res://explosion/Explosion.gd" id="2_120nk"]
+[ext_resource type="Texture2D" uid="uid://1j2d1hrm7fal" path="res://explosion/explosion_particle.png" id="3_dqbeo"]
+
+[sub_resource type="Animation" id="Animation_8ng7l"]
+resource_name = "explosion"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 3, 1, 0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_su76n"), null]
+}
+
+[sub_resource type="Animation" id="Animation_tvn1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_su76n")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqkna"]
+_data = {
+"RESET": SubResource("Animation_tvn1m"),
+"explosion": SubResource("Animation_8ng7l")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jlfyi"]
+lifetime_randomness = 0.51
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 20.0
+damping_max = 50.0
+angle_min = -90.0
+angle_max = 90.0
+scale_min = 0.2
+
+[node name="Explosion" type="Sprite2D"]
+texture = ExtResource("1_su76n")
+hframes = 7
+script = ExtResource("2_120nk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "explosion"
+speed_scale = 3.0
+libraries = {
+"": SubResource("AnimationLibrary_cqkna")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_jlfyi")
+texture = ExtResource("3_dqbeo")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
