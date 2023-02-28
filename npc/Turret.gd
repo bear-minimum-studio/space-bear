@@ -1,5 +1,15 @@
+@tool
 extends Area2D
 
+@onready var collision_shape_2d = $CollisionShape2D
+
+@export_range(0.0, 500.0, 10.0, "or_greater") var turret_range: float = 100.0 :
+	set(new_turret_range):
+		turret_range = new_turret_range
+		if collision_shape_2d != null:
+			collision_shape_2d.shape.radius = turret_range
+		queue_redraw()
+		
 @export_range(0.0, 100.0) var bullet_spread = 0.0
 
 var bullet_spread_angle:
@@ -25,6 +35,9 @@ var _reloading = false
 @onready var nozzle = $Nozzle
 
 func _physics_process(_delta):
+	if Engine.is_editor_hint():
+		return
+	
 	var bodies: Array[Node2D] = self.get_overlapping_bodies()
 	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
 

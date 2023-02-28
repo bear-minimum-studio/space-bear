@@ -1,10 +1,9 @@
 extends "res://npc/AbstractShip.gd"
 
-@export_range(0.0,1.0) var proximity_ratio = 0.8
+@export_range(0.0,1.0) var proximity_ratio = 0.9
 
 @onready var turret = $Turret
-# TODO: Get real turret range
-@onready var turret_range = 250.0
+@onready var turret_range = turret.turret_range
 
 var targetted_ship: Node2D
 var _target_position_offset: Vector2

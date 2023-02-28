@@ -32,23 +32,23 @@ shape = SubResource("CapsuleShape2D_tks0q")
 [node name="HealthSystem" parent="." index="4"]
 max_health = 500
 
-[node name="Turret2" parent="." index="5" instance=ExtResource("4_niboy")]
+[node name="Turret" parent="." index="5" instance=ExtResource("4_niboy")]
+position = Vector2(-13, 77)
+scale = Vector2(2, 2)
+bullet_type = 1
+
+[node name="Turret2" parent="." index="6" instance=ExtResource("4_niboy")]
 position = Vector2(-15, -80)
 scale = Vector2(2, 2)
 bullet_type = 1
 
-[node name="Turret3" parent="." index="6" instance=ExtResource("4_niboy")]
+[node name="Turret3" parent="." index="7" instance=ExtResource("4_niboy")]
 position = Vector2(88, -32)
 scale = Vector2(2, 2)
 bullet_type = 1
 
-[node name="Turret4" parent="." index="7" instance=ExtResource("4_niboy")]
+[node name="Turret4" parent="." index="8" instance=ExtResource("4_niboy")]
 position = Vector2(88, 44)
-scale = Vector2(2, 2)
-bullet_type = 1
-
-[node name="Turret" parent="." index="8" instance=ExtResource("4_niboy")]
-position = Vector2(-13, 77)
 scale = Vector2(2, 2)
 bullet_type = 1
 
