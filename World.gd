@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = $Player
 @onready var mother_ship = $MotherShip
 @onready var flock = $Flock
-@onready var target = $Target
+@onready var wormhole = $Wormhole
 
 var explosion_scene = preload("res://explosion/Explosion.tscn")
 var player_bullet_scene = preload("res://bullet/PlayerBullet.tscn")
@@ -12,7 +12,7 @@ var grappling_hook_scene = preload("res://grappling-hook/GrapplingHook.tscn")
 var current_hook : Node2D
 
 func _ready():
-	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
+	get_tree().call_group("flock", "set_convoy_path", wormhole.global_position, mother_ship.global_position)
 	Events.dead_ship.connect(_on_dead)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
 	Events.shoot.connect(_on_ally_shoot)

@@ -31,9 +31,6 @@ script = ExtResource("1_kjg2t")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_3j3ax")]
 
-[node name="Target" type="Node2D" parent="."]
-position = Vector2(4707, -3614)
-
 [node name="Player" parent="." instance=ExtResource("1_yasag")]
 position = Vector2(159, 130)
 
