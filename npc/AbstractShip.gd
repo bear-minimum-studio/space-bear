@@ -39,8 +39,10 @@ func _set_velocity(delta):
 	var curr_speed: float
 	if nav_agent.is_navigation_finished():
 		curr_speed = lerp(velocity.length(), 0.0, brake * delta)
+		flammes.visible = false
 	else:
 		curr_speed = lerp(velocity.length(), speed, acceleration * delta)
+		flammes.visible = true
 	velocity = curr_speed * Vector2.from_angle(rotation)
 
 func set_movement_target(new_movement_target : Vector2):
