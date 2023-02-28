@@ -18,6 +18,6 @@ shape = SubResource("CircleShape2D_07fai")
 debug_color = Color(0, 0.6, 0.701961, 0.0862745)
 
 [node name="HealthSystem" parent="." instance=ExtResource("2_w6wil")]
-max_health = 10
+max_health = 20
 
 [node name="HurtAnimation" parent="." instance=ExtResource("3_feixo")]

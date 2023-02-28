@@ -8,7 +8,7 @@ const COLLISION_MARGIN_PERCENT = 15
 @onready var hurt_animation = $HurtAnimation
 @onready var health_system = $HealthSystem
 
-@export var max_health = 10 :
+@export var max_health = 20 :
 	set(new_max_health):
 		max_health = new_max_health
 		if health_system != null:
@@ -37,7 +37,6 @@ const COLLISION_MARGIN_PERCENT = 15
 		queue_redraw()
 
 func _ready():
-	health_system.max_health = max_health
 	health_system.hp_changed.connect(_on_hit)
 
 func _draw():
