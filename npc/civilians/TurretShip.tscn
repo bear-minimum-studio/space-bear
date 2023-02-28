@@ -31,4 +31,3 @@ bullet_type = 1
 max_health = 40
 
 [node name="Shield" parent="." index="8" instance=ExtResource("5_us0t2")]
-shield_size = 100.0
