@@ -69,6 +69,7 @@ stream = ExtResource("8_xrqab")
 bus = &"Propulsion"
 
 [node name="P2Turret" type="Node2D" parent="."]
+visible = false
 
 [node name="P2TurretControl" type="Node2D" parent="P2Turret"]
 script = ExtResource("9_oqrpk")
