@@ -26,8 +26,7 @@ const COLLISION_MARGIN_PERCENT = 10
 @export var shield_size: float = 100.0 :
 	set(new_shield_size):
 		shield_size = new_shield_size
-		if collision_shape_2d != null:
-			collision_shape_2d.shape.radius = new_shield_size * (100 + COLLISION_MARGIN_PERCENT) / 100
+		_update_collision_shape_margin()
 		queue_redraw()
 
 @export var outline_width: float = 2.0 :
@@ -49,7 +48,7 @@ func _on_hit(_health, _max_health):
 
 func _update_collision_shape_margin():
 	if collision_shape_2d != null:
-		collision_shape_2d.shape.radius = shield_size + COLLISION_MARGIN_PERCENT
+		collision_shape_2d.shape.radius = shield_size * (100 + COLLISION_MARGIN_PERCENT) / 100
 
 func _initialize_max_health():
 	if health_system != null:

@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="2_w6wil"]
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="3_feixo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_07fai"]
-radius = 220.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsxn2"]
+resource_local_to_scene = true
+radius = 110.0
 
 [node name="Shield" type="Area2D"]
 z_index = 20
@@ -14,7 +15,7 @@ collision_mask = 0
 script = ExtResource("1_s6dcc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_07fai")
+shape = SubResource("CircleShape2D_hsxn2")
 debug_color = Color(0, 0.6, 0.701961, 0.0862745)
 
 [node name="HealthSystem" parent="." instance=ExtResource("2_w6wil")]
