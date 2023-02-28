@@ -12,7 +12,11 @@ radius = 41.1096
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_oxqnl")]
 collision_layer = 2
 script = ExtResource("2_36u4k")
-proximity_ratio = 0.9
+proximity_ratio = 0.8
+speed = 100.0
+rotation_speed = 1.0
+acceleration = 3.0
+brake = 1.0
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.57079
@@ -26,6 +30,9 @@ texture = ExtResource("4_toa7b")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_3dcnw")
+
+[node name="NavigationAgent2D" parent="." index="3"]
+debug_enabled = true
 
 [node name="Turret" parent="." index="4" instance=ExtResource("4_s7kpp")]
 position = Vector2(0, 25)

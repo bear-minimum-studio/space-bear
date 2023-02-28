@@ -1,6 +1,6 @@
 extends "res://npc/AbstractShip.gd"
 
-@export_range(0.0,1.0) var proximity_ratio = 0.9
+@export_range(0.0,1.0) var proximity_ratio = 0.8
 
 @onready var turret = $Turret
 @onready var turret_range = turret.turret_range

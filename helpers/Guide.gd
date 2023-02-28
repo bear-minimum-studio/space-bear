@@ -9,7 +9,7 @@ extends Node2D
 	set(value): width = value
 	get: return width
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		queue_redraw()
 

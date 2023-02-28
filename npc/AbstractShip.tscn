@@ -19,6 +19,7 @@ script = ExtResource("1_efvdm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 100.0
 
 [node name="HealthSystem" parent="." instance=ExtResource("2_butel")]
 
