@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://iawoyehjjxoa"]
+[gd_scene load_steps=7 format=3 uid="uid://iawoyehjjxoa"]
 
 [ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_63j1f"]
 [ext_resource type="Texture2D" uid="uid://876ifecl54ww" path="res://npc/civilians/vaisseau_defense.png" id="2_0o62w"]
 [ext_resource type="Texture2D" uid="uid://dg1k0isxxsv4q" path="res://npc/civilians/vaisseau_defense_flammes.png" id="3_qquy2"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="5_34wb2"]
+[ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_us0t2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t24if"]
 
@@ -27,3 +28,6 @@ bullet_type = 1
 
 [node name="HealthSystem" parent="." index="5"]
 max_health = 40
+
+[node name="Shield" parent="." index="8" instance=ExtResource("5_us0t2")]
+shield_size = 100.0

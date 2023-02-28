@@ -1,7 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://djo7oaxj6obr3"]
+[gd_scene load_steps=5 format=3 uid="uid://djo7oaxj6obr3"]
 
 [ext_resource type="Script" path="res://shield/Shield.gd" id="1_s6dcc"]
+[ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="2_w6wil"]
+[ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="3_feixo"]
 
-[node name="Shield" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_07fai"]
+radius = 130.0
+
+[node name="Shield" type="Area2D"]
+collision_layer = 9
+collision_mask = 0
 script = ExtResource("1_s6dcc")
-shield_size = 20.0
+shield_size = 60.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07fai")
+debug_color = Color(0, 0.6, 0.701961, 0.0862745)
+
+[node name="HealthSystem" parent="." instance=ExtResource("2_w6wil")]
+max_health = 10
+
+[node name="HurtAnimation" parent="." instance=ExtResource("3_feixo")]
