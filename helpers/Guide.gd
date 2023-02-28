@@ -14,11 +14,13 @@ func _process(delta):
 		queue_redraw()
 
 func _draw():
+	if not visible:
+		return
 	if Engine.is_editor_hint():
 		var mother_ship = $"../MotherShip"
 		if mother_ship == null:
 			return
-			
+		
 		var start = mother_ship.global_position
 		var stop = start + length * Vector2.from_angle(mother_ship.rotation)
 		draw_line(start,stop,Color.ORANGE_RED,width,true)
