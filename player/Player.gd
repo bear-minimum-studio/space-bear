@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Player
 
 signal shoot_grappling_hook
 

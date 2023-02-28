@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyrldebce7csf"]
+[gd_scene load_steps=12 format=3 uid="uid://dyrldebce7csf"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="6_ncofa"]
 [ext_resource type="PackedScene" uid="uid://bb8wbwlfnjaxt" path="res://npc/enemies/Enemy.tscn" id="7_fjohj"]
 [ext_resource type="PackedScene" uid="uid://iawoyehjjxoa" path="res://npc/civilians/TurretShip.tscn" id="8_ryaps"]
+[ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="9_bepgg"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -418,5 +419,8 @@ position = Vector2(2623, -2881)
 
 [node name="Enemy11" parent="Enemies" instance=ExtResource("7_fjohj")]
 position = Vector2(2323, -2523)
+
+[node name="Wormhole" parent="." instance=ExtResource("9_bepgg")]
+position = Vector2(910, -204)
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]

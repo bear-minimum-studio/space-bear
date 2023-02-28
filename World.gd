@@ -15,6 +15,8 @@ func _ready():
 	mother_ship.set_movement_target(target.global_transform.origin)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
 	Events.shoot.connect(_on_ally_shoot)
+	Events.convoy_reached_wormhole.connect(_on_convoy_reached_wormhole)
+	Events.player_reached_wormhole.connect(_on_player_reached_wormhole)
 
 
 func _on_ally_shoot(global_ally_position, global_ally_rotation, ally_velocity):
@@ -49,3 +51,10 @@ func _on_player_shoot_grappling_hook(global_player_position, global_player_rotat
 
 	current_hook = new_hook
 	new_hook.launch(player, global_player_rotation)
+
+
+func _on_convoy_reached_wormhole():
+	print('level ended')
+
+func _on_player_reached_wormhole():
+	print('you reached the level end')

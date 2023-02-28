@@ -99,6 +99,7 @@ upgrade={
 2d_physics/layer_3="hit asteroid"
 2d_physics/layer_4="ally"
 2d_physics/layer_5="ally hitbox"
+2d_physics/layer_6="level end"
 
 [physics]
 
