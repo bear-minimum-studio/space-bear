@@ -10,7 +10,7 @@
 
 [node name="TurretShip" instance=ExtResource("1_0bdkf")]
 collision_layer = 8
-number_of_passengers = 10
+number_of_passengers = 50
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]
