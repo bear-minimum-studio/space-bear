@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyrldebce7csf"]
+[gd_scene load_steps=13 format=3 uid="uid://dyrldebce7csf"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="1_yasag"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bb8wbwlfnjaxt" path="res://npc/enemies/Enemy.tscn" id="7_fjohj"]
 [ext_resource type="PackedScene" uid="uid://iawoyehjjxoa" path="res://npc/civilians/TurretShip.tscn" id="8_ryaps"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="9_bepgg"]
+[ext_resource type="Script" path="res://helpers/Guide.gd" id="10_vyd3d"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -421,6 +422,12 @@ position = Vector2(2623, -2881)
 position = Vector2(2323, -2523)
 
 [node name="Wormhole" parent="." instance=ExtResource("9_bepgg")]
-position = Vector2(910, -204)
+position = Vector2(3310, -2300)
+
+[node name="Guide" type="Node2D" parent="."]
+z_index = 10
+position = Vector2(0, -1.52588e-05)
+script = ExtResource("10_vyd3d")
+width = 26.0
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
