@@ -12,15 +12,15 @@ extends CharacterBody2D
 @onready var hurt_animation = $HurtAnimation
 @onready var health_bar = $UI/HealthBar
 
+@onready var rotation_target: float = rotation
+
 var movement_target: Vector2
-var rotation_target: float
 
 func _ready():
 	pass
 
 func _physics_process(delta):
 	_set_rotation_target()
-	var prev_rot = rotation
 	rotation = lerp_angle(rotation, rotation_target, rotation_speed * delta)
 	_set_velocity(delta)
 	move_and_slide()

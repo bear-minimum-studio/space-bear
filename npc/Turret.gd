@@ -28,41 +28,55 @@ const bullet_target_mapping = {
 	BulletType.ALLY: "enemy"
 }
 
+@export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
+
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 @onready var shooting_speed = 1.0 / bullets_per_second
 var _reloading = false
 
 @onready var nozzle = $Nozzle
 
-func _physics_process(_delta):
+@onready var rotation_target: float = global_rotation
+
+var target: Node2D = null
+
+func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
 	
-	var bodies: Array[Node2D] = self.get_overlapping_bodies()
+	var shooter = get_parent()
+	_set_target()
+	_set_rotation_target(shooter)
+	global_rotation = lerp_angle(global_rotation, rotation_target, 3*delta)
+	
+	if target != null:
+		shoot(shooter)
+
+func _set_target():
+	var bodies: Array[Node2D] = get_overlapping_bodies()
 	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
+	target = Helpers.find_nearest_node(get_parent(), potential_targets)
+	
+func _set_rotation_target(shooter: Node2D):
+	if target == null:
+		rotation_target = shooter.global_rotation
+		return
+	
+	var direction_to_target = (target.global_position - global_position).normalized()
+	var shooter_velocity = Helpers.get_velocity(shooter)
+	var target_velocity = Helpers.get_velocity(target)
+	var correction = (target_velocity - shooter_velocity) / bullet_speed
+	var shooting_direction = direction_to_target + correction
+	rotation_target = shooting_direction.angle()
 
-	var nearest_body = Helpers.find_nearest_node(self.get_parent(), potential_targets)
-	if nearest_body != null:
-		self.shoot_towards(self.get_parent(), nearest_body)
-	else:
-		self.global_rotation = get_parent().global_rotation
-
-
-func shoot_towards(shooter: Node2D, body: Node2D):
-	self.look_at(body.global_position)
-
+func shoot(shooter: Node2D):
 	if _reloading:
 		return
 	
-	var shooter_velocity
-	if shooter is RigidBody2D:
-		shooter_velocity = shooter.linear_velocity
-	else:
-		shooter_velocity = shooter.velocity
-
+	var shooter_velocity = Helpers.get_velocity(shooter)
 	var imprecision = randf_range(-bullet_spread_angle, bullet_spread_angle)
-	var shooting_angle = self.global_rotation + imprecision
-	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, shooting_angle, shooter_velocity)
+	var shooting_angle = global_rotation + imprecision
+	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout

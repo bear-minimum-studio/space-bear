@@ -17,3 +17,9 @@ func find_nearest_node(reference: Node2D, other_nodes: Array):
 			distance = current_distance
 
 	return nearest
+
+func get_velocity(node: Node2D) -> Vector2:
+	if(node is RigidBody2D):
+		return node.linear_velocity
+	else:
+		return node.velocity

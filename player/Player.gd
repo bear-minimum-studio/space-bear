@@ -8,6 +8,7 @@ signal shoot_grappling_hook
 @export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.7
 @export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
 
+@export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 
 @onready var rotation_speed = 2 * PI * rotation_per_second
@@ -38,7 +39,7 @@ func _shoot():
 	if _reloading:
 		return
 
-	Events.emit_signal("shoot", global_position, global_rotation, linear_velocity)
+	Events.emit_signal("shoot", global_position, global_rotation, linear_velocity, bullet_speed)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout
