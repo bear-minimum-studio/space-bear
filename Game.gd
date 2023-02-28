@@ -2,10 +2,12 @@ extends Node2D
 
 @onready var civilians_left = $CanvasLayer/CiviliansLeft
 @onready var game_over = $CanvasLayer/GameOver
+@onready var level_end = $CanvasLayer/LevelEnd
 
 func _ready():
 	Events.dead_ship.connect(_on_dead_civilian)
 	Events.game_over.connect(_on_game_over)
+	Events.convoy_reached_wormhole.connect(_on_level_end)
 	Events.restart.connect(_on_restart)
 	_update_text(_count_civilians())
 
@@ -32,6 +34,10 @@ func _update_text(nb_of_civilians_left: int):
 func _on_game_over():
 	get_tree().paused = true
 	game_over.visible = true
+
+func _on_level_end():
+	get_tree().paused = true
+	level_end.visible = true
 
 func _on_restart():
 	get_tree().paused = false
