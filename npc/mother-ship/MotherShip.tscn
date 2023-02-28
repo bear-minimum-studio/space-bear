@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1kn511h34n6d"]
+[gd_scene load_steps=7 format=3 uid="uid://c1kn511h34n6d"]
 
 [ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_yo7vv"]
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
 [ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_kencp"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="4_niboy"]
+[ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tks0q"]
 radius = 71.0
@@ -50,11 +51,10 @@ position = Vector2(-13, 77)
 scale = Vector2(2, 2)
 bullet_type = 1
 
-[node name="Health" parent="UI" index="0"]
-offset_left = -63.0
-offset_top = 79.0
-offset_right = 63.0
-offset_bottom = 95.0
+[node name="Shield" parent="." index="11" instance=ExtResource("5_7a3ox")]
+position = Vector2(-1, 0)
+max_health = 50
+shield_size = 200.0
 
 [editable path="Turret2"]
 [editable path="Turret3"]

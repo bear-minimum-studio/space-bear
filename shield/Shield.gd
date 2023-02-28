@@ -38,6 +38,7 @@ const COLLISION_MARGIN_PERCENT = 10
 
 func _ready():
 	health_system.hp_changed.connect(_on_hit)
+	_update_collision_shape_margin()
 
 func _draw():
 	draw_circle(Vector2.ZERO, shield_size, shield_color)
@@ -45,3 +46,7 @@ func _draw():
 
 func _on_hit(_health, _max_health):
 	hurt_animation.animate_hurt_opacity(self)
+
+func _update_collision_shape_margin():
+	if collision_shape_2d != null:
+		collision_shape_2d.shape.radius = shield_size + COLLISION_MARGIN_PERCENT
