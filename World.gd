@@ -12,7 +12,6 @@ var current_hook : Node2D
 
 func _ready():
 	get_tree().call_group("flock", "set_movement_target", target.global_transform.origin)
-	mother_ship.set_movement_target(target.global_transform.origin)
 	Events.enemy_shoot.connect(_on_enemy_shoot)
 	Events.shoot.connect(_on_ally_shoot)
 	Events.convoy_reached_wormhole.connect(_on_convoy_reached_wormhole)
