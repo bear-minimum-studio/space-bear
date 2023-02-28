@@ -60,7 +60,7 @@ offset_bottom = 99.0
 
 [node name="Shield" parent="." index="11" instance=ExtResource("5_7a3ox")]
 position = Vector2(-1, 0)
-max_health = 50
+max_health = 300
 shield_size = 200.0
 
 [editable path="Turret2"]

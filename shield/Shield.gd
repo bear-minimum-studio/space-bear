@@ -11,8 +11,7 @@ const COLLISION_MARGIN_PERCENT = 10
 @export var max_health = 20 :
 	set(new_max_health):
 		max_health = new_max_health
-		if health_system != null:
-			health_system.max_health = new_max_health
+		_initialize_max_health()
 
 @export var shield_color: Color = Color("#0096ff2b") :
 	set(new_color):
@@ -39,6 +38,7 @@ const COLLISION_MARGIN_PERCENT = 10
 func _ready():
 	health_system.hp_changed.connect(_on_hit)
 	_update_collision_shape_margin()
+	_initialize_max_health()
 
 func _draw():
 	draw_circle(Vector2.ZERO, shield_size, shield_color)
@@ -50,3 +50,7 @@ func _on_hit(_health, _max_health):
 func _update_collision_shape_margin():
 	if collision_shape_2d != null:
 		collision_shape_2d.shape.radius = shield_size + COLLISION_MARGIN_PERCENT
+
+func _initialize_max_health():
+	if health_system != null:
+		health_system.max_health = max_health
