@@ -33,8 +33,6 @@ var brake_intensity:
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
 
-var turret_ship_scene = preload("res://npc/civilians/TurretShip.tscn")
-
 func _ready():
 	var turrets = $Turrets.get_children()
 	for auto_turret in turrets:
