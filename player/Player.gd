@@ -112,7 +112,7 @@ func _upgrade_selected_ship():
 	if selected_ship == null:
 		return
 	
-	var price = ShipTypes.get_current_ship_price()
+	var price = ShipCatalog.catalog.get_current_ship_price()
 	if FlockResources.get_resources() < price:
 		return
 	FlockResources.spend_resource(price)
@@ -120,7 +120,7 @@ func _upgrade_selected_ship():
 	var movement_target = selected_ship.movement_target
 	var selected_ship_parent = selected_ship.get_parent()
 	
-	var new_ship_scene = ShipTypes.get_current_ship_scene()
+	var new_ship_scene = ShipCatalog.catalog.get_current_ship_scene()
 	# This should probably be a factory function inside ship?
 	var new_ship = new_ship_scene.instantiate()
 	new_ship.global_rotation = selected_ship.global_rotation

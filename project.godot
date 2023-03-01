@@ -19,8 +19,8 @@ config/icon="res://player/vaisseau.png"
 
 Events="*res://singletons/Events.gd"
 Helpers="*res://helpers/Helpers.gd"
-ShipTypes="*res://singletons/ShipTypes.gd"
 FlockResources="*res://singletons/FlockResources.gd"
+ShipCatalog="*res://singletons/ShipCatalog.gd"
 
 [display]
 
