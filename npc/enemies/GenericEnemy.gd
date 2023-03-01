@@ -8,9 +8,6 @@ extends "res://npc/AbstractShip.gd"
 var targetted_ship: Node2D
 var _target_position_offset: Vector2
 
-func _ready():
-	pass
-
 func _physics_process(delta):
 	super._physics_process(delta)
 	_set_targetted_positon()
