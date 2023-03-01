@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgkkbhp6eam8m"]
+[gd_scene load_steps=10 format=3 uid="uid://cgkkbhp6eam8m"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://GenericWorld.tscn" id="1_tdmob"]
+[ext_resource type="Script" path="res://World.gd" id="2_fom0c"]
 [ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="2_oy46b"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" uid="uid://iawoyehjjxoa" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
@@ -10,6 +11,7 @@
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
+script = ExtResource("2_fom0c")
 
 [node name="MotherShip" parent="." index="3" instance=ExtResource("2_oy46b")]
 position = Vector2(452, 94)
