@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://1g287f44t86u"]
+
+[ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_7pvws"]
+[ext_resource type="Texture2D" uid="uid://dnfexlynuag6t" path="res://npc/civilians/vaisseau_civil_1.png" id="2_m0hcx"]
+[ext_resource type="Texture2D" uid="uid://5u7y1ei2tu6r" path="res://npc/civilians/vaisseau_civil_1_flammes.png" id="3_axgrb"]
+[ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="4_mj3k5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4sqib"]
+radius = 15.0
+height = 50.0
+
+[node name="ShieldShip" instance=ExtResource("1_7pvws")]
+number_of_passengers = 50
+speed = 30.0
+
+[node name="Ship" parent="." index="0"]
+rotation = 1.57079
+scale = Vector2(2, 2)
+texture = ExtResource("2_m0hcx")
+
+[node name="Flammes" parent="." index="1"]
+rotation = 1.57079
+scale = Vector2(2, 2)
+texture = ExtResource("3_axgrb")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(7, 0)
+rotation = 3.14159
+shape = SubResource("CapsuleShape2D_4sqib")
+
+[node name="HealthSystem" parent="." index="4"]
+max_health = 50
+
+[node name="HealthBar" parent="UI" index="0"]
+offset_top = 38.0
+offset_bottom = 54.0
+
+[node name="Shield" parent="." index="7" instance=ExtResource("4_mj3k5")]
+max_health = 200
+shield_size = 200.0
