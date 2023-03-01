@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="4_mj3k5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4sqib"]
-radius = 33.0
-height = 88.0
+radius = 47.0
+height = 108.0
 
 [node name="ShieldShip" instance=ExtResource("1_7pvws")]
 number_of_passengers = 50
