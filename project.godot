@@ -31,6 +31,10 @@ window/size/window_height_override=800
 window/dpi/allow_hidpi=false
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://default_theme.tres"
+
 [input]
 
 accelerate={
