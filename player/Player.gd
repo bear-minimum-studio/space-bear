@@ -123,6 +123,7 @@ func _upgrade_selected_ship():
 	
 	selected_ship.queue_free()
 	selected_ship_parent.add_child(new_ship)
+	new_ship.animate_construction()
 	
 	new_ship.set_movement_target(movement_target)
 
