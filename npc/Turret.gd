@@ -49,18 +49,18 @@ func _physics_process(delta):
 		return
 	
 	_set_target()
-	_set_rotation_target(shooter)
+	_set_rotation_target()
 	global_rotation = lerp_angle(global_rotation, rotation_target, 3*delta)
 	
 	if target != null:
-		shoot(shooter)
+		shoot()
 
 func _set_target():
 	var bodies: Array[Node2D] = get_overlapping_bodies()
 	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
 	target = Helpers.find_nearest_node(get_parent(), potential_targets)
 	
-func _set_rotation_target(shooter: PhysicsBody2D):
+func _set_rotation_target():
 	if(shooter == null):
 		return
 		
@@ -75,7 +75,7 @@ func _set_rotation_target(shooter: PhysicsBody2D):
 	var shooting_direction = direction_to_target + correction
 	rotation_target = shooting_direction.angle()
 
-func shoot(shooter: Node2D):
+func shoot():
 	if _reloading:
 		return
 	
