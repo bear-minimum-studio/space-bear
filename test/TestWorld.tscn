@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://blgatwxs3nakh"]
+[gd_scene load_steps=11 format=3]
 
-[ext_resource type="Script" path="res://World.gd" id="1_rfqyu"]
+[ext_resource type="Script" path="res://GenericWorld.gd" id="1_rfqyu"]
 [ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_h6tdq"]
 [ext_resource type="PackedScene" uid="uid://br6bfdr7gif8a" path="res://player/Player.tscn" id="3_1kxcx"]
 [ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="4_6tosn"]
