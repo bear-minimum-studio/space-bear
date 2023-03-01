@@ -28,6 +28,8 @@ const bullet_target_mapping = {
 	BulletType.ALLY: "enemy"
 }
 
+@export_range(0.1,10.0,0.1,"or_greater") var rotation_speed = 5.0
+
 @export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
 
 @export_range(0.5,50.0) var bullets_per_second = 5.0
@@ -50,7 +52,7 @@ func _physics_process(delta):
 	
 	_set_target()
 	_set_rotation_target()
-	global_rotation = lerp_angle(global_rotation, rotation_target, 3*delta)
+	global_rotation = lerp_angle(global_rotation, rotation_target, rotation_speed * delta)
 	
 	if target != null:
 		shoot()
