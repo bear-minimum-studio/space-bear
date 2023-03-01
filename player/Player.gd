@@ -112,6 +112,11 @@ func _upgrade_selected_ship():
 	if selected_ship == null:
 		return
 	
+	var price = ShipTypes.get_current_ship_price()
+	if FlockResources.get_resources() < price:
+		return
+	FlockResources.spend_resource(price)
+	
 	var movement_target = selected_ship.movement_target
 	var selected_ship_parent = selected_ship.get_parent()
 	
