@@ -35,6 +35,11 @@ var brake_intensity:
 
 var turret_ship_scene = preload("res://npc/civilians/TurretShip.tscn")
 
+func _ready():
+	var turrets = $Turrets.get_children()
+	for turret in turrets:
+		turret.init(self)
+
 func _shoot():
 	if _reloading:
 		return

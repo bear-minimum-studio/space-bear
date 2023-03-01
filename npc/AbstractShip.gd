@@ -17,7 +17,10 @@ extends CharacterBody2D
 var movement_target: Vector2
 
 func _ready():
-	pass
+	if $Turrets != null:
+		var turrets = $Turrets.get_children()
+		for turret in turrets:
+			turret.init(self)
 
 func _physics_process(delta):
 	_set_rotation_target()

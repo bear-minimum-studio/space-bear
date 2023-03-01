@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" uid="uid://iawoyehjjxoa" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="5_q0ygi"]
-[ext_resource type="PackedScene" uid="uid://bb8wbwlfnjaxt" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
+[ext_resource type="PackedScene" uid="uid://cnctphhxtu347" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="7_0hi8j"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
 

@@ -22,8 +22,10 @@ texture = ExtResource("3_qquy2")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_t24if")
 
-[node name="Turret" parent="." index="4" instance=ExtResource("5_34wb2")]
-bullet_type = 1
-
-[node name="HealthSystem" parent="." index="5"]
+[node name="HealthSystem" parent="." index="4"]
 max_health = 40
+
+[node name="Turrets" type="Node2D" parent="." index="8"]
+
+[node name="Turret" parent="Turrets" index="0" instance=ExtResource("5_34wb2")]
+bullet_type = 1

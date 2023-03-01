@@ -92,11 +92,13 @@ max_health = 50
 
 [node name="PlayerRadar" parent="." instance=ExtResource("14_fhr4g")]
 
-[node name="Turret" parent="." instance=ExtResource("15_du3jo")]
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Turret" parent="Turrets" instance=ExtResource("15_du3jo")]
 position = Vector2(0, -23)
 bullet_type = 1
 
-[node name="Turret2" parent="." instance=ExtResource("15_du3jo")]
+[node name="Turret2" parent="Turrets" instance=ExtResource("15_du3jo")]
 position = Vector2(0, 21)
 bullet_type = 1
 

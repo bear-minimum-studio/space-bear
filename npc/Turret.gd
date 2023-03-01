@@ -38,13 +38,16 @@ var _reloading = false
 
 @onready var rotation_target: float = global_rotation
 
-var target: Node2D = null
+var target : Node2D = null
+var shooter : PhysicsBody2D = null
+
+func init(new_shooter: PhysicsBody2D) -> void:
+	shooter = new_shooter
 
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
 	
-	var shooter = get_parent()
 	_set_target()
 	_set_rotation_target(shooter)
 	global_rotation = lerp_angle(global_rotation, rotation_target, 3*delta)
@@ -57,7 +60,10 @@ func _set_target():
 	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
 	target = Helpers.find_nearest_node(get_parent(), potential_targets)
 	
-func _set_rotation_target(shooter: Node2D):
+func _set_rotation_target(shooter: PhysicsBody2D):
+	if(shooter == null):
+		return
+		
 	if target == null:
 		rotation_target = shooter.global_rotation
 		return

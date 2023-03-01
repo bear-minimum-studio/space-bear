@@ -1,18 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbv4apjjhnf8u"]
+[gd_scene load_steps=5 format=3 uid="uid://cm028a3usmuaa"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://GenericWorld.tscn" id="1_euu80"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wqd16"]
-[ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="3_4s124"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="4_loucl"]
-[ext_resource type="PackedScene" uid="uid://bb8wbwlfnjaxt" path="res://npc/enemies/Enemy.tscn" id="5_q213c"]
-[ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="6_115ei"]
-[ext_resource type="Script" path="res://helpers/Guide.gd" id="7_qe1xa"]
+[ext_resource type="PackedScene" uid="uid://cnctphhxtu347" path="res://npc/enemies/Enemy.tscn" id="5_q213c"]
 
 [node name="World" instance=ExtResource("1_euu80")]
-
-[node name="MotherShip" parent="." index="3" instance=ExtResource("3_4s124")]
-position = Vector2(452, 94)
-rotation = -0.698132
 
 [node name="CivilianShip" parent="Flock" index="0" instance=ExtResource("2_wqd16")]
 position = Vector2(256, 205)
@@ -76,11 +69,10 @@ rotation_speed = 10.0
 acceleration = 10.0
 brake = 10.0
 
-[node name="Wormhole" parent="." index="8" instance=ExtResource("6_115ei")]
-position = Vector2(3310, -2300)
-
-[node name="Guide" type="Node2D" parent="." index="9"]
-z_index = 10
-position = Vector2(0, -1.52588e-05)
-script = ExtResource("7_qe1xa")
-width = 26.0
+[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("5_q213c")]
+position = Vector2(2125, 550)
+proximity_ratio = 0.0
+speed = 300.0
+rotation_speed = 0.7
+acceleration = 100.0
+brake = 0.3

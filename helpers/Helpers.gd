@@ -18,8 +18,12 @@ func find_nearest_node(reference: Node2D, other_nodes: Array):
 
 	return nearest
 
-func get_velocity(node: Node2D) -> Vector2:
-	if(node is RigidBody2D):
+func get_velocity(node: PhysicsBody2D) -> Vector2:
+	if node is RigidBody2D:
 		return node.linear_velocity
-	else:
+	elif node is CharacterBody2D:
 		return node.velocity
+	elif node is StaticBody2D:
+		return node.constant_linear_velocity
+	else:
+		return Vector2.ZERO
