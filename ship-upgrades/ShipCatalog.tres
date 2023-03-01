@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShipCatalogResource" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="ShipCatalogResource" load_steps=7 format=3 uid="uid://cen4otsw4dd0j"]
 
 [ext_resource type="Script" path="res://ship-upgrades/ShipCatalogResource.gd" id="1_slayw"]
 [ext_resource type="PackedScene" uid="uid://1g287f44t86u" path="res://npc/civilians/ShieldShip.tscn" id="2_f3vtt"]
