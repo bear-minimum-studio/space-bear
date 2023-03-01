@@ -9,7 +9,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_t24if"]
 
 [node name="TurretShip" instance=ExtResource("1_0bdkf")]
-collision_layer = 8
 number_of_passengers = 50
 speed = 30.0
 

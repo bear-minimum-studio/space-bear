@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://npc/civilians/AbstractCivilianShip.gd" id="2_obvko"]
 
 [node name="AbstractCivilianShip" groups=["flock"] instance=ExtResource("1_0bdkf")]
+collision_layer = 8
 script = ExtResource("2_obvko")
 number_of_passengers = 0

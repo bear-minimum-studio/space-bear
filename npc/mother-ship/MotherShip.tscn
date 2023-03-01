@@ -23,7 +23,6 @@ resource_local_to_scene = true
 radius = 500.0
 
 [node name="MotherShip" instance=ExtResource("1_0bdkf")]
-collision_layer = 8
 number_of_passengers = 100000
 speed = 30.0
 
