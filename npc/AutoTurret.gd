@@ -19,6 +19,12 @@ func _physics_process(delta):
 		shoot()
 
 func _set_target():
+	if shooter == null:
+		return
+	
+	if target != null and shooter.global_position.distance_to(target.global_position) < turret_range:
+		return
+	
 	var bodies: Array[Node2D] = get_overlapping_bodies()
 	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
 	target = Helpers.find_nearest_node(shooter, potential_targets)
