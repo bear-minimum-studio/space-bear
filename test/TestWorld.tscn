@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm028a3usmuaa"]
+[gd_scene load_steps=6 format=3 uid="uid://cm028a3usmuaa"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_euu80"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wqd16"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="4_loucl"]
+[ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="5_fxyub"]
 [ext_resource type="PackedScene" uid="uid://cnctphhxtu347" path="res://npc/enemies/Enemy.tscn" id="5_q213c"]
 
 [node name="World" instance=ExtResource("1_euu80")]
@@ -76,3 +77,6 @@ speed = 300.0
 rotation_speed = 0.7
 acceleration = 100.0
 brake = 0.3
+
+[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("5_fxyub")]
+position = Vector2(691, 532)
