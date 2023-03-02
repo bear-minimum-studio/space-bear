@@ -1,6 +1,11 @@
 extends "res://npc/enemies/AbstractBehavior.gd"
 
-var distance_to_target : float = 0.0
+var distance_to_target : float = 0.0:
+	set(new_distance_to_target):
+		if new_distance_to_target == null:
+			return
+		distance_to_target = new_distance_to_target
+		_update_target_position_offset()
 
 var _target_position_offset: Vector2 = Vector2.ZERO:
 	set(new_target_position_offset):

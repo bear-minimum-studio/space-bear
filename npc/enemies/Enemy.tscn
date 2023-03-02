@@ -2,8 +2,40 @@
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_vfgof"]
 [ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="2_56xao"]
-[ext_resource type="Script" path="res://npc/enemies/ProximityBehavior.gd" id="2_vut8c"]
 [ext_resource type="PackedScene" uid="uid://dgesufvtht7nu" path="res://npc/AutoTurret.tscn" id="3_1eig1"]
+
+[sub_resource type="GDScript" id="GDScript_sjt6r"]
+script/source = "extends \"res://npc/enemies/AbstractBehavior.gd\"
+
+var distance_to_target : float = 0.0:
+	set(new_distance_to_target):
+		if new_distance_to_target == null:
+			return
+		distance_to_target = new_distance_to_target
+		_update_target_position_offset()
+		
+
+var _target_position_offset: Vector2 = distance_to_target * Vector2.DOWN:
+	set(new_target_position_offset):
+		if new_target_position_offset == null:
+			return
+		_target_position_offset = new_target_position_offset
+		_update_target_position()
+
+func _update_target():
+	super._update_target()
+	_update_target_position_offset()
+
+func _update_target_position_offset():
+	_target_position_offset = distance_to_target * Vector2.DOWN
+
+func _update_target_position():
+	if _target == null:
+		_target_position = _parent.global_position
+		return
+	
+	_target_position = _target.global_position + _target_position_offset
+"
 
 [node name="Enemy" instance=ExtResource("1_vfgof")]
 script = ExtResource("2_56xao")
@@ -17,4 +49,4 @@ position = Vector2(2.08165e-12, 25)
 position = Vector2(2.08165e-12, -25)
 
 [node name="Behavior" parent="." index="8"]
-script = ExtResource("2_vut8c")
+script = SubResource("GDScript_sjt6r")

@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://7r4r7r8h4aep"]
+[gd_scene load_steps=5 format=3 uid="uid://7r4r7r8h4aep"]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_i1wmw"]
 [ext_resource type="PackedScene" uid="uid://dgesufvtht7nu" path="res://npc/AutoTurret.tscn" id="2_4vvl4"]
-[ext_resource type="Script" path="res://npc/enemies/ProximityBehavior.gd" id="3_52e06"]
+[ext_resource type="Script" path="res://npc/enemies/VultureEnemy.gd" id="2_tyx4m"]
+[ext_resource type="Script" path="res://npc/enemies/VultureBehavior.gd" id="3_kw2eq"]
 
 [node name="Enemy" instance=ExtResource("1_i1wmw")]
-speed = 300.0
+script = ExtResource("2_tyx4m")
+proximity_ratio = 1.35
+speed = 350.0
 acceleration = 100.0
+brake = 0.5
 
 [node name="Turret" parent="Turrets" index="0" instance=ExtResource("2_4vvl4")]
 position = Vector2(10, -15)
@@ -20,4 +24,4 @@ turret_range = 350.0
 rotation_range = 0.392699
 
 [node name="Behavior" parent="." index="8"]
-script = ExtResource("3_52e06")
+script = ExtResource("3_kw2eq")
