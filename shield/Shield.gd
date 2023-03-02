@@ -5,7 +5,6 @@ class_name Shield
 const COLLISION_MARGIN = 10
 
 @onready var collision_shape_2d = $CollisionShape2D
-@onready var hurt_animation = $HurtAnimation
 @onready var health_system = $HealthSystem
 @onready var old_collision_layer = collision_layer
 @export_range(1.0, 30.0) var recharge_delay_seconds = 5.0
