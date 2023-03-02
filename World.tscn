@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgkkbhp6eam8m"]
+[gd_scene load_steps=12 format=3 uid="uid://cgkkbhp6eam8m"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_tdmob"]
 [ext_resource type="Script" path="res://World.gd" id="2_fom0c"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cnctphhxtu347" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="7_0hi8j"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
+[ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
 script = ExtResource("2_fom0c")
@@ -368,10 +369,6 @@ position = Vector2(971, 856)
 
 [node name="Enemy2" parent="Enemies" index="2" instance=ExtResource("6_m2i0p")]
 position = Vector2(566, 713)
-proximity_ratio = 0.0
-speed = 300.0
-acceleration = 75.0
-brake = 0.5
 
 [node name="Enemy3" parent="Enemies" index="3" instance=ExtResource("6_m2i0p")]
 position = Vector2(989, -1991)
@@ -384,10 +381,6 @@ position = Vector2(2123, -2875)
 
 [node name="Enemy6" parent="Enemies" index="6" instance=ExtResource("6_m2i0p")]
 position = Vector2(1871, -2580)
-speed = 300.0
-rotation_speed = 0.8
-acceleration = 100.0
-brake = 0.8
 
 [node name="Enemy7" parent="Enemies" index="7" instance=ExtResource("6_m2i0p")]
 position = Vector2(1903, -3133)
@@ -403,6 +396,18 @@ position = Vector2(2623, -2881)
 
 [node name="Enemy11" parent="Enemies" index="11" instance=ExtResource("6_m2i0p")]
 position = Vector2(2323, -2523)
+
+[node name="Enemy13" parent="Enemies" index="12" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1709, 1047)
+
+[node name="Enemy14" parent="Enemies" index="13" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1241, 1003)
+
+[node name="Enemy15" parent="Enemies" index="14" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1811, 1382)
+
+[node name="Enemy16" parent="Enemies" index="15" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1327, 1420)
 
 [node name="Wormhole" parent="." index="8" instance=ExtResource("7_0hi8j")]
 position = Vector2(3310, -2300)
