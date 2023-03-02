@@ -11,13 +11,13 @@ acceleration = 100.0
 [node name="Turret" parent="Turrets" index="0" instance=ExtResource("2_4vvl4")]
 position = Vector2(10, -15)
 rotation = -1.5708
-rotation_range = 0.785398
+rotation_range = 0.392699
 
 [node name="Turret2" parent="Turrets" index="1" instance=ExtResource("2_4vvl4")]
 position = Vector2(-10, -15)
 rotation = -1.5708
 turret_range = 350.0
-rotation_range = 0.785398
+rotation_range = 0.392699
 
 [node name="Behavior" parent="." index="8"]
 script = ExtResource("3_52e06")
