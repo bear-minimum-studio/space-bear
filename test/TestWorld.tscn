@@ -1,51 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm028a3usmuaa"]
+[gd_scene load_steps=5 format=3 uid="uid://cm028a3usmuaa"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_euu80"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wqd16"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="4_loucl"]
 [ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="5_fxyub"]
-[ext_resource type="PackedScene" uid="uid://cnctphhxtu347" path="res://npc/enemies/Enemy.tscn" id="5_q213c"]
 
 [node name="World" instance=ExtResource("1_euu80")]
 
 [node name="CivilianShip" parent="Flock" index="0" instance=ExtResource("2_wqd16")]
 position = Vector2(256, 205)
-rotation = -0.698132
-
-[node name="CivilianShip2" parent="Flock" index="1" instance=ExtResource("2_wqd16")]
-position = Vector2(336, 223)
-rotation = -0.698132
-
-[node name="CivilianShip3" parent="Flock" index="2" instance=ExtResource("2_wqd16")]
-position = Vector2(308, 162)
-rotation = -0.698132
-
-[node name="CivilianShip4" parent="Flock" index="3" instance=ExtResource("2_wqd16")]
-position = Vector2(240, 153)
-rotation = -0.698132
-
-[node name="CivilianShip5" parent="Flock" index="4" instance=ExtResource("2_wqd16")]
-position = Vector2(381, 273)
-rotation = -0.698132
-
-[node name="CivilianShip6" parent="Flock" index="5" instance=ExtResource("2_wqd16")]
-position = Vector2(309, 287)
-rotation = -0.698132
-
-[node name="CivilianShip7" parent="Flock" index="6" instance=ExtResource("2_wqd16")]
-position = Vector2(251, 316)
-rotation = -0.698132
-
-[node name="CivilianShip8" parent="Flock" index="7" instance=ExtResource("2_wqd16")]
-position = Vector2(217, 256)
-rotation = -0.698132
-
-[node name="CivilianShip9" parent="Flock" index="8" instance=ExtResource("2_wqd16")]
-position = Vector2(162, 184)
-rotation = -0.698132
-
-[node name="CivilianShip10" parent="Flock" index="9" instance=ExtResource("2_wqd16")]
-position = Vector2(320, 372)
 rotation = -0.698132
 
 [node name="Asteroid" parent="Asteroids" index="0" instance=ExtResource("4_loucl")]
@@ -63,20 +26,5 @@ position = Vector2(1284, -936)
 [node name="Asteroid5" parent="Asteroids" index="4" instance=ExtResource("4_loucl")]
 position = Vector2(1677, -657)
 
-[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("5_q213c")]
-position = Vector2(1702, 904)
-speed = 50.0
-rotation_speed = 10.0
-acceleration = 10.0
-brake = 10.0
-
-[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("5_q213c")]
-position = Vector2(2125, 550)
-proximity_ratio = 0.0
-speed = 300.0
-rotation_speed = 0.7
-acceleration = 100.0
-brake = 0.3
-
-[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("5_fxyub")]
-position = Vector2(691, 532)
+[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("5_fxyub")]
+position = Vector2(-110, -28)
