@@ -32,10 +32,12 @@ var _reloading = false
 
 @onready var nozzle = $Nozzle
 
-@onready var rotation_target: float = 0:
+@onready var default_rotation = rotation
+
+@onready var rotation_target: float = default_rotation:
 	set(new_rotation_target):
-		new_rotation_target = fmod(new_rotation_target, PI)
-		new_rotation_target = max(min(new_rotation_target, rotation_range), -rotation_range)
+		new_rotation_target = fmod(new_rotation_target - default_rotation, PI)
+		new_rotation_target = max(min(new_rotation_target, rotation_range), -rotation_range) + default_rotation
 		rotation_target = new_rotation_target
 		
 
