@@ -21,19 +21,16 @@ const COLLISION_MARGIN = 10
 		shield_color = new_color
 		_update_shield_color()
 
-
 @export var shield_size: float = 100.0 :
 	set(new_shield_size):
 		shield_size = new_shield_size
-		_update_collision_shape_margin()
-		_update_shield_sprite_size()
+		_update_shield_size()
 
 
 var timer_before_heal: SceneTreeTimer = null
 
 func _ready():
-	_update_collision_shape_margin()
-	_update_shield_sprite_size()
+	_update_shield_size()
 	_update_shield_color()
 	if Engine.is_editor_hint():
 		return
@@ -68,11 +65,9 @@ func _on_hit(_health, _max_health):
 	tween_hit.tween_property(sprite_2d, "material:shader_parameter/opacity",health_amount,0.05)
 
 
-func _update_collision_shape_margin():
+func _update_shield_size():
 	if collision_shape_2d != null:
 		collision_shape_2d.shape.radius = shield_size + COLLISION_MARGIN
-
-func _update_shield_sprite_size():
 	if sprite_2d != null:
 		var sprite_scale = shield_size / 100.0 # TODO: use default size instead (100 right now)
 		sprite_2d.apply_scale(Vector2(sprite_scale,sprite_scale))
