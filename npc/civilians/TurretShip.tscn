@@ -29,3 +29,4 @@ max_health = 40
 
 [node name="Turret" parent="Turrets" index="0" instance=ExtResource("4_273rr")]
 bullet_type = 1
+rotation_range = null

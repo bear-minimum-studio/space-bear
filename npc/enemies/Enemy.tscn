@@ -15,9 +15,11 @@ debug_enabled = false
 
 [node name="Turret" parent="Turrets" index="0" instance=ExtResource("3_1eig1")]
 position = Vector2(2.08165e-12, 25)
+rotation_range = null
 
 [node name="Turret2" parent="Turrets" index="1" instance=ExtResource("3_1eig1")]
 position = Vector2(2.08165e-12, -25)
+rotation_range = null
 
 [node name="Behavior" parent="." index="8"]
 script = ExtResource("2_vut8c")

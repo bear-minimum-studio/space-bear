@@ -8,6 +8,8 @@ extends "res://npc/Turret.gd"
 			collision_shape_2d.shape.radius = turret_range
 		queue_redraw()
 
+@onready var default_rotation = rotation
+
 var target : Node2D = null
 
 func _physics_process(delta):
@@ -29,7 +31,7 @@ func _set_rotation_target():
 	
 	_set_target()
 	if target == null:
-		rotation_target = 0
+		rotation_target = default_rotation
 		return
 	
 	var direction_to_target = (target.global_position - global_position).normalized()

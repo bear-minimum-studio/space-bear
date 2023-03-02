@@ -20,6 +20,8 @@ const bullet_target_mapping = {
 	BulletType.ALLY: "enemy"
 }
 
+
+@export_range(0, PI, PI/32) var rotation_range: float = PI
 @export_range(0.1,10.0,0.1,"or_greater") var rotation_speed = 5.0
 
 @export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
@@ -30,7 +32,12 @@ var _reloading = false
 
 @onready var nozzle = $Nozzle
 
-@onready var rotation_target: float = rotation
+@onready var rotation_target: float = 0:
+	set(new_rotation_target):
+		new_rotation_target = fmod(new_rotation_target, PI)
+		new_rotation_target = max(min(new_rotation_target, rotation_range), -rotation_range)
+		rotation_target = new_rotation_target
+		
 
 var shooter : PhysicsBody2D = null
 
