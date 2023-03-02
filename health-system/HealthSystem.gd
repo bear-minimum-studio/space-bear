@@ -13,13 +13,25 @@ extends Node2D
 
 @onready var health = max_health
 
+@export var should_free_on_death = true
+
 signal hp_changed
 signal dead
 
 func on_hit():
+	if health <= 0:
+		# already dead
+		return
+	
 	if health > 0:
 		health -= 1
 	hp_changed.emit(health, max_health)
+
 	if health <= 0:
 		dead.emit()
-		get_parent().queue_free()
+		if should_free_on_death:
+			get_parent().queue_free()
+
+func heal_to_max():
+	health = max_health
+	hp_changed.emit(health, max_health)

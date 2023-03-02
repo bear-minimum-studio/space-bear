@@ -20,5 +20,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.0862745)
 
 [node name="HealthSystem" parent="." instance=ExtResource("2_w6wil")]
 max_health = 20
+should_free_on_death = false
 
 [node name="HurtAnimation" parent="." instance=ExtResource("3_feixo")]

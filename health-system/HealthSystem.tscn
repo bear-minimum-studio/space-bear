@@ -4,4 +4,3 @@
 
 [node name="HealthSystem" type="Node2D"]
 script = ExtResource("1_7iupp")
-max_health = null
