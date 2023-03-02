@@ -2,6 +2,8 @@ extends Area2D
 
 @export var bullet_range = 10000
 
+@onready var bullet_impact = $BulletImpact
+
 var velocity = Vector2.ZERO;
 var initial_position = null
 
@@ -24,6 +26,10 @@ func _hit(area_or_body):
 	var health_system = area_or_body.find_child("HealthSystem")
 	if health_system != null:
 		health_system.on_hit()
+	
+	_disable_bullet()
+	bullet_impact.adapt_style_then_play(area_or_body)
+	await bullet_impact.animation_done
 	self.queue_free()
 
 # Computes new bullet speed using player orientation and velocity
@@ -39,3 +45,9 @@ func set_initial_velocity(shooter_velocity : Vector2, shooter_direction : Vector
 		new_bullet_velocity = bullet_speed * new_bullet_velocity.normalized()
 	
 	velocity = new_bullet_velocity
+
+func _disable_bullet():
+	self.collision_layer = 0
+	self.collision_mask = 0
+	velocity = Vector2.ZERO
+	$Sprite.visible = false
