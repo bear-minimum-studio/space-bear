@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export_range(0.0,50.0,0.1,"or_greater") var rotation_speed : float = 10.0
 @export_range(0.0,50.0,0.1,"or_greater") var acceleration : float = 10.0
 @export_range(0.0,50.0,0.1,"or_greater") var brake : float = 10.0
+@export_range(1.0, 5.0, 0.5) var explosion_scale = 1.0
 
 @onready var ship = $Ship
 @onready var flammes = $Flammes

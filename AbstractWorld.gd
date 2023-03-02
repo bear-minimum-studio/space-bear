@@ -58,6 +58,13 @@ func _on_player_reached_wormhole():
 	print('you reached the level end')
 
 func _on_dead(dead_body: Node2D):
+	var explosion_scale = 1.0
+	if "explosion_scale" in dead_body:
+		explosion_scale = dead_body.explosion_scale
+
 	var new_explosion = explosion_scene.instantiate()
+
 	new_explosion.global_position = dead_body.global_position
+	# TODO: There should be a method inside explosion instead of a manual scaling
+	new_explosion.scale = explosion_scale * Vector2.ONE
 	self.add_child(new_explosion)

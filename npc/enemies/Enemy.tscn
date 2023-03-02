@@ -7,6 +7,7 @@
 [node name="Enemy" instance=ExtResource("1_vfgof")]
 script = ExtResource("2_56xao")
 proximity_ratio = 0.7
+explosion_scale = 2.0
 
 [node name="Behavior" parent="." index="8"]
 script = ExtResource("2_vut8c")
