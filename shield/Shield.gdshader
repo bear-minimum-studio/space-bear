@@ -24,6 +24,7 @@ void fragment(){
 	float actual_opacity = 0.14 * opacity;
 	float actual_feather_size = feather_size + 0.25 * (1.0 - health_amount);
 	float actual_outer_size = outer_size + 0.0 * (1.0 - health_amount);
+	float actual_intensity = 0.1 + 0.9 * hit_intensity;
 	
 	float outer = circle(vec2(UV.x, UV.y), 0.35, 0.01);
 	float fade_oscillation = sin(TIME) * 0.01;
@@ -37,7 +38,7 @@ void fragment(){
 	{
 		COLOR = color;
 		COLOR.a -= outer + inner; 
-		COLOR.a += hit_intensity * honeycomb * mix(1.0 - hexagon_transparency + honeycomb_oscillation, 0.0, 1.0 - health_amount) * actual_opacity * mix(1.0, 0.0, distance(vec2(0.5),UV) / 0.35);
+		COLOR.a += actual_intensity * honeycomb * mix(1.0 - hexagon_transparency + honeycomb_oscillation, 0.0, 1.0 - health_amount) * actual_opacity * mix(1.0, 0.0, distance(vec2(0.5),UV) / 0.35);
 	}
 	else
 	{
