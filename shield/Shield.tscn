@@ -27,7 +27,7 @@ z_index = 20
 collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_s6dcc")
-shield_color = Color(0.858824, 0.309804, 0.827451, 0.168627)
+shield_color = Color(0.858824, 0.309804, 0.827451, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hsxn2")

@@ -4,3 +4,6 @@
 
 [node name="Bullet" instance=ExtResource("1_sg64p")]
 collision_mask = 2
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color(1, 0.490196, 0.898039, 1)

@@ -4,9 +4,9 @@
 
 [node name="RadarElement" type="Node2D"]
 
-[node name="Arrow" type="Sprite2D" parent="."]
-modulate = Color(0.917647, 0.192157, 0.254902, 1)
-position = Vector2(92, 3.71756e-12)
+[node name="s" type="Sprite2D" parent="."]
+modulate = Color(0.917647, 0.368627, 0.686275, 0.47451)
+position = Vector2(117, -5.58215e-12)
 rotation = 1.57079
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.97773, 0.97773)
 texture = ExtResource("1_upq0y")
