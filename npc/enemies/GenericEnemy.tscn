@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxxrm5lvp7lfs"]
+[gd_scene load_steps=8 format=3 uid="uid://cxxrm5lvp7lfs"]
 
 [ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_oxqnl"]
 [ext_resource type="Script" path="res://npc/enemies/GenericEnemy.gd" id="2_e7uub"]
 [ext_resource type="Texture2D" uid="uid://n3c3ak0fpgmd" path="res://npc/enemies/bad_guy.png" id="3_cry1g"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="4_s7kpp"]
 [ext_resource type="Texture2D" uid="uid://cx4q5chna3esj" path="res://npc/enemies/bad_guy_flammes.png" id="4_toa7b"]
+[ext_resource type="PackedScene" uid="uid://b5lpsi323wl6q" path="res://npc/enemies/AbstractBehavior.tscn" id="6_1tl73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dcnw"]
 radius = 41.1096
@@ -12,7 +13,6 @@ radius = 41.1096
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_oxqnl")]
 collision_layer = 2
 script = ExtResource("2_e7uub")
-proximity_ratio = 0.8
 speed = 100.0
 rotation_speed = 1.0
 acceleration = 3.0
@@ -31,6 +31,9 @@ texture = ExtResource("4_toa7b")
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_3dcnw")
 
+[node name="NavigationAgent2D" parent="." index="3"]
+debug_enabled = true
+
 [node name="HealthSystem" parent="." index="4"]
 max_health = 200
 
@@ -48,3 +51,7 @@ collision_mask = 8
 [node name="Turret2" parent="Turrets" index="1" instance=ExtResource("4_s7kpp")]
 position = Vector2(0, -24)
 collision_mask = 8
+
+[node name="Behavior" parent="." index="8" instance=ExtResource("6_1tl73")]
+
+[connection signal="target_position_updated" from="Behavior" to="." method="_on_behavior_target_position_updated"]
