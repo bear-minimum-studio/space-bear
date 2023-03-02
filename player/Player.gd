@@ -11,7 +11,6 @@ signal shoot_grappling_hook
 @onready var rotation_speed = 2 * PI * rotation_per_second
 const HOOK_COOLDOWN = 1.0
 
-var _reloading = false
 var _reloading_hook = false
 
 var thrust_intensity :
