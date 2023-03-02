@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var bullet_range = 10000
+@export var bullet_range = 1000
 
 @onready var bullet_impact = $BulletImpact
 
