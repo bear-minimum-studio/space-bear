@@ -8,11 +8,7 @@ signal shoot_grappling_hook
 @export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.7
 @export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
 
-@export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
-@export_range(0.5,50.0) var bullets_per_second = 5.0
-
 @onready var rotation_speed = 2 * PI * rotation_per_second
-@onready var shooting_speed = 1.0 / bullets_per_second
 const HOOK_COOLDOWN = 1.0
 
 var _reloading = false
@@ -26,9 +22,10 @@ var brake_intensity:
 
 @onready var flammes = $Flammes
 @onready var sfx = $SFX
-@onready var turret_control = $P2Turret/P2TurretControl
-@onready var turret = $P2Turret
-@onready var turret_nozzle = $P2Turret/P2TurretControl/P2Nozzle
+@onready var turret = $Turrets/Turret
+@onready var p2_turret_control = $P2Turret/P2TurretControl
+@onready var p2_turret = $P2Turret
+@onready var p2_turret_nozzle = $P2Turret/P2TurretControl/P2Nozzle
 @onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
@@ -39,27 +36,20 @@ func _ready():
 		auto_turret.init(self)
 
 func _shoot():
-	if _reloading:
-		return
-
-	Events.emit_signal("shoot", global_position, global_rotation, linear_velocity, bullet_speed)
-	
-	_reloading = true
-	await get_tree().create_timer(shooting_speed).timeout
-	_reloading = false
+	turret.shoot()
 
 func _shoot_hook():
 	if _reloading_hook:
 		return
 
-	emit_signal("shoot_grappling_hook", turret_nozzle.global_position, turret_control.global_rotation)
+	emit_signal("shoot_grappling_hook", p2_turret_nozzle.global_position, p2_turret_control.global_rotation)
 	
 	_reloading_hook = true
 	await get_tree().create_timer(HOOK_COOLDOWN).timeout
 	_reloading_hook = false
 
 func _custom_set_rotation():
-	turret.rotation = -self.rotation
+	p2_turret.rotation = -self.rotation
 
 func _integrate_forces(state):
 	_torque()
@@ -100,7 +90,7 @@ func _physics_process(_delta):
 		_shoot_hook()
 
 func _on_turret_control_shoot():
-	emit_signal("shoot", turret_control.global_position, turret_control.global_rotation, linear_velocity)
+	emit_signal("shoot", p2_turret_control.global_position, p2_turret_control.global_rotation, linear_velocity)
 
 func _on_health_system_hp_changed(health, max_health):
 	Events.emit_signal("player_hp_changed", health, max_health)

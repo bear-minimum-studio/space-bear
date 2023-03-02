@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
 [ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_kencp"]
-[ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="4_niboy"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
+[ext_resource type="PackedScene" uid="uid://dgesufvtht7nu" path="res://npc/AutoTurret.tscn" id="5_vqqiw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tks0q"]
 radius = 71.0
@@ -45,22 +45,34 @@ shield_size = 200.0
 
 [node name="Turrets" type="Node2D" parent="." index="9"]
 
-[node name="Turret" parent="Turrets" index="0" instance=ExtResource("4_niboy")]
-position = Vector2(-13, 77)
+[node name="Turret" parent="Turrets" index="0" instance=ExtResource("5_vqqiw")]
+position = Vector2(-15, 80)
 turret_range = 500.0
 bullet_type = 1
+rotation_speed = 10.0
+bullet_speed = 700.0
+bullets_per_second = 24.0
 
-[node name="Turret2" parent="Turrets" index="1" instance=ExtResource("4_niboy")]
+[node name="Turret2" parent="Turrets" index="1" instance=ExtResource("5_vqqiw")]
 position = Vector2(-15, -80)
 turret_range = 500.0
 bullet_type = 1
+rotation_speed = 10.0
+bullet_speed = 700.0
+bullets_per_second = 24.0
 
-[node name="Turret3" parent="Turrets" index="2" instance=ExtResource("4_niboy")]
-position = Vector2(88, -32)
+[node name="Turret3" parent="Turrets" index="2" instance=ExtResource("5_vqqiw")]
+position = Vector2(90, -30)
 turret_range = 500.0
 bullet_type = 1
+rotation_speed = 10.0
+bullet_speed = 700.0
+bullets_per_second = 24.0
 
-[node name="Turret4" parent="Turrets" index="3" instance=ExtResource("4_niboy")]
-position = Vector2(88, 44)
+[node name="Turret4" parent="Turrets" index="3" instance=ExtResource("5_vqqiw")]
+position = Vector2(90, 30)
 turret_range = 500.0
 bullet_type = 1
+rotation_speed = 10.0
+bullet_speed = 700.0
+bullets_per_second = 24.0

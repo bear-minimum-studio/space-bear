@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://br6bfdr7gif8a"]
+[gd_scene load_steps=19 format=3 uid="uid://br6bfdr7gif8a"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="12_uwy2g"]
 [ext_resource type="PackedScene" uid="uid://ba06loe142qwy" path="res://player/SelectionZone.tscn" id="13_n8rio"]
 [ext_resource type="PackedScene" uid="uid://g2uw1el2x1ea" path="res://hud/radar/PlayerRadar.tscn" id="14_fhr4g"]
+[ext_resource type="PackedScene" uid="uid://dgesufvtht7nu" path="res://npc/AutoTurret.tscn" id="15_5mq6c"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="15_du3jo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
@@ -34,7 +35,6 @@ stream_2/weight = 1.0
 collision_mask = 0
 mass = 50.0
 script = ExtResource("1_rsmvc")
-bullets_per_second = 12.0
 
 [node name="Flammes" type="Sprite2D" parent="."]
 z_index = 10
@@ -95,11 +95,16 @@ max_health = 50
 [node name="Turrets" type="Node2D" parent="."]
 
 [node name="Turret" parent="Turrets" instance=ExtResource("15_du3jo")]
-position = Vector2(0, -23)
+position = Vector2(25, 0)
+bullet_spread = 2.5
 bullet_type = 1
 
-[node name="Turret2" parent="Turrets" instance=ExtResource("15_du3jo")]
-position = Vector2(0, 21)
+[node name="AutoTurret" parent="Turrets" instance=ExtResource("15_5mq6c")]
+position = Vector2(2.08165e-12, 20)
+bullet_type = 1
+
+[node name="AutoTurret2" parent="Turrets" instance=ExtResource("15_5mq6c")]
+position = Vector2(2.08165e-12, -20)
 bullet_type = 1
 
 [connection signal="shoot" from="P2Turret/P2TurretControl" to="." method="_on_turret_control_shoot"]
