@@ -50,7 +50,7 @@ func _draw():
 	draw_circle(Vector2.ZERO, shield_size, shield_color)
 	draw_arc(Vector2.ZERO, shield_size, 0, 2 * PI, 50, shield_outline, outline_width, false)
 
-func _on_hit(health, max_health):
+func _on_hit(_health, _max_health):
 	hurt_animation.animate_hurt_opacity(self)
 	
 	if timer_before_heal == null:
