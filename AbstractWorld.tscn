@@ -23,6 +23,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-916, 38, -979, 1433, 9
 script = ExtResource("1_kjg2t")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_3j3ax")]
+scale = Vector2(0.3, 0.3)
+transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
+scroll_ignore_camera_zoom = true
 
 [node name="Player" parent="." instance=ExtResource("1_yasag")]
 position = Vector2(159, 130)
