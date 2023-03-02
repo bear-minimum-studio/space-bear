@@ -34,21 +34,31 @@ var _reloading = false
 
 @onready var default_rotation = rotation
 
-@onready var rotation_target: float = default_rotation:
-	set(new_rotation_target):
-		new_rotation_target = fmod(new_rotation_target - default_rotation, PI)
-		new_rotation_target = max(min(new_rotation_target, rotation_range), -rotation_range) + default_rotation
-		rotation_target = new_rotation_target
-		
+@onready var rotation_target: float = default_rotation
 
 var shooter : PhysicsBody2D = null
+
+# Clamps given angle to angle range:
+#   min : default_rotation - rotation_range
+#   max : default_rotation + rotation_range
+func _clamp_to_angle_range(angle: float) -> float:
+	var clamped_angle = fmod(angle - default_rotation, PI)
+	clamped_angle = clamp(clamped_angle, -rotation_range, rotation_range) + default_rotation
+	return clamped_angle
+
+# Checks if given angle is in angle range:
+#   min : default_rotation - rotation_range
+#   max : default_rotation + rotation_range
+func _is_in_angle_range(angle: float) -> bool:
+	var clamped_angle = fmod(angle - default_rotation, PI)
+	return -rotation_range <= clamped_angle and clamped_angle <= rotation_range
 
 func init(new_shooter: PhysicsBody2D) -> void:
 	shooter = new_shooter
 
 func _physics_process(delta):
 	_set_rotation_target()
-	rotation = lerp_angle(rotation, rotation_target, rotation_speed * delta)
+	rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)
 	
 func _set_rotation_target():
 	pass

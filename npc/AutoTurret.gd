@@ -15,7 +15,7 @@ func _physics_process(delta):
 		return
 	
 	super._physics_process(delta)
-	if target != null:
+	if target != null and _is_in_angle_range(rotation_target):
 		shoot()
 
 func _set_target():
