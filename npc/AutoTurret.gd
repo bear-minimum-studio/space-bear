@@ -27,11 +27,9 @@ func _set_rotation_target():
 	if(shooter == null):
 		return
 	
+	_set_target()
 	if target == null:
-		_set_target()
-	
-	if target == null:
-		rotation_target = shooter.global_rotation
+		rotation_target = 0
 		return
 	
 	var direction_to_target = (target.global_position - global_position).normalized()
