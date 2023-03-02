@@ -1,4 +1,4 @@
-extends "res://npc/enemies/GenericEnemy.gd"
+extends "res://npc/enemies/AbstractEnemy.gd"
 
 @export_range(0.0,1.0) var proximity_ratio = 0.7
 

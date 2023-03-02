@@ -1,4 +1,4 @@
-extends "res://GenericWorld.gd"
+extends "res://AbstractWorld.gd"
 
 @onready var mother_ship = $MotherShip
 @onready var wormhole = $Wormhole

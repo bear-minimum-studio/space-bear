@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnctphhxtu347"]
 
-[ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/GenericEnemy.tscn" id="1_vfgof"]
+[ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_vfgof"]
 [ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="2_56xao"]
 [ext_resource type="Script" path="res://npc/enemies/ProximityBehavior.gd" id="2_vut8c"]
 
