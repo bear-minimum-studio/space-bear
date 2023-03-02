@@ -4,7 +4,7 @@
 
 [node name="RadarElement" type="Node2D"]
 
-[node name="s" type="Sprite2D" parent="."]
+[node name="Arrow" type="Sprite2D" parent="."]
 modulate = Color(0.917647, 0.368627, 0.686275, 0.47451)
 position = Vector2(117, -5.58215e-12)
 rotation = 1.57079
