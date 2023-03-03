@@ -73,6 +73,5 @@ func _on_dead():
 	var new_explosion = explosion_scene.instantiate()
 
 	new_explosion.global_position = self.global_position
-	# TODO: There should be a method inside explosion instead of a manual scaling
 	new_explosion.scale = explosion_scale * Vector2.ONE
 	WorldReference.current_world.add_child(new_explosion)
