@@ -23,5 +23,5 @@ func adapt_style_then_play(hit_body: Node2D):
 	animation_player.play("Explode")
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	animation_done.emit()
