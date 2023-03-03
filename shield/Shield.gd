@@ -15,7 +15,7 @@ const COLLISION_MARGIN = 10
 		max_health = new_max_health
 		_initialize_max_health()
 
-@export var shield_color: Color = Color("#0096ff2b") :
+@export_color_no_alpha var shield_color: Color = Color("#0096ff") :
 	set(new_color):
 		shield_color = new_color
 		_update_shield_color()
@@ -39,9 +39,7 @@ func _ready():
 
 func _update_shield_color():
 	if sprite_2d != null:
-		var opaque_color = shield_color
-		opaque_color.a = 1
-		sprite_2d.material.set_shader_parameter('color', opaque_color)
+		sprite_2d.material.set_shader_parameter('color', shield_color)
 
 func _on_hit(_health, _max_health):
 	if timer_before_heal == null:
