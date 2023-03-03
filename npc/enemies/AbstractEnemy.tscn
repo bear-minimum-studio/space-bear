@@ -12,6 +12,7 @@ radius = 41.1096
 [node name="Enemy" groups=["enemy"] instance=ExtResource("1_oxqnl")]
 collision_layer = 2
 script = ExtResource("2_e7uub")
+kill_bonus = 2
 speed = 100.0
 rotation_speed = 1.0
 acceleration = 3.0

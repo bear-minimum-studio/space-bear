@@ -10,3 +10,7 @@ func spend_resource(amount: int):
 
 func get_resources():
 	return resources
+
+func earn_resources(amount: int):
+	resources += amount
+	resources_change.emit()
