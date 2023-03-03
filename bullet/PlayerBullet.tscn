@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cx41bv33edtnq" path="res://bullet/Bullet.tscn" id="1_sg64p"]
 
 [node name="Bullet" instance=ExtResource("1_sg64p")]
-collision_mask = 2
+collision_mask = 6
 
 [node name="Sprite" parent="." index="1"]
 modulate = Color(1, 0.490196, 0.898039, 1)

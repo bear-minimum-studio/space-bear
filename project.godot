@@ -125,7 +125,7 @@ pause={
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="enemy"
-2d_physics/layer_3="hit asteroid"
+2d_physics/layer_3="asteroid"
 2d_physics/layer_4="ally"
 2d_physics/layer_5="ally hitbox"
 2d_physics/layer_6="level end"

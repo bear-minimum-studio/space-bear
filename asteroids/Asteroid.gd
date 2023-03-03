@@ -33,12 +33,6 @@ func _ready():
 	animation_player.speed_scale = randf_range(0.2, 2)
 
 
-func _on_hit_box_body_entered(body):
-	var health_system = body.find_child("HealthSystem")
-	if health_system != null:
-		health_system.on_hit()
-
-
 func _on_health_system_hp_changed(_health, _max_health):
 	hurt_animation.animate_hurt(sprite_container)
 
