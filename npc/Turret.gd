@@ -10,16 +10,15 @@ var bullet_spread_angle:
 enum BulletType { ENEMY, ALLY }
 @export var bullet_type: BulletType= BulletType.ENEMY
 
-const bullet_type_mapping = {
-	BulletType.ENEMY: "enemy_shoot",
-	BulletType.ALLY: "shoot"
-}
-
 const bullet_target_mapping = {
 	BulletType.ENEMY: "flock",
 	BulletType.ALLY: "enemy"
 }
 
+const bullet_type_scene = {
+	BulletType.ENEMY: preload("res://bullet/EnemyBullet.tscn"),
+	BulletType.ALLY: preload("res://bullet/PlayerBullet.tscn"),
+}
 
 @export_range(0, PI, PI/32) var rotation_range: float = PI
 @export_range(0.1,10.0,0.1,"or_greater") var rotation_speed = 5.0
@@ -70,7 +69,9 @@ func shoot():
 	var shooter_velocity = Helpers.get_velocity(shooter)
 	var imprecision = randf_range(-bullet_spread_angle, bullet_spread_angle)
 	var shooting_angle = global_rotation + imprecision
-	Events.emit_signal(bullet_type_mapping[bullet_type], nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed)
+	
+	var new_bullet = bullet_type_scene[bullet_type].instantiate()
+	new_bullet.init(nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed)
 	
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout

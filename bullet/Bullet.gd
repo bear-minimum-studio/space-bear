@@ -7,6 +7,13 @@ extends Area2D
 var velocity = Vector2.ZERO;
 var initial_position = null
 
+func init(global_shooter_position, global_shooter_rotation, shooter_velocity, bullet_speed):
+	var shooter_direction = Vector2.from_angle(global_shooter_rotation);
+	global_position = global_shooter_position
+	global_rotation = global_shooter_rotation
+	set_initial_velocity(shooter_velocity, shooter_direction, bullet_speed)
+	WorldReference.add_child(self)
+
 func _ready():
 	$SFX.play()
 	initial_position = self.global_position

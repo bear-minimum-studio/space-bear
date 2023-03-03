@@ -3,35 +3,14 @@ extends Node2D
 @onready var player = $Player
 @onready var flock = $Flock
 
-var player_bullet_scene = preload("res://bullet/PlayerBullet.tscn")
-var enemy_bullet_scene = preload("res://bullet/EnemyBullet.tscn")
 var grappling_hook_scene = preload("res://grappling-hook/GrapplingHook.tscn")
 var current_hook : Node2D
 
 func _ready():
 	WorldReference.current_world = self
-
-	Events.enemy_shoot.connect(_on_enemy_shoot)
-	Events.shoot.connect(_on_ally_shoot)
+	
 	Events.convoy_reached_wormhole.connect(_on_convoy_reached_wormhole)
 	Events.player_reached_wormhole.connect(_on_player_reached_wormhole)
-
-
-func _on_ally_shoot(global_ally_position, global_ally_rotation, ally_velocity, bullet_speed):
-	var ally_direction = Vector2.from_angle(global_ally_rotation);
-	var new_bullet = player_bullet_scene.instantiate()
-	new_bullet.global_position = global_ally_position
-	new_bullet.global_rotation = global_ally_rotation
-	new_bullet.set_initial_velocity(ally_velocity, ally_direction, bullet_speed)
-	self.add_child(new_bullet)
-
-func _on_enemy_shoot(global_enemy_position, global_enemy_rotation, enemy_velocity, bullet_speed):
-	var enemy_direction = Vector2.from_angle(global_enemy_rotation);
-	var new_bullet = enemy_bullet_scene.instantiate()
-	new_bullet.global_position = global_enemy_position
-	new_bullet.global_rotation = global_enemy_rotation
-	new_bullet.set_initial_velocity(enemy_velocity, enemy_direction, bullet_speed)
-	self.add_child(new_bullet)
 
 func _on_player_shoot_grappling_hook(global_player_position, global_player_rotation):
 	# If shooting again while a grappling hook exists, delete the current one
