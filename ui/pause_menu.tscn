@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.670588, 0.027451, 0.372549, 0.686275)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MainMenu" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,42 +32,83 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Game Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="MainMenu/VBoxContainer"]
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_top = NodePath("../Upgrade")
 focus_neighbor_bottom = NodePath("../Quit")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Resume Game "
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Resume")
-focus_neighbor_bottom = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../Upgrade")
 text = "Quit"
 
-[node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Upgrade" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Resume")
-text = "Bouton 3 MDR"
+text = "Upgrade"
+
+[node name="UpgradeMenu" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 204.0
+offset_top = 99.0
+offset_right = 276.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeMenu"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="UpgradeMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Upgrade1" type="Button" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+text = "Upgrade1"
+
+[node name="Upgrade2" type="Button" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+text = "Upgrade2"
+
+[node name="Upgrade3" type="Button" parent="UpgradeMenu/VBoxContainer"]
+layout_mode = 2
+text = "Upgrade3"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Upgrade" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]

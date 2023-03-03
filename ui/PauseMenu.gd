@@ -1,11 +1,15 @@
 extends Control
 
-@onready var resume_button = $CenterContainer/VBoxContainer/Resume
+@onready var resume_button = $MainMenu/VBoxContainer/Resume
+@onready var main_menu = $MainMenu
+@onready var upgrade_menu = $UpgradeMenu
 
 func _unhandled_input(event):
-	if (event):
-		if event.is_action_pressed("pause"):
-			self.is_paused = !is_paused
+	if (event && event.is_action_pressed("pause")):
+		if (self.is_paused):
+				main_menu.visible = true
+				upgrade_menu.visible = false
+		self.is_paused = !is_paused
 
 var is_paused = false:
 	set(value):
@@ -24,3 +28,11 @@ func _on_quit_pressed():
 func _on_visibility_changed():
 	if visible:
 		resume_button.grab_focus()
+
+func _on_upgrade_pressed():
+	main_menu.visible = false
+	upgrade_menu.visible = true
+
+func _on_back_pressed():
+	main_menu.visible = true
+	upgrade_menu.visible = false
