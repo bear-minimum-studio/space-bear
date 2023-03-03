@@ -71,8 +71,9 @@ bus = &"Propulsion"
 [node name="P2Turret" type="Node2D" parent="."]
 visible = false
 
-[node name="P2TurretControl" type="Node2D" parent="P2Turret"]
+[node name="P2TurretControl" type="Node2D" parent="P2Turret" node_paths=PackedStringArray("player")]
 script = ExtResource("9_oqrpk")
+player = NodePath("../..")
 
 [node name="P2TurretCrosshair" type="Sprite2D" parent="P2Turret/P2TurretControl"]
 position = Vector2(39, 0)
