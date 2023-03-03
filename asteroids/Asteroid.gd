@@ -20,6 +20,7 @@ var sprites = [
 @onready var animation_player = $AnimationPlayer
 @onready var hurt_animation = $HurtAnimation
 @onready var minerals = $SpriteContainer/Minerals
+@onready var mineral_particles = $MineralParticles
 
 var bonus_resources_scene = preload("res://hud/BonusResources.tscn")
 
@@ -54,4 +55,4 @@ func _on_health_system_dead():
 	bonus_resources.init(kill_bonus)
 	bonus_resources.global_position = self.global_position
 	WorldReference.current_world.add_child(bonus_resources)
-
+	mineral_particles.emitting = true

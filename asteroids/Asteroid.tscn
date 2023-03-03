@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhhcyl4sosjuq"]
+[gd_scene load_steps=15 format=3 uid="uid://dhhcyl4sosjuq"]
 
 [ext_resource type="Script" path="res://asteroids/Asteroid.gd" id="1_81esk"]
 [ext_resource type="Texture2D" uid="uid://ckx1poxyuopep" path="res://asteroids/asteroide1.png" id="2_yim38"]
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="3_6qulr"]
 [ext_resource type="Texture2D" uid="uid://71jscnqj7b5c" path="res://asteroids/asteroide_minerais1.png" id="3_il1vb"]
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="4_v1u7x"]
+[ext_resource type="Texture2D" uid="uid://dfkaolsvensv5" path="res://asteroids/particle_minerai.png" id="6_3i4h0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ncwxg"]
 radius = 33.0151
@@ -74,6 +75,24 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_qdse8"]
 radius = 35.3553
 
+[sub_resource type="Curve" id="Curve_s40q0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w27hm"]
+curve = SubResource("Curve_s40q0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2yr4r"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 70.0
+initial_velocity_max = 70.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_w27hm")
+
 [node name="Asteroid" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -115,6 +134,14 @@ max_health = 11
 should_free_on_death = false
 
 [node name="HurtAnimation" parent="." instance=ExtResource("4_v1u7x")]
+
+[node name="MineralParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_2yr4r")
+texture = ExtResource("6_3i4h0")
+one_shot = true
+explosiveness = 0.75
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
