@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://br6bfdr7gif8a"]
+[gd_scene load_steps=21 format=3 uid="uid://br6bfdr7gif8a"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://g2uw1el2x1ea" path="res://hud/radar/PlayerRadar.tscn" id="14_fhr4g"]
 [ext_resource type="PackedScene" uid="uid://dgesufvtht7nu" path="res://npc/AutoTurret.tscn" id="15_5mq6c"]
 [ext_resource type="PackedScene" uid="uid://boraidb6nocfq" path="res://npc/Turret.tscn" id="15_du3jo"]
+[ext_resource type="PackedScene" uid="uid://djt0jq7486mc6" path="res://hud/UnderAttack.tscn" id="17_umsx8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
 radius = 57.4704
@@ -30,6 +31,13 @@ stream_1/stream = ExtResource("5_i5xdt")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_qqyb8")
 stream_2/weight = 1.0
+
+[sub_resource type="GDScript" id="GDScript_gcn6k"]
+script/source = "extends Node2D
+
+func _physics_process(_delta):
+	self.global_rotation = 0
+"
 
 [node name="Player" type="RigidBody2D"]
 z_index = 10
@@ -106,6 +114,13 @@ turret_type = 1
 [node name="AutoTurret2" parent="Turrets" instance=ExtResource("15_5mq6c")]
 position = Vector2(2.08165e-12, -20)
 turret_type = 1
+
+[node name="PlayerHUD" type="Node2D" parent="."]
+script = SubResource("GDScript_gcn6k")
+
+[node name="UnderAttack" parent="PlayerHUD" instance=ExtResource("17_umsx8")]
+offset_top = -64.0
+offset_bottom = -64.0
 
 [connection signal="nozzle_shoot_grappling_hook" from="P2Turret/P2TurretControl" to="." method="_on_p_2_turret_control_nozzle_shoot_grappling_hook"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
