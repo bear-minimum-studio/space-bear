@@ -3,8 +3,6 @@ extends Node2D
 var radar_element_scene = preload("res://hud/radar/RadarElement.tscn")
 
 func _physics_process(_delta):
-	self.global_rotation = 0
-
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	_sync_children(enemies.size())
 	

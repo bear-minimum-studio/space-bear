@@ -98,8 +98,6 @@ max_health = 50
 
 [node name="SelectionZone" parent="." instance=ExtResource("13_n8rio")]
 
-[node name="PlayerRadar" parent="." instance=ExtResource("14_fhr4g")]
-
 [node name="Turrets" type="Node2D" parent="."]
 
 [node name="Turret" parent="Turrets" instance=ExtResource("15_du3jo")]
@@ -121,6 +119,8 @@ script = SubResource("GDScript_gcn6k")
 [node name="UnderAttack" parent="PlayerHUD" instance=ExtResource("17_umsx8")]
 offset_top = -64.0
 offset_bottom = -64.0
+
+[node name="PlayerRadar" parent="PlayerHUD" instance=ExtResource("14_fhr4g")]
 
 [connection signal="nozzle_shoot_grappling_hook" from="P2Turret/P2TurretControl" to="." method="_on_p_2_turret_control_nozzle_shoot_grappling_hook"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
