@@ -20,6 +20,8 @@ const COLLISION_MARGIN = 10
 		shield_color = new_color
 		_update_shield_color()
 
+# if you change default shield size, please keep this value in sync 
+# in _update_shield_size's "default_size" default argument value
 @export var shield_size: float = 100.0 :
 	set(new_shield_size):
 		shield_size = new_shield_size
@@ -62,11 +64,12 @@ func _on_hit(_health, _max_health):
 	tween_hit.tween_property(sprite_2d, "material:shader_parameter/opacity",health_amount,0.05)
 
 
-func _update_shield_size():
+# update default_size value here if you change it in @export shield_size
+func _update_shield_size(default_size: float = 100.0):
 	if collision_shape_2d != null:
 		collision_shape_2d.shape.radius = shield_size + COLLISION_MARGIN
 	if sprite_2d != null:
-		var sprite_scale = shield_size / 100.0 # TODO: use default size instead (100 right now)
+		var sprite_scale = shield_size / default_size
 		sprite_2d.apply_scale(Vector2(sprite_scale,sprite_scale))
 
 func _initialize_max_health():
