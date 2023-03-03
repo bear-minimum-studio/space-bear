@@ -1,6 +1,110 @@
-[gd_scene load_steps=2 format=3 uid="uid://djt0jq7486mc6"]
+[gd_scene load_steps=16 format=3 uid="uid://djt0jq7486mc6"]
 
 [ext_resource type="Script" path="res://hud/UnderAttack.gd" id="1_r635j"]
+
+[sub_resource type="Animation" id="Animation_nsxil"]
+resource_name = "Glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.313726), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ba5k3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ynb1u"]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h8xgk"]
+resource_name = "Hidden"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n4vlv"]
+_data = {
+"Glow": SubResource("Animation_nsxil"),
+"Hidden": SubResource("Animation_h8xgk"),
+"Hide": SubResource("Animation_ynb1u"),
+"RESET": SubResource("Animation_ba5k3")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0csrg"]
+animation = &"Glow"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p2o7f"]
+animation = &"Hidden"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxb0u"]
+animation = &"Hide"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q2vdh"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d4i7w"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ln18p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f1bdj"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fgcnw"]
+states/Glow/node = SubResource("AnimationNodeAnimation_0csrg")
+states/Glow/position = Vector2(362, 72)
+states/Hidden/node = SubResource("AnimationNodeAnimation_p2o7f")
+states/Hidden/position = Vector2(245.5, 64)
+states/Hide/node = SubResource("AnimationNodeAnimation_hxb0u")
+states/Hide/position = Vector2(468.5, 159.5)
+states/Start/position = Vector2(207, 159.625)
+transitions = ["Glow", "Hide", SubResource("AnimationNodeStateMachineTransition_q2vdh"), "Hide", "Glow", SubResource("AnimationNodeStateMachineTransition_d4i7w"), "Start", "Hidden", SubResource("AnimationNodeStateMachineTransition_ln18p"), "Hidden", "Glow", SubResource("AnimationNodeStateMachineTransition_f1bdj")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_64nu3"]
 
 [node name="UnderAttack" type="Control"]
 layout_mode = 3
@@ -13,11 +117,31 @@ script = ExtResource("1_r635j")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -88.5
+offset_top = -16.0
+offset_right = 88.5
 grow_horizontal = 2
-grow_vertical = 2
-text = "The fleet is suffering damages!"
-horizontal_alignment = 2
-vertical_alignment = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.94902, 0.372549, 0.709804, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.7
+libraries = {
+"": SubResource("AnimationLibrary_n4vlv")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_fgcnw")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_64nu3")

@@ -1,18 +1,19 @@
 extends Control
 
+@onready var animation_tree = $AnimationTree
+
 @onready var label = $Label
 var timer: SceneTreeTimer = null
-const DISPLAY_DURATION = 2
+const DISPLAY_DURATION = 0.5
 
 func _ready():
-	label.visible = false
 	Events.ship_hurt.connect(_on_ship_hurt)
 
 func _on_ship_hurt(ship: Node2D):
 	if !ship.is_in_group("flock"):
 		return
 	
-	label.visible = true
+	animation_tree["parameters/playback"].travel("Glow")
 
 	if timer == null:
 		timer = get_tree().create_timer(DISPLAY_DURATION)
@@ -21,5 +22,5 @@ func _on_ship_hurt(ship: Node2D):
 	
 	await timer.timeout
 	timer = null
-	label.visible = false
+	animation_tree["parameters/playback"].travel("Hide")
 	
