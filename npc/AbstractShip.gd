@@ -12,8 +12,9 @@ extends CharacterBody2D
 @onready var nav_agent = $NavigationAgent2D
 @onready var hurt_animation = $HurtAnimation
 @onready var health_bar = $UI/HealthBar
-
 @onready var rotation_target: float = rotation
+
+var explosion_scene = preload("res://explosion/Explosion.tscn")
 
 var movement_target: Vector2
 
@@ -55,6 +56,7 @@ func set_movement_target(new_movement_target : Vector2):
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)
+	_on_dead()
 
 func _on_health_system_hp_changed(_health, _max_health):
 	hurt_animation.animate_hurt($Ship)
@@ -66,3 +68,11 @@ func _draw():
 		draw_line(Vector2.ZERO, speed * Vector2.RIGHT, Color.DARK_GOLDENROD, 2.0)
 		# Target
 		draw_line(Vector2.ZERO, (movement_target - global_position).rotated(-global_rotation), Color.CYAN, 2.0)
+
+func _on_dead():
+	var new_explosion = explosion_scene.instantiate()
+
+	new_explosion.global_position = self.global_position
+	# TODO: There should be a method inside explosion instead of a manual scaling
+	new_explosion.scale = explosion_scale * Vector2.ONE
+	WorldReference.current_world.add_child(new_explosion)

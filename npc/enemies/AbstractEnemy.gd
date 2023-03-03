@@ -10,16 +10,11 @@ var bonus_resources_scene = preload("res://hud/BonusResources.tscn")
 func _on_behavior_target_position_updated(new_target_position: Vector2):
 	set_movement_target(new_target_position)
 
-func _ready():
-	super._ready()
-	health_system.connect("dead", _earn_reward)
-
-func _earn_reward():
+func _on_dead():
+	super._on_dead()
 	FlockResources.earn_resources(kill_bonus)
 
-func on_death(world: Node2D):
 	var bonus_resources = bonus_resources_scene.instantiate()
 	bonus_resources.init(kill_bonus)
 	bonus_resources.global_position = self.global_position
-	world.add_child(bonus_resources)
-	pass
+	WorldReference.current_world.add_child(bonus_resources)
