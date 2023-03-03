@@ -15,3 +15,19 @@ func set_convoy_path(target_position: Vector2, mothership_position: Vector2):
 
 func animate_construction():
 	construction_particles.emitting = true
+
+func upgrade():
+	var parent = self.get_parent()
+
+	var new_ship_scene = ShipCatalog.catalog.get_current_ship_scene()
+	var new_ship = new_ship_scene.instantiate()
+	new_ship.global_rotation = self.global_rotation
+	new_ship.global_position = self.global_position
+	new_ship.velocity = self.velocity
+
+	parent.add_child(new_ship)
+	new_ship.animate_construction()
+
+	new_ship.set_movement_target(self.movement_target)
+
+	self.queue_free()

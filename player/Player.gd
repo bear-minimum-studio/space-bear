@@ -91,21 +91,8 @@ func _upgrade_selected_ship():
 		return
 	FlockResources.spend_resource(price)
 	
-	var movement_target = selected_ship.movement_target
-	var selected_ship_parent = selected_ship.get_parent()
-	
-	var new_ship_scene = ShipCatalog.catalog.get_current_ship_scene()
-	# This should probably be a factory function inside ship?
-	var new_ship = new_ship_scene.instantiate()
-	new_ship.global_rotation = selected_ship.global_rotation
-	new_ship.global_position = selected_ship.global_position
-	new_ship.velocity = selected_ship.velocity
-	
-	selected_ship.queue_free()
-	selected_ship_parent.add_child(new_ship)
-	new_ship.animate_construction()
-	
-	new_ship.set_movement_target(movement_target)
+	if selected_ship.has_method("upgrade"):
+		selected_ship.upgrade()
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)

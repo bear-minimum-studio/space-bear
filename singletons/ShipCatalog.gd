@@ -1,3 +1,3 @@
 extends Node
 
-var catalog = preload("res://ship-upgrades/ShipCatalog.tres")
+var catalog = load("res://ship-upgrades/ShipCatalog.tres")
