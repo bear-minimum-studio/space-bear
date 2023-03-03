@@ -32,12 +32,12 @@ stream_2/stream = ExtResource("6_qqyb8")
 stream_2/weight = 1.0
 
 [node name="Player" type="RigidBody2D"]
+z_index = 10
 collision_mask = 0
 mass = 50.0
 script = ExtResource("1_rsmvc")
 
 [node name="Flammes" type="Sprite2D" parent="."]
-z_index = 10
 texture_filter = 3
 position = Vector2(0, -9.09495e-13)
 rotation = 1.57079
@@ -45,7 +45,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_blk12")
 
 [node name="Player" type="Sprite2D" parent="."]
-z_index = 10
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(2, 2)
