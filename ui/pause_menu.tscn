@@ -112,3 +112,6 @@ text = "Upgrade3"
 [connection signal="pressed" from="MainMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Upgrade" to="." method="_on_upgrade_pressed"]
 [connection signal="pressed" from="UpgradeMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/Upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/Upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="UpgradeMenu/VBoxContainer/Upgrade3" to="." method="_on_upgrade_3_pressed"]

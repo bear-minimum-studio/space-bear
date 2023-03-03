@@ -1,5 +1,9 @@
 extends Control
 
+signal upgrade_01_signal
+signal upgrade_02_signal
+signal upgrade_03_signal
+
 @onready var resume_button = $MainMenu/VBoxContainer/Resume
 @onready var main_menu = $MainMenu
 @onready var upgrade_menu = $UpgradeMenu
@@ -36,3 +40,12 @@ func _on_upgrade_pressed():
 func _on_back_pressed():
 	main_menu.visible = true
 	upgrade_menu.visible = false
+
+func _on_upgrade_1_pressed():
+	emit_signal("upgrade_01_signal")
+
+func _on_upgrade_2_pressed():
+	emit_signal("upgrade_02_signal")
+
+func _on_upgrade_3_pressed():
+	emit_signal("upgrade_03_signal")
