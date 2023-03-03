@@ -8,6 +8,11 @@ extends "res://npc/Turret.gd"
 			collision_shape_2d.shape.radius = turret_range
 		queue_redraw()
 
+const turret_target_mapping = {
+	TurretType.ENEMY: "flock",
+	TurretType.ALLY: "enemy"
+}
+
 var target : Node2D = null
 
 func _physics_process(delta):
@@ -26,7 +31,7 @@ func _set_target():
 		return
 	
 	var bodies: Array[Node2D] = get_overlapping_bodies()
-	var potential_targets = bodies.filter(func(body): return body.is_in_group(bullet_target_mapping[bullet_type]))
+	var potential_targets = bodies.filter(func(body): return body.is_in_group(turret_target_mapping[turret_type]))
 	target = Helpers.find_nearest_node(shooter, potential_targets)
 	
 func _set_rotation_target():

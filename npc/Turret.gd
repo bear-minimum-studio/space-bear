@@ -7,17 +7,12 @@ extends Area2D
 var bullet_spread_angle:
 	get: return (bullet_spread / 100) * PI / 2
 
-enum BulletType { ENEMY, ALLY }
-@export var bullet_type: BulletType= BulletType.ENEMY
-
-const bullet_target_mapping = {
-	BulletType.ENEMY: "flock",
-	BulletType.ALLY: "enemy"
-}
+enum TurretType { ENEMY, ALLY }
+@export var turret_type: TurretType = TurretType.ENEMY
 
 const bullet_type_scene = {
-	BulletType.ENEMY: preload("res://bullet/EnemyBullet.tscn"),
-	BulletType.ALLY: preload("res://bullet/PlayerBullet.tscn"),
+	TurretType.ENEMY: preload("res://bullet/EnemyBullet.tscn"),
+	TurretType.ALLY: preload("res://bullet/PlayerBullet.tscn"),
 }
 
 @export_range(0, PI, PI/32) var rotation_range: float = PI
@@ -70,7 +65,7 @@ func shoot():
 	var imprecision = randf_range(-bullet_spread_angle, bullet_spread_angle)
 	var shooting_angle = global_rotation + imprecision
 	
-	var new_bullet = bullet_type_scene[bullet_type].instantiate()
+	var new_bullet = bullet_type_scene[turret_type].instantiate()
 	new_bullet.init(nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed)
 	
 	_reloading = true

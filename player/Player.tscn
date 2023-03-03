@@ -98,15 +98,15 @@ max_health = 50
 [node name="Turret" parent="Turrets" instance=ExtResource("15_du3jo")]
 position = Vector2(25, 0)
 bullet_spread = 2.5
-bullet_type = 1
+turret_type = 1
 
 [node name="AutoTurret" parent="Turrets" instance=ExtResource("15_5mq6c")]
 position = Vector2(2.08165e-12, 20)
-bullet_type = 1
+turret_type = 1
 
 [node name="AutoTurret2" parent="Turrets" instance=ExtResource("15_5mq6c")]
 position = Vector2(2.08165e-12, -20)
-bullet_type = 1
+turret_type = 1
 
 [connection signal="nozzle_shoot_grappling_hook" from="P2Turret/P2TurretControl" to="." method="_on_p_2_turret_control_nozzle_shoot_grappling_hook"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
