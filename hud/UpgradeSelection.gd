@@ -1,5 +1,8 @@
 extends Control
 
+@onready var label = $VBoxContainer/Label
+@onready var resources_count = $VBoxContainer/HBoxContainer/ResourcesCount
+
 func _ready():
 	_update_ui()
 
@@ -9,4 +12,5 @@ func _input(event):
 		_update_ui()
 
 func _update_ui():
-	$Label.text = ShipCatalog.catalog.get_current_ship_name()
+	label.text = ShipCatalog.catalog.get_current_ship_name()
+	resources_count.amount = ShipCatalog.catalog.get_current_ship_price()

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ced170t4hoxad"]
+
+[ext_resource type="Script" path="res://hud/ResourcesCount.gd" id="1_mhr1k"]
+[ext_resource type="Texture2D" uid="uid://dfkaolsvensv5" path="res://asteroids/particle_minerai.png" id="1_upuim"]
+
+[node name="ResourcesCount" type="HBoxContainer"]
+offset_right = 67.0
+offset_bottom = 18.0
+script = ExtResource("1_mhr1k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_upuim")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "1000"
+vertical_alignment = 1
