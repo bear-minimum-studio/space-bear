@@ -9,9 +9,6 @@ signal shoot_grappling_hook
 @export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
 
 @onready var rotation_speed = 2 * PI * rotation_per_second
-const HOOK_COOLDOWN = 1.0
-
-var _reloading_hook = false
 
 var thrust_intensity :
 	get: return mass * max_speed / time_to_max_speed
@@ -24,10 +21,10 @@ var brake_intensity:
 @onready var turret = $Turrets/Turret
 @onready var p2_turret_control = $P2Turret/P2TurretControl
 @onready var p2_turret = $P2Turret
-@onready var p2_turret_nozzle = $P2Turret/P2TurretControl/P2Nozzle
 @onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
+@onready var p_2_turret_control = $P2Turret/P2TurretControl
 
 func _ready():
 	var turrets = $Turrets.get_children()
@@ -36,16 +33,6 @@ func _ready():
 
 func _shoot():
 	turret.shoot()
-
-func _shoot_hook():
-	if _reloading_hook:
-		return
-
-	emit_signal("shoot_grappling_hook", p2_turret_nozzle.global_position, p2_turret_control.global_rotation)
-	
-	_reloading_hook = true
-	await get_tree().create_timer(HOOK_COOLDOWN).timeout
-	_reloading_hook = false
 
 func _custom_set_rotation():
 	p2_turret.rotation = -self.rotation
@@ -85,11 +72,6 @@ func _brake(state):
 func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
 		_shoot()
-	if (Input.is_action_pressed("grappling_hook")):
-		_shoot_hook()
-
-func _on_turret_control_shoot():
-	emit_signal("shoot", p2_turret_control.global_position, p2_turret_control.global_rotation, linear_velocity)
 
 func _on_health_system_hp_changed(health, max_health):
 	Events.emit_signal("player_hp_changed", health, max_health)
@@ -127,3 +109,6 @@ func _upgrade_selected_ship():
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)
+
+func _on_p_2_turret_control_nozzle_shoot_grappling_hook(global_player_position, global_player_rotation):
+	shoot_grappling_hook.emit(global_player_position, global_player_rotation)
