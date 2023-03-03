@@ -68,3 +68,6 @@ func _on_dead(dead_body: Node2D):
 	# TODO: There should be a method inside explosion instead of a manual scaling
 	new_explosion.scale = explosion_scale * Vector2.ONE
 	self.add_child(new_explosion)
+	
+	if dead_body.has_method("on_death"):
+		dead_body.on_death(self)
