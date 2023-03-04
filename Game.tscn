@@ -8,4 +8,4 @@
 
 [node name="World" parent="." index="0" instance=ExtResource("2_y1lk4")]
 
-[node name="PauseMenu" parent="CanvasLayer" index="7" instance=ExtResource("3_oh8v3")]
+[node name="PauseMenu" parent="CanvasLayer" index="6" instance=ExtResource("3_oh8v3")]

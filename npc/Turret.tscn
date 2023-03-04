@@ -16,7 +16,7 @@ bullets_per_second = 12.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0uq2m")
-debug_color = Color(0.701961, 0.466667, 0, 0.0784314)
+debug_color = Color(0.701961, 0.466667, 0, 0.027451)
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(7, 0)
