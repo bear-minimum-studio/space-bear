@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://j64b88eky2wv"]
+
+[ext_resource type="Texture2D" uid="uid://bs1hhxgfomgdi" path="res://laser/laser1.png" id="1_q7h32"]
+[ext_resource type="Texture2D" uid="uid://bln3s7vv5icji" path="res://laser/laser2.png" id="2_2igd2"]
+[ext_resource type="Texture2D" uid="uid://dhau7hrdgsbah" path="res://laser/laser3.png" id="3_dge6k"]
+[ext_resource type="Texture2D" uid="uid://7nk8kcdq0c0e" path="res://laser/laser4.png" id="4_ojy20"]
+[ext_resource type="Texture2D" uid="uid://clmgpkfs2i5di" path="res://laser/laser5.png" id="5_gc4as"]
+
+[sub_resource type="GDScript" id="GDScript_nnvif"]
+script/source = "@tool
+extends Node2D
+
+@onready var line_2d = $Line2D
+@onready var ray_cast_2d = $RayCast2D
+@onready var animation_player = $AnimationPlayer
+
+@export var range = 500.0:
+	set(new_range):
+		range = new_range
+		_update_sprite_length(range)
+		_update_raycast_range(range)
+
+func _ready():
+	_update_raycast_range(range)
+	
+	ray_cast_2d.force_raycast_update()
+	var coll = ray_cast_2d.get_collision_point()
+	var distance
+	if coll == Vector2.ZERO:
+		distance = range
+	else:
+		distance = (coll - global_position).length()
+	
+	_update_sprite_length(distance)
+	
+	await animation_player.animation_finished
+	self.queue_free()
+
+func _update_raycast_range(length: float):
+	if ray_cast_2d == null:
+		return
+
+	ray_cast_2d.target_position = length * Vector2.RIGHT
+
+func _update_sprite_length(length: float):
+	if line_2d == null:
+		return
+
+	var last_point_index = line_2d.get_point_count() - 1
+	line_2d.set_point_position(last_point_index, length * Vector2.RIGHT)
+"
+
+[sub_resource type="Animation" id="Animation_66l76"]
+resource_name = "Laser"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_q7h32"), ExtResource("2_2igd2"), ExtResource("3_dge6k"), ExtResource("4_ojy20"), ExtResource("5_gc4as")]
+}
+
+[sub_resource type="Animation" id="Animation_ny7h5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_q7h32")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2wvg"]
+_data = {
+"Laser": SubResource("Animation_66l76"),
+"RESET": SubResource("Animation_ny7h5")
+}
+
+[node name="Laser" type="Node2D"]
+script = SubResource("GDScript_nnvif")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(2.08165e-12, 2.08165e-12, 500, 0)
+texture = ExtResource("1_q7h32")
+texture_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Laser"
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_a2wvg")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+collision_mask = 6
