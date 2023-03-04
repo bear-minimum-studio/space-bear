@@ -1,4 +1,5 @@
-extends Label
+extends Control
+@onready var amount = $HBoxContainer/Amount
 
 func update_text(nb_of_civilians : int):
-	self.text = "%s civilian ships left" % nb_of_civilians
+	amount.text = "%s" % nb_of_civilians
