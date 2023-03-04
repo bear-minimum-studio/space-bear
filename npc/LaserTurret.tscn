@@ -9,7 +9,7 @@ radius = 250.0
 
 [node name="LaserTurret" instance=ExtResource("1_clfbt")]
 script = ExtResource("2_bk67q")
-range = 300.0
+laser_range = 300.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_yrtsj")
