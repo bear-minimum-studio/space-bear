@@ -18,9 +18,7 @@ var laser = preload("res://laser/Laser.tscn")
 func _set_rotation_target():
 	pass
 
-func shoot():
-	if _reloading:
-		return
+func _on_shoot():
 	
 	var shooter_velocity = Helpers.get_velocity(shooter)
 	var imprecision = randf_range(-bullet_spread_angle, bullet_spread_angle)
@@ -28,7 +26,3 @@ func shoot():
 	
 	var new_bullet = bullet_type_scene[turret_type].instantiate()
 	new_bullet.init(nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed)
-	
-	_reloading = true
-	await get_tree().create_timer(shooting_speed).timeout
-	_reloading = false

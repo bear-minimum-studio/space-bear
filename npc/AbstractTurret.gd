@@ -42,3 +42,15 @@ func _physics_process(delta):
 	
 func _set_rotation_target():
 	pass
+
+# Overload with shooting behavior
+func _on_shoot():
+	pass
+
+func shoot():
+	if _reloading:
+		return
+	_on_shoot()
+	_reloading = true
+	await get_tree().create_timer(shooting_speed).timeout
+	_reloading = false
