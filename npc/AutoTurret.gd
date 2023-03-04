@@ -1,5 +1,5 @@
 @tool
-extends "res://npc/Turret.gd"
+extends "res://npc/BulletTurret.gd"
 
 @export_range(0.0, 500.0, 10.0, "or_greater") var turret_range: float = 250.0 :
 	set(new_turret_range):

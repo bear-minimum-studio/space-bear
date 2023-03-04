@@ -1,18 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://boraidb6nocfq"]
+[gd_scene load_steps=4 format=3 uid="uid://q0w7bmvd5583"]
 
-[ext_resource type="Script" path="res://npc/Turret.gd" id="1_s1iw8"]
-[ext_resource type="Texture2D" uid="uid://dawessb8b5xl2" path="res://npc/tourelle.png" id="2_nviab"]
+[ext_resource type="Script" path="res://npc/AbstractTurret.gd" id="1_2j8rm"]
+[ext_resource type="Texture2D" uid="uid://dawessb8b5xl2" path="res://npc/tourelle.png" id="2_udw6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0uq2m"]
 resource_local_to_scene = true
 radius = 250.0
 
-[node name="Turret" type="Area2D"]
+[node name="AbstractTurret" type="Area2D"]
 collision_layer = 0
 collision_mask = 10
-script = ExtResource("1_s1iw8")
-bullet_spread = 10.0
-bullets_per_second = 12.0
+script = ExtResource("1_2j8rm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0uq2m")
@@ -21,7 +19,7 @@ debug_color = Color(0.701961, 0.466667, 0, 0.027451)
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(7, 0)
 rotation = 1.5708
-texture = ExtResource("2_nviab")
+texture = ExtResource("2_udw6o")
 
 [node name="Nozzle" type="Node2D" parent="."]
 position = Vector2(18, 0)
