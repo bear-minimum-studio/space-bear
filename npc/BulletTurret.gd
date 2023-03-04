@@ -1,6 +1,7 @@
 extends "res://npc/AbstractTurret.gd"
 
 @export_range(0.0, 100.0) var bullet_spread = 0.0
+@export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
 
 var bullet_spread_angle:
 	get: return (bullet_spread / 100) * PI / 2
@@ -10,7 +11,6 @@ const bullet_type_scene = {
 	TurretAllegiance.ALLY: preload("res://bullet/PlayerBullet.tscn"),
 }
 
-@export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
 
 func _set_rotation_target():
 	pass
