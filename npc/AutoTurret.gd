@@ -7,8 +7,8 @@ extends "res://npc/BulletTurret.gd"
 		_update_range()
 
 const turret_target_mapping = {
-	TurretType.ENEMY: "ally",
-	TurretType.ALLY: "enemy"
+	TurretAllegiance.ENEMY: "ally",
+	TurretAllegiance.ALLY: "enemy"
 }
 
 var target : Node2D = null
@@ -38,7 +38,7 @@ func _set_target():
 		return
 	
 	var bodies: Array[Node2D] = get_overlapping_bodies()
-	var potential_targets = bodies.filter(func(body): return body.is_in_group(turret_target_mapping[turret_type]))
+	var potential_targets = bodies.filter(func(body): return body.is_in_group(turret_target_mapping[turret_allegiance]))
 	target = Helpers.find_nearest_node(shooter, potential_targets)
 	
 func _set_rotation_target():

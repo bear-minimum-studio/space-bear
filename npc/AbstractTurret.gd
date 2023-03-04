@@ -1,8 +1,7 @@
 extends Area2D
 
-
-enum TurretType { ENEMY, ALLY }
-@export var turret_type: TurretType = TurretType.ENEMY
+enum TurretAllegiance { ENEMY, ALLY }
+@export var turret_allegiance: TurretAllegiance = TurretAllegiance.ENEMY
 
 @export_range(0, PI, PI/32) var rotation_range: float = PI
 @export_range(0.1,10.0,0.1,"or_greater") var rotation_speed = 5.0

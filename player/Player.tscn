@@ -104,15 +104,15 @@ max_health = 50
 [node name="Turret" parent="Turrets" instance=ExtResource("15_du3jo")]
 position = Vector2(25, 0)
 bullet_spread = 2.5
-turret_type = 1
+turret_allegiance = 1
 
 [node name="AutoTurret" parent="Turrets" instance=ExtResource("15_5mq6c")]
 position = Vector2(2.08165e-12, 20)
-turret_type = 1
+turret_allegiance = 1
 
 [node name="AutoTurret2" parent="Turrets" instance=ExtResource("15_5mq6c")]
 position = Vector2(2.08165e-12, -20)
-turret_type = 1
+turret_allegiance = 1
 
 [node name="PlayerHUD" type="Node2D" parent="."]
 script = SubResource("GDScript_gcn6k")
