@@ -1,19 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgkkbhp6eam8m"]
+[gd_scene load_steps=14 format=3 uid="uid://cgkkbhp6eam8m"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_tdmob"]
 [ext_resource type="Script" path="res://World.gd" id="2_fom0c"]
-[ext_resource type="PackedScene" uid="uid://c1kn511h34n6d" path="res://npc/mother-ship/MotherShip.tscn" id="2_oy46b"]
+[ext_resource type="PackedScene" uid="uid://cnyk3fg0ei2ld" path="res://npc/mother-ship/MotherShip.tscn" id="2_oy46b"]
+[ext_resource type="Shader" uid="uid://cx6fcps1uqqqu" path="res://explosion/Shockwave.tres" id="3_k8gqo"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" uid="uid://iawoyehjjxoa" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
-[ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
+[ext_resource type="PackedScene" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="5_q0ygi"]
 [ext_resource type="PackedScene" uid="uid://cnctphhxtu347" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="7_0hi8j"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
 [ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p3c01"]
+shader = ExtResource("3_k8gqo")
+shader_parameter/Width = 0.01
+shader_parameter/Speed = 2.0
+shader_parameter/Center = Vector2(0.5, 0.5)
+
 [node name="World" instance=ExtResource("1_tdmob")]
 script = ExtResource("2_fom0c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" index="0"]
+
+[node name="ColorRect" type="ColorRect" parent="Player/Camera2D/CanvasLayer" index="0"]
+material = SubResource("ShaderMaterial_p3c01")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MotherShip" parent="." index="3" instance=ExtResource("2_oy46b")]
 position = Vector2(452, 94)
