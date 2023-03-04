@@ -15,6 +15,8 @@ const bullet_type_scene = {
 	TurretType.ALLY: preload("res://bullet/PlayerBullet.tscn"),
 }
 
+var laser = preload("res://laser/Laser.tscn")
+
 @export_range(0, PI, PI/32) var rotation_range: float = PI
 @export_range(0.1,10.0,0.1,"or_greater") var rotation_speed = 5.0
 
@@ -23,6 +25,12 @@ const bullet_type_scene = {
 @export_range(0.5,50.0) var bullets_per_second = 5.0
 @onready var shooting_speed = 1.0 / bullets_per_second
 var _reloading = false
+
+enum ProjectileType {
+	BULLET,
+	LASER
+}
+@export var projectile_type = ProjectileType.BULLET
 
 @onready var nozzle = $Nozzle
 
@@ -58,6 +66,12 @@ func _set_rotation_target():
 	pass
 
 func shoot():
+	if projectile_type == ProjectileType.BULLET:
+		_shoot_bullet()
+	else:
+		_shoot_laser()
+
+func _shoot_bullet():
 	if _reloading:
 		return
 	
@@ -71,3 +85,20 @@ func shoot():
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout
 	_reloading = false
+
+# TODO take this stuff out, add parameters
+var _laser_reloading = false
+const LASER_RELOAD = 1
+func _shoot_laser():
+	if _laser_reloading:
+		return
+	
+	var new_laser = laser.instantiate()
+	new_laser.range = collision_shape_2d.shape.radius
+	new_laser.global_rotation = self.global_rotation
+	new_laser.global_position = self.global_position
+	WorldReference.current_world.add_child(new_laser)
+	
+	_laser_reloading = true
+	await get_tree().create_timer(LASER_RELOAD).timeout
+	_laser_reloading = false
