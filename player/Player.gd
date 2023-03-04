@@ -80,6 +80,16 @@ func _on_health_system_hp_changed(health, max_health):
 func _input(event):
 	if event.is_action_pressed("upgrade"):
 		_upgrade_selected_ship()
+	if event.is_action_pressed("follow_me"):
+		_follow_me()
+
+func _follow_me():
+	var selected_ship = selection_zone.current_selection
+	if selected_ship == null:
+		return
+
+	if selected_ship.has_method("follow_player"):
+		selected_ship.follow_player(self)
 
 func _upgrade_selected_ship():
 	var selected_ship = selection_zone.current_selection

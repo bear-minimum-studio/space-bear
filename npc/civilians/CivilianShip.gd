@@ -29,3 +29,26 @@ func select():
 
 func unselect():
 	selected = false
+
+var followed_ship: Node2D = null
+var target_before_following
+var speed_before_following
+
+func follow_player(player: Node2D):
+	if followed_ship == null:
+		target_before_following = self.movement_target
+		speed_before_following = self.speed
+		followed_ship = player
+		self.speed = self.speed * 3
+	else:
+		followed_ship = null
+		set_movement_target(target_before_following)
+		self.speed = speed_before_following
+
+func _physics_process(_delta):
+	super._physics_process(_delta)
+
+	if followed_ship == null:
+		return
+
+	set_movement_target(followed_ship.global_position)
