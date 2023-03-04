@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7r4r7r8h4aep"]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_i1wmw"]
-[ext_resource type="PackedScene" uid="uid://dgesufvtht7nu" path="res://npc/AutoTurret.tscn" id="2_4vvl4"]
+[ext_resource type="PackedScene" uid="uid://bxv62xakcfd44" path="res://npc/AutoTurret.tscn" id="2_4vvl4"]
 [ext_resource type="Script" path="res://npc/enemies/VultureEnemy.gd" id="2_tyx4m"]
 [ext_resource type="Script" path="res://npc/enemies/VultureBehavior.gd" id="3_kw2eq"]
 
