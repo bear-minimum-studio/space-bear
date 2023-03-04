@@ -1,7 +1,6 @@
 extends Area2D
 
-@onready var collision_shape_2d = $CollisionShape2D
-		
+
 enum TurretType { ENEMY, ALLY }
 @export var turret_type: TurretType = TurretType.ENEMY
 
@@ -12,6 +11,7 @@ enum TurretType { ENEMY, ALLY }
 @onready var shooting_speed = 1.0 / shots_per_second
 var _reloading = false
 
+@onready var collision_shape_2d = $CollisionShape2D
 @onready var nozzle = $Nozzle
 @onready var default_rotation = rotation
 @onready var rotation_target: float = default_rotation
@@ -33,9 +33,6 @@ func _is_in_angle_range(angle: float) -> bool:
 	var clamped_angle = fmod(angle - default_rotation, PI)
 	return -rotation_range <= clamped_angle and clamped_angle <= rotation_range
 
-func init(new_shooter: PhysicsBody2D) -> void:
-	shooter = new_shooter
-
 func _physics_process(delta):
 	_set_rotation_target()
 	rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)
@@ -47,10 +44,15 @@ func _set_rotation_target():
 func _on_shoot():
 	pass
 
+func init(new_shooter: PhysicsBody2D) -> void:
+	shooter = new_shooter
+
 func shoot():
 	if _reloading:
 		return
+
 	_on_shoot()
+
 	_reloading = true
 	await get_tree().create_timer(shooting_speed).timeout
 	_reloading = false
