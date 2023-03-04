@@ -9,8 +9,9 @@ radius = 250.0
 
 [node name="BulletTurret" instance=ExtResource("1_d2kce")]
 script = ExtResource("2_4n7jk")
-bullet_spread = 0.0
+bullet_spread = 10.0
 bullet_speed = 500.0
+shots_per_second = 12.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_vx33a")
