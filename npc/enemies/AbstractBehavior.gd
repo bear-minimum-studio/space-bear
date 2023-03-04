@@ -27,7 +27,7 @@ func _process(_delta):
 
 func _update_target():
 	if _target == null:
-		_target = Helpers.find_nearest_node(_parent, _parent.get_tree().get_nodes_in_group("flock"))
+		_target = Helpers.find_nearest_node(_parent, _parent.get_tree().get_nodes_in_group("ally"))
 
 func _update_target_position():
 	if _target == null:

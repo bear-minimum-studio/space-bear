@@ -15,7 +15,7 @@ func _on_dead_civilian(dead_ship: Node2D):
 	if dead_ship is Player:
 		Events.game_over.emit()
 	
-	if dead_ship.is_in_group("flock"):
+	if dead_ship.is_in_group("flock") and dead_ship is AbstractCivilianShip:
 		# The civilian is freed AFTER the signal is sent. So, it won't be counted as dead when we receive the signal.
 		var nb_of_civilians_left = _count_civilians() - dead_ship.number_of_passengers
 		_update_text(nb_of_civilians_left)
@@ -25,7 +25,8 @@ func _on_dead_civilian(dead_ship: Node2D):
 func _count_civilians():
 	var number_of_civilians = 0
 	for ship in get_tree().get_nodes_in_group("flock"):
-		number_of_civilians += ship.number_of_passengers
+		if ship is AbstractCivilianShip:
+			number_of_civilians += ship.number_of_passengers
 	return number_of_civilians
 
 func _update_text(nb_of_civilians_left: int):

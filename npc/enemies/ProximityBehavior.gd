@@ -19,6 +19,8 @@ func _update_target():
 	_update_target_position_offset()
 
 func _update_target_position_offset():
+	if _target == null:
+		return
 	var vect_to_target = _target.global_position - _parent.global_position
 	if vect_to_target != Vector2.ZERO:
 		_target_position_offset = - distance_to_target * vect_to_target.normalized()

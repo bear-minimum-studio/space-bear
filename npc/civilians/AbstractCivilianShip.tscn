@@ -29,7 +29,7 @@ scale_min = 0.6
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_vfxco")
 
-[node name="AbstractCivilianShip" groups=["flock"] instance=ExtResource("1_0bdkf")]
+[node name="AbstractCivilianShip" groups=["ally", "flock"] instance=ExtResource("1_0bdkf")]
 collision_layer = 8
 script = ExtResource("2_obvko")
 number_of_passengers = 0

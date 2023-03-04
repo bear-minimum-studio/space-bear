@@ -9,7 +9,7 @@ extends "res://npc/Turret.gd"
 		queue_redraw()
 
 const turret_target_mapping = {
-	TurretType.ENEMY: "flock",
+	TurretType.ENEMY: "ally",
 	TurretType.ALLY: "enemy"
 }
 

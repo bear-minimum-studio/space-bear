@@ -39,8 +39,9 @@ func _physics_process(_delta):
 	self.global_rotation = 0
 "
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["ally"]]
 z_index = 10
+collision_layer = 9
 collision_mask = 0
 mass = 50.0
 script = ExtResource("1_rsmvc")
