@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx41bv33edtnq"]
+[gd_scene load_steps=7 format=3 uid="uid://bjj6jon282dp0"]
 
-[ext_resource type="Script" path="res://bullet/Bullet.gd" id="2_a4jyv"]
-[ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_u7h4i"]
-[ext_resource type="AudioStream" uid="uid://b2geekj3ugfba" path="res://bullet/Bullets.wav" id="3_k5ub5"]
-[ext_resource type="PackedScene" uid="uid://68nodlnorjer" path="res://explosion/BulletImpact.tscn" id="4_e8vuw"]
+[ext_resource type="Script" path="res://weapons/bullet/Bullet.gd" id="1_himu5"]
+[ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_l10y0"]
+[ext_resource type="AudioStream" uid="uid://b2geekj3ugfba" path="res://weapons/bullet/Bullets.wav" id="3_xuj41"]
+[ext_resource type="PackedScene" uid="uid://68nodlnorjer" path="res://explosion/BulletImpact.tscn" id="4_ncnoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyl3h"]
 size = Vector2(8, 6)
@@ -12,13 +12,13 @@ size = Vector2(8, 6)
 streams_count = 1
 random_pitch = 1.05
 random_volume_offset_db = 0.75
-stream_0/stream = ExtResource("3_k5ub5")
+stream_0/stream = ExtResource("3_xuj41")
 stream_0/weight = 1.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("2_a4jyv")
+script = ExtResource("1_himu5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fyl3h")
@@ -27,14 +27,14 @@ shape = SubResource("RectangleShape2D_fyl3h")
 texture_filter = 1
 rotation = 1.5708
 scale = Vector2(0.519198, 0.519198)
-texture = ExtResource("2_u7h4i")
+texture = ExtResource("2_l10y0")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_n0l7c")
 volume_db = -7.682
 bus = &"FX"
 
-[node name="BulletImpact" parent="." instance=ExtResource("4_e8vuw")]
+[node name="BulletImpact" parent="." instance=ExtResource("4_ncnoo")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

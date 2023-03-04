@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlyxuruvrwshy"]
 
-[ext_resource type="PackedScene" uid="uid://cx41bv33edtnq" path="res://bullet/Bullet.tscn" id="1_sg64p"]
+[ext_resource type="PackedScene" uid="uid://cx41bv33edtnq" path="res://weapons/bullet/Bullet.tscn" id="1_sg64p"]
 
 [node name="Bullet" instance=ExtResource("1_sg64p")]
 collision_mask = 6
