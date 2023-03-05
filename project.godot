@@ -22,6 +22,7 @@ Helpers="*res://helpers/Helpers.gd"
 FlockResources="*res://singletons/FlockResources.gd"
 ShipCatalog="*res://singletons/ShipCatalog.gd"
 WorldReference="*res://singletons/WorldReference.gd"
+Allegiance="*res://singletons/Allegiance.gd"
 
 [display]
 

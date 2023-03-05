@@ -7,10 +7,9 @@ var bullet_spread_angle:
 	get: return (bullet_spread / 100) * PI / 2
 
 const bullet_type_scene = {
-	TurretAllegiance.ENEMY: preload("res://weapons/bullet/EnemyBullet.tscn"),
-	TurretAllegiance.ALLY: preload("res://weapons/bullet/PlayerBullet.tscn"),
+	Allegiance.Allegiance.ENEMY: preload("res://weapons/bullet/EnemyBullet.tscn"),
+	Allegiance.Allegiance.ALLY: preload("res://weapons/bullet/PlayerBullet.tscn"),
 }
-
 
 func _set_rotation_target():
 	pass
