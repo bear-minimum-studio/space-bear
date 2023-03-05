@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxv62xakcfd44"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" uid="uid://c10cknng6utrw" path="res://npc/BulletTurret.tscn" id="1_bmnnh"]
-[ext_resource type="Script" path="res://npc/AutoTurret.gd" id="2_42wyu"]
+[ext_resource type="Script" path="res://npc/AutoBulletTurret.gd" id="2_egh23"]
 [ext_resource type="PackedScene" uid="uid://dptq565xi3286" path="res://npc/AutoTurretBehavior.tscn" id="3_ml1wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7opnc"]
-radius = 500.0
+radius = 250.0
 
-[node name="AutoTurret" instance=ExtResource("1_bmnnh")]
-script = ExtResource("2_42wyu")
+[node name="AutoBulltetTurret" instance=ExtResource("1_bmnnh")]
+script = ExtResource("2_egh23")
 turret_range = 250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
