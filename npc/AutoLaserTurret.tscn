@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh60yeou3xgj6"]
+
+[ext_resource type="PackedScene" uid="uid://cm3ncvh3kxqqm" path="res://npc/LaserTurret.tscn" id="1_yilav"]
+[ext_resource type="Script" path="res://AutoLaserTurret.gd" id="2_g4528"]
+[ext_resource type="PackedScene" uid="uid://gpyd1ijrs0dc" path="res://npc/AutoTurretBehavior.tscn" id="3_kqykd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mh3tv"]
+radius = 250.0
+
+[node name="AutoLaserTurret" instance=ExtResource("1_yilav")]
+script = ExtResource("2_g4528")
+turret_range = 250.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_mh3tv")
+debug_color = Color(0, 0.6, 0.701961, 0.196078)
+
+[node name="AutoTurretBehavior" parent="." index="3" instance=ExtResource("3_kqykd")]
