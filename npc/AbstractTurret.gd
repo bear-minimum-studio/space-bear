@@ -32,11 +32,7 @@ func _is_in_angle_range(angle: float) -> bool:
 	return -rotation_range <= clamped_angle and clamped_angle <= rotation_range
 
 func _physics_process(delta):
-	_set_rotation_target()
 	rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)
-	
-func _set_rotation_target():
-	pass
 
 # Overload with shooting behavior
 func _on_shoot():

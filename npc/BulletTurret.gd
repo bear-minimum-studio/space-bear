@@ -11,9 +11,6 @@ const bullet_type_scene = {
 	Allegiance.Allegiance.ALLY: preload("res://weapons/bullet/PlayerBullet.tscn"),
 }
 
-func _set_rotation_target():
-	pass
-
 func _on_shoot():
 	var shooter_velocity = Helpers.get_velocity(shooter)
 	var imprecision = randf_range(-bullet_spread_angle, bullet_spread_angle)
