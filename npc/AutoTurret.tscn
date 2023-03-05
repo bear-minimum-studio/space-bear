@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://c10cknng6utrw" path="res://npc/BulletTurret.tscn" id="1_bmnnh"]
 [ext_resource type="Script" path="res://npc/AutoTurret.gd" id="2_42wyu"]
-[ext_resource type="PackedScene" uid="uid://gpyd1ijrs0dc" path="res://npc/AutoTurretBehavior.tscn" id="3_ml1wp"]
+[ext_resource type="PackedScene" uid="uid://dptq565xi3286" path="res://npc/AutoTurretBehavior.tscn" id="3_ml1wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7opnc"]
-radius = 250.0
+radius = 500.0
 
 [node name="AutoTurret" instance=ExtResource("1_bmnnh")]
 script = ExtResource("2_42wyu")
