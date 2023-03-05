@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnk4rskkuu6ym"]
+
+[ext_resource type="PackedScene" uid="uid://duruv4afwwyfl" path="res://ui/BonusMalus.tscn" id="1_8lhn6"]
+
+[node name="CivilianMalus" instance=ExtResource("1_8lhn6")]
+earning_type = 1
+color = Color(0.894118, 0.0901961, 0.137255, 1)
+
+[node name="Label" parent="LabelContainer" index="0"]
+theme_override_colors/font_color = Color(0.894118, 0.0901961, 0.137255, 1)
+text = "-10"

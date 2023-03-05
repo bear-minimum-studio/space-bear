@@ -4,6 +4,8 @@ class_name AbstractCivilianShip
 @export_range(0,10000,1,"or_greater") var number_of_passengers = 0;
 @onready var construction_particles = $ConstructionParticles
 
+var civilian_malus_scene = preload("res://hud/CivilianMalus.tscn")
+
 func set_convoy_path(target_position: Vector2, mothership_position: Vector2):
 	# all allies should aim to reach the wormhole while keeping their relative position
 	# the allies behind the mothership have a longer way to go
@@ -31,3 +33,11 @@ func upgrade():
 	new_ship.set_movement_target(self.movement_target)
 
 	self.queue_free()
+
+func _on_dead():
+	super._on_dead()
+	
+	var civilian_malus = civilian_malus_scene.instantiate()
+	civilian_malus.init(number_of_passengers)
+	civilian_malus.global_position = self.global_position
+	WorldReference.current_world.add_child(civilian_malus)
