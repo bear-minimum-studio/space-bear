@@ -42,4 +42,5 @@ func _on_level_end():
 
 func _on_restart():
 	get_tree().paused = false
+	FlockResources.reset()
 	get_tree().reload_current_scene()

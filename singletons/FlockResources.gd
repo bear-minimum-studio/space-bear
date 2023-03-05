@@ -1,6 +1,7 @@
 extends Node
 
-var resources = 100
+const initial_resources = 100
+var resources = initial_resources
 
 signal resources_change
 
@@ -14,3 +15,6 @@ func get_resources():
 func earn_resources(amount: int):
 	resources += amount
 	resources_change.emit()
+
+func reset():
+	resources = initial_resources
