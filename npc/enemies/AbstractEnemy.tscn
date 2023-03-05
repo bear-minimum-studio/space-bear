@@ -30,6 +30,7 @@ texture = ExtResource("4_toa7b")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_3dcnw")
+debug_color = Color(0, 0.6, 0.701961, 0.0705882)
 
 [node name="HealthSystem" parent="." index="4"]
 max_health = 200
