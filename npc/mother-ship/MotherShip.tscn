@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
 [ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_kencp"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
-[ext_resource type="PackedScene" uid="uid://cf8nbginfx4rx" path="res://npc/AutoBulletTurret.tscn" id="5_vqqiw"]
+[ext_resource type="PackedScene" path="res://npc/AutoBulletTurret.tscn" id="5_vqqiw"]
 [ext_resource type="PackedScene" uid="uid://uhqfnfes4iid" path="res://npc/AutoLaserTurret.tscn" id="6_c82vx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tks0q"]
