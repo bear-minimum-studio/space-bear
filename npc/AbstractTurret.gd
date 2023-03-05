@@ -9,7 +9,6 @@ extends Area2D
 @onready var shooting_speed = 1.0 / shots_per_second
 var _reloading = false
 
-@onready var collision_shape_2d = $CollisionShape2D
 @onready var nozzle = $Nozzle
 @onready var default_rotation = rotation
 @onready var rotation_target: float = default_rotation
@@ -30,6 +29,19 @@ func _clamp_to_angle_range(angle: float) -> float:
 func _is_in_angle_range(angle: float) -> bool:
 	var clamped_angle = fmod(angle - default_rotation, PI)
 	return -rotation_range <= clamped_angle and clamped_angle <= rotation_range
+
+# Computes the angle needed for the turret to align with the given target
+func _compute_shooting_direction(shoot_target: PhysicsBody2D) -> float:
+	var direction_to_target = (shoot_target.global_position - global_position).normalized()
+	var correction = _compute_shooting_corretion(shoot_target)
+	var shooting_direction = direction_to_target + correction
+	return shooting_direction.angle() - shooter.global_rotation
+
+# Computes the correction vector to add to the shooting_direction to compensate
+# for the shooter and the target velocity
+# Overload based on how the turrets shoots
+func _compute_shooting_corretion(shoot_target: PhysicsBody2D) -> Vector2:
+	return Vector2.ZERO
 
 func _physics_process(delta):
 	rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)

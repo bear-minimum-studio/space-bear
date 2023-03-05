@@ -6,7 +6,14 @@ extends "res://npc/BulletTurret.gd"
 		turret_range = new_turret_range
 		_update_range()
 
+@onready var collision_shape_2d = $CollisionShape2D
+
 var target : Node2D = null
+
+func _compute_shooting_corretion(shoot_target: PhysicsBody2D) -> Vector2:
+	var shooter_velocity = Helpers.get_velocity(shooter)
+	var target_velocity = Helpers.get_velocity(shoot_target)
+	return (target_velocity - shooter_velocity) / bullet_speed
 
 func _ready():
 	_update_range()

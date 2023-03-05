@@ -27,15 +27,10 @@ func _set_target():
 func _set_rotation_target():
 	if turret == null or turret.shooter == null:
 		return
-		
+	
 	_set_target()
 	if shoot_target == null:
 		turret.rotation_target = turret.default_rotation
 		return
 	
-	var direction_to_target = (shoot_target.global_position - turret.global_position).normalized()
-	var shooter_velocity = Helpers.get_velocity(turret.shooter)
-	var target_velocity = Helpers.get_velocity(shoot_target)
-	var correction = (target_velocity - shooter_velocity) / turret.bullet_speed
-	var shooting_direction = direction_to_target + correction
-	turret.rotation_target = shooting_direction.angle() - turret.shooter.global_rotation
+	turret.rotation_target = turret._compute_shooting_direction(shoot_target)
