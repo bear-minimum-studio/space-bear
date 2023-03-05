@@ -12,7 +12,7 @@ func init(global_shooter_position, global_shooter_rotation, shooter_velocity, bu
 	global_position = global_shooter_position
 	global_rotation = global_shooter_rotation
 	set_initial_velocity(shooter_velocity, shooter_direction, bullet_speed)
-	WorldReference.add_child(self)
+	WorldReference.current_world.add_child(self)
 
 func _ready():
 	$SFX.play()
