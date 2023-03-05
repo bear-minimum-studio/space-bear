@@ -13,6 +13,6 @@ turret_range = 250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_7opnc")
-debug_color = Color(0.44687, 0.589995, 0.272933, 0.196078)
+debug_color = Color(0.447059, 0.588235, 0.27451, 0.0431373)
 
 [node name="AutoTurretBehavior" parent="." index="3" instance=ExtResource("3_ml1wp")]
