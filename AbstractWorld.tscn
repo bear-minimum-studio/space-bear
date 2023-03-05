@@ -27,13 +27,6 @@ scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
 scroll_ignore_camera_zoom = true
 
-[node name="Player" parent="." instance=ExtResource("1_yasag")]
-position = Vector2(159, 130)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.3, 0.3)
-position_smoothing_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uyldo")
 
@@ -46,5 +39,12 @@ navigation_polygon = SubResource("NavigationPolygon_tbroh")
 [node name="Asteroids" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_yasag")]
+position = Vector2(159, 130)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]

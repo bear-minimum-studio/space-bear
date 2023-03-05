@@ -15,10 +15,6 @@
 [node name="World" instance=ExtResource("1_tdmob")]
 script = ExtResource("2_fom0c")
 
-[node name="MotherShip" parent="." index="3" instance=ExtResource("2_oy46b")]
-position = Vector2(452, 94)
-rotation = -0.698132
-
 [node name="TransportShip" parent="Flock" index="0" instance=ExtResource("4_lr1mj")]
 position = Vector2(159, 521)
 
@@ -344,6 +340,10 @@ rotation = -0.698132
 
 [node name="TurretShip3" parent="Flock" index="82" instance=ExtResource("4_0rotb")]
 position = Vector2(205, 199)
+rotation = -0.698132
+
+[node name="MotherShip" parent="." index="3" instance=ExtResource("2_oy46b")]
+position = Vector2(452, 94)
 rotation = -0.698132
 
 [node name="Asteroid" parent="Asteroids" index="0" instance=ExtResource("5_q0ygi")]
