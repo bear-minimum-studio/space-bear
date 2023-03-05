@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var civilians_left = $CanvasLayer/CiviliansLeft
+@onready var civilians_left = $CanvasLayer/MarginContainer/CiviliansLeft
 @onready var game_over = $CanvasLayer/GameOver
 @onready var level_end = $CanvasLayer/LevelEnd
 

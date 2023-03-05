@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bewsyshgup2l6"]
 
-[ext_resource type="FontFile" uid="uid://dtah1tlpr2idq" path="res://ui/fonts/GOLDRN__.TTF" id="1_wa1or"]
+[ext_resource type="FontFile" uid="uid://dtah1tlpr2idq" path="res://ui/fonts/GOLDRN__.TTF" id="1_kkjrk"]
 
 [resource]
-default_font = ExtResource("1_wa1or")
+default_font = ExtResource("1_kkjrk")
 default_font_size = 10
