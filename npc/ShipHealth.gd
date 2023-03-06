@@ -25,7 +25,7 @@ func _ready():
 	_toggle_visibility(false, true)
 	health_system.hp_changed.connect(_on_hp_changed)
 
-func _on_hp_changed(health, max_health):
+func _on_hp_changed(health, max_health, _difference):
 	self.max_value = max_health
 	self.value = health
 	show_temporarily()

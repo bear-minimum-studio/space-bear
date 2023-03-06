@@ -12,3 +12,8 @@ func animate_hurt_opacity(sprite: Node2D):
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate:a", 0.5, 0.1)
 	tween.tween_property(sprite, "modulate:a", 1, 0.1)
+
+func animate_heal(sprite: Node2D):
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color.GREEN, 0.1)
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)	

@@ -33,7 +33,7 @@ func _ready():
 	animation_player.speed_scale = randf_range(0.2, 2)
 
 
-func _on_health_system_hp_changed(_health, _max_health):
+func _on_health_system_hp_changed(_health, _max_health, _difference):
 	hurt_animation.animate_hurt(sprite_container)
 
 

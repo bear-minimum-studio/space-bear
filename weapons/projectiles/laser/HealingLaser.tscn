@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbvr3hdqqne7v"]
+
+[ext_resource type="PackedScene" uid="uid://vf5a2c65gv7m" path="res://weapons/projectiles/laser/Laser.tscn" id="1_cpna2"]
+[ext_resource type="Script" path="res://weapons/projectiles/laser/HealingLaser.gd" id="2_nfr7o"]
+
+[node name="HealingLaser" instance=ExtResource("1_cpna2")]
+script = ExtResource("2_nfr7o")
+
+[node name="Line2D" parent="." index="0"]
+modulate = Color(0.784314, 1, 0.490196, 1)
+
+[node name="RayCast2D" parent="." index="2"]
+collision_mask = 128

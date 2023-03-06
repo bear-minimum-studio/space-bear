@@ -139,6 +139,7 @@ follow_me={
 2d_physics/layer_4="ally"
 2d_physics/layer_5="ally hitbox"
 2d_physics/layer_6="level end"
+2d_physics/layer_8="healable"
 
 [physics]
 

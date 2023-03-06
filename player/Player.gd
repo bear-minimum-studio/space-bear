@@ -73,7 +73,7 @@ func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
 		_shoot()
 
-func _on_health_system_hp_changed(health, max_health):
+func _on_health_system_hp_changed(health, max_health, _difference):
 	Events.emit_signal("player_hp_changed", health, max_health)
 	hurt_animation.animate_hurt($Player)
 

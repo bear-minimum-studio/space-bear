@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" uid="uid://duha2nt8tgf15" path="res://weapons/turrets/healing-turrets/HealingTurret.tscn" id="1_puvnb"]
+[ext_resource type="Script" path="res://weapons/turrets/healing-turrets/AutoHealingTurret.gd" id="2_6l0xu"]
+[ext_resource type="PackedScene" uid="uid://cura8b35dcoto" path="res://weapons/turrets/turret-behaviors/AutoHealingTurretBehavior.tscn" id="3_yaf1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggdyy"]
+resource_local_to_scene = true
+radius = 240.0
+
+[node name="AutoHealingTurret" instance=ExtResource("1_puvnb")]
+script = ExtResource("2_6l0xu")
+turret_range = 240.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_ggdyy")
+debug_color = Color(0, 0.701961, 0.12549, 0.0745098)
+
+[node name="AutoHealingTurretBehavior" parent="." index="3" instance=ExtResource("3_yaf1o")]

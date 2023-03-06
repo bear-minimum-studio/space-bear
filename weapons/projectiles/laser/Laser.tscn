@@ -63,3 +63,4 @@ libraries = {
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(500, 0)
 collision_mask = 6
+hit_from_inside = true

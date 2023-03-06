@@ -43,7 +43,7 @@ func _update_shield_color():
 	if sprite_2d != null:
 		sprite_2d.material.set_shader_parameter('color', shield_color)
 
-func _on_hit(_health, _max_health):
+func _on_hit(_health, _max_health, _difference):
 	if timer_before_heal == null:
 		timer_before_heal = self.get_tree().create_timer(recharge_delay_seconds)
 		await timer_before_heal.timeout

@@ -58,9 +58,14 @@ func _on_health_system_dead():
 	Events.dead_ship.emit(self)
 	_on_dead()
 
-func _on_health_system_hp_changed(_health, _max_health):
-	hurt_animation.animate_hurt($Ship)
-	Events.ship_hurt.emit(self)
+func _on_health_system_hp_changed(_health, _max_health, difference):
+	if difference == 0:
+		return
+	elif difference > 0:
+		hurt_animation.animate_heal($Ship)
+	else:
+		hurt_animation.animate_hurt($Ship)
+		Events.ship_hurt.emit(self)
 
 func _draw():
 	if(nav_agent.debug_enabled):

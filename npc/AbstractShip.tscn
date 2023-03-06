@@ -21,7 +21,8 @@ script = ExtResource("1_efvdm")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 30.0
 
-[node name="HealthSystem" parent="." instance=ExtResource("2_butel")]
+[node name="HealthSystem" parent="." node_paths=PackedStringArray("hurtable_body") instance=ExtResource("2_butel")]
+hurtable_body = NodePath("..")
 
 [node name="HurtAnimation" parent="." instance=ExtResource("3_e5uby")]
 
