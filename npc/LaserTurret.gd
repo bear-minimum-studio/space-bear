@@ -2,7 +2,7 @@ extends "res://npc/AbstractTurret.gd"
 
 @export var laser_range = 300.0
 
-var laser_scene = preload("res://weapons/laser/Laser.tscn")
+var laser_scene = preload("res://weapons/projectiles/laser/Laser.tscn")
 
 func _on_shoot():
 	var new_laser = laser_scene.instantiate()

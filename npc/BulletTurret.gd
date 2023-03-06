@@ -7,8 +7,8 @@ var bullet_spread_angle:
 	get: return (bullet_spread / 100) * PI / 2
 
 const bullet_type_scene = {
-	Allegiance.Allegiance.ENEMY: preload("res://weapons/bullet/EnemyBullet.tscn"),
-	Allegiance.Allegiance.ALLY: preload("res://weapons/bullet/PlayerBullet.tscn"),
+	Allegiance.Allegiance.ENEMY: preload("res://weapons/projectiles/bullet/EnemyBullet.tscn"),
+	Allegiance.Allegiance.ALLY: preload("res://weapons/projectiles/bullet/PlayerBullet.tscn"),
 }
 
 func _on_shoot():

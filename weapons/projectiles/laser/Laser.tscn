@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://vf5a2c65gv7m"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://weapons/laser/Laser.gd" id="1_2o8ra"]
-[ext_resource type="Texture2D" uid="uid://bs1hhxgfomgdi" path="res://weapons/laser/laser1.png" id="1_ws664"]
-[ext_resource type="Texture2D" uid="uid://bln3s7vv5icji" path="res://weapons/laser/laser2.png" id="2_ubxem"]
-[ext_resource type="Texture2D" uid="uid://dhau7hrdgsbah" path="res://weapons/laser/laser3.png" id="3_kktai"]
-[ext_resource type="Texture2D" uid="uid://7nk8kcdq0c0e" path="res://weapons/laser/laser4.png" id="4_wmnov"]
-[ext_resource type="Texture2D" uid="uid://clmgpkfs2i5di" path="res://weapons/laser/laser5.png" id="5_25aw3"]
+[ext_resource type="Script" path="res://weapons/projectiles/laser/Laser.gd" id="1_2o8ra"]
+[ext_resource type="Texture2D" uid="uid://bs1hhxgfomgdi" path="res://weapons/projectiles/laser/laser1.png" id="1_ws664"]
+[ext_resource type="Texture2D" uid="uid://bln3s7vv5icji" path="res://weapons/projectiles/laser/laser2.png" id="2_ubxem"]
+[ext_resource type="Texture2D" uid="uid://dhau7hrdgsbah" path="res://weapons/projectiles/laser/laser3.png" id="3_kktai"]
+[ext_resource type="Texture2D" uid="uid://7nk8kcdq0c0e" path="res://weapons/projectiles/laser/laser4.png" id="4_wmnov"]
+[ext_resource type="Texture2D" uid="uid://clmgpkfs2i5di" path="res://weapons/projectiles/laser/laser5.png" id="5_25aw3"]
 
 [sub_resource type="Animation" id="Animation_66l76"]
 resource_name = "Laser"
