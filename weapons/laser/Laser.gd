@@ -5,6 +5,11 @@ extends Node2D
 @onready var ray_cast_2d = $RayCast2D
 @onready var animation_player = $AnimationPlayer
 
+@export var color = Color("ff52b7"):
+	set(new_color):
+		color = new_color
+		_update_color()
+
 @export var laser_range = 500.0:
 	set(new_range):
 		laser_range = new_range
@@ -13,6 +18,7 @@ extends Node2D
 
 func _ready():
 	_update_raycast_range(laser_range)
+	_update_color()
 	
 	ray_cast_2d.force_raycast_update()
 	var coll = ray_cast_2d.get_collision_point()
@@ -42,6 +48,10 @@ func _update_sprite_length(length: float):
 
 	var last_point_index = line_2d.get_point_count() - 1
 	line_2d.set_point_position(last_point_index, length * Vector2.RIGHT)
+
+func _update_color():
+	if line_2d != null:
+		line_2d.modulate = color
 
 func _hit(area_or_body):
 	var health_system = area_or_body.find_child("HealthSystem")
