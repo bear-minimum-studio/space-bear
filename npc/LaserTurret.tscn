@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm3ncvh3kxqqm"]
-
-[ext_resource type="PackedScene" uid="uid://q0w7bmvd5583" path="res://npc/AbstractTurret.tscn" id="1_clfbt"]
-[ext_resource type="Script" path="res://npc/LaserTurret.gd" id="2_bk67q"]
-
-[node name="LaserTurret" instance=ExtResource("1_clfbt")]
-script = ExtResource("2_bk67q")
-laser_range = 300.0

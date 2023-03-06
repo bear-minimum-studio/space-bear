@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://nm4xuj5fb7fm"]
-
-[ext_resource type="Script" path="res://npc/AbstractTurretBehavior.gd" id="1_2utdo"]
-
-[node name="AbstractTurretBehavior" type="Node"]
-script = ExtResource("1_2utdo")

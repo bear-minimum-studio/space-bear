@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://7r4r7r8h4aep"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_i1wmw"]
-[ext_resource type="PackedScene" path="res://npc/AutoBulletTurret.tscn" id="2_4vvl4"]
+[ext_resource type="PackedScene" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="2_4vvl4"]
 [ext_resource type="Script" path="res://npc/enemies/VultureEnemy.gd" id="2_tyx4m"]
 [ext_resource type="Texture2D" uid="uid://dcah24tcljjxh" path="res://npc/enemies/bad_guy_2.png" id="3_6l832"]
 [ext_resource type="Script" path="res://npc/enemies/VultureBehavior.gd" id="3_kw2eq"]

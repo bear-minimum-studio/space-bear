@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
 [ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="5_q0ygi"]
-[ext_resource type="PackedScene" uid="uid://cci4trp0rooft" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
+[ext_resource type="PackedScene" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="7_0hi8j"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
-[ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
+[ext_resource type="PackedScene" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
 script = ExtResource("2_fom0c")

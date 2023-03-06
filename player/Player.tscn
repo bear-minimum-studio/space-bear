@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cv7li5vw58r6p"]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://70g7bjidiut3" path="res://player/flammes.png" id="2_blk12"]
@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="12_uwy2g"]
 [ext_resource type="PackedScene" uid="uid://ba06loe142qwy" path="res://player/SelectionZone.tscn" id="13_n8rio"]
 [ext_resource type="PackedScene" uid="uid://g2uw1el2x1ea" path="res://hud/radar/PlayerRadar.tscn" id="14_fhr4g"]
-[ext_resource type="PackedScene" path="res://npc/AutoBulletTurret.tscn" id="15_5mq6c"]
-[ext_resource type="PackedScene" uid="uid://c10cknng6utrw" path="res://npc/BulletTurret.tscn" id="15_du3jo"]
+[ext_resource type="PackedScene" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="15_5mq6c"]
+[ext_resource type="PackedScene" path="res://weapons/turrets/bullet-turrets/BulletTurret.tscn" id="15_du3jo"]
 [ext_resource type="PackedScene" uid="uid://djt0jq7486mc6" path="res://hud/UnderAttack.tscn" id="17_umsx8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]

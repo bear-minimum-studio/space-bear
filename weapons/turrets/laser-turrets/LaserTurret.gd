@@ -1,4 +1,4 @@
-extends "res://npc/AbstractTurret.gd"
+extends "res://weapons/turrets/AbstractTurret.gd"
 
 @export var laser_range = 300.0
 

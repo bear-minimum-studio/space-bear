@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg342w61xp8x2"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://c10cknng6utrw" path="res://npc/BulletTurret.tscn" id="1_bmnnh"]
-[ext_resource type="Script" path="res://npc/AutoBulletTurret.gd" id="2_egh23"]
-[ext_resource type="PackedScene" uid="uid://dptq565xi3286" path="res://npc/AutoTurretBehavior.tscn" id="3_ml1wp"]
+[ext_resource type="PackedScene" path="res://weapons/turrets/bullet-turrets/BulletTurret.tscn" id="1_bmnnh"]
+[ext_resource type="Script" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.gd" id="2_egh23"]
+[ext_resource type="PackedScene" path="res://weapons/turrets/turret-behaviors/AutoTurretBehavior.tscn" id="3_ml1wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7opnc"]
 radius = 250.0

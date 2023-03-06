@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dptq565xi3286"]
-
-[ext_resource type="PackedScene" uid="uid://nm4xuj5fb7fm" path="res://npc/AbstractTurretBehavior.tscn" id="1_u33cc"]
-[ext_resource type="Script" path="res://npc/AutoTurretBehavior.gd" id="2_arxi7"]
-
-[node name="AutoTurretBehavior" instance=ExtResource("1_u33cc")]
-script = ExtResource("2_arxi7")

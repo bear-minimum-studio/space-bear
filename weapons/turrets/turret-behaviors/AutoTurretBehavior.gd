@@ -1,4 +1,4 @@
-extends "res://npc/AbstractTurretBehavior.gd"
+extends "res://weapons/turrets/turret-behaviors/AbstractTurretBehavior.gd"
 
 const turret_target_mapping = {
 	Allegiance.Allegiance.ENEMY: "ally",

@@ -1,4 +1,4 @@
-extends "res://npc/AbstractTurret.gd"
+extends "res://weapons/turrets/AbstractTurret.gd"
 
 @export_range(0.0, 100.0) var bullet_spread = 0.0
 @export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
