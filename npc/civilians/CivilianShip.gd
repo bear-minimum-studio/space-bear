@@ -19,6 +19,7 @@ var sprites = [
 	[preload("res://npc/civilians/vaisseau_civil_3.png"), preload("res://npc/civilians/vaisseau_civil_3_flammes.png")],
 	[preload("res://npc/civilians/vaisseau_civil_4.png"), preload("res://npc/civilians/vaisseau_civil_4_flammes.png")],
 	[preload("res://npc/civilians/vaisseau_civil_5.png"), preload("res://npc/civilians/vaisseau_civil_5_flammes.png")],
+	[preload("res://npc/civilians/vaisseau_civil_6.png"), preload("res://npc/civilians/vaisseau_civil_6_flammes.png")],
 ]
 
 func _ready():
