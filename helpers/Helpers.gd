@@ -27,3 +27,6 @@ func get_velocity(node: PhysicsBody2D) -> Vector2:
 		return node.constant_linear_velocity
 	else:
 		return Vector2.ZERO
+
+func angle_to_trigonometry_range(angle: float):
+	return fposmod(angle - PI, 2 * PI) - PI

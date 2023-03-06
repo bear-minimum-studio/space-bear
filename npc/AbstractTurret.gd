@@ -19,7 +19,7 @@ var shooter : PhysicsBody2D = null
 #   min : default_rotation - rotation_range
 #   max : default_rotation + rotation_range
 func _clamp_to_angle_range(angle: float) -> float:
-	var clamped_angle = fmod(angle - default_rotation, PI)
+	var clamped_angle = Helpers.angle_to_trigonometry_range(angle - default_rotation)
 	clamped_angle = clamp(clamped_angle, -rotation_range, rotation_range) + default_rotation
 	return clamped_angle
 
@@ -27,7 +27,7 @@ func _clamp_to_angle_range(angle: float) -> float:
 #   min : default_rotation - rotation_range
 #   max : default_rotation + rotation_range
 func _is_in_angle_range(angle: float) -> bool:
-	var clamped_angle = fmod(angle - default_rotation, PI)
+	var clamped_angle = Helpers.angle_to_trigonometry_range(angle - default_rotation)
 	return -rotation_range <= clamped_angle and clamped_angle <= rotation_range
 
 # Computes the angle needed for the turret to align with the given target
