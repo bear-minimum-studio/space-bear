@@ -44,6 +44,9 @@ func _compute_shooting_corretion(_shoot_target: PhysicsBody2D) -> Vector2:
 	return Vector2.ZERO
 
 func _physics_process(delta):
+	if Engine.is_editor_hint():
+		return
+
 	rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)
 
 # Overload with shooting behavior

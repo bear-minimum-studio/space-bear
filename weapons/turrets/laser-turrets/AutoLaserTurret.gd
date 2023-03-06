@@ -11,11 +11,6 @@ extends "res://weapons/turrets/laser-turrets/LaserTurret.gd"
 func _ready():
 	_update_range()
 
-func _physics_process(delta):
-	if Engine.is_editor_hint():
-		return
-	super._physics_process(delta)
-
 func _update_range():
 	if collision_shape_2d == null:
 		return
