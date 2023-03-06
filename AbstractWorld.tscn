@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ujm2pogbpnnp"]
 
 [ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
-[ext_resource type="PackedScene" path="res://player/Player.tscn" id="1_yasag"]
+[ext_resource type="PackedScene" uid="uid://cv7li5vw58r6p" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
