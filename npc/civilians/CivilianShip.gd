@@ -16,7 +16,9 @@ var selected = false :
 var sprites = [
 	[preload("res://npc/civilians/vaisseau_civil_1.png"), preload("res://npc/civilians/vaisseau_civil_1_flammes.png")],
 	[preload("res://npc/civilians/vaisseau_civil_2.png"), preload("res://npc/civilians/vaisseau_civil_2_flammes.png")],
-	[preload("res://npc/civilians/vaisseau_civil_3.png"), preload("res://npc/civilians/vaisseau_civil_3_flammes.png")]
+	[preload("res://npc/civilians/vaisseau_civil_3.png"), preload("res://npc/civilians/vaisseau_civil_3_flammes.png")],
+	[preload("res://npc/civilians/vaisseau_civil_4.png"), preload("res://npc/civilians/vaisseau_civil_4_flammes.png")],
+	[preload("res://npc/civilians/vaisseau_civil_5.png"), preload("res://npc/civilians/vaisseau_civil_5_flammes.png")],
 ]
 
 func _ready():
