@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://cgwkvr3qwd5pj"]
 
 [ext_resource type="Script" path="res://weapons/turrets/AbstractTurret.gd" id="1_2j8rm"]
 [ext_resource type="Texture2D" uid="uid://dawessb8b5xl2" path="res://weapons/turrets/tourelle.png" id="2_udw6o"]

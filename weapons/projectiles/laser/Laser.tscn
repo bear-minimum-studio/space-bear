@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://collca7nke032"]
 
 [ext_resource type="Script" path="res://weapons/projectiles/laser/Laser.gd" id="1_2o8ra"]
 [ext_resource type="Texture2D" uid="uid://bs1hhxgfomgdi" path="res://weapons/projectiles/laser/laser1.png" id="1_ws664"]
