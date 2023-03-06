@@ -27,7 +27,8 @@ func _ready():
 	_update_sprite_length(distance)
 	
 	await animation_player.animation_finished
-	self.queue_free()
+	if not Engine.is_editor_hint():
+		self.queue_free()
 
 func _update_raycast_range(length: float):
 	if ray_cast_2d == null:
