@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://d1b8f237n7j3e"]
 
-[ext_resource type="PackedScene" path="res://weapons/turrets/AbstractTurret.tscn" id="1_clfbt"]
+[ext_resource type="PackedScene" uid="uid://cgwkvr3qwd5pj" path="res://weapons/turrets/AbstractTurret.tscn" id="1_clfbt"]
 [ext_resource type="Script" path="res://weapons/turrets/laser-turrets/LaserTurret.gd" id="2_bk67q"]
 
 [node name="LaserTurret" instance=ExtResource("1_clfbt")]

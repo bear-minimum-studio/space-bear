@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://hs37a7c2fbnw"]
 
 [ext_resource type="PackedScene" path="res://weapons/projectiles/bullet/Bullet.tscn" id="1_ejxly"]
 

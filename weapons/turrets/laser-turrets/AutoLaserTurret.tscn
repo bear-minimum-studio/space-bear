@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://myhvoxif2wyo"]
 
-[ext_resource type="PackedScene" path="res://weapons/turrets/laser-turrets/LaserTurret.tscn" id="1_eip51"]
+[ext_resource type="PackedScene" uid="uid://d1b8f237n7j3e" path="res://weapons/turrets/laser-turrets/LaserTurret.tscn" id="1_eip51"]
 [ext_resource type="Script" path="res://weapons/turrets/laser-turrets/AutoLaserTurret.gd" id="2_6c3ic"]
-[ext_resource type="PackedScene" path="res://weapons/turrets/turret-behaviors/AutoTurretBehavior.tscn" id="3_fqv4v"]
+[ext_resource type="PackedScene" uid="uid://b1g15na57uki6" path="res://weapons/turrets/turret-behaviors/AutoTurretBehavior.tscn" id="3_fqv4v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mh3tv"]
 radius = 250.0

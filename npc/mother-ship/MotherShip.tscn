@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://bx2ghytsddgue"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
 [ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_kencp"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
-[ext_resource type="PackedScene" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="5_vqqiw"]
-[ext_resource type="PackedScene" path="res://weapons/turrets/laser-turrets/AutoLaserTurret.tscn" id="6_c82vx"]
+[ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="5_vqqiw"]
+[ext_resource type="PackedScene" uid="uid://myhvoxif2wyo" path="res://weapons/turrets/laser-turrets/AutoLaserTurret.tscn" id="6_c82vx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tks0q"]
 radius = 71.0
