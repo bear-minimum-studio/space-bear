@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dcnw"]
 radius = 41.1096
 
-[node name="Enemy" groups=["enemy"] instance=ExtResource("1_oxqnl")]
+[node name="AbstractEnemy" groups=["enemy"] instance=ExtResource("1_oxqnl")]
 collision_layer = 2
 script = ExtResource("2_e7uub")
 kill_bonus = 2

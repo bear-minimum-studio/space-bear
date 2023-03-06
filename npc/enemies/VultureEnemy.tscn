@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://npc/enemies/VultureBehavior.gd" id="3_kw2eq"]
 [ext_resource type="Texture2D" uid="uid://d1xfryswpwhff" path="res://npc/enemies/bad_guy_2_flammes.png" id="4_vbl3j"]
 
-[node name="Enemy" instance=ExtResource("1_i1wmw")]
+[node name="VultureEnemy" instance=ExtResource("1_i1wmw")]
 script = ExtResource("2_tyx4m")
 proximity_ratio = 1.35
 speed = 350.0
@@ -20,12 +20,12 @@ texture = ExtResource("3_6l832")
 [node name="Flammes" parent="." index="1"]
 texture = ExtResource("4_vbl3j")
 
-[node name="Turret" parent="Turrets" index="0" instance=ExtResource("2_4vvl4")]
+[node name="AutoBulltetTurret" parent="Turrets" index="0" instance=ExtResource("2_4vvl4")]
 position = Vector2(17, -20)
 rotation = -1.5708
-rotation_range = 0.392699
+turret_range = 350.0
 
-[node name="Turret2" parent="Turrets" index="1" instance=ExtResource("2_4vvl4")]
+[node name="AutoBulltetTurret2" parent="Turrets" index="1" instance=ExtResource("2_4vvl4")]
 position = Vector2(1, -21)
 rotation = -1.5708
 turret_range = 350.0

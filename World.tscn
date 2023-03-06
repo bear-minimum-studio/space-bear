@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
 [ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="5_q0ygi"]
-[ext_resource type="PackedScene" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
+[ext_resource type="PackedScene" uid="uid://cci4trp0rooft" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="7_0hi8j"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
-[ext_resource type="PackedScene" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
+[ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
 script = ExtResource("2_fom0c")
@@ -362,52 +362,133 @@ position = Vector2(1284, -936)
 position = Vector2(1677, -657)
 
 [node name="Enemy" parent="Enemies" index="0" instance=ExtResource("6_m2i0p")]
-position = Vector2(1702, 904)
+position = Vector2(1024, -923)
 
-[node name="Enemy12" parent="Enemies" index="1" instance=ExtResource("6_m2i0p")]
-position = Vector2(971, 856)
+[node name="Enemy2" parent="Enemies" index="1" instance=ExtResource("6_m2i0p")]
+position = Vector2(1022, -1054)
 
-[node name="Enemy2" parent="Enemies" index="2" instance=ExtResource("6_m2i0p")]
-position = Vector2(566, 713)
+[node name="Enemy3" parent="Enemies" index="2" instance=ExtResource("6_m2i0p")]
+position = Vector2(1189, -931)
 
-[node name="Enemy3" parent="Enemies" index="3" instance=ExtResource("6_m2i0p")]
-position = Vector2(989, -1991)
+[node name="Enemy4" parent="Enemies" index="3" instance=ExtResource("6_m2i0p")]
+position = Vector2(1187, -1062)
 
-[node name="Enemy4" parent="Enemies" index="4" instance=ExtResource("6_m2i0p")]
-position = Vector2(-600, -2252)
+[node name="Enemy5" parent="Enemies" index="4" instance=ExtResource("6_m2i0p")]
+position = Vector2(1365, -940)
 
-[node name="Enemy5" parent="Enemies" index="5" instance=ExtResource("6_m2i0p")]
-position = Vector2(2123, -2875)
+[node name="Enemy6" parent="Enemies" index="5" instance=ExtResource("6_m2i0p")]
+position = Vector2(1363, -1071)
 
-[node name="Enemy6" parent="Enemies" index="6" instance=ExtResource("6_m2i0p")]
-position = Vector2(1871, -2580)
+[node name="Enemy7" parent="Enemies" index="6" instance=ExtResource("6_m2i0p")]
+position = Vector2(1530, -948)
 
-[node name="Enemy7" parent="Enemies" index="7" instance=ExtResource("6_m2i0p")]
-position = Vector2(1903, -3133)
+[node name="Enemy8" parent="Enemies" index="7" instance=ExtResource("6_m2i0p")]
+position = Vector2(1528, -1079)
 
-[node name="Enemy8" parent="Enemies" index="8" instance=ExtResource("6_m2i0p")]
-position = Vector2(1608, -2907)
+[node name="Enemy9" parent="Enemies" index="8" instance=ExtResource("6_m2i0p")]
+position = Vector2(1022, -1189)
 
-[node name="Enemy9" parent="Enemies" index="9" instance=ExtResource("6_m2i0p")]
-position = Vector2(2418, -3265)
+[node name="Enemy10" parent="Enemies" index="9" instance=ExtResource("6_m2i0p")]
+position = Vector2(1020, -1320)
 
-[node name="Enemy10" parent="Enemies" index="10" instance=ExtResource("6_m2i0p")]
-position = Vector2(2623, -2881)
+[node name="Enemy11" parent="Enemies" index="10" instance=ExtResource("6_m2i0p")]
+position = Vector2(1187, -1197)
 
-[node name="Enemy11" parent="Enemies" index="11" instance=ExtResource("6_m2i0p")]
-position = Vector2(2323, -2523)
+[node name="Enemy12" parent="Enemies" index="11" instance=ExtResource("6_m2i0p")]
+position = Vector2(1185, -1328)
 
-[node name="Enemy13" parent="Enemies" index="12" instance=ExtResource("9_ce7t0")]
-position = Vector2(-1709, 1047)
+[node name="Enemy13" parent="Enemies" index="12" instance=ExtResource("6_m2i0p")]
+position = Vector2(1363, -1206)
 
-[node name="Enemy14" parent="Enemies" index="13" instance=ExtResource("9_ce7t0")]
-position = Vector2(-1241, 1003)
+[node name="Enemy14" parent="Enemies" index="13" instance=ExtResource("6_m2i0p")]
+position = Vector2(1361, -1337)
 
-[node name="Enemy15" parent="Enemies" index="14" instance=ExtResource("9_ce7t0")]
-position = Vector2(-1811, 1382)
+[node name="Enemy15" parent="Enemies" index="14" instance=ExtResource("6_m2i0p")]
+position = Vector2(1528, -1214)
 
-[node name="Enemy16" parent="Enemies" index="15" instance=ExtResource("9_ce7t0")]
-position = Vector2(-1327, 1420)
+[node name="Enemy16" parent="Enemies" index="15" instance=ExtResource("6_m2i0p")]
+position = Vector2(1526, -1345)
+
+[node name="VultureEnemy" parent="Enemies" index="16" instance=ExtResource("9_ce7t0")]
+position = Vector2(-188, -790)
+
+[node name="VultureEnemy2" parent="Enemies" index="17" instance=ExtResource("9_ce7t0")]
+position = Vector2(-314, -893)
+
+[node name="VultureEnemy3" parent="Enemies" index="18" instance=ExtResource("9_ce7t0")]
+position = Vector2(-200, -1017)
+
+[node name="VultureEnemy4" parent="Enemies" index="19" instance=ExtResource("9_ce7t0")]
+position = Vector2(-464, -598)
+
+[node name="VultureEnemy5" parent="Enemies" index="20" instance=ExtResource("9_ce7t0")]
+position = Vector2(-590, -701)
+
+[node name="VultureEnemy6" parent="Enemies" index="21" instance=ExtResource("9_ce7t0")]
+position = Vector2(-476, -825)
+
+[node name="VultureEnemy7" parent="Enemies" index="22" instance=ExtResource("9_ce7t0")]
+position = Vector2(-180, -426)
+
+[node name="VultureEnemy8" parent="Enemies" index="23" instance=ExtResource("9_ce7t0")]
+position = Vector2(-306, -529)
+
+[node name="VultureEnemy9" parent="Enemies" index="24" instance=ExtResource("9_ce7t0")]
+position = Vector2(-192, -653)
+
+[node name="VultureEnemy10" parent="Enemies" index="25" instance=ExtResource("9_ce7t0")]
+position = Vector2(-212, -1520)
+
+[node name="VultureEnemy11" parent="Enemies" index="26" instance=ExtResource("9_ce7t0")]
+position = Vector2(-338, -1623)
+
+[node name="VultureEnemy12" parent="Enemies" index="27" instance=ExtResource("9_ce7t0")]
+position = Vector2(-224, -1747)
+
+[node name="VultureEnemy13" parent="Enemies" index="28" instance=ExtResource("9_ce7t0")]
+position = Vector2(-488, -1328)
+
+[node name="VultureEnemy14" parent="Enemies" index="29" instance=ExtResource("9_ce7t0")]
+position = Vector2(-614, -1431)
+
+[node name="VultureEnemy15" parent="Enemies" index="30" instance=ExtResource("9_ce7t0")]
+position = Vector2(-500, -1555)
+
+[node name="VultureEnemy16" parent="Enemies" index="31" instance=ExtResource("9_ce7t0")]
+position = Vector2(-204, -1156)
+
+[node name="VultureEnemy17" parent="Enemies" index="32" instance=ExtResource("9_ce7t0")]
+position = Vector2(-330, -1259)
+
+[node name="VultureEnemy18" parent="Enemies" index="33" instance=ExtResource("9_ce7t0")]
+position = Vector2(-216, -1383)
+
+[node name="VultureEnemy19" parent="Enemies" index="34" instance=ExtResource("9_ce7t0")]
+position = Vector2(-729, -1140)
+
+[node name="VultureEnemy20" parent="Enemies" index="35" instance=ExtResource("9_ce7t0")]
+position = Vector2(-855, -1243)
+
+[node name="VultureEnemy21" parent="Enemies" index="36" instance=ExtResource("9_ce7t0")]
+position = Vector2(-741, -1367)
+
+[node name="VultureEnemy22" parent="Enemies" index="37" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1005, -948)
+
+[node name="VultureEnemy23" parent="Enemies" index="38" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1131, -1051)
+
+[node name="VultureEnemy24" parent="Enemies" index="39" instance=ExtResource("9_ce7t0")]
+position = Vector2(-1017, -1175)
+
+[node name="VultureEnemy25" parent="Enemies" index="40" instance=ExtResource("9_ce7t0")]
+position = Vector2(-721, -776)
+
+[node name="VultureEnemy26" parent="Enemies" index="41" instance=ExtResource("9_ce7t0")]
+position = Vector2(-847, -879)
+
+[node name="VultureEnemy27" parent="Enemies" index="42" instance=ExtResource("9_ce7t0")]
+position = Vector2(-733, -1003)
 
 [node name="Wormhole" parent="." index="8" instance=ExtResource("7_0hi8j")]
 position = Vector2(3310, -2300)

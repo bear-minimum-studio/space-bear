@@ -40,7 +40,7 @@ func _compute_shooting_direction(shoot_target: PhysicsBody2D) -> float:
 # Computes the correction vector to add to the shooting_direction to compensate
 # for the shooter and the target velocity
 # Overload based on how the turrets shoots
-func _compute_shooting_corretion(shoot_target: PhysicsBody2D) -> Vector2:
+func _compute_shooting_corretion(_shoot_target: PhysicsBody2D) -> Vector2:
 	return Vector2.ZERO
 
 func _physics_process(delta):
