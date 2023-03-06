@@ -35,3 +35,8 @@ func on_hit():
 func heal_to_max():
 	health = max_health
 	hp_changed.emit(health, max_health)
+
+static func hit_health_system(node: Node2D):
+	var health_system = node.find_child('HealthSystem')
+	if health_system != null:
+		health_system.on_hit()

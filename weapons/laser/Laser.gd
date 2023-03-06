@@ -54,6 +54,4 @@ func _update_color():
 		line_2d.modulate = color
 
 func _hit(area_or_body):
-	var health_system = area_or_body.find_child("HealthSystem")
-	if health_system != null:
-		health_system.on_hit()
+	HealthSystem.hit_health_system(area_or_body)

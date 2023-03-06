@@ -30,9 +30,7 @@ func _on_area_entered(area):
 	_hit(area)
 
 func _hit(area_or_body):
-	var health_system = area_or_body.find_child("HealthSystem")
-	if health_system != null:
-		health_system.on_hit()
+	HealthSystem.hit_health_system(area_or_body)
 	
 	_disable_bullet()
 	bullet_impact.adapt_style_then_play(area_or_body)
