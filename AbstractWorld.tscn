@@ -8,7 +8,7 @@
 background_mode = 3
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 0.13
+glow_intensity = 0.25
 glow_strength = 0.98
 glow_bloom = 0.42
 glow_blend_mode = 0
