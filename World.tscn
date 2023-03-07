@@ -1,19 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgkkbhp6eam8m"]
+[gd_scene load_steps=8 format=3 uid="uid://cgkkbhp6eam8m"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_tdmob"]
-[ext_resource type="Script" path="res://World.gd" id="2_fom0c"]
-[ext_resource type="PackedScene" uid="uid://bx2ghytsddgue" path="res://npc/mother-ship/MotherShip.tscn" id="2_oy46b"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" uid="uid://tems6a6m6bm3" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
 [ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="5_q0ygi"]
 [ext_resource type="PackedScene" uid="uid://bh7yvpcxoyabu" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
-[ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="7_0hi8j"]
-[ext_resource type="Script" path="res://helpers/Guide.gd" id="8_7jgjo"]
 [ext_resource type="PackedScene" uid="uid://k8flfqgpouv1" path="res://npc/enemies/VultureEnemy.tscn" id="9_ce7t0"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
-script = ExtResource("2_fom0c")
 
 [node name="TransportShip" parent="Flock" index="0" instance=ExtResource("4_lr1mj")]
 position = Vector2(159, 521)
@@ -342,7 +337,7 @@ rotation = -0.698132
 position = Vector2(205, 199)
 rotation = -0.698132
 
-[node name="MotherShip" parent="." index="3" instance=ExtResource("2_oy46b")]
+[node name="MotherShip" parent="Flock" index="83"]
 position = Vector2(452, 94)
 rotation = -0.698132
 
@@ -397,11 +392,5 @@ position = Vector2(-4732, -7617)
 [node name="VultureEnemy6" parent="Enemies" index="11" instance=ExtResource("9_ce7t0")]
 position = Vector2(-4618, -7741)
 
-[node name="Wormhole" parent="." index="8" instance=ExtResource("7_0hi8j")]
-position = Vector2(3310, -2300)
-
-[node name="Guide" type="Node2D" parent="." index="9"]
-z_index = 10
-position = Vector2(0, -1.52588e-05)
-script = ExtResource("8_7jgjo")
-width = 26.0
+[node name="Wormhole" parent="." index="7"]
+position = Vector2(1021, -402)

@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ujm2pogbpnnp"]
+[gd_scene load_steps=9 format=3 uid="uid://ujm2pogbpnnp"]
 
 [ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://1kxk2y83gpvq" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
+[ext_resource type="PackedScene" uid="uid://bx2ghytsddgue" path="res://npc/mother-ship/MotherShip.tscn" id="3_jfgia"]
+[ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="4_u5hvj"]
+[ext_resource type="Script" path="res://helpers/Guide.gd" id="5_js3wj"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -32,6 +35,10 @@ environment = SubResource("Environment_uyldo")
 
 [node name="Flock" type="Node2D" parent="."]
 
+[node name="MotherShip" parent="Flock" instance=ExtResource("3_jfgia")]
+position = Vector2(481, 47)
+rotation = -0.683586
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_tbroh")
@@ -46,5 +53,14 @@ position = Vector2(159, 130)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
+
+[node name="Wormhole" parent="." instance=ExtResource("4_u5hvj")]
+position = Vector2(1447, -727)
+
+[node name="Guide" type="Node2D" parent="."]
+z_index = 10
+position = Vector2(0, -1.52588e-05)
+script = ExtResource("5_js3wj")
+width = 26.0
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]

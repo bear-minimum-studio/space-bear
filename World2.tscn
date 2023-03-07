@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2r8gk2at0gdw"]
+
+[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_x28o6"]
+
+[node name="World" instance=ExtResource("1_x28o6")]
+
+[node name="Wormhole" parent="." index="7"]
+position = Vector2(3375, -2354)

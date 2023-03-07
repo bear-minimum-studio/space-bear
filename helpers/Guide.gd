@@ -17,7 +17,7 @@ func _draw():
 	if not visible:
 		return
 	if Engine.is_editor_hint():
-		var mother_ship = $"../MotherShip"
+		var mother_ship = $"../Flock/MotherShip"
 		if mother_ship == null:
 			return
 		
