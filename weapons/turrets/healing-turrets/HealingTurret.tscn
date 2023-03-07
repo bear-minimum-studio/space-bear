@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://cn3dswjs4posp"]
 
 [ext_resource type="PackedScene" uid="uid://cgwkvr3qwd5pj" path="res://weapons/turrets/AbstractTurret.tscn" id="1_kdjg1"]
 [ext_resource type="Script" path="res://weapons/turrets/healing-turrets/HealingTurret.gd" id="2_05s84"]

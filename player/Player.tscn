@@ -92,7 +92,9 @@ texture = ExtResource("10_vv4oi")
 [node name="P2Nozzle" type="Node2D" parent="P2Turret/P2TurretControl"]
 position = Vector2(29, 0)
 
-[node name="HealthSystem" parent="." instance=ExtResource("11_n0jhs")]
+[node name="HealthSystem" parent="." node_paths=PackedStringArray("hurtable_body") instance=ExtResource("11_n0jhs")]
+hurtable_body = NodePath("..")
+healable = true
 max_health = 50
 
 [node name="HurtAnimation" parent="." instance=ExtResource("12_uwy2g")]

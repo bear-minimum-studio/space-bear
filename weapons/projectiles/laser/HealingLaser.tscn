@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbvr3hdqqne7v"]
 
-[ext_resource type="PackedScene" uid="uid://vf5a2c65gv7m" path="res://weapons/projectiles/laser/Laser.tscn" id="1_cpna2"]
+[ext_resource type="PackedScene" uid="uid://collca7nke032" path="res://weapons/projectiles/laser/Laser.tscn" id="1_cpna2"]
 [ext_resource type="Script" path="res://weapons/projectiles/laser/HealingLaser.gd" id="2_nfr7o"]
 
 [node name="HealingLaser" instance=ExtResource("1_cpna2")]

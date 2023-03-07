@@ -14,7 +14,10 @@ func _set_target():
 	var bodies: Array[Node2D] = turret.get_overlapping_bodies()
 	var potential_targets = bodies.filter(
 		func(body):
-			if not body.is_in_group("flock"):
+			if not body.is_in_group("ally"):
+				return false
+			
+			if body == turret.shooter:
 				return false
 
 			var health_system = HealthSystem.get_health_system(body)
