@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx2ghytsddgue"]
+[gd_scene load_steps=9 format=3 uid="uid://bx2ghytsddgue"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="5_vqqiw"]
 [ext_resource type="PackedScene" uid="uid://myhvoxif2wyo" path="res://weapons/turrets/laser-turrets/AutoLaserTurret.tscn" id="6_c82vx"]
+[ext_resource type="PackedScene" path="res://weapons/turrets/healing-turrets/AutoHealingTurret.tscn" id="7_cfp20"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tks0q"]
 radius = 71.0
@@ -78,3 +79,8 @@ rotation_speed = 10.0
 turret_range = 1000.0
 laser_range = 1000.0
 turret_allegiance = 1
+
+[node name="AutoHealingTurret" parent="Turrets" index="5" instance=ExtResource("7_cfp20")]
+position = Vector2(-55, 0)
+turret_range = 800.0
+laser_range = 800.0
