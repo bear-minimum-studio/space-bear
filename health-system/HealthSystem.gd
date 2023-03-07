@@ -65,3 +65,12 @@ func _on_health_change(previous_health: int):
 			hurtable_body.set_collision_layer_value(COLLISION_LAYER, true)
 		else:
 			hurtable_body.set_collision_layer_value(COLLISION_LAYER, false)
+
+func is_full_hp():
+	return not is_hurt()
+
+func is_hurt():
+	return health < max_health
+
+static func get_health_system(node: Node2D):
+	return node.find_child('HealthSystem')
