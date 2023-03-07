@@ -49,6 +49,11 @@ static func hit_health_system(node: Node2D):
 	if health_system != null:
 		health_system.on_hit()
 
+static func heal_health_system(node: Node2D):
+	var health_system = node.find_child('HealthSystem')
+	if health_system != null:
+		health_system.heal()
+
 func heal():
 	var previous_health = health
 	health += 10

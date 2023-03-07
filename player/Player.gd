@@ -25,6 +25,7 @@ var brake_intensity:
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
 @onready var p_2_turret_control = $P2Turret/P2TurretControl
+@onready var player_sprite = $Player
 
 func _ready():
 	var turrets = $Turrets.get_children()
@@ -73,9 +74,14 @@ func _physics_process(_delta):
 	if (Input.is_action_pressed("fire")):
 		_shoot()
 
-func _on_health_system_hp_changed(health, max_health, _difference):
+func _on_health_system_hp_changed(health, max_health, difference):
+	if difference == 0:
+		return
+	elif difference > 0:
+		hurt_animation.animate_heal(player_sprite)
+	else:
+		hurt_animation.animate_hurt(player_sprite)
 	Events.emit_signal("player_hp_changed", health, max_health)
-	hurt_animation.animate_hurt($Player)
 
 func _input(event):
 	if event.is_action_pressed("upgrade"):

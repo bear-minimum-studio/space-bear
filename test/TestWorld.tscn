@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_euu80"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wqd16"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="4_loucl"]
-[ext_resource type="PackedScene" path="res://npc/enemies/VultureEnemy.tscn" id="5_fxyub"]
+[ext_resource type="PackedScene" uid="uid://7r4r7r8h4aep" path="res://npc/enemies/VultureEnemy.tscn" id="5_fxyub"]
 
 [node name="World" instance=ExtResource("1_euu80")]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://pdwe57bo3bq7"]
 
-[ext_resource type="PackedScene" uid="uid://duha2nt8tgf15" path="res://weapons/turrets/healing-turrets/HealingTurret.tscn" id="1_puvnb"]
+[ext_resource type="PackedScene" uid="uid://cn3dswjs4posp" path="res://weapons/turrets/healing-turrets/HealingTurret.tscn" id="1_puvnb"]
 [ext_resource type="Script" path="res://weapons/turrets/healing-turrets/AutoHealingTurret.gd" id="2_6l0xu"]
 [ext_resource type="PackedScene" uid="uid://cura8b35dcoto" path="res://weapons/turrets/turret-behaviors/AutoHealingTurretBehavior.tscn" id="3_yaf1o"]
 

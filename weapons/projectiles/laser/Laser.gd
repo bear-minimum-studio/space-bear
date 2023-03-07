@@ -5,14 +5,22 @@ extends Node2D
 @onready var ray_cast_2d = $RayCast2D
 @onready var animation_player = $AnimationPlayer
 
+var shooter: Node2D
+
 @export var laser_range = 500.0:
 	set(new_range):
 		laser_range = new_range
 		_update_sprite_length(laser_range)
 		_update_raycast_range(laser_range)
 
+func init(laser_range_init, shooter_init: Node2D):
+	self.laser_range = laser_range_init
+	self.shooter = shooter_init
+
 func _ready():
 	_update_raycast_range(laser_range)
+
+	ray_cast_2d.add_exception(self.shooter)
 
 	ray_cast_2d.force_raycast_update()
 	var coll = ray_cast_2d.get_collision_point()
