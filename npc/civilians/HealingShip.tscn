@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjqnruxoduuyr"]
+[gd_scene load_steps=6 format=3 uid="uid://bv8nckjggws2e"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_8wy0g"]
 [ext_resource type="Texture2D" uid="uid://bb5fo6dqch5ph" path="res://npc/civilians/vaisseau_soin.png" id="2_em28c"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_tdmob"]
 [ext_resource type="Script" path="res://World.gd" id="2_fom0c"]
-[ext_resource type="PackedScene" path="res://npc/mother-ship/MotherShip.tscn" id="2_oy46b"]
+[ext_resource type="PackedScene" uid="uid://bx2ghytsddgue" path="res://npc/mother-ship/MotherShip.tscn" id="2_oy46b"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" path="res://npc/civilians/TurretShip.tscn" id="4_0rotb"]
 [ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
