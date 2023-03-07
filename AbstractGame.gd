@@ -59,16 +59,16 @@ func _level_change():
 	# Remove the new empty flock
 	# then move the current flock to the new world to replace it
 	new_world.remove_child(new_empty_flock)
-	world.remove_child(current_flock)
-	new_world.add_child(current_flock)
-
-	# Delete the old world, add the new one after seeing the between-sectors screen
-	world.queue_free()
 	
+	# Delete the old world, add the new one after seeing the between-sectors screen
+	world.remove_child(current_flock)
+	world.free()
+	new_world.add_child(current_flock)
+	self.add_child(new_world)
+
 	level_change.visible = true
 	await get_tree().create_timer(BETWEEN_SECTORS_DURATION).timeout
 	level_change.visible = false
-	self.add_child(new_world)
 
 	self.process_mode = Node.PROCESS_MODE_INHERIT
 
