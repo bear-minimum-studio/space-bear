@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://collca7nke032"]
+[gd_scene load_steps=15 format=3 uid="uid://collca7nke032"]
 
 [ext_resource type="Script" path="res://weapons/projectiles/laser/Laser.gd" id="1_2o8ra"]
 [ext_resource type="Texture2D" uid="uid://bs1hhxgfomgdi" path="res://weapons/projectiles/laser/laser1.png" id="1_ws664"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dhau7hrdgsbah" path="res://weapons/projectiles/laser/laser3.png" id="3_kktai"]
 [ext_resource type="Texture2D" uid="uid://7nk8kcdq0c0e" path="res://weapons/projectiles/laser/laser4.png" id="4_wmnov"]
 [ext_resource type="Texture2D" uid="uid://clmgpkfs2i5di" path="res://weapons/projectiles/laser/laser5.png" id="5_25aw3"]
+[ext_resource type="Texture2D" uid="uid://k1j807jxspgs" path="res://weapons/projectiles/laser/laser_particles.png" id="7_ra3l6"]
 
 [sub_resource type="Animation" id="Animation_66l76"]
 resource_name = "Laser"
@@ -22,6 +23,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_ws664"), ExtResource("2_ubxem"), ExtResource("3_kktai"), ExtResource("4_wmnov"), ExtResource("5_25aw3")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LongParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImpactParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ny7h5"]
 length = 0.001
@@ -37,12 +62,67 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_ws664")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LongParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ImpactParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a2wvg"]
 _data = {
 "Laser": SubResource("Animation_66l76"),
 "RESET": SubResource("Animation_ny7h5")
 }
+
+[sub_resource type="Curve" id="Curve_05y75"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1ranw"]
+curve = SubResource("Curve_05y75")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ofhlj"]
+emission_shape = 3
+emission_box_extents = Vector3(250, 1, 1)
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_1ranw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gmki3"]
+particle_flag_disable_z = true
+spread = 90.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_1ranw")
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_2o8ra")
@@ -55,7 +135,6 @@ texture_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Laser"
-speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_a2wvg")
 }
@@ -64,3 +143,25 @@ libraries = {
 target_position = Vector2(500, 0)
 collision_mask = 6
 hit_from_inside = true
+
+[node name="LongParticles" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0.321569, 0.717647, 1)
+position = Vector2(250, 0)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_ofhlj")
+texture = ExtResource("7_ra3l6")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.7
+
+[node name="ImpactParticles" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0.321569, 0.717647, 1)
+position = Vector2(500, 0)
+rotation = -3.14159
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_gmki3")
+texture = ExtResource("7_ra3l6")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7

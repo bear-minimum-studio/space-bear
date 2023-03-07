@@ -4,6 +4,8 @@ extends Node2D
 @onready var line_2d = $Line2D
 @onready var ray_cast_2d = $RayCast2D
 @onready var animation_player = $AnimationPlayer
+@onready var long_particles = $LongParticles
+@onready var impact_particles = $ImpactParticles
 
 var shooter: Node2D
 
@@ -14,6 +16,7 @@ var shooter: Node2D
 		laser_range = new_range
 		_update_sprite_length(laser_range)
 		_update_raycast_range(laser_range)
+		_update_particles_length(laser_range)
 
 func init(laser_range_init, shooter_init: Node2D, damage_or_heal_init: int):
 	self.laser_range = laser_range_init
@@ -36,6 +39,7 @@ func _ready():
 		distance = (coll - global_position).length()
 	
 	_update_sprite_length(distance)
+	_update_particles_length(distance)
 	
 	await animation_player.animation_finished
 	if not Engine.is_editor_hint():
@@ -53,6 +57,16 @@ func _update_sprite_length(length: float):
 
 	var last_point_index = line_2d.get_point_count() - 1
 	line_2d.set_point_position(last_point_index, length * Vector2.RIGHT)
+
+func _update_particles_length(length: float):
+	if long_particles != null:
+		var em: ParticleProcessMaterial = long_particles.process_material
+		em.emission_box_extents.x = length / 2
+
+		long_particles.transform.origin = Vector2.RIGHT * length / 2
+
+	if impact_particles != null:
+		impact_particles.transform.origin = Vector2.RIGHT * length
 
 func _hit(area_or_body):
 	HealthSystem.hit_health_system(area_or_body, damage_or_heal)

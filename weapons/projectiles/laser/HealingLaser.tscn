@@ -11,3 +11,9 @@ modulate = Color(0.784314, 1, 0.490196, 1)
 
 [node name="RayCast2D" parent="." index="2"]
 collision_mask = 128
+
+[node name="LongParticles" parent="." index="3"]
+modulate = Color(0.784314, 1, 0.490196, 1)
+
+[node name="ImpactParticles" parent="." index="4"]
+modulate = Color(0.784314, 1, 0.490196, 1)
