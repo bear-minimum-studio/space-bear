@@ -33,6 +33,7 @@ func _ready():
 	var distance
 	if coll == Vector2.ZERO:
 		distance = laser_range
+		impact_particles.visible = false
 	else:
 		var body_or_area = ray_cast_2d.get_collider()
 		_hit(body_or_area)
