@@ -45,15 +45,24 @@ func _level_change():
 	var new_world_scene = worlds[current_world]
 	var new_world = new_world_scene.instantiate()
 	
-	# Remove the new Flock node, which is empty
-	var flock_child = world.find_child("Flock")
-	var new_flock = new_world.find_child("Flock")
-	new_world.remove_child(new_flock)
+	# Get the new mothership position to compute the offset with ours
+	# then move every ship in the fleet back by the offset, so that
+	# we start over at the proper position
+	var current_flock = world.find_child("Flock")
+	var current_mothership = current_flock.find_child("MotherShip")
+	var new_empty_flock = new_world.find_child("Flock")
+	var new_mothership = new_empty_flock.find_child("MotherShip")
+	var offset = current_mothership.global_position - new_mothership.global_position
+	for child in current_flock.get_children():
+		child.translate(-offset)
 	
-	# Move the current flock to the new world
-	world.remove_child(flock_child)
-	new_world.add_child(flock_child)
-	# Delete the old world, add the new one
+	# Remove the new empty flock
+	# then move the current flock to the new world to replace it
+	new_world.remove_child(new_empty_flock)
+	world.remove_child(current_flock)
+	new_world.add_child(current_flock)
+
+	# Delete the old world, add the new one after seeing the between-sectors screen
 	world.queue_free()
 	
 	level_change.visible = true
