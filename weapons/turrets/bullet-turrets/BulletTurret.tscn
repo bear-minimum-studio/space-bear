@@ -7,4 +7,5 @@
 script = ExtResource("2_4n7jk")
 bullet_spread = 10.0
 bullet_speed = 500.0
+bullet_damage = 1
 shots_per_second = 12.0

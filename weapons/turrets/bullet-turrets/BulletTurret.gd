@@ -2,6 +2,7 @@ extends "res://weapons/turrets/AbstractTurret.gd"
 
 @export_range(0.0, 100.0) var bullet_spread = 0.0
 @export_range(50.0,1000.0,50.0,"or_greater") var bullet_speed : float = 500.0
+@export_range(1, 30) var bullet_damage = 1
 
 var bullet_spread_angle:
 	get: return (bullet_spread / 100) * PI / 2
@@ -17,4 +18,4 @@ func _on_shoot():
 	var shooting_angle = global_rotation + imprecision
 
 	var new_bullet = bullet_type_scene[turret_allegiance].instantiate()
-	new_bullet.init(nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed)
+	new_bullet.init(nozzle.global_position, shooting_angle, shooter_velocity, bullet_speed, bullet_damage)

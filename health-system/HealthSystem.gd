@@ -23,7 +23,7 @@ const COLLISION_LAYER = 8
 signal hp_changed
 signal dead
 
-func on_hit():
+func on_hit(amount: int):
 	var previous_health = health
 
 	if health <= 0:
@@ -31,7 +31,7 @@ func on_hit():
 		return
 	
 	if health > 0:
-		health -= 1
+		health -= amount
 	_on_health_change(previous_health)
 
 	if health <= 0:
@@ -44,19 +44,19 @@ func heal_to_max():
 	health = max_health
 	_on_health_change(previous_health)
 
-static func hit_health_system(node: Node2D):
+static func hit_health_system(node: Node2D, amount: int):
 	var health_system = node.find_child('HealthSystem')
 	if health_system != null:
-		health_system.on_hit()
+		health_system.on_hit(amount)
 
-static func heal_health_system(node: Node2D):
+static func heal_health_system(node: Node2D, amount: int):
 	var health_system = node.find_child('HealthSystem')
 	if health_system != null:
-		health_system.heal()
+		health_system.heal(amount)
 
-func heal():
+func heal(amount: int):
 	var previous_health = health
-	health += 10
+	health += amount
 	if health > max_health:
 		health = max_health
 	_on_health_change(previous_health)

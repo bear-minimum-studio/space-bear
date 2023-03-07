@@ -1,13 +1,15 @@
 extends Area2D
 
 @export var bullet_range = 1000
+@export var damage = 1
 
 @onready var bullet_impact = $BulletImpact
 
 var velocity = Vector2.ZERO;
 var initial_position = null
 
-func init(global_shooter_position, global_shooter_rotation, shooter_velocity, bullet_speed):
+func init(global_shooter_position, global_shooter_rotation, shooter_velocity, bullet_speed, bullet_damage):
+	damage = bullet_damage
 	var shooter_direction = Vector2.from_angle(global_shooter_rotation);
 	global_position = global_shooter_position
 	global_rotation = global_shooter_rotation
@@ -30,7 +32,7 @@ func _on_area_entered(area):
 	_hit(area)
 
 func _hit(area_or_body):
-	HealthSystem.hit_health_system(area_or_body)
+	HealthSystem.hit_health_system(area_or_body, damage)
 	
 	_disable_bullet()
 	bullet_impact.adapt_style_then_play(area_or_body)

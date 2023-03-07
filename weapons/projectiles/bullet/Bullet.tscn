@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://oic28pv86o7"]
 
 [ext_resource type="Script" path="res://weapons/projectiles/bullet/Bullet.gd" id="1_himu5"]
 [ext_resource type="Texture2D" uid="uid://cgdmolk0kdsay" path="res://player/projectile.png" id="2_l10y0"]

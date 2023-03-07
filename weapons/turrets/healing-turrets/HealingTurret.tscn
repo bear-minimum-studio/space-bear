@@ -6,3 +6,4 @@
 [node name="HealingTurret" instance=ExtResource("1_kdjg1")]
 script = ExtResource("2_05s84")
 laser_range = 300.0
+heal = 5

@@ -78,9 +78,13 @@ rotation_speed = 10.0
 [node name="AutoLaserTurret" parent="Turrets" index="4" instance=ExtResource("6_c82vx")]
 turret_range = 1000.0
 laser_range = 1000.0
+damage = 30
 turret_allegiance = 1
+shots_per_second = 1.0
 
 [node name="AutoHealingTurret" parent="Turrets" index="5" instance=ExtResource("7_cfp20")]
 position = Vector2(-55, 0)
 turret_range = 800.0
 laser_range = 800.0
+heal = 20
+shots_per_second = 1.0

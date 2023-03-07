@@ -7,15 +7,18 @@ extends Node2D
 
 var shooter: Node2D
 
+@export var damage_or_heal = 1
+
 @export var laser_range = 500.0:
 	set(new_range):
 		laser_range = new_range
 		_update_sprite_length(laser_range)
 		_update_raycast_range(laser_range)
 
-func init(laser_range_init, shooter_init: Node2D):
+func init(laser_range_init, shooter_init: Node2D, damage_or_heal_init: int):
 	self.laser_range = laser_range_init
 	self.shooter = shooter_init
+	self.damage_or_heal = damage_or_heal_init
 
 func _ready():
 	_update_raycast_range(laser_range)
@@ -52,4 +55,4 @@ func _update_sprite_length(length: float):
 	line_2d.set_point_position(last_point_index, length * Vector2.RIGHT)
 
 func _hit(area_or_body):
-	HealthSystem.hit_health_system(area_or_body)
+	HealthSystem.hit_health_system(area_or_body, damage_or_heal)
