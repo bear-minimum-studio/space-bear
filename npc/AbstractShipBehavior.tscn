@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgq6nsep0sfs"]
+
+[ext_resource type="Script" path="res://npc/AbstractShipBehavior.gd" id="1_07x1f"]
+
+[node name="AbstractShipBehavior" type="Node"]
+script = ExtResource("1_07x1f")

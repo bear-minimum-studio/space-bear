@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxxrm5lvp7lfs"]
+[gd_scene load_steps=6 format=3 uid="uid://cxxrm5lvp7lfs"]
 
 [ext_resource type="PackedScene" uid="uid://dujcwt8umqhfd" path="res://npc/AbstractShip.tscn" id="1_oxqnl"]
 [ext_resource type="Script" path="res://npc/enemies/AbstractEnemy.gd" id="2_e7uub"]
 [ext_resource type="Texture2D" uid="uid://n3c3ak0fpgmd" path="res://npc/enemies/bad_guy.png" id="3_cry1g"]
 [ext_resource type="Texture2D" uid="uid://cx4q5chna3esj" path="res://npc/enemies/bad_guy_flammes.png" id="4_toa7b"]
-[ext_resource type="PackedScene" uid="uid://b5lpsi323wl6q" path="res://npc/enemies/AbstractBehavior.tscn" id="6_1tl73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dcnw"]
 radius = 41.1096
@@ -41,7 +40,3 @@ offset_bottom = 46.0
 tint_progress = Color(0.529412, 0.156863, 0.415686, 1)
 
 [node name="Turrets" type="Node2D" parent="." index="6"]
-
-[node name="Behavior" parent="." index="7" instance=ExtResource("6_1tl73")]
-
-[connection signal="target_position_updated" from="Behavior" to="." method="_on_behavior_target_position_updated"]

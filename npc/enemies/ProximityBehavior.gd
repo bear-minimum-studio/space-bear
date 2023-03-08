@@ -1,6 +1,8 @@
-extends "res://npc/enemies/AbstractBehavior.gd"
+extends "res://npc/AbstractShipBehavior.gd"
 
-var distance_to_target : float = 0.0:
+class_name ProximityBehavior
+
+@export_range(0.0, 500.0, 25.0, "or_greater") var distance_to_target : float = 0.0:
 	set(new_distance_to_target):
 		if new_distance_to_target == null:
 			return
@@ -28,6 +30,9 @@ func _update_target_position_offset():
 		_target_position_offset = Vector2.ZERO
 
 func _update_target_position():
+	if _target == null and _parent == null:
+		return
+	
 	if _target == null:
 		_target_position = _parent.global_position
 		return

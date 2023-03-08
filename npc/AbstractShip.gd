@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name AbstractShip
+
 @export_category("Ship properties")
 @export_range(0,300,5,"or_greater") var speed : float = 50
 @export_range(0.0,50.0,0.1,"or_greater") var rotation_speed : float = 10.0

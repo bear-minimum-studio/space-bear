@@ -7,9 +7,6 @@ extends "res://npc/AbstractShip.gd"
 
 var bonus_resources_scene = preload("res://hud/BonusResources.tscn")
 
-func _on_behavior_target_position_updated(new_target_position: Vector2):
-	movement_target = new_target_position
-
 func _on_dead():
 	super._on_dead()
 	FlockResources.earn_resources(kill_bonus)

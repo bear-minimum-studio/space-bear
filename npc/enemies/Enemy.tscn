@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_vfgof"]
 [ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="2_56xao"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="3_1eig1"]
-[ext_resource type="Script" path="res://npc/enemies/ProximityBehavior.gd" id="4_0quev"]
+[ext_resource type="PackedScene" uid="uid://cxnoqp0jv5c48" path="res://npc/enemies/ProximityBehavior.tscn" id="4_t0r6o"]
 
 [node name="Enemy" instance=ExtResource("1_vfgof")]
 script = ExtResource("2_56xao")
@@ -16,5 +16,4 @@ position = Vector2(2.08165e-12, 25)
 [node name="AutoBulltetTurret2" parent="Turrets" index="1" instance=ExtResource("3_1eig1")]
 position = Vector2(2.08165e-12, -25)
 
-[node name="Behavior" parent="." index="7"]
-script = ExtResource("4_0quev")
+[node name="ProximityBehavior" parent="." index="7" instance=ExtResource("4_t0r6o")]

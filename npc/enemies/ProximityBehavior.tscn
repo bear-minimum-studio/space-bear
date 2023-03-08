@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxnoqp0jv5c48"]
+
+[ext_resource type="PackedScene" uid="uid://cgq6nsep0sfs" path="res://npc/AbstractShipBehavior.tscn" id="1_2o5em"]
+[ext_resource type="Script" path="res://npc/enemies/ProximityBehavior.gd" id="2_qumdr"]
+
+[node name="ProximityBehavior" instance=ExtResource("1_2o5em")]
+script = ExtResource("2_qumdr")
+distance_to_target = 0.0
