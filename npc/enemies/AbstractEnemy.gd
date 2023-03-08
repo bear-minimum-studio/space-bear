@@ -8,7 +8,7 @@ extends "res://npc/AbstractShip.gd"
 var bonus_resources_scene = preload("res://hud/BonusResources.tscn")
 
 func _on_behavior_target_position_updated(new_target_position: Vector2):
-	set_movement_target(new_target_position)
+	movement_target = new_target_position
 
 func _on_dead():
 	super._on_dead()

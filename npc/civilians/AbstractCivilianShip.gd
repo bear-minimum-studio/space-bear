@@ -13,7 +13,7 @@ func set_convoy_path(target_position: Vector2, mothership_position: Vector2):
 	var direction = mothership_trajectory / mothership_trajectory.length()
 	var additional_trajectory = (mothership_position - self.global_position).project(direction)
 	var trajectory = mothership_trajectory + additional_trajectory
-	set_movement_target(self.global_position + trajectory)
+	movement_target = self.global_position + trajectory
 
 func animate_construction():
 	construction_particles.emitting = true
@@ -30,7 +30,7 @@ func upgrade():
 	parent.add_child(new_ship)
 	new_ship.animate_construction()
 
-	new_ship.set_movement_target(self.movement_target)
+	new_ship.movement_target = self.movement_target
 
 	self.queue_free()
 

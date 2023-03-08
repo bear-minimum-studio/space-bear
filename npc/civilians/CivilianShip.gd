@@ -45,7 +45,7 @@ func follow_player(player: Node2D):
 		self.speed = self.speed * 3
 	else:
 		followed_ship = null
-		set_movement_target(target_before_following)
+		movement_target = target_before_following
 		self.speed = speed_before_following
 
 func _physics_process(_delta):
@@ -54,4 +54,4 @@ func _physics_process(_delta):
 	if followed_ship == null:
 		return
 
-	set_movement_target(followed_ship.global_position)
+	movement_target = followed_ship.global_position
