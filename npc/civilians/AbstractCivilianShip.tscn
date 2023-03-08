@@ -34,10 +34,10 @@ collision_layer = 8
 script = ExtResource("2_obvko")
 number_of_passengers = 0
 
-[node name="HealthSystem" parent="." index="4"]
+[node name="HealthSystem" parent="." index="3"]
 healable = true
 
-[node name="ConstructionParticles" type="GPUParticles2D" parent="." index="7"]
+[node name="ConstructionParticles" type="GPUParticles2D" parent="." index="6"]
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_bix78")

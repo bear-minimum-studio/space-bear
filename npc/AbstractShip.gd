@@ -6,17 +6,18 @@ extends CharacterBody2D
 @export_range(0.0,50.0,0.1,"or_greater") var acceleration : float = 10.0
 @export_range(0.0,50.0,0.1,"or_greater") var brake : float = 10.0
 @export_range(1.0, 5.0, 0.5) var explosion_scale = 1.0
+@export_range(0.0,200.0,5.0,"or_greater") var position_tolerance: float = 50.0
+@export var debug_enabled : bool = false
 
 @onready var ship = $Ship
 @onready var flammes = $Flammes
-@onready var nav_agent = $NavigationAgent2D
 @onready var hurt_animation = $HurtAnimation
 @onready var health_bar = $UI/HealthBar
 @onready var rotation_target: float = rotation
 
-var explosion_scene = preload("res://explosion/Explosion.tscn")
+@onready var movement_target: Vector2 = global_position
 
-var movement_target: Vector2
+var explosion_scene = preload("res://explosion/Explosion.tscn")
 
 func _ready():
 	var turrets = get_node_or_null('Turrets')
@@ -24,25 +25,36 @@ func _ready():
 		for turret in turrets.get_children():
 			turret.init(self)
 
+func _process(_delta):
+	if !debug_enabled or Engine.is_editor_hint():
+		return
+	queue_redraw()
+
 func _physics_process(delta):
 	_set_rotation_target()
 	rotation = lerp_angle(rotation, rotation_target, rotation_speed * delta)
 	_set_velocity(delta)
 	move_and_slide()
-	if(nav_agent.debug_enabled):
-		queue_redraw()
+
+func _distance_to_target():
+	return (global_position - movement_target).length()
+
+func _movement_target_reached():
+	return _distance_to_target() < position_tolerance
 
 func _set_rotation_target():
-	if nav_agent.is_navigation_finished():
+	if movement_target == null:
 		return
-		
-	var next_path_position = nav_agent.get_next_path_position()
-	var direction = (next_path_position - global_position).normalized()
+	
+	if _movement_target_reached():
+		return
+	
+	var direction = (movement_target - global_position).normalized()
 	rotation_target = direction.angle()
 
 func _set_velocity(delta):
 	var curr_speed: float
-	if nav_agent.is_navigation_finished():
+	if _movement_target_reached():
 		curr_speed = lerp(velocity.length(), 0.0, brake * delta)
 		flammes.visible = false
 	else:
@@ -52,7 +64,6 @@ func _set_velocity(delta):
 
 func set_movement_target(new_movement_target : Vector2):
 	movement_target = new_movement_target
-	nav_agent.set_target_position(movement_target)
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)
@@ -68,7 +79,7 @@ func _on_health_system_hp_changed(_health, _max_health, difference):
 		Events.ship_hurt.emit(self)
 
 func _draw():
-	if(nav_agent.debug_enabled):
+	if debug_enabled:
 		# Target speed
 		draw_line(Vector2.ZERO, speed * Vector2.RIGHT, Color.DARK_GOLDENROD, 2.0)
 		# Target

@@ -32,7 +32,7 @@ texture = ExtResource("4_toa7b")
 shape = SubResource("CircleShape2D_3dcnw")
 debug_color = Color(0, 0.6, 0.701961, 0.0705882)
 
-[node name="HealthSystem" parent="." index="4"]
+[node name="HealthSystem" parent="." index="3"]
 max_health = 200
 
 [node name="HealthBar" parent="UI" index="0"]
@@ -40,8 +40,8 @@ offset_top = 30.0
 offset_bottom = 46.0
 tint_progress = Color(0.529412, 0.156863, 0.415686, 1)
 
-[node name="Turrets" type="Node2D" parent="." index="7"]
+[node name="Turrets" type="Node2D" parent="." index="6"]
 
-[node name="Behavior" parent="." index="8" instance=ExtResource("6_1tl73")]
+[node name="Behavior" parent="." index="7" instance=ExtResource("6_1tl73")]
 
 [connection signal="target_position_updated" from="Behavior" to="." method="_on_behavior_target_position_updated"]

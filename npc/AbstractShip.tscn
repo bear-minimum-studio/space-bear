@@ -18,9 +18,6 @@ script = ExtResource("1_efvdm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 30.0
-
 [node name="HealthSystem" parent="." node_paths=PackedStringArray("hurtable_body") instance=ExtResource("2_butel")]
 hurtable_body = NodePath("..")
 
@@ -42,6 +39,5 @@ grow_vertical = 2
 script = ExtResource("6_pc2kh")
 health_system = NodePath("../../HealthSystem")
 
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
