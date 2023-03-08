@@ -9,6 +9,13 @@ class_name ProximityBehavior
 		distance_to_target = new_distance_to_target
 		_update_target_position_offset()
 
+@onready var _target: Node2D = null:
+	set(new_target):
+		if new_target == null || _target == new_target:
+			return
+		_target = new_target
+		_update_target_position()
+
 var _target_position_offset: Vector2 = Vector2.ZERO:
 	set(new_target_position_offset):
 		if new_target_position_offset == null:
@@ -16,8 +23,13 @@ var _target_position_offset: Vector2 = Vector2.ZERO:
 		_target_position_offset = new_target_position_offset
 		_update_target_position()
 
+func _process(_delta):
+	_update_target()
+	_update_target_position()
+
 func _update_target():
-	super._update_target()
+	if _target == null:
+		_target = Helpers.find_nearest_node(_parent, _parent.get_tree().get_nodes_in_group("ally"))
 	_update_target_position_offset()
 
 func _update_target_position_offset():
