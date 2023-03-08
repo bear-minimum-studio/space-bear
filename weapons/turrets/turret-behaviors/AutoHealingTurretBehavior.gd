@@ -2,6 +2,7 @@ extends "res://weapons/turrets/turret-behaviors/AutoTurretBehavior.gd"
 
 func _set_target():
 	if turret.shooter == null:
+		print("AbstractTurretBehavior's turret has no shooter")
 		return
 	
 	if shoot_target != null:

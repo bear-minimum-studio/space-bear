@@ -8,7 +8,8 @@ class_name AbstractShip
 @export_range(0.0,50.0,0.1,"or_greater") var acceleration : float = 10.0
 @export_range(0.0,50.0,0.1,"or_greater") var brake : float = 10.0
 @export_range(1.0, 5.0, 0.5) var explosion_scale = 1.0
-@export_range(0.0,200.0,5.0,"or_greater") var position_tolerance: float = 50.0
+@export_range(0.0,200.0,1.0,"or_greater") var position_tolerance: float = 5.0
+@export var default_behavior_scene: PackedScene
 @export var debug_enabled : bool = false
 
 @onready var ship = $Ship
@@ -18,25 +19,40 @@ class_name AbstractShip
 @onready var rotation_target: float = rotation
 
 @onready var movement_target: Vector2 = global_position
+var behavior : AbstractShipBehavior
 
 var explosion_scene = preload("res://explosion/Explosion.tscn")
 
 func _ready():
+	if default_behavior_scene != null:
+		set_behavior(default_behavior_scene)
 	var turrets = get_node_or_null('Turrets')
 	if turrets != null:
 		for turret in turrets.get_children():
 			turret.init(self)
 
 func _process(_delta):
-	if !debug_enabled or Engine.is_editor_hint():
+	if Engine.is_editor_hint():
 		return
 	queue_redraw()
 
 func _physics_process(delta):
+	if Engine.is_editor_hint():
+		return
 	_set_rotation_target()
 	rotation = lerp_angle(rotation, rotation_target, rotation_speed * delta)
 	_set_velocity(delta)
 	move_and_slide()
+
+func remove_behavior():
+	if behavior != null:
+		behavior.free()
+
+func set_behavior(behavior_scene: PackedScene):
+	remove_behavior()
+	var new_behavior = behavior_scene.instantiate()
+	add_child(new_behavior)
+	behavior = new_behavior
 
 func _distance_to_target():
 	return (global_position - movement_target).length()

@@ -30,6 +30,7 @@ func _ready():
 	
 	sector_info.set_sector_number(current_world + 1)
 	sector_info.set_sector_mission(world.mission)
+	Events.game_ready.emit()
 
 func _on_convoy_reached_wormhole():
 	call_deferred("_level_change")

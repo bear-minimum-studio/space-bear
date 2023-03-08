@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8eji1omufns2"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_nc15t"]
 [ext_resource type="Texture2D" uid="uid://brnjul1rmrmr6" path="res://npc/enemies/bad_guy_3.png" id="2_5h2kd"]
 [ext_resource type="Script" path="res://npc/enemies/BaseEnemy.gd" id="2_akm2p"]
 [ext_resource type="Texture2D" uid="uid://c83hqlsby8aii" path="res://npc/enemies/bad_guy_3_flammes.png" id="3_n8ieu"]
+[ext_resource type="PackedScene" path="res://npc/ship-behaviors/AutoTargetShipBehavior.tscn" id="3_q1klg"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="4_fulqs"]
-[ext_resource type="PackedScene" uid="uid://cxnoqp0jv5c48" path="res://npc/enemies/ProximityBehavior.tscn" id="5_1nb1m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yoa61"]
 radius = 20.0
@@ -15,6 +15,7 @@ script = ExtResource("2_akm2p")
 proximity_ratio = 0.7
 kill_bonus = 1
 speed = 70.0
+default_behavior_scene = ExtResource("3_q1klg")
 
 [node name="Ship" parent="." index="0"]
 scale = Vector2(1.5, 1.5)
@@ -34,5 +35,3 @@ max_health = 100
 position = Vector2(7, 0)
 turret_range = 300.0
 shots_per_second = 8.0
-
-[node name="ProximityBehavior" parent="." index="7" instance=ExtResource("5_1nb1m")]

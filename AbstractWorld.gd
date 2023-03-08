@@ -1,10 +1,16 @@
 extends Node2D
 
+class_name AbstractWorld
+
 @onready var flock = $Flock
 @onready var mother_ship = $Flock/MotherShip
 @onready var wormhole = $Wormhole
+@onready var squadrons_handler = $SquadronsHandler
 @onready var initial_distance_to_wormhole = (wormhole.global_position - mother_ship.global_position).length()
 @export_multiline var mission = ""
+
+var squadron_ship_behavior : PackedScene = preload("res://npc/ship-behaviors/squadron/SquadronShipBehavior.tscn")
+var target_squadron_behavior : PackedScene = preload("res://npc/ship-behaviors/squadron/squadron-behaviors/TargetSquadronBehavior.tscn")
 
 func _ready():
 	WorldReference.current_world = self

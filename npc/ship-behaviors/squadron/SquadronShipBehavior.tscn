@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnsjqfpi5hkg5"]
+
+[ext_resource type="PackedScene" path="res://npc/ship-behaviors/AbstractShipBehavior.tscn" id="1_r548a"]
+[ext_resource type="Script" path="res://npc/ship-behaviors/squadron/SquadronShipBehavior.gd" id="2_q2px2"]
+
+[node name="SquadronShipBehavior" instance=ExtResource("1_r548a")]
+script = ExtResource("2_q2px2")

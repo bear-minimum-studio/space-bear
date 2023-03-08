@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs5l3liloigc0"]
 
 [ext_resource type="PackedScene" uid="uid://by2at5u64ytxh" path="res://Game.tscn" id="1_5el3n"]
-[ext_resource type="PackedScene" uid="uid://cm028a3usmuaa" path="res://test/TestWorld.tscn" id="2_vibj5"]
+[ext_resource type="PackedScene" uid="uid://bd36dg3q1e3xy" path="res://test/TestWorld.tscn" id="2_vibj5"]
 
 [node name="TestGame" instance=ExtResource("1_5el3n")]
 worlds = Array[PackedScene]([ExtResource("2_vibj5")])

@@ -5,6 +5,7 @@ signal mothership_hp_changed
 signal dead_ship
 signal ship_hurt
 
+signal game_ready
 signal convoy_reached_wormhole
 signal player_reached_wormhole
 signal game_over

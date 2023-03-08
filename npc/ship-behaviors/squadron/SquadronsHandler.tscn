@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://x5pipq32du6c"]
+
+[ext_resource type="Script" path="res://npc/ship-behaviors/squadron/SquadronsHandler.gd" id="1_sdp03"]
+
+[node name="SquadronsHandler" type="Node2D"]
+script = ExtResource("1_sdp03")

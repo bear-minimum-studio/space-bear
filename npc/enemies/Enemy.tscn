@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh7yvpcxoyabu"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_vfgof"]
 [ext_resource type="Script" path="res://npc/enemies/Enemy.gd" id="2_56xao"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="3_1eig1"]
-[ext_resource type="PackedScene" uid="uid://cxnoqp0jv5c48" path="res://npc/enemies/ProximityBehavior.tscn" id="4_t0r6o"]
+[ext_resource type="PackedScene" path="res://npc/ship-behaviors/AutoTargetShipBehavior.tscn" id="3_2pc3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyhtc"]
 radius = 35.0
@@ -12,6 +12,7 @@ radius = 35.0
 script = ExtResource("2_56xao")
 proximity_ratio = 0.7
 explosion_scale = 2.0
+default_behavior_scene = ExtResource("3_2pc3l")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_cyhtc")
@@ -21,5 +22,3 @@ position = Vector2(2.08165e-12, 25)
 
 [node name="AutoBulltetTurret2" parent="Turrets" index="1" instance=ExtResource("3_1eig1")]
 position = Vector2(2.08165e-12, -25)
-
-[node name="ProximityBehavior" parent="." index="7" instance=ExtResource("4_t0r6o")]

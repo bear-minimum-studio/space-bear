@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ujm2pogbpnnp"]
+[gd_scene load_steps=10 format=3 uid="uid://ujm2pogbpnnp"]
 
 [ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://cv7li5vw58r6p" path="res://player/Player.tscn" id="1_yasag"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2ghytsddgue" path="res://npc/mother-ship/MotherShip.tscn" id="3_jfgia"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="4_u5hvj"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="5_js3wj"]
+[ext_resource type="Script" path="res://npc/ship-behaviors/squadron/SquadronsHandler.gd" id="7_hb3lf"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -62,5 +63,8 @@ z_index = 10
 position = Vector2(0, -1.52588e-05)
 script = ExtResource("5_js3wj")
 width = 26.0
+
+[node name="SquadronsHandler" type="Node2D" parent="."]
+script = ExtResource("7_hb3lf")
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]

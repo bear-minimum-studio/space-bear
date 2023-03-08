@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://k8flfqgpouv1"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_i1wmw"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="2_4vvl4"]
 [ext_resource type="Script" path="res://npc/enemies/VultureEnemy.gd" id="2_tyx4m"]
 [ext_resource type="Texture2D" uid="uid://dcah24tcljjxh" path="res://npc/enemies/bad_guy_2.png" id="3_6l832"]
+[ext_resource type="PackedScene" path="res://npc/ship-behaviors/VultureShipBehavior.tscn" id="3_behgr"]
 [ext_resource type="Texture2D" uid="uid://d1xfryswpwhff" path="res://npc/enemies/bad_guy_2_flammes.png" id="4_vbl3j"]
-[ext_resource type="PackedScene" uid="uid://i7vdyv7vg00i" path="res://npc/enemies/VultureBehavior.tscn" id="6_6pnnb"]
 
 [node name="VultureEnemy" instance=ExtResource("1_i1wmw")]
 script = ExtResource("2_tyx4m")
@@ -13,6 +13,7 @@ proximity_ratio = 1.35
 speed = 350.0
 acceleration = 100.0
 brake = 0.5
+default_behavior_scene = ExtResource("3_behgr")
 
 [node name="Ship" parent="." index="0"]
 texture = ExtResource("3_6l832")
@@ -30,5 +31,3 @@ position = Vector2(1, -21)
 rotation = -1.5708
 turret_range = 350.0
 rotation_range = 0.392699
-
-[node name="VultureBehavior" parent="." index="7" instance=ExtResource("6_6pnnb")]

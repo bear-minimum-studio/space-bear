@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://i7vdyv7vg00i"]
-
-[ext_resource type="PackedScene" uid="uid://cxnoqp0jv5c48" path="res://npc/enemies/ProximityBehavior.tscn" id="1_iv740"]
-[ext_resource type="Script" path="res://npc/enemies/VultureBehavior.gd" id="2_m6xlp"]
-
-[node name="VultureBehavior" instance=ExtResource("1_iv740")]
-script = ExtResource("2_m6xlp")

@@ -23,6 +23,7 @@ var sprites = [
 ]
 
 func _ready():
+	super._ready()
 	var ship_and_flammes = sprites.pick_random()
 	ship.texture = ship_and_flammes[0]
 	flammes.texture = ship_and_flammes[1]

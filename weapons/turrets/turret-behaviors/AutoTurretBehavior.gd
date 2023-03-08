@@ -15,6 +15,7 @@ func _process(delta):
 
 func _set_target():
 	if turret.shooter == null:
+		print("AbstractTurretBehavior has no shooter")
 		return
 	
 	if shoot_target != null and turret.shooter.global_position.distance_to(shoot_target.global_position) < turret.turret_range:
@@ -25,7 +26,12 @@ func _set_target():
 	shoot_target = Helpers.find_nearest_node(turret.shooter, potential_targets)
 	
 func _set_rotation_target():
-	if turret == null or turret.shooter == null:
+	if turret == null:
+		print("AbstractTurretBehavior has no turret")
+		return
+	
+	if turret.shooter == null:
+		print("AbstractTurretBehavior's turret has no shooter")
 		return
 	
 	_set_target()

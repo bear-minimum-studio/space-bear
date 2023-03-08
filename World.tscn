@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_tdmob"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
-[ext_resource type="PackedScene" uid="uid://bh7yvpcxoyabu" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
-[ext_resource type="PackedScene" uid="uid://c8eji1omufns2" path="res://npc/enemies/BaseEnemy.tscn" id="6_q52vq"]
+[ext_resource type="PackedScene" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
+[ext_resource type="PackedScene" path="res://npc/enemies/BaseEnemy.tscn" id="6_q52vq"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
 mission = "Survive the enemies."

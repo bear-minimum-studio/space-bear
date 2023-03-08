@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccvaj01wv7fs"]
+
+[ext_resource type="PackedScene" uid="uid://bsq38bogbmrrt" path="res://npc/ship-behaviors/squadron/squadron-behaviors/TargetSquadronBehavior.tscn" id="1_nn4yl"]
+[ext_resource type="Script" path="res://npc/ship-behaviors/squadron/squadron-behaviors/AutoTargetSquadronBehavior.gd" id="2_t6tes"]
+
+[node name="AutoTargetSquadronBehavior" instance=ExtResource("1_nn4yl")]
+script = ExtResource("2_t6tes")
+distance_to_target = null

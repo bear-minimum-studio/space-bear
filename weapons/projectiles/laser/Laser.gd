@@ -48,12 +48,14 @@ func _ready():
 
 func _update_raycast_range(length: float):
 	if ray_cast_2d == null:
+		printerr("Laser has no RayCast2D.")
 		return
 
 	ray_cast_2d.target_position = length * Vector2.RIGHT
 
 func _update_sprite_length(length: float):
 	if line_2d == null:
+		printerr("Laser has no Line2D.")
 		return
 
 	var last_point_index = line_2d.get_point_count() - 1

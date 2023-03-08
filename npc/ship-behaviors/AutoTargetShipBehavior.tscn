@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwbvuhuqg5ceb"]
+
+[ext_resource type="PackedScene" uid="uid://cll4jfkr62fcy" path="res://npc/ship-behaviors/TargetShipBehavior.tscn" id="1_r7skp"]
+[ext_resource type="Script" path="res://npc/ship-behaviors/AutoTargetShipBehavior.gd" id="2_qumdr"]
+
+[node name="AutoTargetShipBehavior" instance=ExtResource("1_r7skp")]
+script = ExtResource("2_qumdr")

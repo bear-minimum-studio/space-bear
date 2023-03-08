@@ -1,13 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm028a3usmuaa"]
+[gd_scene load_steps=4 format=3 uid="uid://bd36dg3q1e3xy"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_euu80"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wqd16"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="4_loucl"]
-[ext_resource type="PackedScene" uid="uid://k8flfqgpouv1" path="res://npc/enemies/VultureEnemy.tscn" id="5_fxyub"]
 
-[node name="World" instance=ExtResource("1_euu80")]
+[node name="TestWorld" instance=ExtResource("1_euu80")]
 
-[node name="CivilianShip" parent="Flock" index="0" instance=ExtResource("2_wqd16")]
+[node name="Wormhole" parent="." index="1"]
+position = Vector2(2371, -1496)
+
+[node name="CivilianShip" parent="Flock" index="1" instance=ExtResource("2_wqd16")]
+position = Vector2(256, 205)
+rotation = -0.698132
+
+[node name="CivilianShip2" parent="Flock" index="2" instance=ExtResource("2_wqd16")]
+position = Vector2(256, 205)
+rotation = -0.698132
+
+[node name="CivilianShip3" parent="Flock" index="3" instance=ExtResource("2_wqd16")]
+position = Vector2(256, 205)
+rotation = -0.698132
+
+[node name="CivilianShip4" parent="Flock" index="4" instance=ExtResource("2_wqd16")]
+position = Vector2(256, 205)
+rotation = -0.698132
+
+[node name="CivilianShip5" parent="Flock" index="5" instance=ExtResource("2_wqd16")]
+position = Vector2(256, 205)
+rotation = -0.698132
+
+[node name="CivilianShip6" parent="Flock" index="6" instance=ExtResource("2_wqd16")]
 position = Vector2(256, 205)
 rotation = -0.698132
 
@@ -25,6 +47,3 @@ position = Vector2(1284, -936)
 
 [node name="Asteroid5" parent="Asteroids" index="4" instance=ExtResource("4_loucl")]
 position = Vector2(1677, -657)
-
-[node name="Enemy" parent="Enemies" index="0" instance=ExtResource("5_fxyub")]
-position = Vector2(-110, -28)

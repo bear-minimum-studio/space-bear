@@ -1,3 +1,3 @@
 extends Node
 
-var current_world = null
+var current_world: AbstractWorld = null

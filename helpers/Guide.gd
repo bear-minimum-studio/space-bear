@@ -19,6 +19,7 @@ func _draw():
 	if Engine.is_editor_hint():
 		var mother_ship = $"../Flock/MotherShip"
 		if mother_ship == null:
+			printerr("There is no mother_ship.")
 			return
 		
 		var start = mother_ship.global_position
