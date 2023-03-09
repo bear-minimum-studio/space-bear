@@ -76,6 +76,7 @@ region_rect = Rect2(0, 0, 2048, 2048)
 motion_mirroring = Vector2(2048, 2048)
 
 [node name="Sprite2D" type="Sprite2D" parent="VeryCloseDust"]
+modulate = Color(1, 1, 1, 0.309804)
 texture_repeat = 2
 texture = ExtResource("7_nui05")
 centered = false
