@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b1g15na57uki6" path="res://weapons/turrets/turret-behaviors/AutoTurretBehavior.tscn" id="3_ml1wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7opnc"]
-radius = 250.0
+resource_local_to_scene = true
+radius = 1000.0
 
 [node name="AutoBulltetTurret" instance=ExtResource("1_bmnnh")]
 script = ExtResource("2_egh23")

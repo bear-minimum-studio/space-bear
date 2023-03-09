@@ -28,5 +28,5 @@ texture = ExtResource("3_0664p")
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_l23cd")
 
-[node name="HealthSystem" parent="." index="4"]
+[node name="HealthSystem" parent="." index="3"]
 max_health = 20
