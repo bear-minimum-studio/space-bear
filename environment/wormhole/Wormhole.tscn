@@ -1,21 +1,133 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvnsas5vp1sl7"]
+[gd_scene load_steps=15 format=3 uid="uid://bvnsas5vp1sl7"]
 
 [ext_resource type="Script" path="res://environment/wormhole/Wormhole.gd" id="1_y3t3o"]
-[ext_resource type="Texture2D" uid="uid://de2xnu5b27vuj" path="res://environment/wormhole/wormhole.png" id="2_ardxt"]
+[ext_resource type="Texture2D" uid="uid://cl8ky8qqpiv8y" path="res://environment/wormhole/worm.png" id="2_ufxdn"]
+[ext_resource type="Texture2D" uid="uid://b0v7b6ticbp8o" path="res://environment/wormhole/hole.png" id="3_mw6kg"]
+[ext_resource type="Texture2D" uid="uid://dt6mi6rku4u7e" path="res://environment/wormhole/wormhole_particle.png" id="4_yfrrk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pas2"]
 radius = 184.174
+
+[sub_resource type="Animation" id="Animation_nugno"]
+resource_name = "Wormhole"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.74846e-07, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_cv7vs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.74846e-07]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2b3na"]
+_data = {
+"RESET": SubResource("Animation_cv7vs"),
+"Wormhole": SubResource("Animation_nugno")
+}
+
+[sub_resource type="Gradient" id="Gradient_8if7v"]
+offsets = PackedFloat32Array(0, 0.58753, 0.793765)
+colors = PackedColorArray(0.421875, 0.421875, 0.421875, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rb7ac"]
+gradient = SubResource("Gradient_8if7v")
+
+[sub_resource type="Curve" id="Curve_7i3wc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ttb46"]
+curve = SubResource("Curve_7i3wc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_80baa"]
+emission_shape = 1
+emission_sphere_radius = 128.0
+particle_flag_disable_z = true
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+orbit_velocity_min = -0.2
+orbit_velocity_max = -0.2
+radial_accel_min = -200.0
+radial_accel_max = -200.0
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_ttb46")
+color_ramp = SubResource("GradientTexture1D_rb7ac")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0s46j"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+angular_velocity_min = 5.0
+angular_velocity_max = 5.0
+orbit_velocity_min = 0.2
+orbit_velocity_max = 0.2
+scale_min = 1.2
+scale_max = 1.2
+color = Color(1, 1, 1, 0.529412)
 
 [node name="Wormhole" type="Area2D"]
 collision_layer = 32
 collision_mask = 8
 script = ExtResource("1_y3t3o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ardxt")
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(25, 15)
+texture = ExtResource("2_ufxdn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_5pas2")
 debug_color = Color(0.180392, 0.607843, 0, 0.419608)
+
+[node name="Hole" type="Sprite2D" parent="."]
+position = Vector2(20, 20)
+texture = ExtResource("3_mw6kg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Wormhole"
+speed_scale = 0.01
+libraries = {
+"": SubResource("AnimationLibrary_2b3na")
+}
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+position = Vector2(-2, -1.52588e-05)
+scale = Vector2(2.44446, 2.44446)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_80baa")
+texture = ExtResource("4_yfrrk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(29, 16)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_0s46j")
+texture = ExtResource("3_mw6kg")
+lifetime = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
