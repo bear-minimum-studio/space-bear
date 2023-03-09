@@ -3,10 +3,13 @@ class_name Player
 
 signal shoot_grappling_hook
 
-@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 200.0
-@export_range(0.0,3.0,0.05,"or_greater") var time_to_max_speed = 1.0
-@export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.7
-@export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
+@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 300.0
+@export_range(0.0,3.0,0.05,"or_greater") var time_to_max_speed = 0.7
+@export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.5
+@export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 2.0
+@export_range(0.0,0.3,0.01) var rotation_dead_zone = 0.05
+@export_range(0.01,1.5) var rotation_damping_zone = 0.5
+@export var remove_inertia = true
 
 @onready var rotation_speed = 2 * PI * rotation_per_second
 
@@ -16,7 +19,8 @@ var thrust_intensity :
 var brake_intensity:
 	get: return mass * max_speed / time_to_stop
 
-@onready var flammes = $Flammes
+var current_direction: Vector2 = Vector2.ZERO
+
 @onready var sfx = $SFX
 @onready var turret = $Turrets/Turret
 @onready var p2_turret_control = $P2Turret/P2TurretControl
@@ -26,6 +30,13 @@ var brake_intensity:
 @onready var selection_zone = $SelectionZone
 @onready var p_2_turret_control = $P2Turret/P2TurretControl
 @onready var player_sprite = $Player
+
+@onready var flammes_right = $FlammesRight
+@onready var flammes_left = $FlammesLeft
+@onready var flammes_up = $FlammesUp
+@onready var flammes_down = $FlammesDown
+@onready var flammes = {flammes_down: [0.0], flammes_right: [-PI/2], flammes_up: [-PI,PI], flammes_left: [PI/2]}
+const flamme_overlap_angle = 5 * PI / 9
 
 func _ready():
 	var turrets = $Turrets.get_children()
@@ -45,24 +56,75 @@ func _integrate_forces(state):
 	else:
 		_thrust(state)
 	_custom_set_rotation()
-		
+
+func _deactivate_flammes():
+	flammes_down.visible = false
+	flammes_up.visible = false
+	flammes_right.visible = false
+	flammes_left.visible = false
+
+func _activate_flammes(direction: Vector2):
+	var relative_thrust_angle = Helpers.angle_to_trigonometry_range(direction.angle() - self.rotation)
+	var min_acceptable_angle = relative_thrust_angle - flamme_overlap_angle/2
+	var max_acceptable_angle = relative_thrust_angle + flamme_overlap_angle/2
+	for f in flammes:
+		f.visible = false
+		for flamme_angle in flammes[f]:
+			if (flamme_angle >= min_acceptable_angle) and (flamme_angle <= max_acceptable_angle):
+				f.visible = true
+
 func _thrust(state):
-	var intensity = Input.get_axis("decelerate", "accelerate")
-	var thrust = intensity * thrust_intensity * Vector2.from_angle(rotation)
+	var direction = Input.get_vector("go_left", "go_right", "go_up", "go_down")
+	var thrust = thrust_intensity * direction
 	if linear_velocity.length() >= max_speed:
 		# maintain max speed but change direction
 		thrust = thrust - (linear_velocity.normalized() * thrust.length())
 	state.apply_central_force(thrust)
-	if intensity:
-		flammes.visible = true
+	if remove_inertia:
+		_compensate_inertia(state)
+	
+	if direction.length():
+		_activate_flammes(direction)
 		sfx.play()
 	else:
-		flammes.visible = false
+		_deactivate_flammes()
 		sfx.stop()
-	
+
+func _compensate_inertia(state):
+	var direction = Input.get_vector("go_left", "go_right", "go_up", "go_down")
+	if direction.length():
+		var orthonormal_velocity = linear_velocity.project(direction.orthogonal())
+		var thrust = - thrust_intensity * orthonormal_velocity / max_speed
+		if thrust:
+			state.apply_central_force(thrust)
+
+## return a scaling coefficient depending on how much the ship has to rotate
+## In dead zone -> no rotation
+## in damping zone -> slow rotation
+## out of damping zone -> scale with angle of rotation
+func _rotation_damping(remainder_angle: float) -> float:
+	var angle = abs(remainder_angle)
+	if InputMode.is_controller() and (angle < rotation_dead_zone):
+		return 0
+	if angle < rotation_damping_zone:
+		return 1 - (rotation_damping_zone - angle) / rotation_damping_zone
+	return 1 + (angle - rotation_damping_zone) / PI
+
 func _torque():
-	var intensity = Input.get_axis("turn_left", "turn_right")
-	angular_velocity = rotation_speed * intensity
+	var intensity = 0
+	if InputMode.is_mouse():
+		intensity = 1
+		current_direction = get_viewport().get_mouse_position() - Helpers.get_screen_center()
+	elif InputMode.is_controller():
+		var direction = Input.get_vector("look_left", "look_right", "look_up", "look_down")
+		intensity = direction.length()
+		if intensity > 0:
+			current_direction = direction
+
+	var remainder_angle = Helpers.angle_to_trigonometry_range(current_direction.angle() - self.global_rotation)
+	var rotation_sign = sign(remainder_angle)
+	self.angular_velocity = rotation_sign * rotation_speed * intensity * _rotation_damping(remainder_angle)
+
 
 func _brake(state):
 	if linear_velocity.length() > 10:
