@@ -3,10 +3,16 @@ extends Node
 const MOUSE = 0
 const CONTROLLER = 1
 
-var current_mode = MOUSE
+var source = MOUSE
 
 func is_mouse() -> bool:
-	return current_mode == MOUSE
+	return source == MOUSE
 
 func is_controller() -> bool:
-	return current_mode == CONTROLLER
+	return source == CONTROLLER
+
+func use_mouse():
+	source = MOUSE
+
+func use_controller():
+	source = CONTROLLER
