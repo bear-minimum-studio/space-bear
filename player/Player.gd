@@ -104,7 +104,7 @@ func _torque():
 	var intensity = 0
 	if mouse:
 		intensity = 1
-		current_direction = get_viewport().get_mouse_position() - Vector2(240,135)
+		current_direction = get_viewport().get_mouse_position() - Helpers.get_screen_center()
 	else:
 		var direction = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 		intensity = direction.length()
