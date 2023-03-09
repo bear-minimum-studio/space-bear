@@ -102,8 +102,8 @@ func _compensate_inertia(state):
 
 ## return a scaling coefficient depending on how much the ship has to rotate
 ## In dead zone -> no rotation
-# in damping zone -> slow rotation
-# out of damping zone -> scale with angle of rotation
+## in damping zone -> slow rotation
+## out of damping zone -> scale with angle of rotation
 func _rotation_damping(remainder_angle: float) -> float:
 	var angle = abs(remainder_angle)
 	if (not mouse) and (angle < rotation_dead_zone):
