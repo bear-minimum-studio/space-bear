@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm0sum8oi2m1s"]
+[gd_scene load_steps=8 format=3 uid="uid://cm0sum8oi2m1s"]
 
 [ext_resource type="Texture2D" uid="uid://bmb3kxcws53c8" path="res://background/etoiles_loin.png" id="1_wf5oh"]
 [ext_resource type="Texture2D" uid="uid://cpsip7famptfr" path="res://background/nebula_bigger.png" id="2_33v0d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqqo5fr3qj188" path="res://background/nebula1.png" id="4_wpyb0"]
 [ext_resource type="Texture2D" uid="uid://twufk2gd3ibk" path="res://background/etoiles_moyennes.png" id="5_l70pj"]
 [ext_resource type="Texture2D" uid="uid://bhc56kw4vat4c" path="res://background/etoiles_grosses.png" id="6_opg52"]
+[ext_resource type="Texture2D" uid="uid://cxaewrws3acee" path="res://background/dust.png" id="7_nui05"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -67,6 +68,16 @@ motion_mirroring = Vector2(512, 512)
 [node name="Sprite2D" type="Sprite2D" parent="CloseStars"]
 texture_repeat = 2
 texture = ExtResource("6_opg52")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="VeryCloseDust" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="VeryCloseDust"]
+texture_repeat = 2
+texture = ExtResource("7_nui05")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2048, 2048)
