@@ -32,6 +32,12 @@ var current_direction: Vector2 = Vector2.ZERO
 @onready var p_2_turret_control = $P2Turret/P2TurretControl
 @onready var player_sprite = $Player
 
+@onready var flammes_right = $FlammesRight
+@onready var flammes_left = $FlammesLeft
+@onready var flammes_up = $FlammesUp
+@onready var flammes_down = $FlammesDown
+
+
 func _ready():
 	var turrets = $Turrets.get_children()
 	for auto_turret in turrets:
@@ -51,6 +57,24 @@ func _integrate_forces(state):
 		_thrust(state)
 	_custom_set_rotation()
 
+func _deactivate_flammes():
+	flammes_down.visible = false
+	flammes_up.visible = false
+	flammes_right.visible = false
+	flammes_left.visible = false
+
+func _activate_flammes(direction: Vector2):
+	var possible_flammes = {flammes_down: [0.0], flammes_right: [-PI/2], flammes_up: [-PI,PI], flammes_left: [PI/2]}
+	var relative_thrust_angle = _normalize_angle(direction.angle() - self.rotation)
+	var alpha = 5 * PI / 9
+	var min_acceptable_angle = relative_thrust_angle - alpha/2
+	var max_acceptable_angle = relative_thrust_angle + alpha/2
+	for f in possible_flammes:
+		f.visible = false
+		for flamme_angle in possible_flammes[f]:
+			if (flamme_angle >= min_acceptable_angle) and (flamme_angle <= max_acceptable_angle):
+				f.visible = true
+
 func _thrust(state):
 	var direction = Input.get_vector("go_left", "go_right", "go_up", "go_down")
 	var thrust = thrust_intensity * direction
@@ -61,19 +85,11 @@ func _thrust(state):
 	if remove_inertia:
 		_compensate_inertia(state)
 	
-	var possible_flammes = {$FlammesDown: [0.0], $FlammesRight: [-PI/2], $FlammesUp: [-PI,PI], $FlammesLeft: [PI/2]}
 	if direction.length():
-		var a = _normalize_angle(direction.angle() - self.rotation)
-		var alpha = 5 * PI / 9
-		for f in possible_flammes:
-			f.visible = false
-			for flamme_angle in possible_flammes[f]:
-				if (a - alpha/2 <= flamme_angle) and (flamme_angle <= a + alpha/2):
-					f.visible = true
+		_activate_flammes(direction)
 		sfx.play()
 	else:
-		for f in possible_flammes:
-			f.visible = false
+		_deactivate_flammes()
 		sfx.stop()
 
 func _compensate_inertia(state):
