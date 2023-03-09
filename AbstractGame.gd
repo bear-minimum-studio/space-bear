@@ -73,10 +73,12 @@ func _level_change():
 	self.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _input(event):
-	if  InputMode.is_controller() and (event is InputEventMouse or event is InputEventKey):
-		InputMode.use_mouse()
-	if  InputMode.is_mouse() and (event is InputEventJoypadButton or event is InputEventJoypadMotion):
-		InputMode.use_controller()
+	if InputMode.is_controller():
+		if event is InputEventMouseMotion or event is InputEventKey:
+			InputMode.use_mouse()
+	if InputMode.is_mouse():
+		if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+			InputMode.use_controller()
 
 func _on_dead_civilian(dead_ship: Node2D):
 	if dead_ship is Player:
