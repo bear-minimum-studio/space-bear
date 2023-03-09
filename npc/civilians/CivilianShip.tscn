@@ -11,7 +11,7 @@ height = 24.0
 
 [node name="CivilianShip" instance=ExtResource("1_0bdkf")]
 script = ExtResource("1_fv8tp")
-number_of_passengers = 50
+number_of_passengers = 10
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]

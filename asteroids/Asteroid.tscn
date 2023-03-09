@@ -120,7 +120,7 @@ libraries = {
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_6qulr")]
-max_health = 11
+max_health = 50
 should_free_on_death = false
 
 [node name="HurtAnimation" parent="." instance=ExtResource("4_v1u7x")]

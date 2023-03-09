@@ -14,5 +14,17 @@ position = Vector2(969, -496)
 [node name="Asteroid3" parent="Asteroids" index="2" instance=ExtResource("2_2by15")]
 position = Vector2(1249, -481)
 
+[node name="Asteroid4" parent="Asteroids" index="3" instance=ExtResource("2_2by15")]
+position = Vector2(1158, -788)
+
+[node name="Asteroid5" parent="Asteroids" index="4" instance=ExtResource("2_2by15")]
+position = Vector2(1624, -697)
+
+[node name="Asteroid6" parent="Asteroids" index="5" instance=ExtResource("2_2by15")]
+position = Vector2(1359, -953)
+
+[node name="Asteroid7" parent="Asteroids" index="6" instance=ExtResource("2_2by15")]
+position = Vector2(1855, -904)
+
 [node name="Wormhole" parent="." index="7"]
 position = Vector2(3375, -2354)
