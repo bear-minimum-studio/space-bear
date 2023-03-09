@@ -14,7 +14,7 @@ quick_scenes/quick_run_shortcut=Object(Shortcut,"resource_local_to_scene":false,
 ],"script":null)
 
 quick_scenes/selected_scene=0
-quick_scenes/scene_list=PackedStringArray("res://test/TestWorld.tscn")
+quick_scenes/scene_list=PackedStringArray("res://test/TestGame.tscn")
 
 [application]
 
