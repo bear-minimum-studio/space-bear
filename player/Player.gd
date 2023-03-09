@@ -9,7 +9,6 @@ signal shoot_grappling_hook
 @export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
 @export_range(0.0,0.3,0.01) var rotation_dead_zone = 0.1
 @export_range(0.01,1.5) var rotation_damping_zone = 0.5
-@export var mouse = true
 @export var remove_inertia = true
 
 @onready var rotation_speed = 2 * PI * rotation_per_second
@@ -105,7 +104,7 @@ func _compensate_inertia(state):
 ## out of damping zone -> scale with angle of rotation
 func _rotation_damping(remainder_angle: float) -> float:
 	var angle = abs(remainder_angle)
-	if (not mouse) and (angle < rotation_dead_zone):
+	if InputMode.is_controller() and (angle < rotation_dead_zone):
 		return 0
 	if angle < rotation_damping_zone:
 		return 1 - (rotation_damping_zone - angle) / rotation_damping_zone
@@ -117,10 +116,10 @@ func _normalize_angle(angle: float):
 
 func _torque():
 	var intensity = 0
-	if mouse:
+	if InputMode.is_mouse():
 		intensity = 1
 		current_direction = get_viewport().get_mouse_position() - Helpers.get_screen_center()
-	else:
+	elif InputMode.is_controller():
 		var direction = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 		intensity = direction.length()
 		if intensity > 0:

@@ -23,6 +23,7 @@ FlockResources="*res://singletons/FlockResources.gd"
 ShipCatalog="*res://singletons/ShipCatalog.gd"
 WorldReference="*res://singletons/WorldReference.gd"
 Allegiance="*res://singletons/Allegiance.gd"
+InputMode="*res://singletons/InputMode.gd"
 
 [display]
 
