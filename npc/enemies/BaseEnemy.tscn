@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8eji1omufns2"]
+[gd_scene load_steps=8 format=3 uid="uid://c8eji1omufns2"]
 
 [ext_resource type="PackedScene" uid="uid://cxxrm5lvp7lfs" path="res://npc/enemies/AbstractEnemy.tscn" id="1_nc15t"]
 [ext_resource type="Texture2D" uid="uid://brnjul1rmrmr6" path="res://npc/enemies/bad_guy_3.png" id="2_5h2kd"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="4_fulqs"]
 [ext_resource type="PackedScene" uid="uid://cxnoqp0jv5c48" path="res://npc/enemies/ProximityBehavior.tscn" id="5_1nb1m"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yoa61"]
+radius = 20.0
+
 [node name="BaseEnemy" instance=ExtResource("1_nc15t")]
 script = ExtResource("2_akm2p")
 proximity_ratio = 0.7
@@ -14,15 +17,21 @@ kill_bonus = 1
 speed = 70.0
 
 [node name="Ship" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_5h2kd")
 
 [node name="Flammes" parent="." index="1"]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_n8ieu")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_yoa61")
 
 [node name="HealthSystem" parent="." index="3"]
 max_health = 100
 
 [node name="AutoBulltetTurret" parent="Turrets" index="0" instance=ExtResource("4_fulqs")]
+position = Vector2(7, 0)
 turret_range = 300.0
 shots_per_second = 8.0
 
