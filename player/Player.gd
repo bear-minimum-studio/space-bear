@@ -127,7 +127,6 @@ func _torque():
 
 	var remainder_angle = _normalize_angle(current_direction.angle() - self.global_rotation)
 	var rotation_sign = sign(remainder_angle)
-	print('current: ', current_direction.angle(), '	self: ', self.global_rotation, ' modulo: ', remainder_angle)
 	self.angular_velocity = rotation_sign * rotation_speed * intensity * _rotation_damping(remainder_angle)
 
 
