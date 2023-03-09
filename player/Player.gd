@@ -36,7 +36,8 @@ var current_direction: Vector2 = Vector2.ZERO
 @onready var flammes_left = $FlammesLeft
 @onready var flammes_up = $FlammesUp
 @onready var flammes_down = $FlammesDown
-
+@onready var flammes = {flammes_down: [0.0], flammes_right: [-PI/2], flammes_up: [-PI,PI], flammes_left: [PI/2]}
+const flamme_overlap_angle = 5 * PI / 9
 
 func _ready():
 	var turrets = $Turrets.get_children()
@@ -64,14 +65,12 @@ func _deactivate_flammes():
 	flammes_left.visible = false
 
 func _activate_flammes(direction: Vector2):
-	var possible_flammes = {flammes_down: [0.0], flammes_right: [-PI/2], flammes_up: [-PI,PI], flammes_left: [PI/2]}
 	var relative_thrust_angle = _normalize_angle(direction.angle() - self.rotation)
-	var alpha = 5 * PI / 9
-	var min_acceptable_angle = relative_thrust_angle - alpha/2
-	var max_acceptable_angle = relative_thrust_angle + alpha/2
-	for f in possible_flammes:
+	var min_acceptable_angle = relative_thrust_angle - flamme_overlap_angle/2
+	var max_acceptable_angle = relative_thrust_angle + flamme_overlap_angle/2
+	for f in flammes:
 		f.visible = false
-		for flamme_angle in possible_flammes[f]:
+		for flamme_angle in flammes[f]:
 			if (flamme_angle >= min_acceptable_angle) and (flamme_angle <= max_acceptable_angle):
 				f.visible = true
 
