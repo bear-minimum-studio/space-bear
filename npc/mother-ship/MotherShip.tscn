@@ -11,7 +11,7 @@ radius = 71.0
 height = 198.0
 
 [node name="MotherShip" instance=ExtResource("1_0bdkf")]
-number_of_passengers = 100000
+number_of_passengers = 1000
 speed = 30.0
 explosion_scale = 3.0
 

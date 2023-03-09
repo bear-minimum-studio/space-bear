@@ -9,7 +9,7 @@ radius = 51.0
 height = 110.0
 
 [node name="TransportShip" instance=ExtResource("1_kvjgw")]
-number_of_passengers = 5000
+number_of_passengers = 100
 speed = 30.0
 explosion_scale = 2.0
 
@@ -28,7 +28,7 @@ position = Vector2(4, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_j2u7h")
 
-[node name="HealthSystem" parent="." index="4"]
+[node name="HealthSystem" parent="." index="3"]
 max_health = 80
 
 [node name="HealthBar" parent="UI" index="0"]
