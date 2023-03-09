@@ -3,11 +3,11 @@ class_name Player
 
 signal shoot_grappling_hook
 
-@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 200.0
-@export_range(0.0,3.0,0.05,"or_greater") var time_to_max_speed = 1.0
-@export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.7
-@export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 0.7
-@export_range(0.0,0.3,0.01) var rotation_dead_zone = 0.1
+@export_range(0.0,500.0,5.0,"or_greater") var max_speed = 300.0
+@export_range(0.0,3.0,0.05,"or_greater") var time_to_max_speed = 0.7
+@export_range(0.0,3.0,0.05,"or_greater") var time_to_stop = 0.5
+@export_range(0.0,4.0,0.1,"or_greater") var rotation_per_second = 2.0
+@export_range(0.0,0.3,0.01) var rotation_dead_zone = 0.05
 @export_range(0.01,1.5) var rotation_damping_zone = 0.5
 @export var remove_inertia = true
 

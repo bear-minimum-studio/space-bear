@@ -48,11 +48,6 @@ collision_layer = 9
 collision_mask = 0
 mass = 50.0
 script = ExtResource("1_rsmvc")
-max_speed = 300.0
-time_to_max_speed = 0.7
-time_to_stop = 0.5
-rotation_per_second = 2.0
-rotation_dead_zone = 0.05
 
 [node name="FlammesUp" type="Sprite2D" parent="."]
 texture_filter = 3
