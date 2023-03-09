@@ -1,9 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvnsas5vp1sl7"]
+[gd_scene load_steps=15 format=3 uid="uid://bvnsas5vp1sl7"]
 
 [ext_resource type="Script" path="res://environment/wormhole/Wormhole.gd" id="1_y3t3o"]
 [ext_resource type="Texture2D" uid="uid://cl8ky8qqpiv8y" path="res://environment/wormhole/worm.png" id="2_ufxdn"]
+[ext_resource type="Texture2D" uid="uid://bc8rifkt5vt0w" path="res://environment/wormhole/particles_wormhole_1.png" id="3_ecagj"]
 [ext_resource type="Texture2D" uid="uid://b0v7b6ticbp8o" path="res://environment/wormhole/hole.png" id="3_mw6kg"]
-[ext_resource type="Texture2D" uid="uid://dt6mi6rku4u7e" path="res://environment/wormhole/wormhole_particle.png" id="4_yfrrk"]
+[ext_resource type="Material" uid="uid://c1x47pghsee5q" path="res://environment/wormhole/WormholeParticles.tres" id="3_qekfg"]
+[ext_resource type="Texture2D" uid="uid://dgsujy4vnarc7" path="res://environment/wormhole/particles_wormhole_2.png" id="4_q4235"]
+[ext_resource type="Texture2D" uid="uid://7th4xhmxsptd" path="res://environment/wormhole/particles_wormhole_3.png" id="5_xi2vd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pas2"]
 radius = 237.002
@@ -69,44 +72,6 @@ _data = {
 "Wormhole": SubResource("Animation_nugno")
 }
 
-[sub_resource type="Gradient" id="Gradient_8if7v"]
-offsets = PackedFloat32Array(0, 0.58753, 0.793765)
-colors = PackedColorArray(0.421875, 0.421875, 0.421875, 0, 1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_rb7ac"]
-gradient = SubResource("Gradient_8if7v")
-
-[sub_resource type="Curve" id="Curve_k14nc"]
-min_value = -50.0
-max_value = 50.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 31.5217), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_1rwks"]
-curve = SubResource("Curve_k14nc")
-
-[sub_resource type="Curve" id="Curve_7i3wc"]
-_data = [Vector2(0.331553, 0.984247), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ttb46"]
-curve = SubResource("Curve_7i3wc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_80baa"]
-emission_shape = 1
-emission_sphere_radius = 128.0
-particle_flag_disable_z = true
-direction = Vector3(1, 2.08165e-12, 2.08165e-12)
-spread = 180.0
-gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-orbit_velocity_min = -0.1
-orbit_velocity_max = -0.1
-radial_accel_min = -10.0
-radial_accel_max = -10.0
-radial_accel_curve = SubResource("CurveTexture_1rwks")
-scale_curve = SubResource("CurveTexture_ttb46")
-color_ramp = SubResource("GradientTexture1D_rb7ac")
-
 [sub_resource type="Curve" id="Curve_1f3vh"]
 _data = [Vector2(0.00303052, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0.0248897), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -143,6 +108,7 @@ position = Vector2(25, 15)
 texture = ExtResource("2_ufxdn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_5pas2")
 debug_color = Color(0.180392, 0.607843, 0, 0.419608)
 
@@ -156,10 +122,26 @@ libraries = {
 [node name="Particles" type="GPUParticles2D" parent="."]
 position = Vector2(-2, -1.52588e-05)
 scale = Vector2(2.44446, 2.44446)
-amount = 300
-process_material = SubResource("ParticleProcessMaterial_80baa")
-texture = ExtResource("4_yfrrk")
+amount = 100
+process_material = ExtResource("3_qekfg")
+texture = ExtResource("3_ecagj")
 lifetime = 2.0
+
+[node name="Particles2" type="GPUParticles2D" parent="."]
+position = Vector2(-2, -1.52588e-05)
+scale = Vector2(2.44446, 2.44446)
+amount = 100
+process_material = ExtResource("3_qekfg")
+texture = ExtResource("4_q4235")
+lifetime = 2.0
+
+[node name="Particles3" type="GPUParticles2D" parent="."]
+position = Vector2(-2, -1.52588e-05)
+scale = Vector2(2.44446, 2.44446)
+amount = 100
+process_material = ExtResource("3_qekfg")
+texture = ExtResource("5_xi2vd")
+lifetime = 3.0
 
 [node name="HoleContainer" type="Node2D" parent="."]
 rotation = -0.976032
