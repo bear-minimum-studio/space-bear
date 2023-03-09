@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://ship-upgrades/ShipCatalogResource.gd" id="1_slayw"]
 [ext_resource type="PackedScene" uid="uid://1g287f44t86u" path="res://npc/civilians/ShieldShip.tscn" id="2_f3vtt"]
 [ext_resource type="Script" path="res://ship-upgrades/ShipCatalogResourceElement.gd" id="3_tdsxw"]
-[ext_resource type="PackedScene" path="res://npc/civilians/TurretShip.tscn" id="4_ivmn8"]
-[ext_resource type="PackedScene" uid="uid://bjqnruxoduuyr" path="res://npc/civilians/HealingShip.tscn" id="5_v6rwg"]
+[ext_resource type="PackedScene" uid="uid://tems6a6m6bm3" path="res://npc/civilians/TurretShip.tscn" id="4_ivmn8"]
+[ext_resource type="PackedScene" uid="uid://bv8nckjggws2e" path="res://npc/civilians/HealingShip.tscn" id="5_v6rwg"]
 
 [sub_resource type="Resource" id="Resource_m86ra"]
 script = ExtResource("3_tdsxw")
-price = 20
+price = 50
 display_name = "Shield ship"
 scene = ExtResource("2_f3vtt")
 
@@ -20,7 +20,7 @@ scene = ExtResource("4_ivmn8")
 
 [sub_resource type="Resource" id="Resource_3xsag"]
 script = ExtResource("3_tdsxw")
-price = 20
+price = 50
 display_name = "Healing ship"
 scene = ExtResource("5_v6rwg")
 

@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@export_range(1, 100, 1) var kill_bonus = 10
+
 var sprites = [
 	{
 		"base": preload("res://asteroids/asteroide1.png"),
@@ -41,8 +43,7 @@ func _on_health_system_dead():
 	minerals.texture = null
 	collision_layer = 0
 	collision_mask = 0
-	
-	var kill_bonus = 10
+
 	FlockResources.earn_resources(kill_bonus)
 	
 	var bonus_resources = bonus_resources_scene.instantiate()

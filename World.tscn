@@ -336,4 +336,4 @@ kill_bonus = 3
 speed = 70.0
 
 [node name="Wormhole" parent="." index="7"]
-position = Vector2(2833, -1891)
+position = Vector2(2402, -1547)
