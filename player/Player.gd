@@ -64,7 +64,7 @@ func _deactivate_flammes():
 	flammes_left.visible = false
 
 func _activate_flammes(direction: Vector2):
-	var relative_thrust_angle = _normalize_angle(direction.angle() - self.rotation)
+	var relative_thrust_angle = Helpers.angle_to_trigonometry_range(direction.angle() - self.rotation)
 	var min_acceptable_angle = relative_thrust_angle - flamme_overlap_angle/2
 	var max_acceptable_angle = relative_thrust_angle + flamme_overlap_angle/2
 	for f in flammes:
@@ -110,10 +110,6 @@ func _rotation_damping(remainder_angle: float) -> float:
 		return 1 - (rotation_damping_zone - angle) / rotation_damping_zone
 	return 1 + (angle - rotation_damping_zone) / PI
 
-## Normalize angle between -PI and PI
-func _normalize_angle(angle: float):
-	return fposmod(angle + PI, 2*PI) - PI
-
 func _torque():
 	var intensity = 0
 	if InputMode.is_mouse():
@@ -125,7 +121,7 @@ func _torque():
 		if intensity > 0:
 			current_direction = direction
 
-	var remainder_angle = _normalize_angle(current_direction.angle() - self.global_rotation)
+	var remainder_angle = Helpers.angle_to_trigonometry_range(current_direction.angle() - self.global_rotation)
 	var rotation_sign = sign(remainder_angle)
 	self.angular_velocity = rotation_sign * rotation_speed * intensity * _rotation_damping(remainder_angle)
 
