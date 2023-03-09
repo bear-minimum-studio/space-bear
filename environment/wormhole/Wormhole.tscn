@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvnsas5vp1sl7"]
 
 [ext_resource type="Script" path="res://environment/wormhole/Wormhole.gd" id="1_y3t3o"]
-[ext_resource type="Texture2D" uid="uid://b5n2uyxlorov0" path="res://environment/wormhole/wormhole-placeholder.jpg" id="2_vwpjr"]
+[ext_resource type="Texture2D" uid="uid://de2xnu5b27vuj" path="res://environment/wormhole/wormhole.png" id="2_ardxt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5ljq"]
-size = Vector2(326, 318)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5pas2"]
+radius = 184.174
 
 [node name="Wormhole" type="Area2D"]
 collision_layer = 32
@@ -12,10 +12,10 @@ collision_mask = 8
 script = ExtResource("1_y3t3o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vwpjr")
+texture = ExtResource("2_ardxt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_q5ljq")
+shape = SubResource("CircleShape2D_5pas2")
 debug_color = Color(0.180392, 0.607843, 0, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

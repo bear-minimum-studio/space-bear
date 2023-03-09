@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5n2uyxlorov0"
-path="res://.godot/imported/wormhole-placeholder.jpg-5e00335bcb3d5a459aa41a5da156b18d.ctex"
+uid="uid://de2xnu5b27vuj"
+path="res://.godot/imported/wormhole.png-b9ad1852f39978b551d45b6f7ea8841a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/wormhole/wormhole-placeholder.jpg"
-dest_files=["res://.godot/imported/wormhole-placeholder.jpg-5e00335bcb3d5a459aa41a5da156b18d.ctex"]
+source_file="res://environment/wormhole/wormhole.png"
+dest_files=["res://.godot/imported/wormhole.png-b9ad1852f39978b551d45b6f7ea8841a.ctex"]
 
 [params]
 
