@@ -87,8 +87,11 @@ func _input(event):
 		if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 			InputMode.use_controller()
 	
-	if event.is_action_pressed("debug1"):
+	if OS.is_debug_build() and event.is_action_pressed("debug1"):
 		_level_change()
+	
+	if OS.is_debug_build() and event.is_action_pressed("debug_fast_forward"):
+		Engine.time_scale = 2.0 if Engine.time_scale == 1.0 else 1.0
 
 func _on_dead_civilian(dead_ship: Node2D):
 	if dead_ship is Player:
