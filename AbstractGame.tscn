@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfsixgko8uqlv"]
+[gd_scene load_steps=12 format=3 uid="uid://by2at5u64ytxh"]
 
 [ext_resource type="Script" path="res://AbstractGame.gd" id="1_6gu75"]
 [ext_resource type="PackedScene" uid="uid://bu7nycnekir1f" path="res://hud/HealthHUD.tscn" id="2_7pate"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dc3c33hwkauei" path="res://hud/UpgradeSelection.tscn" id="9_6p8ox"]
 [ext_resource type="PackedScene" uid="uid://d0rrwdxtxpel4" path="res://ui/level-end/LevelEnd.tscn" id="9_chrlk"]
 [ext_resource type="PackedScene" uid="uid://cg2fbsneh5pmk" path="res://hud/ResourcesHUD.tscn" id="10_xm5jn"]
+[ext_resource type="Script" path="res://test/FPS.gd" id="11_ni3o8"]
 [ext_resource type="PackedScene" uid="uid://c3j1rnw6mno83" path="res://ui/level-change/LevelChange.tscn" id="11_x5wsm"]
 [ext_resource type="PackedScene" uid="uid://dxiyrjjkt2urt" path="res://hud/FleetProgression.tscn" id="12_v6rqd"]
 
@@ -59,3 +60,10 @@ visible = false
 visible = false
 
 [node name="FleetProgression" parent="CanvasLayer" instance=ExtResource("12_v6rqd")]
+
+[node name="FPSCounter" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 4
+text = "FPS 120"
+script = ExtResource("11_ni3o8")
