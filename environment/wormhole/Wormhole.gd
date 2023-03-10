@@ -8,3 +8,6 @@ func _on_body_entered(body):
 		self.set_collision_mask_value(1, true) # Player can now reach wormhole too
 	if body is Player:
 		Events.player_reached_wormhole.emit()
+
+func get_collision_size():
+	return collision_shape_2d.shape.radius
