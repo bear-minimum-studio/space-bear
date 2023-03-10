@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bx2ghytsddgue"]
+[gd_scene load_steps=8 format=3 uid="uid://bx2ghytsddgue"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
+[ext_resource type="Script" path="res://npc/mother-ship/MotherShip.gd" id="2_0k21p"]
 [ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
 [ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_kencp"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
@@ -11,6 +12,7 @@ radius = 71.0
 height = 198.0
 
 [node name="MotherShip" instance=ExtResource("1_0bdkf")]
+script = ExtResource("2_0k21p")
 number_of_passengers = 1000
 speed = 30.0
 explosion_scale = 3.0

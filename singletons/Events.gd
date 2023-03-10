@@ -1,6 +1,7 @@
 extends Node
 
 signal player_hp_changed
+signal mothership_hp_changed
 signal dead_ship
 signal ship_hurt
 
