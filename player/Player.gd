@@ -23,12 +23,9 @@ var current_direction: Vector2 = Vector2.ZERO
 
 @onready var sfx = $SFX
 @onready var turret = $Turrets/Turret
-@onready var p2_turret_control = $P2Turret/P2TurretControl
-@onready var p2_turret = $P2Turret
 @onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
-@onready var p_2_turret_control = $P2Turret/P2TurretControl
 @onready var player_sprite = $Player
 
 @onready var flammes_right = $FlammesRight
@@ -46,16 +43,12 @@ func _ready():
 func _shoot():
 	turret.shoot()
 
-func _custom_set_rotation():
-	p2_turret.rotation = -self.rotation
-
 func _integrate_forces(state):
 	_torque()
 	if (Input.is_action_pressed("brake")):
 		_brake(state)
 	else:
 		_thrust(state)
-	_custom_set_rotation()
 
 func _deactivate_flammes():
 	flammes_down.visible = false
@@ -174,6 +167,3 @@ func _upgrade_selected_ship():
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)
-
-func _on_p_2_turret_control_nozzle_shoot_grappling_hook(global_player_position, global_player_rotation):
-	shoot_grappling_hook.emit(global_player_position, global_player_rotation)
