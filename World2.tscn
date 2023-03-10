@@ -5,6 +5,9 @@
 
 [node name="World" instance=ExtResource("1_x28o6")]
 
+[node name="Wormhole" parent="." index="1"]
+position = Vector2(3375, -2354)
+
 [node name="Asteroid" parent="Asteroids" index="0" instance=ExtResource("2_2by15")]
 position = Vector2(1035, -269)
 
@@ -25,6 +28,3 @@ position = Vector2(1359, -953)
 
 [node name="Asteroid7" parent="Asteroids" index="6" instance=ExtResource("2_2by15")]
 position = Vector2(1855, -904)
-
-[node name="Wormhole" parent="." index="7"]
-position = Vector2(3375, -2354)

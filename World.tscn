@@ -8,6 +8,9 @@
 
 [node name="World" instance=ExtResource("1_tdmob")]
 
+[node name="Wormhole" parent="." index="1"]
+position = Vector2(2402, -1547)
+
 [node name="TransportShip" parent="Flock" index="0" instance=ExtResource("4_lr1mj")]
 position = Vector2(159, 521)
 
@@ -334,6 +337,3 @@ speed = 70.0
 position = Vector2(4408, -1003)
 kill_bonus = 3
 speed = 70.0
-
-[node name="Wormhole" parent="." index="7"]
-position = Vector2(2402, -1547)
