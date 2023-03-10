@@ -19,7 +19,7 @@ quick_scenes/scene_list=PackedStringArray("res://test/TestGame.tscn")
 [application]
 
 config/name="space-bear"
-run/main_scene="res://AbstractGame.tscn"
+run/main_scene="res://Game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://hud/bear.png"
 
