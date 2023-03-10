@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://by2at5u64ytxh"]
+[gd_scene load_steps=14 format=3 uid="uid://by2at5u64ytxh"]
 
 [ext_resource type="Script" path="res://AbstractGame.gd" id="1_6gu75"]
 [ext_resource type="PackedScene" uid="uid://bu7nycnekir1f" path="res://hud/HealthHUD.tscn" id="2_7pate"]
+[ext_resource type="PackedScene" uid="uid://cgkkbhp6eam8m" path="res://World.tscn" id="2_or2gc"]
 [ext_resource type="PackedScene" uid="uid://y06kauv13cvq" path="res://hud/CiviliansLeft.tscn" id="5_5vxw4"]
 [ext_resource type="PackedScene" uid="uid://upooccvpprh4" path="res://hud/SectorInfo/SectorInfo.tscn" id="6_ixfnp"]
 [ext_resource type="PackedScene" uid="uid://dsmalws6v4e8y" path="res://ui/game-over/GameOver.tscn" id="8_rpob0"]
 [ext_resource type="PackedScene" uid="uid://dc3c33hwkauei" path="res://hud/UpgradeSelection.tscn" id="9_6p8ox"]
 [ext_resource type="PackedScene" uid="uid://d0rrwdxtxpel4" path="res://ui/level-end/LevelEnd.tscn" id="9_chrlk"]
+[ext_resource type="PackedScene" uid="uid://dsln0u30vj1sa" path="res://ui/pause_menu.tscn" id="9_dsyis"]
 [ext_resource type="PackedScene" uid="uid://cg2fbsneh5pmk" path="res://hud/ResourcesHUD.tscn" id="10_xm5jn"]
 [ext_resource type="Script" path="res://test/FPS.gd" id="11_ni3o8"]
 [ext_resource type="PackedScene" uid="uid://c3j1rnw6mno83" path="res://ui/level-change/LevelChange.tscn" id="11_x5wsm"]
@@ -14,6 +16,8 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6gu75")
+
+[node name="World" parent="." instance=ExtResource("2_or2gc")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -58,6 +62,8 @@ visible = false
 
 [node name="LevelEnd" parent="CanvasLayer" instance=ExtResource("9_chrlk")]
 visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_dsyis")]
 
 [node name="LevelChange" parent="CanvasLayer" instance=ExtResource("11_x5wsm")]
 visible = false

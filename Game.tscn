@@ -1,11 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3hbhddg6ujdq"]
+[gd_scene load_steps=3 format=3 uid="uid://bdvvwt723ljbq"]
 
 [ext_resource type="PackedScene" uid="uid://by2at5u64ytxh" path="res://AbstractGame.tscn" id="1_yd0gg"]
 [ext_resource type="PackedScene" uid="uid://cgkkbhp6eam8m" path="res://World.tscn" id="2_y1lk4"]
-[ext_resource type="PackedScene" uid="uid://dsln0u30vj1sa" path="res://ui/pause_menu.tscn" id="3_oh8v3"]
 
 [node name="Game" instance=ExtResource("1_yd0gg")]
 
 [node name="World" parent="." index="0" instance=ExtResource("2_y1lk4")]
-
-[node name="PauseMenu" parent="CanvasLayer" index="3" instance=ExtResource("3_oh8v3")]
