@@ -10,6 +10,11 @@ func _ready():
 	get_tree().call_group("flock", "set_convoy_path", wormhole.global_position, mother_ship.global_position)
 
 func _get_wormhole_percentage():
+	if mother_ship == null:
+		# Happens if the mothership dies
+		# The game should restart immediately, we show a 0 progress for only one frame
+		return 0
+
 	var distance_to_wormhole_center = (wormhole.global_position - mother_ship.global_position).length()
 	var distance_to_wormhole_exterior = distance_to_wormhole_center - wormhole.get_collision_size()
 	var initial_distance_to_wormhole_exterior = initial_distance_to_wormhole - wormhole.get_collision_size()
