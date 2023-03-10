@@ -50,10 +50,10 @@ func _level_change():
 	# Get the new mothership position to compute the offset with ours
 	# then move every ship in the fleet back by the offset, so that
 	# we start over at the proper position
-	var current_flock = world.find_child("Flock")
-	var current_mothership = current_flock.find_child("MotherShip")
-	var new_empty_flock = new_world.find_child("Flock")
-	var new_mothership = new_empty_flock.find_child("MotherShip")
+	var current_flock = world.get_node("Flock")
+	var current_mothership = current_flock.get_node("MotherShip")
+	var new_empty_flock = new_world.get_node("Flock")
+	var new_mothership = new_empty_flock.get_node("MotherShip")
 	var offset = current_mothership.global_position - new_mothership.global_position
 	for child in current_flock.get_children():
 		child.translate(-offset)
