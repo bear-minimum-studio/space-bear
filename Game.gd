@@ -85,6 +85,9 @@ func _input(event):
 	if InputMode.is_mouse():
 		if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 			InputMode.use_controller()
+	
+	if event.is_action_pressed("debug1"):
+		_level_change()
 
 func _on_dead_civilian(dead_ship: Node2D):
 	if dead_ship is Player:
