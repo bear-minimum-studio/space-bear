@@ -14,9 +14,5 @@ script = ExtResource("1_oevh7")
 
 [node name="ResourcesCount" parent="." instance=ExtResource("2_7gd6t")]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -18.0
-offset_bottom = 0.0
-grow_vertical = 0
+offset_top = 30.0
+offset_bottom = 48.0
