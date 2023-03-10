@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d16posr0pgyus"]
+
+[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_fj8i6"]
+[ext_resource type="PackedScene" uid="uid://c8eji1omufns2" path="res://npc/enemies/BaseEnemy.tscn" id="2_gvp05"]
+[ext_resource type="PackedScene" uid="uid://k8flfqgpouv1" path="res://npc/enemies/VultureEnemy.tscn" id="3_06oy0"]
+[ext_resource type="PackedScene" uid="uid://bh7yvpcxoyabu" path="res://npc/enemies/Enemy.tscn" id="4_xgq5p"]
+
+[node name="World" instance=ExtResource("1_fj8i6")]
+mission = "Watch your back!"
+
+[node name="Wormhole" parent="." index="1"]
+position = Vector2(1760, -973)
+
+[node name="BaseEnemy" parent="Enemies" index="0" instance=ExtResource("2_gvp05")]
+position = Vector2(857, 248)
+
+[node name="BaseEnemy2" parent="Enemies" index="1" instance=ExtResource("2_gvp05")]
+position = Vector2(230, -358)
+
+[node name="BaseEnemy3" parent="Enemies" index="2" instance=ExtResource("2_gvp05")]
+position = Vector2(-640, 1055)
+
+[node name="BaseEnemy4" parent="Enemies" index="3" instance=ExtResource("2_gvp05")]
+position = Vector2(-574, 1184)
+
+[node name="BaseEnemy5" parent="Enemies" index="4" instance=ExtResource("2_gvp05")]
+position = Vector2(-718, 1176)
+
+[node name="VultureEnemy" parent="Enemies" index="5" instance=ExtResource("3_06oy0")]
+position = Vector2(3142, -588)
+
+[node name="Enemy" parent="Enemies" index="6" instance=ExtResource("4_xgq5p")]
+position = Vector2(3616, -705)
+
+[node name="Enemy2" parent="Enemies" index="7" instance=ExtResource("4_xgq5p")]
+position = Vector2(3611, -547)
+
+[node name="Enemy3" parent="Enemies" index="8" instance=ExtResource("4_xgq5p")]
+position = Vector2(3611, -359)

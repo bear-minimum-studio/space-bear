@@ -9,7 +9,8 @@ extends Node2D
 
 const worlds = [
 	preload("res://World.tscn"), # first line doesn't matter yet
-	preload("res://World2.tscn")
+	preload("res://World2.tscn"),
+	preload("res://World3.tscn"),
 ]
 
 var current_world = 0
