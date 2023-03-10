@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu7nycnekir1f"]
+[gd_scene load_steps=4 format=3 uid="uid://bu7nycnekir1f"]
 
-[ext_resource type="Texture2D" uid="uid://y8k8tjlbaga2" path="res://ui/progress_bar.png" id="1_6hjjb"]
 [ext_resource type="Texture2D" uid="uid://b1kusnad64tx" path="res://ui/health.png" id="1_tcr4q"]
-[ext_resource type="Texture2D" uid="uid://bjrex6bt8fjba" path="res://ui/progress_bar_fill.png" id="2_sf2gy"]
+[ext_resource type="PackedScene" uid="uid://cy5srf1xm0us3" path="res://ui/ProgressBar.tscn" id="2_mxb6i"]
 [ext_resource type="Script" path="res://hud/Health.gd" id="3_pqavy"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
@@ -15,20 +14,7 @@ texture = ExtResource("1_tcr4q")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Health" type="TextureProgressBar" parent="."]
+[node name="Health" parent="." instance=ExtResource("2_mxb6i")]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-max_value = 10.0
-value = 10.0
-nine_patch_stretch = true
-stretch_margin_left = 8
-stretch_margin_top = 8
-stretch_margin_right = 8
-stretch_margin_bottom = 8
-texture_under = ExtResource("1_6hjjb")
-texture_progress = ExtResource("2_sf2gy")
-tint_under = Color(0.635294, 0.196078, 0.486275, 1)
-tint_progress = Color(1, 0.341176, 0.776471, 1)
 script = ExtResource("3_pqavy")
