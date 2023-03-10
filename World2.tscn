@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="2_2by15"]
 
 [node name="World" instance=ExtResource("1_x28o6")]
+mission = "- Collect resources on asteroids
+- Upgrade some ships"
 
 [node name="Wormhole" parent="." index="1"]
 position = Vector2(3375, -2354)

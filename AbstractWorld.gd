@@ -4,6 +4,7 @@ extends Node2D
 @onready var mother_ship = $Flock/MotherShip
 @onready var wormhole = $Wormhole
 @onready var initial_distance_to_wormhole = (wormhole.global_position - mother_ship.global_position).length()
+@export_multiline var mission = ""
 
 func _ready():
 	WorldReference.current_world = self

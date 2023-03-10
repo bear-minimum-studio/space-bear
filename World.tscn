@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8eji1omufns2" path="res://npc/enemies/BaseEnemy.tscn" id="6_q52vq"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
+mission = "Survive the enemies."
 
 [node name="Wormhole" parent="." index="1"]
 position = Vector2(2402, -1547)

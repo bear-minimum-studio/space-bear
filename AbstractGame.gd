@@ -4,8 +4,8 @@ extends Node2D
 @onready var civilians_left = $CanvasLayer/MarginContainer/CiviliansLeft
 @onready var game_over = $CanvasLayer/GameOver
 @onready var level_end = $CanvasLayer/LevelEnd
-@onready var sector_number = $CanvasLayer/MarginContainer/SectorNumber
 @onready var level_change = $CanvasLayer/LevelChange
+@onready var sector_info = $CanvasLayer/MarginContainer/SectorInfo
 
 const worlds = [
 	preload("res://World.tscn"), # first line doesn't matter yet
@@ -24,6 +24,9 @@ func _ready():
 	
 	Events.convoy_reached_wormhole.connect(_on_convoy_reached_wormhole)
 	Events.player_reached_wormhole.connect(_on_player_reached_wormhole)
+	
+	sector_info.set_sector_number(current_world + 1)
+	sector_info.set_sector_mission(world.mission)
 
 func _on_convoy_reached_wormhole():
 	call_deferred("_level_change")
@@ -34,7 +37,6 @@ func _on_player_reached_wormhole():
 
 func _level_change():
 	current_world += 1
-	sector_number.set_sector(current_world + 1)
 	
 	if current_world == worlds.size():
 		_show_end()
@@ -71,6 +73,9 @@ func _level_change():
 	level_change.visible = false
 
 	self.process_mode = Node.PROCESS_MODE_INHERIT
+
+	sector_info.set_sector_number(current_world + 1)
+	sector_info.set_sector_mission(new_world.mission)
 
 func _input(event):
 	if InputMode.is_controller():

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://AbstractGame.gd" id="1_6gu75"]
 [ext_resource type="PackedScene" uid="uid://bu7nycnekir1f" path="res://hud/HealthHUD.tscn" id="2_7pate"]
 [ext_resource type="PackedScene" uid="uid://y06kauv13cvq" path="res://hud/CiviliansLeft.tscn" id="5_5vxw4"]
-[ext_resource type="Script" path="res://hud/SectorNumber.gd" id="8_h8u6s"]
+[ext_resource type="PackedScene" uid="uid://upooccvpprh4" path="res://hud/SectorInfo/SectorInfo.tscn" id="6_ixfnp"]
 [ext_resource type="PackedScene" uid="uid://dsmalws6v4e8y" path="res://ui/game-over/GameOver.tscn" id="8_rpob0"]
 [ext_resource type="PackedScene" uid="uid://dc3c33hwkauei" path="res://hud/UpgradeSelection.tscn" id="9_6p8ox"]
 [ext_resource type="PackedScene" uid="uid://d0rrwdxtxpel4" path="res://ui/level-end/LevelEnd.tscn" id="9_chrlk"]
@@ -50,14 +50,8 @@ layout_mode = 2
 [node name="ResourcesHUD" parent="CanvasLayer/MarginContainer" instance=ExtResource("10_xm5jn")]
 layout_mode = 2
 
-[node name="SectorNumber" type="Label" parent="CanvasLayer/MarginContainer"]
+[node name="SectorInfo" parent="CanvasLayer/MarginContainer" instance=ExtResource("6_ixfnp")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Sector 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("8_h8u6s")
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("8_rpob0")]
 visible = false
