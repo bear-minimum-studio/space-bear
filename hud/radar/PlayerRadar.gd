@@ -1,9 +1,20 @@
 extends Node2D
 
+enum RadarType {
+	ENEMIES,
+	ASTEROIDS
+}
+@export var radar_type = RadarType.ENEMIES
+
+const radar_group_mapping = {
+	RadarType.ENEMIES: "enemy",
+	RadarType.ASTEROIDS: "asteroid",
+}
+
 var radar_element_scene = preload("res://hud/radar/RadarElement.tscn")
 
 func _physics_process(_delta):
-	var enemies = get_tree().get_nodes_in_group("enemy")
+	var enemies = get_tree().get_nodes_in_group(radar_group_mapping[radar_type])
 	_sync_children(enemies.size())
 	
 	var index = 0

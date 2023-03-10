@@ -136,7 +136,12 @@ script = SubResource("GDScript_gcn6k")
 offset_top = -64.0
 offset_bottom = -64.0
 
-[node name="PlayerRadar" parent="PlayerHUD" instance=ExtResource("14_fhr4g")]
+[node name="PlayerRadarEnemies" parent="PlayerHUD" instance=ExtResource("14_fhr4g")]
+modulate = Color(0.917647, 0.368627, 0.686275, 0.47451)
+
+[node name="PlayerRadarAsteroids" parent="PlayerHUD" instance=ExtResource("14_fhr4g")]
+modulate = Color(0.588235, 0.654902, 0.917647, 0.47451)
+radar_type = 1
 
 [connection signal="nozzle_shoot_grappling_hook" from="P2Turret/P2TurretControl" to="." method="_on_p_2_turret_control_nozzle_shoot_grappling_hook"]
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
