@@ -67,6 +67,7 @@ func _level_change():
 	world.free()
 	new_world.add_child(current_flock)
 	self.add_child(new_world)
+	world = new_world
 
 	level_change.visible = true
 	await get_tree().create_timer(BETWEEN_SECTORS_DURATION).timeout
