@@ -1,23 +1,25 @@
 extends Node2D
 
-@onready var world = $World
+@onready var world: Node2D
 @onready var civilians_left = $CanvasLayer/MarginContainer/CiviliansLeft
 @onready var game_over = $CanvasLayer/GameOver
 @onready var level_end = $CanvasLayer/LevelEnd
 @onready var level_change = $CanvasLayer/LevelChange
 @onready var sector_info = $CanvasLayer/MarginContainer/SectorInfo
 
-const worlds = [
-	preload("res://World.tscn"), # first line doesn't matter yet
-	preload("res://World2.tscn"),
-	preload("res://World3.tscn"),
-]
+@export var worlds : Array[PackedScene] = []
 
 var current_world = 0
 
 const BETWEEN_SECTORS_DURATION = 3
 
 func _ready():
+	# Create a new world
+	var new_world_scene = worlds[current_world]
+	var new_world = new_world_scene.instantiate()
+	self.add_child(new_world)
+	world = new_world
+	
 	Events.dead_ship.connect(_on_dead_civilian)
 	Events.game_over.connect(_on_game_over)
 	Events.restart.connect(_on_restart)
