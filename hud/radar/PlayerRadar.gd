@@ -2,13 +2,13 @@ extends Node2D
 
 enum RadarType {
 	ENEMIES,
-	ASTEROIDS
+	RESOURCES
 }
 @export var radar_type = RadarType.ENEMIES
 
 const radar_group_mapping = {
 	RadarType.ENEMIES: "enemy",
-	RadarType.ASTEROIDS: "asteroid",
+	RadarType.RESOURCES: "resources-deposit",
 }
 
 var radar_element_scene = preload("res://hud/radar/RadarElement.tscn")
