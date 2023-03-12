@@ -8,7 +8,7 @@ var squadrons: Dictionary = {}
 var squadron_id_seeds: Dictionary = {}
 
 func _generate_squadron_id(id_seed: int, prefix: String = "") -> String:
-	return '%s%s' % [prefix, String.chr(id_seed)]
+	return '%s%d' % [prefix, id_seed]
 
 func generate_new_squadron_id(prefix: String = "") -> String:
 	var id_seed: int
