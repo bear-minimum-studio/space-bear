@@ -13,7 +13,7 @@ func set_convoy_path(target_position: Vector2, mothership_position: Vector2):
 	var direction = mothership_trajectory / mothership_trajectory.length()
 	var additional_trajectory = (mothership_position - self.global_position).project(direction)
 	var trajectory = mothership_trajectory + additional_trajectory
-	behavior._target_position = self.global_position + trajectory
+	behavior.target_position = self.global_position + trajectory
 
 func animate_construction():
 	construction_particles.emitting = true

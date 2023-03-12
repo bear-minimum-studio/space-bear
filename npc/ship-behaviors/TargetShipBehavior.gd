@@ -37,9 +37,9 @@ func _update_target_position_offset():
 
 func _update_target_position():
 	if target == null:
-		_target_position = get_parent().global_position
+		target_position = get_parent().global_position
 		return
 	
 	_update_target_position_offset()
 	
-	_target_position = target.global_position + _target_position_offset
+	target_position = target.global_position + _target_position_offset
