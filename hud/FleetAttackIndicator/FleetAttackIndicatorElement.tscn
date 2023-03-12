@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://8h73q5ob1w48"]
+
+[ext_resource type="Script" path="res://hud/FleetAttackIndicator/FleetAttackIndicatorElement.gd" id="1_8mkhw"]
+[ext_resource type="Texture2D" uid="uid://cy47oea8s61j" path="res://hud/FleetAttackIndicator/fleet_part.png" id="1_tq3fw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qis82"]
+line_spacing = 0.0
+font_size = 8
+outline_size = 2
+outline_color = Color(0.94902, 0.372549, 0.709804, 1)
+
+[sub_resource type="Animation" id="Animation_hl45u"]
+resource_name = "IsAttacked"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.145098)]
+}
+
+[sub_resource type="Animation" id="Animation_yhq78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5tccr"]
+_data = {
+"IsAttacked": SubResource("Animation_hl45u"),
+"RESET": SubResource("Animation_yhq78")
+}
+
+[node name="FleetAttackIndicatorElement" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_8mkhw")
+
+[node name="Sprite" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.72
+texture = ExtResource("1_tq3fw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="IsAttackedContainer" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IsAttacked" type="Label" parent="IsAttackedContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "!"
+label_settings = SubResource("LabelSettings_qis82")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../IsAttackedContainer/IsAttacked")
+autoplay = "IsAttacked"
+libraries = {
+"": SubResource("AnimationLibrary_5tccr")
+}

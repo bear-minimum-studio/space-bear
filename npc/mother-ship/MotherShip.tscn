@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bx2ghytsddgue"]
+[gd_scene load_steps=14 format=3 uid="uid://cxp6qscivdlgl"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
 [ext_resource type="Script" path="res://npc/mother-ship/MotherShip.gd" id="2_0k21p"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="5_vqqiw"]
 [ext_resource type="Texture2D" uid="uid://x73a5d6y4dif" path="res://npc/mother-ship/mothership_flammes3.png" id="6_hklbc"]
 [ext_resource type="Texture2D" uid="uid://b2x5fvauju7v7" path="res://npc/mother-ship/mothership_flammes4.png" id="7_6n25w"]
+[ext_resource type="Script" path="res://npc/mother-ship/FleetPositionIndicator.gd" id="7_o1eq3"]
+[ext_resource type="Texture2D" uid="uid://c5s81dgpgp4ib" path="res://icon.svg" id="8_doa43"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_huoyw"]
 frames = 4
@@ -77,3 +79,13 @@ bullet_speed = 700.0
 turret_allegiance = 1
 rotation_speed = 10.0
 shots_per_second = 5.0
+
+[node name="FleetPositionIndicator" type="Node2D" parent="." index="9"]
+script = ExtResource("7_o1eq3")
+
+[node name="FleetEnd" type="Sprite2D" parent="FleetPositionIndicator" index="0"]
+visible = false
+modulate = Color(0.419608, 1, 0.145098, 1)
+position = Vector2(-350, -1)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("8_doa43")

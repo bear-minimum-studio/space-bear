@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://di6a53gnk5t2n" path="res://player/Player.tscn" id="1_yasag"]
 [ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
-[ext_resource type="PackedScene" uid="uid://bx2ghytsddgue" path="res://npc/mother-ship/MotherShip.tscn" id="3_jfgia"]
+[ext_resource type="PackedScene" uid="uid://cxp6qscivdlgl" path="res://npc/mother-ship/MotherShip.tscn" id="3_jfgia"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="4_u5hvj"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="5_js3wj"]
 [ext_resource type="Script" path="res://Camera.gd" id="6_1s6pw"]

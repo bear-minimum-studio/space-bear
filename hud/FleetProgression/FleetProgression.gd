@@ -4,12 +4,6 @@ extends Control
 @onready var dot = %Dot
 @onready var end = %End
 
-#func _input(event):
-#	if event.is_action_pressed("ui_right"):
-#		var total_size = (end.get_global_rect().get_center() - dot.get_global_rect().get_center()).x
-#
-#		progress_element_container.position.x += total_size / 10
-
 func _set_progress(percentage: float):
 	if end == null or dot == null:
 		return

@@ -34,5 +34,6 @@ func _get_wormhole_percentage():
 func _physics_process(_delta):
 	Events.mothership_advance.emit(_get_wormhole_percentage())
 
-
+func get_global_position_to_fleet_proportion(node: Node2D) -> float:
+	return mother_ship.get_global_position_to_fleet_proportion(node)
 

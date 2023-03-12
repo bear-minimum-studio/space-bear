@@ -25,6 +25,22 @@ static func set_parent_material_to_children(parent: Control, value :bool):
 		child.use_parent_material = value
 		Helpers.set_parent_material_to_children(child, value)
 
+# Second argument is array of nodes. Can't type it properly though,
+# because sometimes it is Node2D and sometimes Node
+static func find_furthest_node(reference: Node2D, other_nodes: Array):
+	var furthest = null
+	var distance = null
+	for current_node in other_nodes:
+		var current_distance = reference.global_position.distance_to(current_node.global_position)
+		if distance == null:
+			furthest = current_node
+			distance = current_distance
+		elif current_distance > distance:
+			furthest = current_node
+			distance = current_distance
+
+	return furthest
+
 static func get_velocity(node: PhysicsBody2D) -> Vector2:
 	if node is RigidBody2D:
 		return node.linear_velocity

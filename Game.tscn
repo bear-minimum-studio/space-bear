@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://by2at5u64ytxh"]
+[gd_scene load_steps=18 format=3 uid="uid://by2at5u64ytxh"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_6gu75"]
 [ext_resource type="PackedScene" uid="uid://bu7nycnekir1f" path="res://hud/HealthHUD.tscn" id="2_7pate"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dsmalws6v4e8y" path="res://ui/game-over/GameOver.tscn" id="8_rpob0"]
 [ext_resource type="PackedScene" uid="uid://d0rrwdxtxpel4" path="res://ui/level-end/LevelEnd.tscn" id="9_chrlk"]
 [ext_resource type="PackedScene" uid="uid://dsln0u30vj1sa" path="res://ui/pause_menu.tscn" id="9_dsyis"]
+[ext_resource type="PackedScene" uid="uid://c3fohyb6c3xtv" path="res://hud/FleetAttackIndicator/FleetAttackIndicator.tscn" id="10_t1x28"]
 [ext_resource type="PackedScene" uid="uid://cg2fbsneh5pmk" path="res://hud/ResourcesHUD.tscn" id="10_xm5jn"]
 [ext_resource type="Script" path="res://test/FPS.gd" id="11_ni3o8"]
 [ext_resource type="PackedScene" uid="uid://c3j1rnw6mno83" path="res://ui/level-change/LevelChange.tscn" id="11_x5wsm"]
@@ -80,6 +81,9 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="FleetProgression" parent="CanvasLayer/HUD/TopRight" instance=ExtResource("12_v6rqd")]
+layout_mode = 2
+
+[node name="FleetAttackIndicator" parent="CanvasLayer/HUD/TopRight" instance=ExtResource("10_t1x28")]
 layout_mode = 2
 
 [node name="ShipUpgradeHandler" parent="CanvasLayer" instance=ExtResource("15_h3hr7")]

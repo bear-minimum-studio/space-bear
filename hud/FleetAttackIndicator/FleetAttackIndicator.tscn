@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3fohyb6c3xtv"]
+
+[ext_resource type="Script" path="res://hud/FleetAttackIndicator/FleetAttackIndicator.gd" id="1_7dwql"]
+[ext_resource type="StyleBox" uid="uid://dym5jc262rfx1" path="res://hud/HudPanelStyle.tres" id="2_8j6sp"]
+[ext_resource type="PackedScene" uid="uid://8h73q5ob1w48" path="res://hud/FleetAttackIndicator/FleetAttackIndicatorElement.tscn" id="2_mp1of"]
+
+[node name="FleetAttackIndicator" type="MarginContainer"]
+custom_minimum_size = Vector2(132, 40)
+offset_right = 128.0
+offset_bottom = 32.0
+script = ExtResource("1_7dwql")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_8j6sp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="FleetAttackContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="FleetAttackIndicatorElement" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement2" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement3" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement4" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement5" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement6" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement7" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement8" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement9" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+
+[node name="FleetAttackIndicatorElement10" parent="Panel/MarginContainer/FleetAttackContainer" instance=ExtResource("2_mp1of")]
+layout_mode = 2
+type = 0
