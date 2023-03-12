@@ -9,9 +9,6 @@ class_name AbstractWorld
 @onready var initial_distance_to_wormhole = (wormhole.global_position - mother_ship.global_position).length()
 @export_multiline var mission = ""
 
-var squadron_ship_behavior : PackedScene = preload("res://npc/ship-behaviors/squadron/SquadronShipBehavior.tscn")
-var target_squadron_behavior : PackedScene = preload("res://npc/ship-behaviors/squadron/squadron-behaviors/TargetSquadronBehavior.tscn")
-
 func _ready():
 	WorldReference.current_world = self
 	get_tree().call_group("flock", "set_convoy_path", wormhole.global_position, mother_ship.global_position)
