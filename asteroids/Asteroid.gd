@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+@export var has_resources = true
 @export_range(1, 100, 1) var kill_bonus = 10
 
 var sprites = [
@@ -33,6 +34,9 @@ func _ready():
 	
 	sprite_container.rotation = randf_range(0, 2*PI)
 	animation_player.speed_scale = randf_range(0.2, 2)
+	
+	if not has_resources:
+		_remove_resources()
 
 
 func _on_health_system_hp_changed(_health, _max_health, _difference):
@@ -40,14 +44,18 @@ func _on_health_system_hp_changed(_health, _max_health, _difference):
 
 
 func _on_health_system_dead():
-	minerals.texture = null
-	collision_layer = 0
-	collision_mask = 0
-
+	_remove_resources()
 	FlockResources.earn_resources(kill_bonus)
-	
+
 	var bonus_resources = bonus_resources_scene.instantiate()
 	bonus_resources.init(kill_bonus)
 	bonus_resources.global_position = self.global_position
 	WorldReference.current_world.add_child(bonus_resources)
 	mineral_particles.emitting = true
+
+func _remove_resources():
+	minerals.texture = null
+	collision_layer = 0
+	collision_mask = 0
+	has_resources = false
+	self.remove_from_group("resources-deposit")
