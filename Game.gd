@@ -61,14 +61,22 @@ func _level_change():
 	for child in current_flock.get_children():
 		child.translate(-offset)
 	
+	var current_player = world.get_node("Player")
+	var new_player = new_world.get_node("Player")
+	var new_player_position = new_player.global_position
+	current_player.global_position = new_player_position
+
 	# Remove the new empty flock
 	# then move the current flock to the new world to replace it
 	new_world.remove_child(new_empty_flock)
+	new_world.remove_child(new_player)
 	
 	# Delete the old world, add the new one after seeing the between-sectors screen
 	world.remove_child(current_flock)
+	world.remove_child(current_player)
 	world.free()
 	new_world.add_child(current_flock)
+	new_world.add_child(current_player)
 	self.add_child(new_world)
 	world = new_world
 
