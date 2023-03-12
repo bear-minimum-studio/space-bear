@@ -26,7 +26,6 @@ config/icon="res://hud/bear.png"
 [autoload]
 
 Events="*res://singletons/Events.gd"
-Helpers="*res://helpers/Helpers.gd"
 FlockResources="*res://singletons/FlockResources.gd"
 ShipCatalog="*res://singletons/ShipCatalog.gd"
 WorldReference="*res://singletons/WorldReference.gd"

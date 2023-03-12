@@ -1,10 +1,10 @@
-class_name Utils
+class_name Helpers
 
 extends Node2D
 
 # Second argument is array of nodes. Can't type it properly though,
 # because sometimes it is Node2D and sometimes Node
-func find_nearest_node(reference: Node2D, other_nodes: Array):
+static func find_nearest_node(reference: Node2D, other_nodes: Array):
 	var nearest = null
 	var distance = null
 	for current_node in other_nodes:
@@ -18,7 +18,7 @@ func find_nearest_node(reference: Node2D, other_nodes: Array):
 
 	return nearest
 
-func get_velocity(node: PhysicsBody2D) -> Vector2:
+static func get_velocity(node: PhysicsBody2D) -> Vector2:
 	if node is RigidBody2D:
 		return node.linear_velocity
 	elif node is CharacterBody2D:
@@ -28,9 +28,8 @@ func get_velocity(node: PhysicsBody2D) -> Vector2:
 	else:
 		return Vector2.ZERO
 
-func angle_to_trigonometry_range(angle: float):
+static func angle_to_trigonometry_range(angle: float):
 	return fposmod(angle - PI, 2 * PI) - PI
 
-func get_screen_center():
-	return get_viewport_rect().size / 2
-
+static func get_screen_center(any_node: Node2D):
+	return any_node.get_viewport_rect().size / 2
