@@ -30,3 +30,7 @@ func get_velocity(node: PhysicsBody2D) -> Vector2:
 
 func angle_to_trigonometry_range(angle: float):
 	return fposmod(angle - PI, 2 * PI) - PI
+
+func get_screen_center():
+	return get_viewport_rect().size / 2
+
