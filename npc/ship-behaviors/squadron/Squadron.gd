@@ -21,7 +21,7 @@ var movement_target = Vector2.ZERO
 var velocity = Vector2.ZERO
 
 func _ready():
-	if default_behavior_scene != null:
+	if default_behavior_scene != null and behavior == null:
 		set_behavior(default_behavior_scene)
 
 func _process(_delta):

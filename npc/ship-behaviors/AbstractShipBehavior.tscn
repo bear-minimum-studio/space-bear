@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://du2uf3w4rp1xj"]
 
 [ext_resource type="Script" path="res://npc/ship-behaviors/AbstractShipBehavior.gd" id="1_07x1f"]
 

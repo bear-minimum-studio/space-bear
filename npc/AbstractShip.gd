@@ -18,14 +18,14 @@ class_name AbstractShip
 @onready var health_bar = $UI/HealthBar
 @onready var rotation_target: float = rotation
 
-@onready var movement_target: Vector2 = global_position
+var movement_target: Vector2
 var behavior : AbstractShipBehavior
 
 var explosion_scene = preload("res://explosion/Explosion.tscn")
 
 func _ready():
-	if default_behavior_scene != null:
-		set_behavior(default_behavior_scene)
+	if default_behavior_scene != null and behavior == null:
+		set_behavior(default_behavior_scene.instantiate())
 	var turrets = get_node_or_null('Turrets')
 	if turrets != null:
 		for turret in turrets.get_children():
@@ -48,9 +48,8 @@ func remove_behavior():
 	if behavior != null:
 		behavior.free()
 
-func set_behavior(behavior_scene: PackedScene):
+func set_behavior(new_behavior: AbstractShipBehavior):
 	remove_behavior()
-	var new_behavior = behavior_scene.instantiate()
 	add_child(new_behavior)
 	behavior = new_behavior
 
