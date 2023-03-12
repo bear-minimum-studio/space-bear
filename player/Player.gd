@@ -149,8 +149,8 @@ func _follow_me():
 	if selected_ship == null:
 		return
 
-	if selected_ship.has_method("follow_player"):
-		selected_ship.follow_player(self)
+	if selected_ship.has_method("switch_follow_target"):
+		selected_ship.switch_follow_target(self)
 
 func _upgrade_selected_ship():
 	var selected_ship = selection_zone.current_selection

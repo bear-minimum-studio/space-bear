@@ -2,7 +2,6 @@ extends "res://npc/civilians/AbstractCivilianShip.gd"
 
 var contour_material = preload("res://ContourMaterial.tres")
 
-var target_offset = Vector2.ZERO
 var selected = false :
 	set(new_value):
 		selected = new_value
@@ -34,25 +33,31 @@ func select():
 func unselect():
 	selected = false
 
-var followed_ship: Node2D = null
-var target_before_following
+var behavior_before_following
 var speed_before_following
+var squadron_behavior = preload("res://npc/ship-behaviors/squadron/SquadronShipBehavior.tscn")
+var follow_target_behavior = preload("res://npc/ship-behaviors/squadron/squadron-behaviors/TargetSquadronBehavior.tscn")
 
-func follow_player(player: Node2D):
-	if followed_ship == null:
-		target_before_following = self.movement_target
-		speed_before_following = self.speed
-		followed_ship = player
-		self.speed = self.speed * 3
-	else:
-		followed_ship = null
-		movement_target = target_before_following
+func _set_follow_behavior(target: Node2D):
+	if not behavior is SquadronShipBehavior:
+		behavior_before_following = behavior
+		remove_child(self.behavior)
+		behavior = null
+		set_behavior(squadron_behavior.instantiate())
+	behavior.add_to_squadron('follow%s' % target.name)
+	behavior.squadron.set_behavior(follow_target_behavior)
+	behavior.squadron.behavior.target = target
+	behavior.squadron.behavior.distance_to_target = 150.0
+
+func _follow_target(target: Node2D):
+	speed_before_following = self.speed
+	if not behavior is SquadronShipBehavior:
+		_set_follow_behavior(target)
+	self.speed = self.speed * 3
+
+func switch_follow_target(target: Node2D):
+	if behavior is SquadronShipBehavior and behavior.squadron.behavior.target == target:
+		set_behavior(behavior_before_following)
 		self.speed = speed_before_following
-
-func _physics_process(_delta):
-	super._physics_process(_delta)
-
-	if followed_ship == null:
-		return
-
-	movement_target = followed_ship.global_position
+	else:
+		_follow_target(target)

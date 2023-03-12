@@ -19,6 +19,8 @@ func _process(_delta : float):
 	queue_redraw()
 
 func add_to_squadron(squadron_id: String):
+	if squadron != null:
+		squadron.remove_ship(get_parent())
 	squadron = WorldReference.current_world.squadrons_handler.get_or_create_squadron(squadron_id)
 	squadron.add_ship(get_parent())
 
