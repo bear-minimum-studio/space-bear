@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ujm2pogbpnnp"]
+[gd_scene load_steps=9 format=3 uid="uid://ujm2pogbpnnp"]
 
 [ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://cv7li5vw58r6p" path="res://player/Player.tscn" id="1_yasag"]
@@ -17,11 +17,6 @@ glow_strength = 0.98
 glow_bloom = 0.42
 glow_blend_mode = 0
 adjustment_brightness = 1.57
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_tbroh"]
-vertices = PackedVector2Array(982, 1420, -979, 1433, -916, 38, 394, -1298, 3131, -222, 4677, -2317, 2845, -4037, 4307, -4992, 6593, -4042, 6416, -2861)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 4, 3, 6, 7), PackedInt32Array(5, 7, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-916, 38, -979, 1433, 982, 1420, 3131, -222, 4677, -2317, 6416, -2861, 6593, -4042, 4307, -4992, 2845, -4037, 394, -1298)])
 
 [node name="AbstractWorld" type="Node2D"]
 script = ExtResource("1_kjg2t")
@@ -42,10 +37,6 @@ environment = SubResource("Environment_uyldo")
 [node name="MotherShip" parent="Flock" instance=ExtResource("3_jfgia")]
 position = Vector2(481, 47)
 rotation = -0.683586
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
-navigation_polygon = SubResource("NavigationPolygon_tbroh")
 
 [node name="Asteroids" type="Node2D" parent="."]
 
