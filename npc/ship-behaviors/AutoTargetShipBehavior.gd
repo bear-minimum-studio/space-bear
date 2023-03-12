@@ -7,10 +7,6 @@ func _process(_delta):
 	super._process(_delta)
 
 func _update_target():
-	if get_parent() == null:
-		printerr("AutoTargetShipBehavior has no get_parent().")
-		return
-	
 	if target == null:
 		var potential_targets = get_parent().get_tree().get_nodes_in_group("ally")
 		target = Helpers.find_nearest_node(get_parent(), potential_targets)
