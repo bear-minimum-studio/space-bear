@@ -29,5 +29,6 @@ max_health = 40
 
 [node name="Turret" parent="Turrets" index="0" instance=ExtResource("4_273rr")]
 turret_range = 500.0
+bullet_spread = 2.0
 turret_allegiance = 1
 shots_per_second = 5.0

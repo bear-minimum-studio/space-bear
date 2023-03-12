@@ -50,6 +50,7 @@ shield_size = 150.0
 [node name="Turret" parent="Turrets" index="0" instance=ExtResource("5_vqqiw")]
 position = Vector2(32, 83)
 turret_range = 500.0
+bullet_spread = 5.0
 bullet_speed = 700.0
 turret_allegiance = 1
 rotation_speed = 10.0
@@ -58,6 +59,7 @@ shots_per_second = 5.0
 [node name="Turret2" parent="Turrets" index="1" instance=ExtResource("5_vqqiw")]
 position = Vector2(34, -83)
 turret_range = 500.0
+bullet_spread = 5.0
 bullet_speed = 700.0
 turret_allegiance = 1
 rotation_speed = 10.0
