@@ -4,22 +4,18 @@ extends Control
 
 var saved_mouse_position: Vector2
 
+var enabled
+var elements
+
+signal upgrade_selected
+
 func _unhandled_input(event):
 	if event.is_action_pressed("upgrade"):
-		# TODO separate this logic from display
-		if not get_parent().is_ship_selected:
+		if not enabled:
 			return
 
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
-		var elements = ShipCatalog.catalog.ships.map(func (element):
-			return {
-				"parameters": {
-					"cost": element.price,
-					"ship_name": element.display_name
-				},
-			}
-		)
 		ship_upgrade_wheel.show_and_init(elements)
 
 	if event.is_action_released("upgrade"):
@@ -28,9 +24,9 @@ func _unhandled_input(event):
 
 		# TODO separate this logic from display
 		if ship_upgrade_wheel.selected_index != null:
-			get_parent().upgrade_candidate = ShipCatalog.catalog.ships[ship_upgrade_wheel.selected_index]
-		else:
-			get_parent().upgrade_candidate = null
+#			get_parent().upgrade_candidate = ShipCatalog.catalog.ships[ship_upgrade_wheel.selected_index]
+			upgrade_selected.emit(ship_upgrade_wheel.selected_index)
+	
 		ship_upgrade_wheel.hide()
 
 ## Moves the mouse cursor to the center of the screen
