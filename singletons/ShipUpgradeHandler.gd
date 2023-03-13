@@ -26,6 +26,8 @@ func _on_upgrade_selected(selected_upgrade_element):
 	_upgrade_selected_ship(selected_upgrade_element.catalog_element)
 
 func _on_selected_ship_changed(new_ship):
+	print("ship changed")
+	wheel_displayer.dismiss(true)
 	selected_ship = new_ship
 	
 	if selected_ship == null or selected_ship.is_ship_upgradable == false:

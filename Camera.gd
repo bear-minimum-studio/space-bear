@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var upgrade_zoom_speed = 0.2
+@export var upgrade_zoom_speed = 0.05
 @export var upgrade_zoom_value = 1.5
 
 @onready var initial_zoom = self.zoom
@@ -14,24 +14,32 @@ func _ready():
 var do_upgrade_animation = false
 var selected_ship = null
 
+var speed
+
 func _process(_delta):
 	if not do_upgrade_animation:
 		return
 
-	var target_offset = selected_ship.global_position - (self.get_screen_center_position() - self.offset)
+	# decrease speed each time so that micro offset adjustments in the end are done
+	speed = speed * 0.97
+	var offset = (
+		selected_ship.global_position
+		- (self.get_screen_center_position() - self.offset)
+	)
 
 	# TODO is that okay in terms of performance? We're creating a new tween on each frame...
 	# It seems fluid but I am quite surprised
 	(create_tween()
-		.tween_property(self, "offset", target_offset, upgrade_zoom_speed)
+		.tween_property(self, "offset", offset, speed)
 		.set_ease(Tween.EASE_IN_OUT))
 	(create_tween()
-		.tween_property(self, "zoom", upgrade_zoom_vector, upgrade_zoom_speed)
+		.tween_property(self, "zoom", upgrade_zoom_vector, speed)
 		.set_ease(Tween.EASE_IN_OUT))
 
 func _on_opening_ship_upgrades(ship: Node2D):
 	do_upgrade_animation = true
 	selected_ship = ship
+	speed = upgrade_zoom_speed
 
 func _on_closing_ship_upgrades():
 	do_upgrade_animation = false

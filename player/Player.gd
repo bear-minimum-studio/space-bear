@@ -35,10 +35,14 @@ var current_direction: Vector2 = Vector2.ZERO
 @onready var flammes = {flammes_down: [0.0], flammes_right: [-PI/2], flammes_up: [-PI,PI], flammes_left: [PI/2]}
 const flamme_overlap_angle = 5 * PI / 9
 
+var _input_enabled = true
+
 func _ready():
 	var turrets = $Turrets.get_children()
 	for auto_turret in turrets:
 		auto_turret.init(self)
+	Events.opening_ship_upgrades.connect(func(_ship): _input_enabled = false)
+	Events.closing_ship_upgrades.connect(func(): _input_enabled = true)
 
 func _shoot():
 	turret.shoot()
@@ -67,6 +71,9 @@ func _activate_flammes(direction: Vector2):
 				f.visible = true
 
 func _thrust(state):
+	if not _input_enabled:
+		return
+
 	var direction = Input.get_vector("go_left", "go_right", "go_up", "go_down")
 	var thrust = thrust_intensity * direction
 	if linear_velocity.length() >= max_speed:
@@ -104,6 +111,9 @@ func _rotation_damping(remainder_angle: float) -> float:
 	return 1 + (angle - rotation_damping_zone) / PI
 
 func _torque():
+	if not _input_enabled:
+		return
+
 	var intensity = 0
 	if InputMode.is_mouse():
 		intensity = 1
