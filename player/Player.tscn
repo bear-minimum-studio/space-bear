@@ -108,7 +108,7 @@ max_health = 100
 [node name="Turret" parent="Turrets" instance=ExtResource("14_0m4ls")]
 position = Vector2(33, 0)
 bullet_spread = 2.5
-bullet_damage = 2
+bullet_damage = 3
 turret_allegiance = 1
 
 [node name="PlayerHUD" type="Node2D" parent="."]
