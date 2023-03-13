@@ -51,14 +51,14 @@ func _unhandled_input(event):
 		process_mode = Node.PROCESS_MODE_INHERIT
 
 		# TODO separate this logic from display
-		self.upgrade_candidate = ship_upgrade_wheel.wheel.selection
+		self.upgrade_candidate = ship_upgrade_wheel.selection
 		ship_upgrade_wheel.hide()
 
 func _on_visibility_changed():
 	if visible:
 		saved_mouse_position = get_viewport().get_mouse_position()
 		Helpers.set_mouse_position(self, Helpers.get_screen_center(self))
-		ship_upgrade_wheel.wheel.process_mode = Node.PROCESS_MODE_ALWAYS
+		ship_upgrade_wheel.process_mode = Node.PROCESS_MODE_ALWAYS
 	else:
 		Helpers.set_mouse_position(self, saved_mouse_position)
-		ship_upgrade_wheel.wheel.process_mode = Node.PROCESS_MODE_DISABLED
+		ship_upgrade_wheel.process_mode = Node.PROCESS_MODE_DISABLED

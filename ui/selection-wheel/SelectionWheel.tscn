@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0qu062bkvryf"]
+[gd_scene load_steps=5 format=3 uid="uid://b0qu062bkvryf"]
 
-[ext_resource type="Script" path="res://ui/selection-wheel/Wheel.gd" id="1_ec7q1"]
 [ext_resource type="Script" path="res://ui/selection-wheel/SelectionWheel.gd" id="1_xk8nu"]
 
 [sub_resource type="Gradient" id="Gradient_enyin"]
@@ -53,10 +52,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_q6hac")
 
 [node name="Wheel" type="Control" parent="."]
 anchors_preset = 0
-script = ExtResource("1_ec7q1")
-screen_dead_zone = 35.0
-color = Color(1, 1, 1, 0.85098)
-color_hover = Color(1, 0.341176, 0.776471, 0.85098)
-line_width = 2.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
