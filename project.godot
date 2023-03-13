@@ -36,6 +36,7 @@ InputMode="*res://singletons/InputMode.gd"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/mode=2
 window/size/window_width_override=1280
 window/size/window_height_override=800
 window/dpi/allow_hidpi=false
