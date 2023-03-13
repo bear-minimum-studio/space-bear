@@ -14,3 +14,5 @@ script = ExtResource("1_8spgx")
 
 [node name="SelectionWheel" parent="." instance=ExtResource("2_t8nse")]
 layout_mode = 1
+
+[connection signal="visibility_changed" from="SelectionWheel" to="." method="_on_visibility_changed"]

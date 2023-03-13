@@ -17,13 +17,6 @@ extends Control
 
 var catalog = ShipCatalog.catalog
 
-var selection: ShipCatalogResourceElement:
-	get:
-		if selecting:
-			return catalog.ships[selected_index]
-		else:
-			return null
-
 var ship_resources: Array[ShipCatalogResourceElement] = []
 var buttons: Array[UpgradeSelection] = []
 @onready var upgrade_button = preload("res://hud/UpgradeSelection.tscn")
@@ -44,8 +37,11 @@ var wheel_center:
 var _rotation_step: float:
 	get: return 2 * PI / ship_resources.size()
 
-var selected_index: int:
-	get: return floori((selection_angle + PI/2) / _rotation_step)
+var selected_index:
+	get:
+		if !selecting:
+			return null
+		return floori((selection_angle + PI/2) / _rotation_step)
 
 ## Use this to show the wheel
 func show_and_init():
@@ -111,7 +107,7 @@ func _draw_sectors():
 
 
 func _emphasis():
-	if selecting:
+	if selected_index != null:
 		var start_angle = _button_start_angle(selected_index)
 		var end_angle =  _button_end_angle(selected_index)
 		var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)

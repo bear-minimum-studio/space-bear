@@ -52,11 +52,16 @@ func _unhandled_input(event):
 		process_mode = Node.PROCESS_MODE_INHERIT
 
 		# TODO separate this logic from display
-		self.upgrade_candidate = ship_upgrade_wheel.selection
+		if ship_upgrade_wheel.selected_index != null:
+			self.upgrade_candidate = ShipCatalog.catalog.ships[ship_upgrade_wheel.selected_index]
+		else:
+			self.upgrade_candidate = null
 		ship_upgrade_wheel.hide()
 
+## Moves the mouse cursor to the center of the screen
+## and puts it back to the original position after wheel is closed
 func _on_visibility_changed():
-	if visible:
+	if ship_upgrade_wheel.visible:
 		saved_mouse_position = get_viewport().get_mouse_position()
 		Helpers.set_mouse_position(self, Helpers.get_screen_center(self))
 		ship_upgrade_wheel.process_mode = Node.PROCESS_MODE_ALWAYS

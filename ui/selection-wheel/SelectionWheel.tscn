@@ -52,5 +52,3 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_q6hac")
 
 [node name="Wheel" type="Control" parent="."]
 anchors_preset = 0
-
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
