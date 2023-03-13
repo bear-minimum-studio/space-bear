@@ -72,8 +72,7 @@ func _add_buttons():
 	for i in range(elements.size()):
 		var button = button_scene.instantiate()
 		wheel.add_child(button)
-		button.ship_name = elements[i].display_name
-		button.cost = elements[i].price
+		_set_button_parameters(button, elements[i])
 
 		var mid_angle = (_button_start_angle(i) + _button_end_angle(i)) / 2
 		button.position = wheel_center + button_distance_to_center * Vector2.from_angle(mid_angle)
@@ -131,3 +130,7 @@ func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, 
 		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * max_radius)
 		colors.push_back(transparent_color)
 	draw_polygon(points_arc, colors)
+
+func _set_button_parameters(button: Node, element: Dictionary):
+	for key in element.keys():
+		button.set(key, element[key])
