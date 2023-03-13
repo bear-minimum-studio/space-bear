@@ -27,4 +27,6 @@ script = ExtResource("2_1wquj")
 layout_mode = 1
 button_scene = ExtResource("4_tq83o")
 
+[connection signal="closing_upgrades" from="WheelDisplayer" to="." method="_on_wheel_displayer_closing_upgrades"]
+[connection signal="opening_upgrades" from="WheelDisplayer" to="." method="_on_wheel_displayer_opening_upgrades"]
 [connection signal="visibility_changed" from="WheelDisplayer/SelectionWheel" to="WheelDisplayer" method="_on_visibility_changed"]

@@ -13,3 +13,6 @@ signal restart
 signal mothership_advance
 
 signal selected_ship_changed
+
+signal opening_ship_upgrades
+signal closing_ship_upgrades
