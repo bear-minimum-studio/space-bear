@@ -15,10 +15,11 @@ extends Control
 
 @onready var wheel = $Wheel
 
+# Parameters
 var elements
+var button_scene
 
-var buttons: Array[UpgradeSelection] = []
-@onready var upgrade_button = preload("res://hud/UpgradeSelection.tscn")
+var buttons: Array = []
 
 var selection_angle: float = 0.0
 var selecting: bool = false
@@ -43,8 +44,9 @@ var selected_index:
 		return floori((selection_angle + PI/2) / _rotation_step)
 
 ## Use this to show the wheel
-func show_and_init(elements_to_show: Array):
+func show_and_init(elements_to_show: Array, button_scene_to_show):
 	elements = elements_to_show
+	button_scene = button_scene_to_show
 	self.show()
 	for child in wheel.get_children():
 		wheel.remove_child(child)
@@ -68,7 +70,7 @@ func _process(_delta):
 func _add_buttons():
 	buttons = []
 	for i in range(elements.size()):
-		var button = upgrade_button.instantiate()
+		var button = button_scene.instantiate()
 		wheel.add_child(button)
 		button.ship_name = elements[i].display_name
 		button.cost = elements[i].price
