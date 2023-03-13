@@ -13,6 +13,10 @@ extends Control
 @export_range(0.1, 3.0, 0.1) var line_width: float = 1.0
 @export_range(1.0, 200.0, 1.0) var button_distance_to_center: float = 75.0
 
+## The scene that will be rendered for each selectable element
+## It will be given the parameters found in "elements[i].parameters"
+@export var button_scene: PackedScene
+
 @onready var wheel = $Wheel
 
 ##### Parameters
@@ -27,10 +31,6 @@ extends Control
 ##   disabled: true | false
 ## }
 var elements: Array
-
-## The scene that will be rendered for each selectable element
-## It will be given the parameters found in "elements[i].parameters"
-var button_scene: PackedScene
 
 #######
 
@@ -59,9 +59,8 @@ var selected_index:
 		return floori((selection_angle + PI/2) / _rotation_step)
 
 ## Use this to show the wheel
-func show_and_init(elements_to_show: Array, button_scene_to_show):
+func show_and_init(elements_to_show: Array):
 	elements = elements_to_show
-	button_scene = button_scene_to_show
 	self.show()
 	for child in wheel.get_children():
 		wheel.remove_child(child)
