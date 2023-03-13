@@ -1,7 +1,7 @@
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - ci/*
 
 jobs:
   # job id, can be anything
@@ -21,7 +21,7 @@ jobs:
 
     - name: export game
       # Use latest version (see releases for all versions)
-      uses: firebelley/godot-export@v3.0.0
+      uses: firebelley/godot-export@v4.7.0
       with:
         # Defining all the required inputs
         # I used the mono version of Godot in this example
@@ -32,8 +32,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Add coi-service-worker
+      run: |
+        git clone https://github.com/gzuidhof/coi-serviceworker.git
+        mv coi-serviceworker/coi-serviceworker.js /home/runner/.local/share/godot/builds/Web/coi-serviceworker.js
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ../../../.local/share/godot/builds/HTML5
+        publish_dir: ../../../.local/share/godot/builds/Web
