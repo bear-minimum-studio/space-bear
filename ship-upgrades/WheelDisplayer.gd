@@ -22,9 +22,7 @@ func _unhandled_input(event):
 		get_tree().paused = false
 		process_mode = Node.PROCESS_MODE_INHERIT
 
-		# TODO separate this logic from display
 		if ship_upgrade_wheel.selected_index != null:
-#			get_parent().upgrade_candidate = ShipCatalog.catalog.ships[ship_upgrade_wheel.selected_index]
 			upgrade_selected.emit(ship_upgrade_wheel.selected_index)
 	
 		ship_upgrade_wheel.hide()
