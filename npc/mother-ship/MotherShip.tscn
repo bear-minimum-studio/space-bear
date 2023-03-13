@@ -1,11 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx2ghytsddgue"]
+[gd_scene load_steps=12 format=3 uid="uid://bx2ghytsddgue"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_0bdkf"]
 [ext_resource type="Script" path="res://npc/mother-ship/MotherShip.gd" id="2_0k21p"]
-[ext_resource type="Texture2D" uid="uid://btbb3mr4sxjg4" path="res://npc/mother-ship/mothership_flammes.png" id="2_mye72"]
 [ext_resource type="Texture2D" uid="uid://cwbr4f3kr4ird" path="res://npc/mother-ship/mothership.png" id="3_kencp"]
+[ext_resource type="Texture2D" uid="uid://eh8oh6wb3n0f" path="res://npc/mother-ship/mothership_flammes1.png" id="4_l0wre"]
+[ext_resource type="Texture2D" uid="uid://bvxq00l3pbcvn" path="res://npc/mother-ship/mothership_flammes2.png" id="5_0wri5"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="5_7a3ox"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="5_vqqiw"]
+[ext_resource type="Texture2D" uid="uid://x73a5d6y4dif" path="res://npc/mother-ship/mothership_flammes3.png" id="6_hklbc"]
+[ext_resource type="Texture2D" uid="uid://b2x5fvauju7v7" path="res://npc/mother-ship/mothership_flammes4.png" id="7_6n25w"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_huoyw"]
+frames = 4
+speed_scale = 6.0
+frame_0/texture = ExtResource("4_l0wre")
+frame_1/texture = ExtResource("5_0wri5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("6_hklbc")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("7_6n25w")
+frame_3/duration = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tks0q"]
 radius = 71.0
@@ -25,7 +39,7 @@ texture = ExtResource("3_kencp")
 [node name="Flammes" parent="." index="1"]
 rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("2_mye72")
+texture = SubResource("AnimatedTexture_huoyw")
 
 [node name="CollisionShape2D" parent="." index="2"]
 rotation = 1.5708
