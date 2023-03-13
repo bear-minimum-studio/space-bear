@@ -106,7 +106,7 @@ func _emphasis():
 	if selecting:
 		var start_angle = _button_start_angle(selected_index)
 		var end_angle =  _button_end_angle(selected_index)
-		var shifted_center = wheel_center + (line_width / 2) * Vector2.RIGHT.from_angle((start_angle + end_angle) / 2)
+		var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
 		draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, color_hover)
 
 func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, color):
