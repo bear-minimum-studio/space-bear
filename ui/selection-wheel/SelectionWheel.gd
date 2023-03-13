@@ -15,7 +15,7 @@ extends Control
 
 @onready var wheel = $Wheel
 
-var catalog = ShipCatalog.catalog
+var elements
 
 var ship_resources: Array[ShipCatalogResourceElement] = []
 var buttons: Array[UpgradeSelection] = []
@@ -44,14 +44,15 @@ var selected_index:
 		return floori((selection_angle + PI/2) / _rotation_step)
 
 ## Use this to show the wheel
-func show_and_init():
+func show_and_init(elements_to_show: Array):
+	elements = elements_to_show
 	self.show()
 	for child in wheel.get_children():
 		wheel.remove_child(child)
 		child.queue_free()
 
 	ship_resources = []
-	for ship in catalog.ships:
+	for ship in elements:
 		ship_resources.append(ship)
 	_add_buttons()
 
@@ -70,11 +71,11 @@ func _process(_delta):
 
 func _add_buttons():
 	buttons = []
-	for i in range(catalog.size()):
+	for i in range(elements.size()):
 		var button = upgrade_button.instantiate()
 		wheel.add_child(button)
-		button.ship_name = catalog.ships[i].display_name
-		button.cost = catalog.ships[i].price
+		button.ship_name = elements[i].display_name
+		button.cost = elements[i].price
 
 		var mid_angle = (_button_start_angle(i) + _button_end_angle(i)) / 2
 		button.position = wheel_center + button_distance_to_center * Vector2.from_angle(mid_angle)

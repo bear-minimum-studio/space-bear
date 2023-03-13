@@ -45,7 +45,7 @@ func _unhandled_input(event):
 
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
-		ship_upgrade_wheel.show_and_init()
+		ship_upgrade_wheel.show_and_init(ShipCatalog.catalog.ships)
 
 	if event.is_action_released("upgrade"):
 		get_tree().paused = false
