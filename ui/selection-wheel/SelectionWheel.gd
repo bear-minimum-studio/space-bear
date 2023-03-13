@@ -47,8 +47,14 @@ var _rotation_step: float:
 var selected_index: int:
 	get: return floori((selection_angle + PI/2) / _rotation_step)
 
+## Use this to show the wheel
+func show_and_init():
+	self.show()
+	for child in wheel.get_children():
+		wheel.remove_child(child)
+		child.queue_free()
 
-func _ready():
+	ship_resources = []
 	for ship in catalog.ships:
 		ship_resources.append(ship)
 	_add_buttons()
@@ -67,6 +73,7 @@ func _process(_delta):
 
 
 func _add_buttons():
+	buttons = []
 	for i in range(catalog.size()):
 		var button = upgrade_button.instantiate()
 		wheel.add_child(button)
