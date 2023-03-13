@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://xho5akt8v5eo"]
+
+[ext_resource type="Script" path="res://singletons/ShipUpgradeHandler.gd" id="1_8spgx"]
+[ext_resource type="Script" path="res://ship-upgrades/WheelDisplayer.gd" id="2_1wquj"]
+[ext_resource type="PackedScene" uid="uid://b0qu062bkvryf" path="res://ui/selection-wheel/SelectionWheel.tscn" id="2_t8nse"]
+[ext_resource type="PackedScene" uid="uid://dc3c33hwkauei" path="res://hud/UpgradeSelection.tscn" id="4_tq83o"]
+
+[node name="ShipUpgradeHandler" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8spgx")
+
+[node name="WheelDisplayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1wquj")
+
+[node name="SelectionWheel" parent="WheelDisplayer" instance=ExtResource("2_t8nse")]
+layout_mode = 1
+button_scene = ExtResource("4_tq83o")
+
+[connection signal="visibility_changed" from="WheelDisplayer/SelectionWheel" to="WheelDisplayer" method="_on_visibility_changed"]

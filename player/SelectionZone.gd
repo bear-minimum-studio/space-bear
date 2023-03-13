@@ -5,7 +5,7 @@ extends Area2D
 var current_selection: Node2D = null:
 	set(value):
 		current_selection = value
-		ShipUpgradeHandler.selected_ship = current_selection
+		Events.selected_ship_changed.emit(value)
 
 func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()

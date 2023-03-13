@@ -31,7 +31,6 @@ ShipCatalog="*res://singletons/ShipCatalog.gd"
 WorldReference="*res://singletons/WorldReference.gd"
 Allegiance="*res://singletons/Allegiance.gd"
 InputMode="*res://singletons/InputMode.gd"
-ShipUpgradeHandler="*res://singletons/ShipUpgradeHandler.gd"
 
 [display]
 
