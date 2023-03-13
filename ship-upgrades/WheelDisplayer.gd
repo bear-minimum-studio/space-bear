@@ -4,19 +4,19 @@ extends Control
 
 var saved_mouse_position: Vector2
 
-var enabled
-var elements
+var _enabled
+var _elements
 
 signal upgrade_selected
 
 func _unhandled_input(event):
 	if event.is_action_pressed("upgrade"):
-		if not enabled:
+		if not _enabled:
 			return
 
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
-		ship_upgrade_wheel.show_and_init(elements)
+		ship_upgrade_wheel.show_and_init(_elements)
 
 	if event.is_action_released("upgrade"):
 		get_tree().paused = false
@@ -37,3 +37,12 @@ func _on_visibility_changed():
 	else:
 		Helpers.set_mouse_position(self, saved_mouse_position)
 		ship_upgrade_wheel.process_mode = Node.PROCESS_MODE_DISABLED
+
+func enable():
+	_enabled = true
+
+func disable():
+	_enabled = false
+
+func set_elements(new_elements):
+	_elements = new_elements

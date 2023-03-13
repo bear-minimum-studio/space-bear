@@ -30,9 +30,9 @@ func _on_selected_ship_changed(new_ship):
 	selected_ship = new_ship
 
 	if selected_ship != null:
-		wheel_displayer.enabled = true
+		wheel_displayer.enable()
 	else:
-		wheel_displayer.enabled = false
+		wheel_displayer.disable()
 
 	var elements = ShipCatalog.catalog.ships.map(func (element):
 		return {
@@ -42,4 +42,4 @@ func _on_selected_ship_changed(new_ship):
 			},
 		}
 	)
-	wheel_displayer.elements = elements
+	wheel_displayer.set_elements(elements)
