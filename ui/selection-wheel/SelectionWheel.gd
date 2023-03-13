@@ -15,9 +15,24 @@ extends Control
 
 @onready var wheel = $Wheel
 
-# Parameters
-var elements
-var button_scene
+##### Parameters
+
+## An element should have the following shape:
+## {
+##   # a dictionary of properties that will be given to button_scene
+##   parameters: {
+##     "property1": value1,
+##     ...
+##   },
+##   disabled: true | false
+## }
+var elements: Array
+
+## The scene that will be rendered for each selectable element
+## It will be given the parameters found in "elements[i].parameters"
+var button_scene: PackedScene
+
+#######
 
 var buttons: Array = []
 
@@ -132,5 +147,5 @@ func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, 
 	draw_polygon(points_arc, colors)
 
 func _set_button_parameters(button: Node, element: Dictionary):
-	for key in element.keys():
-		button.set(key, element[key])
+	for key in element.parameters.keys():
+		button.set(key, element.parameters[key])
