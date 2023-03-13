@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://y06kauv13cvq" path="res://hud/CiviliansLeft.tscn" id="5_5vxw4"]
 [ext_resource type="PackedScene" uid="uid://upooccvpprh4" path="res://hud/SectorInfo/SectorInfo.tscn" id="6_ixfnp"]
 [ext_resource type="PackedScene" uid="uid://dsmalws6v4e8y" path="res://ui/game-over/GameOver.tscn" id="8_rpob0"]
-[ext_resource type="PackedScene" uid="uid://dc3c33hwkauei" path="res://hud/UpgradeSelection.tscn" id="9_6p8ox"]
 [ext_resource type="PackedScene" uid="uid://d0rrwdxtxpel4" path="res://ui/level-end/LevelEnd.tscn" id="9_chrlk"]
 [ext_resource type="PackedScene" uid="uid://dsln0u30vj1sa" path="res://ui/pause_menu.tscn" id="9_dsyis"]
 [ext_resource type="PackedScene" uid="uid://cg2fbsneh5pmk" path="res://hud/ResourcesHUD.tscn" id="10_xm5jn"]
 [ext_resource type="Script" path="res://test/FPS.gd" id="11_ni3o8"]
 [ext_resource type="PackedScene" uid="uid://c3j1rnw6mno83" path="res://ui/level-change/LevelChange.tscn" id="11_x5wsm"]
 [ext_resource type="PackedScene" uid="uid://dxiyrjjkt2urt" path="res://hud/FleetProgression.tscn" id="12_v6rqd"]
+[ext_resource type="PackedScene" uid="uid://b0qu062bkvryf" path="res://ui/selection-wheel/SelectionWheel.tscn" id="13_2qg2x"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_6gu75")
@@ -49,9 +49,6 @@ size_flags_vertical = 8
 [node name="CiviliansLeft" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_5vxw4")]
 layout_mode = 2
 
-[node name="UpgradeSelection" parent="CanvasLayer/MarginContainer" instance=ExtResource("9_6p8ox")]
-layout_mode = 2
-
 [node name="ResourcesHUD" parent="CanvasLayer/MarginContainer" instance=ExtResource("10_xm5jn")]
 layout_mode = 2
 
@@ -77,3 +74,5 @@ offset_bottom = 13.0
 theme_override_font_sizes/font_size = 4
 text = "FPS 120"
 script = ExtResource("11_ni3o8")
+
+[node name="SelectionWheel" parent="CanvasLayer" instance=ExtResource("13_2qg2x")]
