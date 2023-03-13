@@ -17,7 +17,6 @@ extends Control
 
 var elements
 
-var ship_resources: Array[ShipCatalogResourceElement] = []
 var buttons: Array[UpgradeSelection] = []
 @onready var upgrade_button = preload("res://hud/UpgradeSelection.tscn")
 
@@ -35,7 +34,7 @@ var wheel_center:
 	get: return Helpers.get_screen_center(self)
 
 var _rotation_step: float:
-	get: return 2 * PI / ship_resources.size()
+	get: return 2 * PI / elements.size()
 
 var selected_index:
 	get:
@@ -51,9 +50,6 @@ func show_and_init(elements_to_show: Array):
 		wheel.remove_child(child)
 		child.queue_free()
 
-	ship_resources = []
-	for ship in elements:
-		ship_resources.append(ship)
 	_add_buttons()
 
 
