@@ -4,6 +4,9 @@ extends Area2D
 
 var current_selection: Node2D = null:
 	set(value):
+		if current_selection == value:
+			# Don't spam with new events if still seeing the same ship
+			return
 		current_selection = value
 		Events.selected_ship_changed.emit(value)
 
