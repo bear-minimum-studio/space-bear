@@ -12,7 +12,7 @@ signal upgrade_selected
 signal opening_upgrades
 signal closing_upgrades
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("upgrade"):
 		if not _enabled:
 			return
