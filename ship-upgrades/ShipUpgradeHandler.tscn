@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://474jot32pblp"]
+
+[ext_resource type="Script" path="res://singletons/ShipUpgradeHandler.gd" id="1_8spgx"]
+[ext_resource type="PackedScene" uid="uid://b0qu062bkvryf" path="res://ui/selection-wheel/SelectionWheel.tscn" id="2_t8nse"]
+
+[node name="ShipUpgradeHandler" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8spgx")
+
+[node name="SelectionWheel" parent="." instance=ExtResource("2_t8nse")]
+layout_mode = 1

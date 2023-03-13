@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 ## set by Player/Selection_Zone
 var selected_ship
@@ -7,13 +7,15 @@ var selected_ship
 var upgrade_candidate: ShipCatalogResourceElement:
 	set(value):
 		upgrade_candidate = value
-		upgrade(selected_ship)
+		_upgrade(selected_ship)
 
 var is_ship_selected:
 	get: return selected_ship != null
 
+func _ready():
+	Events.selected_ship_changed.connect(_on_selected_ship_changed)
 
-func upgrade(ship):
+func _upgrade(ship):
 	if upgrade_candidate == null:
 		return
 	if selected_ship == null:
@@ -26,3 +28,6 @@ func upgrade(ship):
 	
 	if ship.has_method("upgrade"):
 		ship.upgrade(upgrade_candidate)
+
+func _on_selected_ship_changed(new_ship):
+	selected_ship = new_ship

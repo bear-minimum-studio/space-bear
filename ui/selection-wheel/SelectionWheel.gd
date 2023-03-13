@@ -1,12 +1,15 @@
 extends Control
 
+# TODO this script will go into the parent
+
 @onready var wheel = $Wheel
 
 var saved_mouse_position: Vector2
 
 func _unhandled_input(event):
 	if event.is_action_pressed("upgrade"):
-		if not ShipUpgradeHandler.is_ship_selected:
+		# TODO get rid of this coupling
+		if not get_parent().is_ship_selected:
 			return
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
@@ -14,7 +17,8 @@ func _unhandled_input(event):
 	if event.is_action_released("upgrade"):
 		get_tree().paused = false
 		process_mode = Node.PROCESS_MODE_INHERIT
-		ShipUpgradeHandler.upgrade_candidate = wheel.selection
+		# TODO get rid of this coupling
+		get_parent().upgrade_candidate = wheel.selection
 		self.hide()
 
 func _on_visibility_changed():
