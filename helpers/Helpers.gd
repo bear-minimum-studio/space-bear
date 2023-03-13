@@ -31,5 +31,8 @@ static func get_velocity(node: PhysicsBody2D) -> Vector2:
 static func angle_to_trigonometry_range(angle: float):
 	return fposmod(angle - PI, 2 * PI) - PI
 
-static func get_screen_center(any_node: Node2D):
+static func get_screen_center(any_node: Node):
 	return any_node.get_viewport_rect().size / 2
+
+static func set_mouse_position(any_node: Node, mouse_position: Vector2):
+	any_node.get_viewport().warp_mouse(mouse_position)

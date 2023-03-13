@@ -2,7 +2,10 @@ extends Area2D
 
 @onready var selection_reference = $SelectionReference
 
-var current_selection: Node2D = null
+var current_selection: Node2D = null:
+	set(value):
+		current_selection = value
+		ShipUpgradeHandler.selected_ship = current_selection
 
 func _physics_process(_delta):
 	var bodies = get_overlapping_bodies()

@@ -139,8 +139,6 @@ func _on_health_system_hp_changed(health, max_health, difference):
 	Events.emit_signal("player_hp_changed", health, max_health)
 
 func _input(event):
-	if event.is_action_pressed("upgrade"):
-		_upgrade_selected_ship()
 	if event.is_action_pressed("follow_me"):
 		_follow_me()
 
@@ -151,19 +149,6 @@ func _follow_me():
 
 	if selected_ship.has_method("switch_follow_target"):
 		selected_ship.switch_follow_target(self)
-
-func _upgrade_selected_ship():
-	var selected_ship = selection_zone.current_selection
-	if selected_ship == null:
-		return
-	
-	var price = ShipCatalog.catalog.get_current_ship_price()
-	if FlockResources.get_resources() < price:
-		return
-	FlockResources.spend_resource(price)
-	
-	if selected_ship.has_method("upgrade"):
-		selected_ship.upgrade()
 
 func _on_health_system_dead():
 	Events.dead_ship.emit(self)

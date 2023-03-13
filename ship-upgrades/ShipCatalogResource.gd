@@ -3,14 +3,22 @@ class_name ShipCatalogResource
 
 @export var ships: Array[ShipCatalogResourceElement] = []
 
-var _current_selection = 0
+var current_selection = 0:
+	set(value):
+		current_selection = value
+		selection_changed.emit()
+
+signal selection_changed
+
+func size():
+	return ships.size()
 
 func _get_current_selection():
-	return ships[_current_selection]
+	return ships[current_selection]
 
 func select_next_ship():
-	_current_selection += 1 
-	_current_selection = _current_selection % ships.size()
+	current_selection += 1 
+	current_selection = current_selection % ships.size()
 
 func get_current_ship_name():
 	return _get_current_selection().display_name
