@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ujm2pogbpnnp"]
+[gd_scene load_steps=10 format=3 uid="uid://ujm2pogbpnnp"]
 
 [ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
 [ext_resource type="PackedScene" uid="uid://cv7li5vw58r6p" path="res://player/Player.tscn" id="1_yasag"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2ghytsddgue" path="res://npc/mother-ship/MotherShip.tscn" id="3_jfgia"]
 [ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="4_u5hvj"]
 [ext_resource type="Script" path="res://helpers/Guide.gd" id="5_js3wj"]
+[ext_resource type="Script" path="res://Camera.gd" id="6_1s6pw"]
 [ext_resource type="Script" path="res://npc/ship-behaviors/squadron/SquadronsHandler.gd" id="7_hb3lf"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
@@ -46,6 +47,7 @@ rotation = -0.683586
 position = Vector2(159, 130)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_mode = 3
 zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -54,6 +56,7 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+script = ExtResource("6_1s6pw")
 
 [node name="Guide" type="Node2D" parent="."]
 z_index = 10

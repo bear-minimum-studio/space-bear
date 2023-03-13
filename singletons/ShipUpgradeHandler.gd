@@ -43,3 +43,10 @@ func _on_selected_ship_changed(new_ship):
 		}
 	)
 	wheel_displayer.set_elements(elements)
+
+
+func _on_wheel_displayer_opening_upgrades():
+	Events.opening_ship_upgrades.emit(selected_ship)
+
+func _on_wheel_displayer_closing_upgrades():
+	Events.closing_ship_upgrades.emit()
