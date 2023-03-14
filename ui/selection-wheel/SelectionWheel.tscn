@@ -1,21 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0qu062bkvryf"]
+[gd_scene load_steps=2 format=3 uid="uid://b0qu062bkvryf"]
 
 [ext_resource type="Script" path="res://ui/selection-wheel/SelectionWheel.gd" id="1_xk8nu"]
-
-[sub_resource type="Gradient" id="Gradient_enyin"]
-offsets = PackedFloat32Array(0.181604, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8ki4"]
-gradient = SubResource("Gradient_enyin")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.519231, 0.512821)
-fill_to = Vector2(1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6hac"]
-bg_color = Color(0.752941, 0.337255, 0.670588, 0.494118)
 
 [node name="SelectionWheel" type="Control"]
 visible = false
@@ -26,29 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xk8nu")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-clip_children = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_j8ki4")
-expand_mode = 4
-stretch_mode = 4
-
-[node name="Background" type="Panel" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_q6hac")
+background_color = Color(0.517647, 0.517647, 0.517647, 0.733333)
 
 [node name="Wheel" type="Control" parent="."]
 anchors_preset = 0

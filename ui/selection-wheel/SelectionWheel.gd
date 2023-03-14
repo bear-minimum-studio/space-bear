@@ -7,6 +7,9 @@ extends Control
 @export_category("Appearance")
 @export var color := Color("ffffff", 0.7)
 @export var color_hover := Color("ff57c6", 0.7)
+@export var color_hover_not_selectable := Color("dfdfdf", 0.7)
+@export var background_color := Color("dfdfdf", 0.7)
+@export_range(0.0, 1.0, 0.1) var disabled_opacity = 0.4
 
 @export var antialiasing = false
 @export_range(0.0, 500.0, 1.0) var line_length: float = 100.0
@@ -87,6 +90,8 @@ func _add_buttons():
 		var button = button_scene.instantiate()
 		wheel.add_child(button)
 		_set_button_parameters(button, elements[i])
+		if not _is_button_selectable(i):
+			button.modulate.a = disabled_opacity
 
 		var mid_angle = (_button_start_angle(i) + _button_end_angle(i)) / 2
 		button.position = wheel_center + button_distance_to_center * Vector2.from_angle(mid_angle)
@@ -98,7 +103,11 @@ func _button_start_angle(i: int) -> float:
 func _button_end_angle(i: int) -> float:
 	return _button_start_angle(i) +  _rotation_step
 
+func _is_button_selectable(i: int) -> bool:
+	return elements[i].is_selectable
+
 func _draw():
+	_draw_background()
 	_draw_sectors()
 	_draw_deadzone()
 	_emphasis()
@@ -117,13 +126,41 @@ func _draw_sectors():
 		var line_end = wheel_center + line_length * Vector2.from_angle(line_angle)
 		draw_line(line_start, line_end, color, line_width, antialiasing)
 
+func _draw_background():
+	draw_circle_donut_poly(wheel_center, screen_dead_zone, 3*line_length, 0, 2*PI, background_color)
 
 func _emphasis():
-	if selected_index != null:
-		var start_angle = _button_start_angle(selected_index)
-		var end_angle =  _button_end_angle(selected_index)
-		var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
-		draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, color_hover)
+	if selected_index == null:
+		return
+	if _is_button_selectable(selected_index):
+		_draw_button_background(selected_index, color_hover)
+	else:
+		_draw_button_background(selected_index, color_hover_not_selectable)
+
+func _draw_button_background(i: int, background_color: Color):
+	var start_angle = _button_start_angle(i)
+	var end_angle =  _button_end_angle(i)
+	var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
+	draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, background_color)
+
+
+func draw_circle_donut_poly(center, inner_radius, outer_radius, angle_from, angle_to, color):  
+	var nb_points = 32
+	var points_arc = PackedVector2Array()
+	var points_arc2 = PackedVector2Array()
+	var colors = PackedColorArray([])
+
+	for i in range(nb_points+1):
+		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * outer_radius)
+		colors.push_back(color)
+	
+	for i in range(nb_points,-1,-1):
+		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * inner_radius)
+		colors.push_back(color)
+	draw_polygon(points_arc, colors)
+
 
 func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, color):
 	var nb_points = 32

@@ -40,6 +40,7 @@ func _on_selected_ship_changed(new_ship):
 				"cost": element.price,
 				"ship_name": element.display_name
 			},
+			"is_selectable": element.price <= FlockResources.get_resources(),
 		}
 	)
 	wheel_displayer.set_elements(elements)

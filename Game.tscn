@@ -58,6 +58,8 @@ layout_mode = 2
 [node name="FleetProgression" parent="CanvasLayer/MarginContainer" instance=ExtResource("12_v6rqd")]
 layout_mode = 2
 
+[node name="ShipUpgradeHandler" parent="CanvasLayer" instance=ExtResource("15_h3hr7")]
+
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("8_rpob0")]
 visible = false
 
@@ -72,10 +74,9 @@ process_mode = 3
 visible = false
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
+process_mode = 3
 offset_right = 40.0
 offset_bottom = 13.0
 theme_override_font_sizes/font_size = 4
 text = "FPS 120"
 script = ExtResource("11_ni3o8")
-
-[node name="ShipUpgradeHandler" parent="CanvasLayer" instance=ExtResource("15_h3hr7")]
