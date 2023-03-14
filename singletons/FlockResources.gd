@@ -1,6 +1,6 @@
 extends Node
 
-const initial_resources = 1000
+const initial_resources = 10
 var resources = initial_resources
 
 signal resources_change
