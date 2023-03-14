@@ -1,6 +1,6 @@
 extends Control
 
-@export_range(0.0, 1000.0, 10.0) var ms_time_before_selection = 500.0
+@export_range(0.0, 1000.0, 10.0) var ms_time_before_selection = 300.0
 @onready var ship_upgrade_wheel = $SelectionWheel
 
 var saved_mouse_position: Vector2
