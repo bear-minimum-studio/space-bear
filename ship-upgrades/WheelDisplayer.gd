@@ -23,7 +23,7 @@ func _input(event):
 		
 		self.opening_upgrades.emit()
 
-	if event.is_action_released("upgrade"):
+	if ship_upgrade_wheel.visible and event.is_action_released("upgrade"):
 		get_tree().paused = false
 		process_mode = Node.PROCESS_MODE_INHERIT
 
