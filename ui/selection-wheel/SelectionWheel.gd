@@ -137,32 +137,31 @@ func _emphasis():
 	else:
 		_draw_button_background(selected_index, color_hover_not_selectable)
 
-func _draw_button_background(i: int, background_color: Color):
+func _draw_button_background(i: int, bckgrnd_color: Color):
 	var start_angle = _button_start_angle(i)
 	var end_angle =  _button_end_angle(i)
 	var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
-	draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, background_color)
+	draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, bckgrnd_color)
 
 
-func draw_circle_donut_poly(center, inner_radius, outer_radius, angle_from, angle_to, color):  
+func draw_circle_donut_poly(center, inner_radius, outer_radius, angle_from, angle_to, bckgrnd_color):  
 	var nb_points = 32
 	var points_arc = PackedVector2Array()
-	var points_arc2 = PackedVector2Array()
 	var colors = PackedColorArray([])
 
 	for i in range(nb_points+1):
 		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
 		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * outer_radius)
-		colors.push_back(color)
+		colors.push_back(bckgrnd_color)
 	
 	for i in range(nb_points,-1,-1):
 		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
 		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * inner_radius)
-		colors.push_back(color)
+		colors.push_back(bckgrnd_color)
 	draw_polygon(points_arc, colors)
 
 
-func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, color):
+func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, bckgrnd_color):
 	var nb_points = 32
 	var points_arc = PackedVector2Array()
 	var colors = PackedColorArray([])
@@ -171,10 +170,10 @@ func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, 
 	for i in range(nb_points + 1):
 		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points
 		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * min_radius)
-		colors.push_back(color)
+		colors.push_back(bckgrnd_color)
 	
 	# large arc (in the other direction)
-	var transparent_color = color
+	var transparent_color = bckgrnd_color
 	transparent_color.a = 0.03
 	for i in range(nb_points + 1):
 		var angle_point = angle_to + i * (angle_from - angle_to) / nb_points

@@ -18,12 +18,12 @@ func _process(_delta):
 	if not do_upgrade_animation:
 		return
 
-	var offset = selected_ship.global_position - (self.get_screen_center_position() - self.offset)
+	var target_offset = selected_ship.global_position - (self.get_screen_center_position() - self.offset)
 
 	# TODO is that okay in terms of performance? We're creating a new tween on each frame...
 	# It seems fluid but I am quite surprised
 	(create_tween()
-		.tween_property(self, "offset", offset, upgrade_zoom_speed)
+		.tween_property(self, "offset", target_offset, upgrade_zoom_speed)
 		.set_ease(Tween.EASE_IN_OUT))
 	(create_tween()
 		.tween_property(self, "zoom", upgrade_zoom_vector, upgrade_zoom_speed)

@@ -7,8 +7,7 @@ var saved_mouse_position: Vector2
 
 var _enabled
 var _elements
-
-var _timer: Timer
+ 
 var _enough_time_elapsed = false
 
 signal upgrade_selected
