@@ -7,6 +7,7 @@ extends Control
 @export_category("Appearance")
 @export var color := Color("ffffff", 0.7)
 @export var color_hover := Color("ff57c6", 0.7)
+@export var color_hover_not_selectable := Color("dfdfdf", 0.7)
 
 @export var antialiasing = false
 @export_range(0.0, 500.0, 1.0) var line_length: float = 100.0
@@ -98,9 +99,13 @@ func _button_start_angle(i: int) -> float:
 func _button_end_angle(i: int) -> float:
 	return _button_start_angle(i) +  _rotation_step
 
+func _is_button_selectable(i: int) -> bool:
+	return elements[i].is_selectable
+
 func _draw():
 	_draw_sectors()
 	_draw_deadzone()
+	_draw_not_selectable_background()
 	_emphasis()
 
 func _draw_deadzone():
@@ -117,13 +122,23 @@ func _draw_sectors():
 		var line_end = wheel_center + line_length * Vector2.from_angle(line_angle)
 		draw_line(line_start, line_end, color, line_width, antialiasing)
 
+func _draw_not_selectable_background():
+	for i in buttons.size():
+		if not _is_button_selectable(i):
+			_draw_button_background(i, color_hover_not_selectable)
 
 func _emphasis():
-	if selected_index != null:
-		var start_angle = _button_start_angle(selected_index)
-		var end_angle =  _button_end_angle(selected_index)
-		var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
-		draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, color_hover)
+	if selected_index == null:
+		return
+	if _is_button_selectable(selected_index):
+		_draw_button_background(selected_index, color_hover)
+
+func _draw_button_background(i: int, background_color: Color):
+	var start_angle = _button_start_angle(i)
+	var end_angle =  _button_end_angle(i)
+	var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
+	draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, background_color)
+
 
 func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, color):
 	var nb_points = 32
