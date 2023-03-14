@@ -45,7 +45,7 @@ func _level_change():
 	if current_world == worlds.size():
 		_show_end()
 		return
-	self.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = true
 
 	# Create a new world
 	var new_world_scene = worlds[current_world]
@@ -85,7 +85,7 @@ func _level_change():
 	await get_tree().create_timer(BETWEEN_SECTORS_DURATION).timeout
 	level_change.visible = false
 
-	self.process_mode = Node.PROCESS_MODE_INHERIT
+	get_tree().paused = false
 
 	sector_info.set_sector_number(current_world + 1)
 	sector_info.set_sector_mission(new_world.mission)
