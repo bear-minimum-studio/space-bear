@@ -11,6 +11,13 @@ height = 108.0
 
 [node name="ShieldShip" instance=ExtResource("1_7pvws")]
 number_of_passengers = 50
+ship_type = 4
+rotation_speed = 10.0
+acceleration = 10.0
+brake = 10.0
+explosion_scale = 1.0
+position_tolerance = 5.0
+debug_enabled = false
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.57079

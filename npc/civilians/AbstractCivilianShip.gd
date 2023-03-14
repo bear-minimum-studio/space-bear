@@ -3,8 +3,27 @@ class_name AbstractCivilianShip
 
 @export_range(0,10000,1,"or_greater") var number_of_passengers = 0;
 @onready var construction_particles = $ConstructionParticles
+@export var ship_type = ShipCatalog.ShipModels.CIVILIAN
 
+var contour_material = preload("res://ContourMaterial.tres")
 var civilian_malus_scene = preload("res://hud/CivilianMalus.tscn")
+
+var selected = false :
+	set(new_value):
+		selected = new_value
+		if (selected):
+			self.material = contour_material
+			self.health_bar.force_visibility(true)
+		else:
+			self.material = null
+			self.health_bar.force_visibility(false)
+
+func select():
+	selected = true
+
+func unselect():
+	selected = false
+
 
 func set_convoy_path(target_position: Vector2, mothership_position: Vector2):
 	# all allies should aim to reach the wormhole while keeping their relative position

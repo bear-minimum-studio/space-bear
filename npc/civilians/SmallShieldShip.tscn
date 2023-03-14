@@ -9,6 +9,13 @@
 radius = 20.0998
 
 [node name="SmallShieldShip" instance=ExtResource("1_lvvp6")]
+ship_type = 2
+rotation_speed = 10.0
+acceleration = 10.0
+brake = 10.0
+explosion_scale = 1.0
+position_tolerance = 5.0
+debug_enabled = false
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708

@@ -28,13 +28,25 @@ func _on_upgrade_selected(upgrade_index):
 
 func _on_selected_ship_changed(new_ship):
 	selected_ship = new_ship
+	
+	if new_ship is MotherShip:
+		wheel_displayer.disable()
+		return
 
+	var ship_catalog_elem
 	if selected_ship != null:
 		wheel_displayer.enable()
+		ship_catalog_elem = ShipCatalog.find_ship_in_tree(new_ship)
 	else:
 		wheel_displayer.disable()
 
-	var elements = ShipCatalog.catalog.ships.map(func (element):
+	var upgrades = ShipCatalog.catalog.ships if ship_catalog_elem == null else ship_catalog_elem.upgrades
+	
+	if upgrades == null or upgrades.size() == 0:
+		wheel_displayer.disable()
+		return
+
+	var elements = upgrades.map(func (element):
 		return {
 			"parameters": {
 				"cost": element.price,

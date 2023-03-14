@@ -10,7 +10,7 @@ height = 110.0
 
 [node name="TransportShip" instance=ExtResource("1_kvjgw")]
 number_of_passengers = 100
-speed = 30.0
+ship_type = 0
 explosion_scale = 2.0
 
 [node name="Ship" parent="." index="0"]

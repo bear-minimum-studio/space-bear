@@ -10,7 +10,13 @@ radius = 22.0907
 
 [node name="TurretShip" instance=ExtResource("1_0bdkf")]
 number_of_passengers = 50
-speed = 30.0
+ship_type = 1
+rotation_speed = 10.0
+acceleration = 10.0
+brake = 10.0
+explosion_scale = 1.0
+position_tolerance = 5.0
+debug_enabled = false
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.57079
