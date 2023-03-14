@@ -33,7 +33,8 @@ scale_curve = SubResource("CurveTexture_vfxco")
 [node name="AbstractCivilianShip" groups=["ally", "flock"] instance=ExtResource("1_0bdkf")]
 collision_layer = 8
 script = ExtResource("2_obvko")
-number_of_passengers = 0
+number_of_passengers = 10
+speed = 30.0
 default_behavior_scene = ExtResource("3_uspjt")
 
 [node name="HealthSystem" parent="." index="3"]

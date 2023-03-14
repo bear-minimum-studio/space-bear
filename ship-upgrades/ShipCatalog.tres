@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShipCatalogResource" load_steps=11 format=3 uid="uid://cq4qj2jyxekxr"]
+[gd_resource type="Resource" script_class="ShipCatalogResource" load_steps=13 format=3 uid="uid://cq4qj2jyxekxr"]
 
 [ext_resource type="Script" path="res://ship-upgrades/ShipCatalogResource.gd" id="1_slayw"]
 [ext_resource type="PackedScene" uid="uid://1g287f44t86u" path="res://npc/civilians/ShieldShip.tscn" id="2_f3vtt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tems6a6m6bm3" path="res://npc/civilians/TurretShip.tscn" id="4_ivmn8"]
 [ext_resource type="PackedScene" uid="uid://bv8nckjggws2e" path="res://npc/civilians/HealingShip.tscn" id="5_v6rwg"]
 [ext_resource type="PackedScene" uid="uid://byossaqm6hr1b" path="res://npc/civilians/SmallHealingShip.tscn" id="6_3w7tw"]
+[ext_resource type="PackedScene" uid="uid://cg3syv8iwnaxx" path="res://npc/civilians/SmallShieldShip.tscn" id="7_ptr1t"]
 
 [sub_resource type="Resource" id="Resource_7h2th"]
 script = ExtResource("3_tdsxw")
@@ -31,6 +32,12 @@ price = 10
 display_name = "Small healing ship"
 scene = ExtResource("6_3w7tw")
 
+[sub_resource type="Resource" id="Resource_hcmhf"]
+script = ExtResource("3_tdsxw")
+price = 5
+display_name = "Small shield ship"
+scene = ExtResource("7_ptr1t")
+
 [resource]
 script = ExtResource("1_slayw")
-ships = Array[ExtResource("3_tdsxw")]([SubResource("Resource_7h2th"), SubResource("Resource_m86ra"), SubResource("Resource_3xsag"), SubResource("Resource_q0pnn")])
+ships = Array[ExtResource("3_tdsxw")]([SubResource("Resource_7h2th"), SubResource("Resource_m86ra"), SubResource("Resource_3xsag"), SubResource("Resource_q0pnn"), SubResource("Resource_hcmhf")])
