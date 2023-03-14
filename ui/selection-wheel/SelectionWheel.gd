@@ -8,6 +8,7 @@ extends Control
 @export var color := Color("ffffff", 0.7)
 @export var color_hover := Color("ff57c6", 0.7)
 @export var color_hover_not_selectable := Color("dfdfdf", 0.7)
+@export var background_color := Color("dfdfdf", 0.7)
 
 @export var antialiasing = false
 @export_range(0.0, 500.0, 1.0) var line_length: float = 100.0
@@ -103,9 +104,9 @@ func _is_button_selectable(i: int) -> bool:
 	return elements[i].is_selectable
 
 func _draw():
+	_draw_background()
 	_draw_sectors()
 	_draw_deadzone()
-	_draw_not_selectable_background()
 	_emphasis()
 
 func _draw_deadzone():
@@ -122,22 +123,40 @@ func _draw_sectors():
 		var line_end = wheel_center + line_length * Vector2.from_angle(line_angle)
 		draw_line(line_start, line_end, color, line_width, antialiasing)
 
-func _draw_not_selectable_background():
-	for i in buttons.size():
-		if not _is_button_selectable(i):
-			_draw_button_background(i, color_hover_not_selectable)
+func _draw_background():
+	draw_circle_donut_poly(wheel_center, screen_dead_zone, 3*line_length, 0, 2*PI, background_color)
 
 func _emphasis():
 	if selected_index == null:
 		return
 	if _is_button_selectable(selected_index):
 		_draw_button_background(selected_index, color_hover)
+	else:
+		_draw_button_background(selected_index, color_hover_not_selectable)
 
 func _draw_button_background(i: int, background_color: Color):
 	var start_angle = _button_start_angle(i)
 	var end_angle =  _button_end_angle(i)
 	var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
 	draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, background_color)
+
+
+func draw_circle_donut_poly(center, inner_radius, outer_radius, angle_from, angle_to, color):  
+	var nb_points = 32
+	var points_arc = PackedVector2Array()
+	var points_arc2 = PackedVector2Array()
+	var colors = PackedColorArray([])
+
+	for i in range(nb_points+1):
+		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * outer_radius)
+		colors.push_back(color)
+	
+	for i in range(nb_points,-1,-1):
+		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * inner_radius)
+		colors.push_back(color)
+	draw_polygon(points_arc, colors)
 
 
 func draw_circle_arc_poly(center, min_radius, max_radius, angle_from, angle_to, color):
