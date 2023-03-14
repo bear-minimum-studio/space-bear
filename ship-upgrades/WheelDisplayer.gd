@@ -1,11 +1,15 @@
 extends Control
 
+@export_range(0.0, 1000.0, 10.0) var ms_time_before_selection = 500.0
 @onready var ship_upgrade_wheel = $SelectionWheel
 
 var saved_mouse_position: Vector2
 
 var _enabled
 var _elements
+
+var _timer: Timer
+var _enough_time_elapsed = false
 
 signal upgrade_selected
 
@@ -19,6 +23,7 @@ func _input(event):
 
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
+		_start_timer()
 		ship_upgrade_wheel.show_and_init(_elements)
 		
 		self.opening_upgrades.emit()
@@ -28,10 +33,17 @@ func _input(event):
 		process_mode = Node.PROCESS_MODE_INHERIT
 
 		if ship_upgrade_wheel.selected_index != null:
-			self.upgrade_selected.emit(ship_upgrade_wheel.selected_index)
+			if _enough_time_elapsed:
+				self.upgrade_selected.emit(ship_upgrade_wheel.selected_index)
 	
 		ship_upgrade_wheel.hide()
 		self.closing_upgrades.emit()
+
+
+func _start_timer():
+	_enough_time_elapsed = false
+	await self.get_tree().create_timer(ms_time_before_selection / 1000).timeout
+	_enough_time_elapsed = true
 
 ## Moves the mouse cursor to the center of the screen
 ## and puts it back to the original position after wheel is closed
