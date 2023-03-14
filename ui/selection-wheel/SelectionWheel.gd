@@ -9,6 +9,7 @@ extends Control
 @export var color_hover := Color("ff57c6", 0.7)
 @export var color_hover_not_selectable := Color("dfdfdf", 0.7)
 @export var background_color := Color("dfdfdf", 0.7)
+@export_range(0.0, 1.0, 0.1) var disabled_opacity = 0.4
 
 @export var antialiasing = false
 @export_range(0.0, 500.0, 1.0) var line_length: float = 100.0
@@ -89,6 +90,8 @@ func _add_buttons():
 		var button = button_scene.instantiate()
 		wheel.add_child(button)
 		_set_button_parameters(button, elements[i])
+		if not _is_button_selectable(i):
+			button.modulate.a = disabled_opacity
 
 		var mid_angle = (_button_start_angle(i) + _button_end_angle(i)) / 2
 		button.position = wheel_center + button_distance_to_center * Vector2.from_angle(mid_angle)
