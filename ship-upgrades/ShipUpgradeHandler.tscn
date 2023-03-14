@@ -26,7 +26,7 @@ script = ExtResource("2_1wquj")
 [node name="SelectionWheel" parent="WheelDisplayer" instance=ExtResource("2_t8nse")]
 layout_mode = 1
 color_hover_not_selectable = Color(0.368627, 0.368627, 0.368627, 0.835294)
-background_color = Color(0.443137, 0.156863, 0.435294, 0.54902)
+background_color = Color(0.2, 0.0588235, 0.168627, 0.67451)
 button_scene = ExtResource("4_tq83o")
 
 [connection signal="closing_upgrades" from="WheelDisplayer" to="." method="_on_wheel_displayer_closing_upgrades"]
