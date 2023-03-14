@@ -1,23 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://byossaqm6hr1b"]
+[gd_scene load_steps=6 format=3 uid="uid://byossaqm6hr1b"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_bielc"]
 [ext_resource type="Texture2D" uid="uid://ddrm3s28564e8" path="res://npc/civilians/vaisseau_soin_petit.png" id="2_3y1e2"]
 [ext_resource type="Texture2D" uid="uid://cknbsul2oun0p" path="res://npc/civilians/vaisseau_soin_petit_flammes.png" id="3_ndae1"]
 [ext_resource type="PackedScene" uid="uid://pdwe57bo3bq7" path="res://weapons/turrets/healing-turrets/AutoHealingTurret.tscn" id="4_ptw4n"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw0vo"]
+radius = 21.0238
+
 [node name="SmallHealingShip" instance=ExtResource("1_bielc")]
 speed = 30.0
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_3y1e2")
 
 [node name="Flammes" parent="." index="1"]
 rotation = 1.5708
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ndae1")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_vw0vo")
 
 [node name="HealthSystem" parent="." index="3"]
 max_health = 50
+
+[node name="HealthBar" parent="UI" index="0"]
+offset_left = -21.0
+offset_top = 22.0
+offset_right = 25.0
+offset_bottom = 38.0
 
 [node name="Turrets" type="Node2D" parent="." index="7"]
 

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="4_273rr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t24if"]
+radius = 22.0907
 
 [node name="TurretShip" instance=ExtResource("1_0bdkf")]
 number_of_passengers = 50
@@ -13,10 +14,12 @@ speed = 30.0
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.57079
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_0o62w")
 
 [node name="Flammes" parent="." index="1"]
 rotation = 1.57079
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_qquy2")
 
 [node name="CollisionShape2D" parent="." index="2"]
@@ -24,6 +27,10 @@ shape = SubResource("CircleShape2D_t24if")
 
 [node name="HealthSystem" parent="." index="3"]
 max_health = 80
+
+[node name="HealthBar" parent="UI" index="0"]
+offset_top = 23.0
+offset_bottom = 39.0
 
 [node name="Turrets" type="Node2D" parent="." index="7"]
 
