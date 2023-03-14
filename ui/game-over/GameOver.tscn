@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsmalws6v4e8y"]
+[gd_scene load_steps=2 format=3 uid="uid://dsmalws6v4e8y"]
 
 [ext_resource type="Script" path="res://ui/game-over/GameOver.gd" id="1_ndv6x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s54nh"]
-bg_color = Color(0.188235, 0.121569, 0.117647, 1)
 
 [node name="GameOver" type="Control"]
 process_mode = 2
@@ -22,7 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_s54nh")
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 1

@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0rrwdxtxpel4"]
+[gd_scene load_steps=2 format=3 uid="uid://d0rrwdxtxpel4"]
 
 [ext_resource type="Script" path="res://ui/level-end/LevelEnd.gd" id="1_k1t3j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4bad"]
-bg_color = Color(0.192157, 0.0941176, 0.227451, 1)
 
 [node name="LevelEnd" type="Control"]
 process_mode = 2
@@ -22,7 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_v4bad")
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 1
