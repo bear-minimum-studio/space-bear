@@ -29,9 +29,11 @@ jobs:
         godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
         relative_project_path: ./
         use_godot_4: true
+        archive_output: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    # For web builds
     - name: Add coi-service-worker
       run: |
         git clone https://github.com/gzuidhof/coi-serviceworker.git
@@ -42,3 +44,11 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ../../../.local/share/godot/builds/Web
+
+    - name: create release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: /home/runner/.local/share/godot/builds/*.zip
