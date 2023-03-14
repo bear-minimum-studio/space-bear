@@ -28,6 +28,7 @@ height = 198.0
 [node name="MotherShip" instance=ExtResource("1_0bdkf")]
 script = ExtResource("2_0k21p")
 number_of_passengers = 1000
+is_ship_upgradable = false
 explosion_scale = 3.0
 
 [node name="Ship" parent="." index="0"]

@@ -35,6 +35,7 @@ collision_layer = 8
 script = ExtResource("2_obvko")
 number_of_passengers = 10
 ship_model = 0
+is_ship_upgradable = true
 speed = 30.0
 default_behavior_scene = ExtResource("3_uspjt")
 

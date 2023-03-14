@@ -28,7 +28,7 @@ func _on_upgrade_selected(selected_upgrade_element):
 func _on_selected_ship_changed(new_ship):
 	selected_ship = new_ship
 	
-	if selected_ship == null or selected_ship is MotherShip:
+	if selected_ship == null or selected_ship.is_ship_upgradable == false:
 		wheel_displayer.disable()
 		return
 
