@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://byossaqm6hr1b"]
+
+[ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_bielc"]
+[ext_resource type="Texture2D" uid="uid://ddrm3s28564e8" path="res://npc/civilians/vaisseau_soin_petit.png" id="2_3y1e2"]
+[ext_resource type="Texture2D" uid="uid://cknbsul2oun0p" path="res://npc/civilians/vaisseau_soin_petit_flammes.png" id="3_ndae1"]
+[ext_resource type="PackedScene" uid="uid://pdwe57bo3bq7" path="res://weapons/turrets/healing-turrets/AutoHealingTurret.tscn" id="4_ptw4n"]
+
+[node name="SmallHealingShip" instance=ExtResource("1_bielc")]
+speed = 30.0
+
+[node name="Ship" parent="." index="0"]
+rotation = 1.5708
+texture = ExtResource("2_3y1e2")
+
+[node name="Flammes" parent="." index="1"]
+rotation = 1.5708
+texture = ExtResource("3_ndae1")
+
+[node name="HealthSystem" parent="." index="3"]
+max_health = 50
+
+[node name="Turrets" type="Node2D" parent="." index="7"]
+
+[node name="AutoHealingTurret" parent="Turrets" index="0" instance=ExtResource("4_ptw4n")]
+heal = 3
+shots_per_second = 1.0
