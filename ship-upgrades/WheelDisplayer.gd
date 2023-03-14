@@ -31,9 +31,9 @@ func _input(event):
 		get_tree().paused = false
 		process_mode = Node.PROCESS_MODE_INHERIT
 
-		if ship_upgrade_wheel.selected_index != null:
+		if ship_upgrade_wheel.selected != null:
 			if _enough_time_elapsed:
-				self.upgrade_selected.emit(ship_upgrade_wheel.selected_index)
+				self.upgrade_selected.emit(ship_upgrade_wheel.selected)
 	
 		ship_upgrade_wheel.hide()
 		self.closing_upgrades.emit()

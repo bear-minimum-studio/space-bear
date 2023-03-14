@@ -9,6 +9,7 @@
 radius = 20.0998
 
 [node name="SmallShieldShip" instance=ExtResource("1_lvvp6")]
+ship_model = 2
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708

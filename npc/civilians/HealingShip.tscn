@@ -10,8 +10,7 @@ radius = 36.0
 height = 88.0
 
 [node name="HealingShip" instance=ExtResource("1_8wy0g")]
-number_of_passengers = 10
-speed = 30.0
+ship_model = 5
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.57079
@@ -28,7 +27,7 @@ position = Vector2(10, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_d3aet")
 
-[node name="HealthSystem" parent="." index="4"]
+[node name="HealthSystem" parent="." index="3"]
 max_health = 150
 
 [node name="HealthBar" parent="UI" index="0"]
@@ -37,7 +36,7 @@ offset_top = 50.0
 offset_right = 46.0
 offset_bottom = 66.0
 
-[node name="Turrets" type="Node2D" parent="." index="8"]
+[node name="Turrets" type="Node2D" parent="." index="7"]
 
 [node name="AutoHealingTurret" parent="Turrets" index="0" instance=ExtResource("4_rqyc8")]
 position = Vector2(32, -20)

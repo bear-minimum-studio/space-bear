@@ -22,25 +22,33 @@ func _upgrade_selected_ship(selected_upgrade):
 	if selected_ship.has_method("upgrade"):
 		selected_ship.upgrade(selected_upgrade)
 
-func _on_upgrade_selected(upgrade_index):
-	var selected_upgrade = ShipCatalog.catalog.ships[upgrade_index]
-	_upgrade_selected_ship(selected_upgrade)
+func _on_upgrade_selected(selected_upgrade_element):
+	_upgrade_selected_ship(selected_upgrade_element.catalog_element)
 
 func _on_selected_ship_changed(new_ship):
 	selected_ship = new_ship
-
-	if selected_ship != null:
-		wheel_displayer.enable()
-	else:
+	
+	if selected_ship == null or selected_ship is MotherShip:
 		wheel_displayer.disable()
+		return
 
-	var elements = ShipCatalog.catalog.ships.map(func (element):
+	wheel_displayer.enable()
+	var current_ship_in_catalog = ShipCatalog.find_ship_in_tree(new_ship)
+
+	var available_upgrades = ShipCatalog.catalog.ships if current_ship_in_catalog == null else current_ship_in_catalog.upgrades
+	
+	if available_upgrades == null or available_upgrades.size() == 0:
+		wheel_displayer.disable()
+		return
+
+	var elements = available_upgrades.map(func (upgrade):
 		return {
 			"parameters": {
-				"cost": element.price,
-				"ship_name": element.display_name
+				"cost": upgrade.price,
+				"ship_name": upgrade.display_name
 			},
-			"is_selectable": element.price <= FlockResources.get_resources(),
+			"is_selectable": upgrade.price <= FlockResources.get_resources(),
+			"catalog_element": upgrade,
 		}
 	)
 	wheel_displayer.set_elements(elements)

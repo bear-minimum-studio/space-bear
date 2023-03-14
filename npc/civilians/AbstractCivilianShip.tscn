@@ -34,8 +34,15 @@ scale_curve = SubResource("CurveTexture_vfxco")
 collision_layer = 8
 script = ExtResource("2_obvko")
 number_of_passengers = 10
+ship_model = 0
 speed = 30.0
 default_behavior_scene = ExtResource("3_uspjt")
+
+[node name="Ship" parent="." index="0"]
+use_parent_material = true
+
+[node name="Flammes" parent="." index="1"]
+use_parent_material = true
 
 [node name="HealthSystem" parent="." index="3"]
 healable = true

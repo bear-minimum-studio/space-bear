@@ -9,7 +9,7 @@
 radius = 21.0238
 
 [node name="SmallHealingShip" instance=ExtResource("1_bielc")]
-speed = 30.0
+ship_model = 3
 
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708

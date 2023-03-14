@@ -61,6 +61,12 @@ var selected_index:
 			return null
 		return floori((selection_angle + PI/2) / _rotation_step)
 
+var selected:
+	get:
+		if !selecting:
+			return null
+		return elements[selected_index]
+
 ## Use this to show the wheel
 func show_and_init(elements_to_show: Array):
 	elements = elements_to_show
