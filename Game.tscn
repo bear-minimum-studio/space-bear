@@ -70,6 +70,7 @@ visible = false
 visible = false
 
 [node name="LevelChange" parent="CanvasLayer" instance=ExtResource("11_x5wsm")]
+process_mode = 3
 visible = false
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
