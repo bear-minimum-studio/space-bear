@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_7h2th"]
 script = ExtResource("3_tdsxw")
-price = 10
+price = 5
 display_name = "Turret ship"
 scene = ExtResource("4_ivmn8")
 

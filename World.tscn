@@ -314,27 +314,33 @@ rotation = -0.698132
 [node name="BaseEnemy" parent="Enemies" index="0" instance=ExtResource("6_q52vq")]
 position = Vector2(-271, -664)
 
-[node name="BaseEnemy2" parent="Enemies" index="1" instance=ExtResource("6_q52vq")]
-position = Vector2(2658, 707)
+[node name="BaseEnemy7" parent="Enemies" index="1" instance=ExtResource("6_q52vq")]
+position = Vector2(1783, 790)
 
-[node name="BaseEnemy3" parent="Enemies" index="2" instance=ExtResource("6_q52vq")]
-position = Vector2(4433, -556)
+[node name="BaseEnemy8" parent="Enemies" index="2" instance=ExtResource("6_q52vq")]
+position = Vector2(1715, 1045)
 
-[node name="BaseEnemy4" parent="Enemies" index="3" instance=ExtResource("6_q52vq")]
-position = Vector2(2863, 1137)
+[node name="BaseEnemy2" parent="Enemies" index="3" instance=ExtResource("6_q52vq")]
+position = Vector2(2952, 747)
 
-[node name="BaseEnemy5" parent="Enemies" index="4" instance=ExtResource("6_q52vq")]
-position = Vector2(2921, 226)
+[node name="BaseEnemy3" parent="Enemies" index="4" instance=ExtResource("6_q52vq")]
+position = Vector2(4705, -550)
 
-[node name="BaseEnemy6" parent="Enemies" index="5" instance=ExtResource("6_q52vq")]
-position = Vector2(3082, 686)
+[node name="BaseEnemy4" parent="Enemies" index="5" instance=ExtResource("6_q52vq")]
+position = Vector2(3157, 1177)
 
-[node name="Enemy" parent="Enemies" index="6" instance=ExtResource("6_m2i0p")]
-position = Vector2(4403, -120)
+[node name="BaseEnemy5" parent="Enemies" index="6" instance=ExtResource("6_q52vq")]
+position = Vector2(3215, 266)
+
+[node name="BaseEnemy6" parent="Enemies" index="7" instance=ExtResource("6_q52vq")]
+position = Vector2(3376, 726)
+
+[node name="Enemy" parent="Enemies" index="8" instance=ExtResource("6_m2i0p")]
+position = Vector2(4675, -114)
 kill_bonus = 3
 speed = 70.0
 
-[node name="Enemy2" parent="Enemies" index="7" instance=ExtResource("6_m2i0p")]
-position = Vector2(4408, -1003)
+[node name="Enemy2" parent="Enemies" index="9" instance=ExtResource("6_m2i0p")]
+position = Vector2(4680, -997)
 kill_bonus = 3
 speed = 70.0
