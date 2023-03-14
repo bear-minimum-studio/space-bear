@@ -55,6 +55,9 @@ layout_mode = 2
 [node name="SectorInfo" parent="CanvasLayer/MarginContainer" instance=ExtResource("6_ixfnp")]
 layout_mode = 2
 
+[node name="FleetProgression" parent="CanvasLayer/MarginContainer" instance=ExtResource("12_v6rqd")]
+layout_mode = 2
+
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("8_rpob0")]
 visible = false
 
@@ -66,8 +69,6 @@ visible = false
 
 [node name="LevelChange" parent="CanvasLayer" instance=ExtResource("11_x5wsm")]
 visible = false
-
-[node name="FleetProgression" parent="CanvasLayer" instance=ExtResource("12_v6rqd")]
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
 offset_right = 40.0

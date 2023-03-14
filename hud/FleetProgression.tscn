@@ -39,16 +39,13 @@ grow_vertical = 2
 script = ExtResource("1_l1i72")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(130, 25)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 345.0
-offset_top = 3.0
-offset_right = -2.0
-offset_bottom = -244.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_bottom = 25.0
+grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fhadl")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
