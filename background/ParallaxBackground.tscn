@@ -39,7 +39,6 @@ motion_mirroring = Vector2(2048, 2048)
 
 [node name="Nebula2" type="Sprite2D" parent="Nebula2"]
 position = Vector2(406, 1136)
-scale = Vector2(2, 2)
 texture = ExtResource("3_u43jn")
 
 [node name="Nebula1" type="ParallaxLayer" parent="."]
@@ -49,7 +48,6 @@ motion_mirroring = Vector2(2048, 2048)
 
 [node name="Nebula1" type="Sprite2D" parent="Nebula1"]
 position = Vector2(1090, 13)
-scale = Vector2(2, 2)
 texture = ExtResource("4_3vp0m")
 
 [node name="AverageDistanceStars" type="ParallaxLayer" parent="."]
