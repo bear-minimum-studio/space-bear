@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6xv4onn08un4"
-path="res://.godot/imported/vaisseau_civil_6.png-6fef6ce9263d1964f00eb4b04495b839.ctex"
+path="res://.godot/imported/vaisseau_shield_petit.png-057d9586c1222c3dee5c952ad4eb4969.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npc/civilians/vaisseau_civil_6.png"
-dest_files=["res://.godot/imported/vaisseau_civil_6.png-6fef6ce9263d1964f00eb4b04495b839.ctex"]
+source_file="res://npc/civilians/vaisseau_shield_petit.png"
+dest_files=["res://.godot/imported/vaisseau_shield_petit.png-057d9586c1222c3dee5c952ad4eb4969.ctex"]
 
 [params]
 

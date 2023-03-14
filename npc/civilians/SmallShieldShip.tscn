@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg3syv8iwnaxx"]
+[gd_scene load_steps=6 format=3 uid="uid://ce70vac86kgms"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_lvvp6"]
-[ext_resource type="Texture2D" uid="uid://c6xv4onn08un4" path="res://npc/civilians/vaisseau_civil_6.png" id="2_tj17t"]
-[ext_resource type="Texture2D" uid="uid://bey2guva57hqc" path="res://npc/civilians/vaisseau_civil_6_flammes.png" id="3_a6erv"]
+[ext_resource type="Texture2D" uid="uid://c6xv4onn08un4" path="res://npc/civilians/vaisseau_shield_petit.png" id="2_7bclq"]
+[ext_resource type="Texture2D" uid="uid://bey2guva57hqc" path="res://npc/civilians/vaisseau_civil_shield_petit_flammes.png" id="3_7s6l4"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="4_h8w2n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4q5u"]
@@ -13,12 +13,12 @@ radius = 20.0998
 [node name="Ship" parent="." index="0"]
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_tj17t")
+texture = ExtResource("2_7bclq")
 
 [node name="Flammes" parent="." index="1"]
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_a6erv")
+texture = ExtResource("3_7s6l4")
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(4, 0)
