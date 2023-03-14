@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm0sum8oi2m1s"]
+[gd_scene load_steps=10 format=3 uid="uid://cm0sum8oi2m1s"]
 
 [ext_resource type="Texture2D" uid="uid://bmb3kxcws53c8" path="res://background/etoiles_loin.png" id="1_sp3f8"]
 [ext_resource type="Texture2D" uid="uid://cpsip7famptfr" path="res://background/nebula_bigger.png" id="2_66le6"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://twufk2gd3ibk" path="res://background/etoiles_moyennes.png" id="5_jgd72"]
 [ext_resource type="Texture2D" uid="uid://bhc56kw4vat4c" path="res://background/etoiles_grosses.png" id="6_vmw36"]
 [ext_resource type="Texture2D" uid="uid://cxaewrws3acee" path="res://background/dust.png" id="7_j6kuq"]
+[ext_resource type="Texture2D" uid="uid://cfg6s66o2uyi6" path="res://background/planete.png" id="7_vm44g"]
+[ext_resource type="Texture2D" uid="uid://bhtkiisrmgbe7" path="res://background/planete2.png" id="7_wa17k"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -37,7 +39,7 @@ motion_mirroring = Vector2(2048, 2048)
 
 [node name="Nebula2" type="Sprite2D" parent="Nebula2"]
 position = Vector2(406, 1136)
-scale = Vector2(2.95312, 2.95312)
+scale = Vector2(2, 2)
 texture = ExtResource("3_u43jn")
 
 [node name="Nebula1" type="ParallaxLayer" parent="."]
@@ -47,7 +49,7 @@ motion_mirroring = Vector2(2048, 2048)
 
 [node name="Nebula1" type="Sprite2D" parent="Nebula1"]
 position = Vector2(1090, 13)
-scale = Vector2(3.125, 3.125)
+scale = Vector2(2, 2)
 texture = ExtResource("4_3vp0m")
 
 [node name="AverageDistanceStars" type="ParallaxLayer" parent="."]
@@ -70,6 +72,29 @@ texture_repeat = 2
 texture = ExtResource("6_vmw36")
 centered = false
 region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="Planet" type="ParallaxLayer" parent="."]
+position = Vector2(1070, 566)
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet"]
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_vm44g")
+centered = false
+region_rect = Rect2(0, 0, 2048, 2048)
+
+[node name="Planet2" type="ParallaxLayer" parent="."]
+position = Vector2(1070, 566)
+motion_scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet2"]
+texture_repeat = 2
+position = Vector2(257, -547)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_wa17k")
+centered = false
 region_rect = Rect2(0, 0, 2048, 2048)
 
 [node name="VeryCloseDust" type="ParallaxLayer" parent="."]
