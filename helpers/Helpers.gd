@@ -19,8 +19,11 @@ static func find_nearest_node(reference: Node2D, other_nodes: Array):
 	return nearest
 
 static func set_parent_material_to_children(parent: Control, value :bool):
-	for child in parent.get_children():
-		child.use_parent_material(value)
+	for child in parent.get_children(true):
+		if not(child is Control):
+			continue
+		child.use_parent_material = value
+		Helpers.set_parent_material_to_children(child, value)
 
 static func get_velocity(node: PhysicsBody2D) -> Vector2:
 	if node is RigidBody2D:
