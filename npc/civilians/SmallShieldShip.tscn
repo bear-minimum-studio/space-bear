@@ -31,4 +31,6 @@ offset_top = 24.0
 offset_bottom = 40.0
 
 [node name="Shield" parent="." index="7" instance=ExtResource("4_h8w2n")]
+recharge_delay_seconds = 2.0
+max_health = 40
 shield_size = 150.0
