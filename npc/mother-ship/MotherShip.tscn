@@ -32,12 +32,10 @@ is_ship_upgradable = false
 explosion_scale = 3.0
 
 [node name="Ship" parent="." index="0"]
-rotation = 1.5708
 scale = Vector2(2, 2)
 texture = ExtResource("3_kencp")
 
 [node name="Flammes" parent="." index="1"]
-rotation = 1.5708
 scale = Vector2(2, 2)
 texture = SubResource("AnimatedTexture_huoyw")
 

@@ -14,12 +14,10 @@ is_ship_upgradable = false
 explosion_scale = 2.0
 
 [node name="Ship" parent="." index="0"]
-rotation = 1.57079
 scale = Vector2(2, 2)
 texture = ExtResource("2_gv10f")
 
 [node name="Flammes" parent="." index="1"]
-rotation = 1.57079
 scale = Vector2(2, 2)
 texture = ExtResource("3_spp3y")
 

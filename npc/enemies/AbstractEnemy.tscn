@@ -18,12 +18,10 @@ acceleration = 3.0
 brake = 1.0
 
 [node name="Ship" parent="." index="0"]
-rotation = 1.57079
 scale = Vector2(2, 2)
 texture = ExtResource("3_cry1g")
 
 [node name="Flammes" parent="." index="1"]
-rotation = 1.5708
 scale = Vector2(2, 2)
 texture = ExtResource("4_toa7b")
 

@@ -11,14 +11,11 @@ height = 24.0
 
 [node name="CivilianShip" instance=ExtResource("1_0bdkf")]
 script = ExtResource("1_fv8tp")
-ship_model = 0
 
 [node name="Ship" parent="." index="0"]
-rotation = 1.5708
 texture = ExtResource("2_2kdh0")
 
 [node name="Flammes" parent="." index="1"]
-rotation = 1.5708
 texture = ExtResource("3_0664p")
 
 [node name="CollisionShape2D" parent="." index="2"]

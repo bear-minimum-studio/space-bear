@@ -12,12 +12,10 @@ radius = 21.0238
 ship_model = 3
 
 [node name="Ship" parent="." index="0"]
-rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_3y1e2")
 
 [node name="Flammes" parent="." index="1"]
-rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_ndae1")
 

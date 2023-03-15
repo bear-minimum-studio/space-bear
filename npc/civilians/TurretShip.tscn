@@ -13,12 +13,10 @@ number_of_passengers = 50
 ship_model = 1
 
 [node name="Ship" parent="." index="0"]
-rotation = 1.57079
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ppvx8")
 
 [node name="Flammes" parent="." index="1"]
-rotation = 1.57079
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_8ika6")
 
