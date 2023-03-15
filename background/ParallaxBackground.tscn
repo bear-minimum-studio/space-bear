@@ -74,7 +74,7 @@ region_rect = Rect2(0, 0, 2048, 2048)
 
 [node name="Planet" type="ParallaxLayer" parent="."]
 position = Vector2(1070, 566)
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.1, 0.1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
 texture_repeat = 2
@@ -85,7 +85,7 @@ region_rect = Rect2(0, 0, 2048, 2048)
 
 [node name="Planet2" type="ParallaxLayer" parent="."]
 position = Vector2(1070, 566)
-motion_scale = Vector2(0.25, 0.25)
+motion_scale = Vector2(0.15, 0.15)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet2"]
 texture_repeat = 2
