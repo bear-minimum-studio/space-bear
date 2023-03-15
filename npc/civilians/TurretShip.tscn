@@ -9,7 +9,6 @@
 radius = 22.0907
 
 [node name="TurretShip" instance=ExtResource("1_0bdkf")]
-number_of_passengers = 50
 ship_model = 1
 
 [node name="Ship" parent="." index="0"]
