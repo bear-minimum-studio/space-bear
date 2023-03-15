@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="3_vxuwv"]
 [ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="4_lr1mj"]
 [ext_resource type="PackedScene" uid="uid://cgjq1jul4iip3" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
-[ext_resource type="PackedScene" path="res://npc/enemies/BaseEnemy.tscn" id="6_q52vq"]
+[ext_resource type="PackedScene" uid="uid://muoegcv2qwhy" path="res://npc/enemies/BaseEnemy.tscn" id="6_q52vq"]
 
 [node name="World" instance=ExtResource("1_tdmob")]
 mission = "Survive the enemies."
@@ -311,36 +311,52 @@ rotation = -0.698132
 position = Vector2(452, 94)
 rotation = -0.698132
 
-[node name="BaseEnemy" parent="Enemies" index="0" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy9" parent="Enemies" index="0" instance=ExtResource("6_q52vq")]
+position = Vector2(6196, -577)
+
+[node name="Enemy3" parent="Enemies" index="1" instance=ExtResource("6_m2i0p")]
+position = Vector2(6166, -141)
+kill_bonus = 3
+speed = 70.0
+
+[node name="Enemy4" parent="Enemies" index="2" instance=ExtResource("6_m2i0p")]
+position = Vector2(6171, -1024)
+kill_bonus = 3
+speed = 70.0
+
+[node name="BaseEnemy" parent="Enemies" index="3" instance=ExtResource("6_q52vq")]
 position = Vector2(-271, -664)
 
-[node name="BaseEnemy7" parent="Enemies" index="1" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy10" parent="Enemies" index="4" instance=ExtResource("6_q52vq")]
+position = Vector2(-756, -1050)
+
+[node name="BaseEnemy7" parent="Enemies" index="5" instance=ExtResource("6_q52vq")]
 position = Vector2(1783, 790)
 
-[node name="BaseEnemy8" parent="Enemies" index="2" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy8" parent="Enemies" index="6" instance=ExtResource("6_q52vq")]
 position = Vector2(1715, 1045)
 
-[node name="BaseEnemy2" parent="Enemies" index="3" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy2" parent="Enemies" index="7" instance=ExtResource("6_q52vq")]
 position = Vector2(2952, 747)
 
-[node name="BaseEnemy3" parent="Enemies" index="4" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy3" parent="Enemies" index="8" instance=ExtResource("6_q52vq")]
 position = Vector2(4705, -550)
 
-[node name="BaseEnemy4" parent="Enemies" index="5" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy4" parent="Enemies" index="9" instance=ExtResource("6_q52vq")]
 position = Vector2(3157, 1177)
 
-[node name="BaseEnemy5" parent="Enemies" index="6" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy5" parent="Enemies" index="10" instance=ExtResource("6_q52vq")]
 position = Vector2(3215, 266)
 
-[node name="BaseEnemy6" parent="Enemies" index="7" instance=ExtResource("6_q52vq")]
+[node name="BaseEnemy6" parent="Enemies" index="11" instance=ExtResource("6_q52vq")]
 position = Vector2(3376, 726)
 
-[node name="Enemy" parent="Enemies" index="8" instance=ExtResource("6_m2i0p")]
+[node name="Enemy" parent="Enemies" index="12" instance=ExtResource("6_m2i0p")]
 position = Vector2(4675, -114)
 kill_bonus = 3
 speed = 70.0
 
-[node name="Enemy2" parent="Enemies" index="9" instance=ExtResource("6_m2i0p")]
+[node name="Enemy2" parent="Enemies" index="13" instance=ExtResource("6_m2i0p")]
 position = Vector2(4680, -997)
 kill_bonus = 3
 speed = 70.0
