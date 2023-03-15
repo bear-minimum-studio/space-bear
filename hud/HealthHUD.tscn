@@ -10,9 +10,9 @@ offset_right = 100.0
 offset_bottom = 16.0
 script = ExtResource("3_pqavy")
 
-[node name="HealthIcon" type="TextureRect" parent="."]
+[node name="ShipIcon" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_tcr4q")
+texture = ExtResource("2_hgpfo")
 expand_mode = 2
 stretch_mode = 4
 
@@ -20,8 +20,9 @@ stretch_mode = 4
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 
-[node name="ShipIcon" type="TextureRect" parent="."]
+[node name="HealthIcon" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
-texture = ExtResource("2_hgpfo")
+texture = ExtResource("1_tcr4q")
 expand_mode = 2
 stretch_mode = 4
