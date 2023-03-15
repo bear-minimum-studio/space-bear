@@ -26,7 +26,7 @@ rotation = 4.71238
 shape = SubResource("CapsuleShape2D_4sqib")
 
 [node name="HealthSystem" parent="." index="3"]
-max_health = 50
+max_health = 150
 
 [node name="HealthBar" parent="UI" index="0"]
 offset_left = -53.0
@@ -35,5 +35,6 @@ offset_right = 53.0
 offset_bottom = 73.0
 
 [node name="Shield" parent="." index="7" instance=ExtResource("4_mj3k5")]
-max_health = 200
-shield_size = 200.0
+recharge_delay_seconds = 3.0
+max_health = 300
+shield_size = 300.0

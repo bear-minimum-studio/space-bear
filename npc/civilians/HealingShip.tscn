@@ -38,7 +38,8 @@ offset_bottom = 66.0
 
 [node name="AutoHealingTurret" parent="Turrets" index="0" instance=ExtResource("4_rqyc8")]
 position = Vector2(32, -20)
-shots_per_second = 3.0
+heal = 3
 
 [node name="AutoHealingTurret2" parent="Turrets" index="1" instance=ExtResource("4_rqyc8")]
 position = Vector2(32, 18)
+heal = 3

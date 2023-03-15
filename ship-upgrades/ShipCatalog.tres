@@ -45,7 +45,7 @@ upgrades = Array[ExtResource("3_tdsxw")]([SubResource("Resource_gmxpj"), SubReso
 
 [sub_resource type="Resource" id="Resource_acwjv"]
 script = ExtResource("3_tdsxw")
-price = 50
+price = 30
 display_name = "Healing ship"
 scene = ExtResource("5_v6rwg")
 ship_model = 5
@@ -61,7 +61,7 @@ upgrades = Array[ExtResource("3_tdsxw")]([SubResource("Resource_acwjv")])
 
 [sub_resource type="Resource" id="Resource_1go78"]
 script = ExtResource("3_tdsxw")
-price = 50
+price = 20
 display_name = "Shield ship"
 scene = ExtResource("2_f3vtt")
 ship_model = 4
