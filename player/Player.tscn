@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cv7li5vw58r6p"]
+[gd_scene load_steps=34 format=3 uid="uid://cv7li5vw58r6p"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://mfphwxtb85tt" path="res://player/flames/vaisseau_joueur_flammes_haut1.png" id="2_7f437"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dvf582hv62snf" path="res://weapons/turrets/bullet-turrets/BulletTurret.tscn" id="14_0m4ls"]
 [ext_resource type="PackedScene" uid="uid://g2uw1el2x1ea" path="res://hud/radar/PlayerRadar.tscn" id="14_fhr4g"]
 [ext_resource type="PackedScene" uid="uid://djt0jq7486mc6" path="res://hud/UnderAttack.tscn" id="17_umsx8"]
+[ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="26_ou017"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_78gkf"]
 frames = 3
@@ -168,6 +169,10 @@ modulate = Color(0.917647, 0.368627, 0.686275, 0.47451)
 [node name="PlayerRadarResources" parent="PlayerHUD" instance=ExtResource("14_fhr4g")]
 modulate = Color(0.588235, 0.654902, 0.917647, 0.47451)
 radar_type = 1
+
+[node name="Shield" parent="." instance=ExtResource("26_ou017")]
+max_health = 40
+shield_size = 50.0
 
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
