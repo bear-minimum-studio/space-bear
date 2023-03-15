@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ShipCatalogResource" load_steps=15 format=3 uid="uid://cq4qj2jyxekxr"]
+[gd_resource type="Resource" script_class="ShipCatalogResource" load_steps=17 format=3 uid="uid://cq4qj2jyxekxr"]
 
 [ext_resource type="Script" path="res://ship-upgrades/ShipCatalogResource.gd" id="1_slayw"]
 [ext_resource type="PackedScene" uid="uid://1g287f44t86u" path="res://npc/civilians/ShieldShip.tscn" id="2_f3vtt"]
 [ext_resource type="Script" path="res://ship-upgrades/ShipCatalogResourceElement.gd" id="3_tdsxw"]
 [ext_resource type="PackedScene" uid="uid://cp07k4q2h1yly" path="res://npc/civilians/DoubleTurretShip.tscn" id="4_dfv8g"]
 [ext_resource type="PackedScene" uid="uid://tems6a6m6bm3" path="res://npc/civilians/TurretShip.tscn" id="4_ivmn8"]
+[ext_resource type="PackedScene" uid="uid://ddh6d2f1tg850" path="res://npc/civilians/LaserShip.tscn" id="5_m5eyr"]
 [ext_resource type="PackedScene" uid="uid://bv8nckjggws2e" path="res://npc/civilians/HealingShip.tscn" id="5_v6rwg"]
 [ext_resource type="PackedScene" uid="uid://byossaqm6hr1b" path="res://npc/civilians/SmallHealingShip.tscn" id="6_3w7tw"]
 [ext_resource type="PackedScene" uid="uid://ce70vac86kgms" path="res://npc/civilians/SmallShieldShip.tscn" id="7_ptr1t"]
@@ -17,13 +18,21 @@ scene = ExtResource("4_dfv8g")
 ship_model = 6
 upgrades = Array[ExtResource("3_tdsxw")]([])
 
+[sub_resource type="Resource" id="Resource_u44jx"]
+script = ExtResource("3_tdsxw")
+price = 20
+display_name = "Laser ship"
+scene = ExtResource("5_m5eyr")
+ship_model = 7
+upgrades = Array[ExtResource("3_tdsxw")]([])
+
 [sub_resource type="Resource" id="Resource_7h2th"]
 script = ExtResource("3_tdsxw")
 price = 5
 display_name = "Turret ship"
 scene = ExtResource("4_ivmn8")
 ship_model = 1
-upgrades = Array[ExtResource("3_tdsxw")]([SubResource("Resource_gmxpj")])
+upgrades = Array[ExtResource("3_tdsxw")]([SubResource("Resource_gmxpj"), SubResource("Resource_u44jx")])
 
 [sub_resource type="Resource" id="Resource_acwjv"]
 script = ExtResource("3_tdsxw")
