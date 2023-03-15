@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dujcwt8umqhfd"]
+[gd_scene load_steps=8 format=3 uid="uid://dujcwt8umqhfd"]
 
 [ext_resource type="Script" path="res://npc/AbstractShip.gd" id="1_efvdm"]
 [ext_resource type="PackedScene" uid="uid://dup7bmnxifgyd" path="res://health-system/HealthSystem.tscn" id="2_butel"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://npc/UI.gd" id="4_7qtu0"]
 [ext_resource type="PackedScene" uid="uid://cy5srf1xm0us3" path="res://ui/ProgressBar.tscn" id="4_t6fe4"]
 [ext_resource type="Script" path="res://npc/ShipHealth.gd" id="6_pc2kh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q60kr"]
 
 [node name="AbstractShip" type="CharacterBody2D"]
 collision_layer = 0
@@ -19,6 +21,7 @@ rotation = 1.5708
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q60kr")
 
 [node name="HealthSystem" parent="." node_paths=PackedStringArray("hurtable_body") instance=ExtResource("2_butel")]
 hurtable_body = NodePath("..")
