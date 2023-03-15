@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cp07k4q2h1yly"]
 
 [ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_7n75x"]
-[ext_resource type="Texture2D" uid="uid://876ifecl54ww" path="res://npc/civilians/vaisseau_defense.png" id="2_oipfn"]
-[ext_resource type="Texture2D" uid="uid://dg1k0isxxsv4q" path="res://npc/civilians/vaisseau_defense_flammes.png" id="3_5iar3"]
+[ext_resource type="Texture2D" uid="uid://cforb8e6k8j1i" path="res://npc/civilians/vaisseau_defense_2.png" id="2_4q3yd"]
+[ext_resource type="Texture2D" uid="uid://nev7qlkacryn" path="res://npc/civilians/vaisseau_defense_2_flammes.png" id="3_ccds7"]
 [ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="4_gi8e1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i0ujp"]
@@ -13,11 +13,11 @@ ship_model = 6
 
 [node name="Ship" parent="." index="0"]
 scale = Vector2(2, 2)
-texture = ExtResource("2_oipfn")
+texture = ExtResource("2_4q3yd")
 
 [node name="Flammes" parent="." index="1"]
 scale = Vector2(2, 2)
-texture = ExtResource("3_5iar3")
+texture = ExtResource("3_ccds7")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_i0ujp")
@@ -32,14 +32,14 @@ offset_bottom = 47.0
 [node name="Turrets" type="Node2D" parent="." index="7"]
 
 [node name="AutoBulltetTurret" parent="Turrets" index="0" instance=ExtResource("4_gi8e1")]
-position = Vector2(14, 20)
+position = Vector2(20, 20)
 turret_range = 500.0
 bullet_spread = 4.0
 turret_allegiance = 1
 shots_per_second = 8.0
 
 [node name="AutoBulltetTurret2" parent="Turrets" index="1" instance=ExtResource("4_gi8e1")]
-position = Vector2(13, -21)
+position = Vector2(19, -21)
 turret_range = 500.0
 bullet_spread = 4.0
 turret_allegiance = 1
