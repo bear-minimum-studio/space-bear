@@ -11,6 +11,7 @@ enum ShipModels {
 	HEAL,
 	DOUBLE_TURRET,
 	LASER_TURRET,
+	SUPER_BULLET_TURRET,
 }
 
 func _find_ship_in_tree_recursive(ship: AbstractCivilianShip, upgrades_array: Array[ShipCatalogResourceElement]):

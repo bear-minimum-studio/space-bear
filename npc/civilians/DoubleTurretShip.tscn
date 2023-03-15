@@ -35,7 +35,6 @@ offset_bottom = 47.0
 position = Vector2(20, 20)
 turret_range = 500.0
 bullet_spread = 4.0
-bullet_size = 1.0
 turret_allegiance = 1
 shots_per_second = 8.0
 
@@ -43,6 +42,5 @@ shots_per_second = 8.0
 position = Vector2(19, -21)
 turret_range = 500.0
 bullet_spread = 4.0
-bullet_size = 1.0
 turret_allegiance = 1
 shots_per_second = 8.0

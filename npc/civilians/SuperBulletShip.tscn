@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://p7jl7a2um85x"]
+
+[ext_resource type="PackedScene" uid="uid://etyatu5407jp" path="res://npc/civilians/AbstractCivilianShip.tscn" id="1_xgdrx"]
+[ext_resource type="Texture2D" uid="uid://876ifecl54ww" path="res://npc/civilians/vaisseau_defense.png" id="2_5fapw"]
+[ext_resource type="Texture2D" uid="uid://dg1k0isxxsv4q" path="res://npc/civilians/vaisseau_defense_flammes.png" id="3_ewqat"]
+[ext_resource type="PackedScene" uid="uid://cd5agnegfannm" path="res://weapons/turrets/bullet-turrets/AutoBulletTurret.tscn" id="4_fyy57"]
+
+[node name="SuperBulletShip" instance=ExtResource("1_xgdrx")]
+ship_model = 8
+
+[node name="Ship" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_5fapw")
+
+[node name="Flammes" parent="." index="1"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ewqat")
+
+[node name="HealthSystem" parent="." index="3"]
+max_health = 100
+
+[node name="HealthBar" parent="UI" index="0"]
+offset_top = 22.0
+offset_bottom = 38.0
+
+[node name="Turrets" type="Node2D" parent="." index="7"]
+
+[node name="AutoBulltetTurret" parent="Turrets" index="0" instance=ExtResource("4_fyy57")]
+turret_range = 500.0
+bullet_spread = 5.0
+bullet_speed = 300.0
+bullet_damage = 5
+bullet_size = 2.0
+turret_allegiance = 1
+shots_per_second = 5.0
