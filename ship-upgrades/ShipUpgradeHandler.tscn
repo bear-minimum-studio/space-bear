@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://singletons/ShipUpgradeHandler.gd" id="1_8spgx"]
 [ext_resource type="Script" path="res://ship-upgrades/WheelDisplayer.gd" id="2_1wquj"]
 [ext_resource type="PackedScene" uid="uid://b0qu062bkvryf" path="res://ui/selection-wheel/SelectionWheel.tscn" id="2_t8nse"]
-[ext_resource type="PackedScene" uid="uid://dc3c33hwkauei" path="res://hud/UpgradeSelection.tscn" id="4_tq83o"]
+[ext_resource type="PackedScene" path="res://hud/UpgradeSelection.tscn" id="4_tq83o"]
 
 [node name="ShipUpgradeHandler" type="Control"]
 layout_mode = 3

@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 
 @onready var line_2d = $Line2D
@@ -11,19 +10,21 @@ var shooter: Node2D
 
 @export var damage_or_heal = 1
 
-@export var laser_range = 500.0:
+@export var laser_range: float:
 	set(new_range):
+		if new_range == null or laser_range == new_range:
+			return
 		laser_range = new_range
 		_update_sprite_length(laser_range)
 		_update_raycast_range(laser_range)
 		_update_particles_length(laser_range)
 
-func init(laser_range_init, shooter_init: Node2D, damage_or_heal_init: int):
+func init(laser_range_init: float, shooter_init: Node2D, damage_or_heal_init: int):
 	self.laser_range = laser_range_init
 	self.shooter = shooter_init
 	self.damage_or_heal = damage_or_heal_init
 
-func _ready():
+func shoot():
 	_update_raycast_range(laser_range)
 
 	ray_cast_2d.add_exception(self.shooter)
@@ -43,8 +44,7 @@ func _ready():
 	_update_particles_length(distance)
 	
 	await animation_player.animation_finished
-	if not Engine.is_editor_hint():
-		self.queue_free()
+	self.queue_free()
 
 func _update_raycast_range(length: float):
 	if ray_cast_2d == null:
