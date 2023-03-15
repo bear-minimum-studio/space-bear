@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ukbxqyqkd3q8"]
+
+[ext_resource type="Shader" path="res://shaders/Grayerizer.gdshader" id="1_x8ajq"]
+
+[resource]
+shader = ExtResource("1_x8ajq")
+shader_parameter/grayer = 1.0
+shader_parameter/darker = 0.33
