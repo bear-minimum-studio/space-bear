@@ -24,7 +24,7 @@ position = Vector2(4, 0)
 shape = SubResource("CircleShape2D_a4q5u")
 
 [node name="HealthSystem" parent="." index="3"]
-max_health = 40
+max_health = 80
 
 [node name="HealthBar" parent="UI" index="0"]
 offset_top = 24.0
