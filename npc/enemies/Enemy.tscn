@@ -19,6 +19,8 @@ shape = SubResource("CircleShape2D_cyhtc")
 
 [node name="AutoBulltetTurret" parent="Turrets" index="0" instance=ExtResource("3_1eig1")]
 position = Vector2(2.08165e-12, 25)
+bullet_size = 1.0
 
 [node name="AutoBulltetTurret2" parent="Turrets" index="1" instance=ExtResource("3_1eig1")]
 position = Vector2(2.08165e-12, -25)
+bullet_size = 1.0

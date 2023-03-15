@@ -8,11 +8,12 @@ extends Area2D
 var velocity = Vector2.ZERO;
 var initial_position = null
 
-func init(global_shooter_position, global_shooter_rotation, shooter_velocity, bullet_speed, bullet_damage):
+func init(global_shooter_position, global_shooter_rotation, shooter_velocity, bullet_speed, bullet_damage, bullet_size_scale = 1):
 	damage = bullet_damage
 	var shooter_direction = Vector2.from_angle(global_shooter_rotation);
 	global_position = global_shooter_position
 	global_rotation = global_shooter_rotation
+	scale = self.scale * bullet_size_scale
 	set_initial_velocity(shooter_velocity, shooter_direction, bullet_speed)
 	WorldReference.current_world.add_child(self)
 

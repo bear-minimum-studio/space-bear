@@ -34,4 +34,5 @@ max_health = 100
 [node name="AutoBulltetTurret" parent="Turrets" index="0" instance=ExtResource("4_fulqs")]
 position = Vector2(7, 0)
 turret_range = 300.0
+bullet_size = 1.0
 shots_per_second = 8.0

@@ -25,9 +25,11 @@ texture = ExtResource("4_vbl3j")
 position = Vector2(17, -20)
 rotation = -1.5708
 turret_range = 350.0
+bullet_size = 1.0
 
 [node name="AutoBulltetTurret2" parent="Turrets" index="1" instance=ExtResource("2_4vvl4")]
 position = Vector2(1, -21)
 rotation = -1.5708
 turret_range = 350.0
+bullet_size = 1.0
 rotation_range = 0.392699
