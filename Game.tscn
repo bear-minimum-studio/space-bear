@@ -94,3 +94,4 @@ text = "FPS 120"
 script = ExtResource("11_ni3o8")
 
 [node name="HurtIndicator" parent="CanvasLayer" instance=ExtResource("16_6torn")]
+visible = false
