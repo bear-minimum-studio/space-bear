@@ -106,17 +106,20 @@ func _input(event):
 
 func _on_dead_civilian(dead_ship: Node2D):
 	if dead_ship is Player:
-		Events.game_over.emit()
+		Events.game_over.emit(GameOver.Reasons.PLAYER_DIED)
+		return
 	
 	if dead_ship is MotherShip:
-		Events.game_over.emit()
+		Events.game_over.emit(GameOver.Reasons.MOTHERSHIP_DIED)
+		return
 	
 	if dead_ship.is_in_group("flock") and dead_ship is AbstractCivilianShip:
 		# The civilian is freed AFTER the signal is sent. So, it won't be counted as dead when we receive the signal.
 		var nb_of_civilians_left = _count_civilians() - dead_ship.number_of_passengers
 		_update_text(nb_of_civilians_left)
 		if nb_of_civilians_left == 0:
-			Events.game_over.emit()
+			# This case should never happen here because if the fleet died then the mothership had to die first
+			Events.game_over.emit(GameOver.Reasons.MOTHERSHIP_DIED)
 
 func _count_civilians():
 	var number_of_civilians = 0
@@ -128,7 +131,8 @@ func _count_civilians():
 func _update_text(nb_of_civilians_left: int):
 	civilians_left.update_text(nb_of_civilians_left)
 
-func _on_game_over():
+func _on_game_over(reason: GameOver.Reasons):
+	game_over.set_reason(reason)
 	get_tree().paused = true
 	game_over.visible = true
 
