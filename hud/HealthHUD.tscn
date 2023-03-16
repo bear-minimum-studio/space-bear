@@ -6,19 +6,22 @@
 [ext_resource type="Script" path="res://hud/Health.gd" id="3_pqavy"]
 
 [node name="HealthHUD" type="HBoxContainer"]
-offset_right = 100.0
-offset_bottom = 16.0
+offset_right = 123.0
+offset_bottom = 19.0
 script = ExtResource("3_pqavy")
 
 [node name="ShipIcon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 texture = ExtResource("2_hgpfo")
 expand_mode = 2
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="Health" parent="." instance=ExtResource("2_mxb6i")]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="HealthIcon" type="TextureRect" parent="."]
 visible = false

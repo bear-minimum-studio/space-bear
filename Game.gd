@@ -1,11 +1,11 @@
 extends Node2D
 
 @onready var world: Node2D
-@onready var civilians_left = $CanvasLayer/MarginContainer/TopLeft/CiviliansLeft
+@onready var civilians_left = $CanvasLayer/HUD/TopLeft/CiviliansLeft
 @onready var game_over = $CanvasLayer/GameOver
 @onready var level_end = $CanvasLayer/LevelEnd
 @onready var level_change = $CanvasLayer/LevelChange
-@onready var sector_info = $CanvasLayer/MarginContainer/SectorInfo
+@onready var sector_info = $CanvasLayer/HUD/SectorInfo
 
 @export var worlds : Array[PackedScene] = []
 
