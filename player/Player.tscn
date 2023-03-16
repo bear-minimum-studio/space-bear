@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cv7li5vw58r6p"]
+[gd_scene load_steps=49 format=3 uid="uid://di6a53gnk5t2n"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_rsmvc"]
 [ext_resource type="Texture2D" uid="uid://mfphwxtb85tt" path="res://player/flames/vaisseau_joueur_flammes_haut1.png" id="2_7f437"]
@@ -24,7 +24,17 @@
 [ext_resource type="PackedScene" uid="uid://ba06loe142qwy" path="res://player/SelectionZone.tscn" id="13_n8rio"]
 [ext_resource type="PackedScene" uid="uid://dvf582hv62snf" path="res://weapons/turrets/bullet-turrets/BulletTurret.tscn" id="14_0m4ls"]
 [ext_resource type="PackedScene" uid="uid://g2uw1el2x1ea" path="res://hud/radar/PlayerRadar.tscn" id="14_fhr4g"]
+[ext_resource type="Texture2D" uid="uid://837ubqfblgba" path="res://player/damage/vaisseau_joueur_degats1-1.png" id="15_mwcnb"]
+[ext_resource type="Script" path="res://player/damage/DamageSprites.gd" id="15_yty34"]
+[ext_resource type="Texture2D" uid="uid://cpri2qtaygvjt" path="res://player/damage/vaisseau_joueur_degats1-2.png" id="16_51tfr"]
+[ext_resource type="Texture2D" uid="uid://k10e0oq4dlvg" path="res://player/damage/vaisseau_joueur_degats3-2.png" id="16_d77lt"]
+[ext_resource type="Texture2D" uid="uid://clugfr3vqxxm8" path="res://player/damage/vaisseau_joueur_degats3-1.png" id="17_0ci7u"]
+[ext_resource type="Texture2D" uid="uid://ea3lxkw40onr" path="res://player/damage/vaisseau_joueur_degats1-3.png" id="17_hfgue"]
+[ext_resource type="Texture2D" uid="uid://t8sgcb3jqt4c" path="res://player/damage/vaisseau_joueur_degats3-3.png" id="17_nhghw"]
 [ext_resource type="PackedScene" uid="uid://djt0jq7486mc6" path="res://hud/UnderAttack.tscn" id="17_umsx8"]
+[ext_resource type="Texture2D" uid="uid://dnwcufs3p52il" path="res://player/damage/vaisseau_joueur_degats2-1.png" id="18_ea1ar"]
+[ext_resource type="Texture2D" uid="uid://cqwcpkfb7l2ei" path="res://player/damage/vaisseau_joueur_degats2-2.png" id="19_d5nhr"]
+[ext_resource type="Texture2D" uid="uid://bvyupe6vlwjo1" path="res://player/damage/vaisseau_joueur_degats2-3.png" id="20_bj8o4"]
 [ext_resource type="PackedScene" uid="uid://djo7oaxj6obr3" path="res://shield/Shield.tscn" id="26_ou017"]
 [ext_resource type="PackedScene" uid="uid://cy5srf1xm0us3" path="res://ui/ProgressBar.tscn" id="28_3yh50"]
 [ext_resource type="Script" path="res://npc/ShipHealth.gd" id="29_6cpgu"]
@@ -63,6 +73,33 @@ frame_0/texture = ExtResource("6_ydsah")
 frame_1/texture = ExtResource("7_mh4ko")
 frame_1/duration = 1.0
 frame_2/texture = ExtResource("8_6pe7v")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_85e30"]
+frames = 3
+speed_scale = 6.0
+frame_0/texture = ExtResource("15_mwcnb")
+frame_1/texture = ExtResource("16_51tfr")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("17_hfgue")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_d8as1"]
+frames = 3
+speed_scale = 6.0
+frame_0/texture = ExtResource("18_ea1ar")
+frame_1/texture = ExtResource("19_d5nhr")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("20_bj8o4")
+frame_2/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0r401"]
+frames = 3
+speed_scale = 6.0
+frame_0/texture = ExtResource("17_0ci7u")
+frame_1/texture = ExtResource("16_d77lt")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("17_nhghw")
 frame_2/duration = 1.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nobpd"]
@@ -123,6 +160,23 @@ texture_filter = 3
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_yo8sm")
+
+[node name="DamageSprites" type="Node2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+script = ExtResource("15_yty34")
+
+[node name="Damage1" type="Sprite2D" parent="DamageSprites"]
+visible = false
+texture = SubResource("AnimatedTexture_85e30")
+
+[node name="Damage2" type="Sprite2D" parent="DamageSprites"]
+visible = false
+texture = SubResource("AnimatedTexture_d8as1")
+
+[node name="Damage3" type="Sprite2D" parent="DamageSprites"]
+visible = false
+texture = SubResource("AnimatedTexture_0r401")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 7.10543e-15)

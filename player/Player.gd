@@ -27,6 +27,7 @@ var current_direction: Vector2 = Vector2.ZERO
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
 @onready var player_sprite = $Player
+@onready var damage_sprites = $DamageSprites
 
 @onready var flammes_right = $FlammesRight
 @onready var flammes_left = $FlammesLeft
@@ -137,6 +138,7 @@ func _on_health_system_hp_changed(health, max_health, difference):
 	else:
 		hurt_animation.animate_hurt(player_sprite)
 	Events.emit_signal("player_hp_changed", health, max_health)
+	damage_sprites.show_sprite_for_damage_level(float(health) / float(max_health))
 
 func _input(event):
 	if event.is_action_pressed("follow_me"):
