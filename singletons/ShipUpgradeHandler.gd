@@ -54,8 +54,13 @@ func _on_selected_ship_changed(new_ship):
 	wheel_displayer.set_elements(elements)
 
 
+var _initial_z_index
 func _on_wheel_displayer_opening_upgrades():
+	_initial_z_index = selected_ship.z_index
+	selected_ship.z_index = 100
 	Events.opening_ship_upgrades.emit(selected_ship)
 
 func _on_wheel_displayer_closing_upgrades():
+	selected_ship.z_index = _initial_z_index
+	_initial_z_index = null
 	Events.closing_ship_upgrades.emit()
