@@ -130,51 +130,53 @@ collision_mask = 0
 mass = 50.0
 script = ExtResource("1_rsmvc")
 
-[node name="FlammesUp" type="Sprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="FlammesUp" type="Sprite2D" parent="Sprites"]
 texture_filter = 3
 position = Vector2(0, -9.09495e-13)
 rotation = 1.57079
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AnimatedTexture_78gkf")
 
-[node name="FlammesRight" type="Sprite2D" parent="."]
+[node name="FlammesRight" type="Sprite2D" parent="Sprites"]
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AnimatedTexture_e2sss")
 
-[node name="FlammesLeft" type="Sprite2D" parent="."]
+[node name="FlammesLeft" type="Sprite2D" parent="Sprites"]
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AnimatedTexture_fkjee")
 
-[node name="FlammesDown" type="Sprite2D" parent="."]
+[node name="FlammesDown" type="Sprite2D" parent="Sprites"]
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AnimatedTexture_uu57v")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Player" type="Sprite2D" parent="Sprites"]
 texture_filter = 3
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_yo8sm")
 
-[node name="DamageSprites" type="Node2D" parent="."]
+[node name="DamageSprites" type="Node2D" parent="Sprites"]
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 script = ExtResource("15_yty34")
 
-[node name="Damage1" type="Sprite2D" parent="DamageSprites"]
+[node name="Damage1" type="Sprite2D" parent="Sprites/DamageSprites"]
 visible = false
 texture = SubResource("AnimatedTexture_85e30")
 
-[node name="Damage2" type="Sprite2D" parent="DamageSprites"]
+[node name="Damage2" type="Sprite2D" parent="Sprites/DamageSprites"]
 visible = false
 texture = SubResource("AnimatedTexture_d8as1")
 
-[node name="Damage3" type="Sprite2D" parent="DamageSprites"]
+[node name="Damage3" type="Sprite2D" parent="Sprites/DamageSprites"]
 visible = false
 texture = SubResource("AnimatedTexture_0r401")
 
@@ -199,6 +201,7 @@ bus = &"Propulsion"
 hurtable_body = NodePath("..")
 healable = true
 max_health = 100
+should_free_on_death = false
 
 [node name="HurtAnimation" parent="." instance=ExtResource("12_uwy2g")]
 

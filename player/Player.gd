@@ -11,6 +11,8 @@ signal shoot_grappling_hook
 @export_range(0.01,1.5) var rotation_damping_zone = 0.5
 @export var remove_inertia = true
 
+@export_range(1.0, 5.0, 0.5) var explosion_scale = 2.0
+
 @onready var rotation_speed = 2 * PI * rotation_per_second
 
 var thrust_intensity :
@@ -26,15 +28,18 @@ var current_direction: Vector2 = Vector2.ZERO
 @onready var health_system = $HealthSystem
 @onready var hurt_animation = $HurtAnimation
 @onready var selection_zone = $SelectionZone
-@onready var player_sprite = $Player
-@onready var damage_sprites = $DamageSprites
+@onready var player_sprite = $Sprites/Player
+@onready var damage_sprites = $Sprites/DamageSprites
+@onready var sprites = $Sprites
 
-@onready var flammes_right = $FlammesRight
-@onready var flammes_left = $FlammesLeft
-@onready var flammes_up = $FlammesUp
-@onready var flammes_down = $FlammesDown
+@onready var flammes_right = $Sprites/FlammesRight
+@onready var flammes_left = $Sprites/FlammesLeft
+@onready var flammes_up = $Sprites/FlammesUp
+@onready var flammes_down = $Sprites/FlammesDown
 @onready var flammes = {flammes_down: [0.0], flammes_right: [-PI/2], flammes_up: [-PI,PI], flammes_left: [PI/2]}
 const flamme_overlap_angle = 5 * PI / 9
+
+var explosion_scene = preload("res://explosion/Explosion.tscn")
 
 func _ready():
 	var turrets = $Turrets.get_children()
@@ -153,4 +158,12 @@ func _follow_me():
 		selected_ship.switch_follow_target(self)
 
 func _on_health_system_dead():
+	sprites.visible = false
 	Events.dead_ship.emit(self)
+	var new_explosion = explosion_scene.instantiate()
+
+	new_explosion.global_position = self.global_position
+	new_explosion.scale = explosion_scale * Vector2.ONE
+	# Play the explosion even through the game over
+	new_explosion.process_mode = PROCESS_MODE_ALWAYS
+	WorldReference.current_world.add_child(new_explosion)

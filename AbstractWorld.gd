@@ -2,11 +2,18 @@ extends Node2D
 
 class_name AbstractWorld
 
-@onready var flock = $Flock
+# Do not rename, used publicly
+@onready var player = $Player
+# Do not rename, used publicly
+@onready var camera = $Player/Camera2D
+# Do not rename, used publicly
 @onready var mother_ship = $Flock/MotherShip
+
+@onready var flock = $Flock
 @onready var wormhole = $Wormhole
 @onready var squadrons_handler = $SquadronsHandler
 @onready var initial_distance_to_wormhole = (wormhole.global_position - mother_ship.global_position).length()
+
 @export_multiline var mission = ""
 
 func _ready():

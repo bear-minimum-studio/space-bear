@@ -104,4 +104,9 @@ func _on_dead():
 
 	new_explosion.global_position = self.global_position
 	new_explosion.scale = explosion_scale * Vector2.ONE
+	
+	# Play the explosion even if the game is paused
+	# useful for gameover screen
+	# It will play explosions while player upgrades a ship, though
+	new_explosion.process_mode = Node.PROCESS_MODE_ALWAYS
 	WorldReference.current_world.add_child(new_explosion)

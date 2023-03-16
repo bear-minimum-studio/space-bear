@@ -14,6 +14,8 @@ var current_world = 0
 const BETWEEN_SECTORS_DURATION = 3
 
 func _ready():
+	Engine.time_scale = 1.0
+
 	# Create a new world
 	var new_world_scene = worlds[current_world]
 	var new_world = new_world_scene.instantiate()
@@ -134,6 +136,16 @@ func _update_text(nb_of_civilians_left: int):
 
 func _on_game_over(reason: GameOver.Reasons):
 	game_over.set_reason(reason)
+	Engine.time_scale = 0.2
+	
+	var dramatic_zoom_target
+	if reason == GameOver.Reasons.PLAYER_DIED:
+		dramatic_zoom_target = WorldReference.current_world.player
+	if reason == GameOver.Reasons.MOTHERSHIP_DIED:
+		dramatic_zoom_target = WorldReference.current_world.mother_ship
+
+	WorldReference.current_world.camera.do_focus_animation(dramatic_zoom_target)
+
 	get_tree().paused = true
 	game_over.visible = true
 
@@ -142,6 +154,7 @@ func _show_end():
 	level_end.visible = true
 
 func _on_restart():
+	Engine.time_scale = 1.0
 	get_tree().paused = false
 	FlockResources.reset()
 	get_tree().reload_current_scene()
