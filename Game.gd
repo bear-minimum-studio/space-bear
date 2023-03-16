@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var world: Node2D
-@onready var civilians_left = $CanvasLayer/MarginContainer/CiviliansLeft
+@onready var civilians_left = $CanvasLayer/MarginContainer/TopLeft/CiviliansLeft
 @onready var game_over = $CanvasLayer/GameOver
 @onready var level_end = $CanvasLayer/LevelEnd
 @onready var level_change = $CanvasLayer/LevelChange
@@ -82,6 +82,7 @@ func _level_change():
 	world = new_world
 
 	level_change.visible = true
+	level_change.set_civilians_left(_count_civilians())
 	await get_tree().create_timer(BETWEEN_SECTORS_DURATION).timeout
 	level_change.visible = false
 

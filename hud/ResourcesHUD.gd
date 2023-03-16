@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 
 @onready var resources_count = $ResourcesCount
 

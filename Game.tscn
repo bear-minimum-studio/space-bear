@@ -46,11 +46,19 @@ player_or_mothership = 1
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="CiviliansLeft" parent="CanvasLayer/MarginContainer" instance=ExtResource("5_5vxw4")]
+[node name="TopLeft" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="ResourcesHUD" parent="CanvasLayer/MarginContainer" instance=ExtResource("10_xm5jn")]
+[node name="CiviliansLeft" parent="CanvasLayer/MarginContainer/TopLeft" instance=ExtResource("5_5vxw4")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ResourcesHUD" parent="CanvasLayer/MarginContainer/TopLeft" instance=ExtResource("10_xm5jn")]
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="SectorInfo" parent="CanvasLayer/MarginContainer" instance=ExtResource("6_ixfnp")]
 layout_mode = 2

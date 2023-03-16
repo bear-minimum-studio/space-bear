@@ -3,16 +3,12 @@
 [ext_resource type="Script" path="res://hud/ResourcesHUD.gd" id="1_oevh7"]
 [ext_resource type="PackedScene" uid="uid://ced170t4hoxad" path="res://hud/ResourcesCount.tscn" id="2_7gd6t"]
 
-[node name="ResourcesHUD" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ResourcesHUD" type="MarginContainer"]
+offset_right = 43.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_oevh7")
 
 [node name="ResourcesCount" parent="." instance=ExtResource("2_7gd6t")]
-layout_mode = 1
-offset_top = 30.0
-offset_bottom = 48.0
+layout_mode = 2

@@ -1,4 +1,4 @@
-extends Control
+extends MarginContainer
 @onready var amount = $HBoxContainer/Amount
 
 func update_text(nb_of_civilians : int):

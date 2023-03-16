@@ -34,7 +34,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -43,7 +43,7 @@ uppercase = true
 [node name="Reason" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 text = "Your mothership died."
 horizontal_alignment = 1
 vertical_alignment = 1

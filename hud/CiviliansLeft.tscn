@@ -3,19 +3,15 @@
 [ext_resource type="Script" path="res://hud/CiviliansLeft.gd" id="1_cqoux"]
 [ext_resource type="Texture2D" uid="uid://do8jwjuc4t3a0" path="res://hud/bear.png" id="2_xxi2i"]
 
-[node name="CiviliansLeft" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CiviliansLeft" type="MarginContainer"]
+offset_right = 55.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_cqoux")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 62.0
-offset_bottom = 23.0
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
