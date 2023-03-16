@@ -26,17 +26,34 @@ func _process(delta):
 	if (self.global_position - initial_position).length() > bullet_range:
 		self.queue_free()
 
+# Upon collision, we won't call hit immediately
+# because we could have both an area and a body colliding
+# We defer the call and so that we'll be able to check
+# if there's both a body and an area
+var _colliding_objects = []
 func _on_body_entered(body: Node2D):
-	_hit(body)
+	_colliding_objects.append(body)
+	call_deferred("_hit")
 
 func _on_area_entered(area):
-	_hit(area)
+	_colliding_objects.append(area)
+	call_deferred("_hit")
 
-func _hit(area_or_body):
-	HealthSystem.hit_health_system(area_or_body, damage)
+func _hit():
+	# If we've been called multiple times, we won't call hit again
+	if _colliding_objects.size() == 0:
+		return
+
+	# We want to prioritize a shield hit over anything else that's being hit by the bullet
+	var shield_victim = Helpers.find_in_array(_colliding_objects, func(elem): return elem is Shield)
+	# If no shield has been hit, just take the first victim of the array
+	var victim = shield_victim if shield_victim != null else _colliding_objects[0]
 	
+	HealthSystem.hit_health_system(victim, damage)
+	
+	_colliding_objects = []
 	_disable_bullet()
-	bullet_impact.adapt_style_then_play(area_or_body)
+	bullet_impact.adapt_style_then_play(victim)
 	await bullet_impact.animation_done
 	self.queue_free()
 

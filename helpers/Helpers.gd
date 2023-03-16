@@ -43,3 +43,9 @@ static func get_screen_center(any_node: Node):
 
 static func set_mouse_position(any_node: Node, mouse_position: Vector2):
 	any_node.get_viewport().warp_mouse(mouse_position)
+
+static func find_in_array(arr: Array, find_method: Callable):
+	for elem in arr:
+		if find_method.call(elem) == true:
+			return elem
+	return null
