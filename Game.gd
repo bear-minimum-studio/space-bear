@@ -5,7 +5,7 @@ extends Node2D
 @onready var game_over = $CanvasLayer/GameOver
 @onready var level_end = $CanvasLayer/LevelEnd
 @onready var level_change = $CanvasLayer/LevelChange
-@onready var sector_info = $CanvasLayer/HUD/SectorInfo
+@onready var sector_info = $CanvasLayer/HUD/TopMiddle/SectorInfo
 
 @export var worlds : Array[PackedScene] = []
 
