@@ -64,8 +64,15 @@ player_or_mothership = 1
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="SectorInfo" parent="CanvasLayer/HUD" instance=ExtResource("6_ixfnp")]
+[node name="TopMiddle" type="VBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="SectorInfo" parent="CanvasLayer/HUD/TopMiddle" instance=ExtResource("6_ixfnp")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TopRight" type="VBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 2
