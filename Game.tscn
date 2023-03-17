@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cg2fbsneh5pmk" path="res://hud/ResourcesHUD.tscn" id="10_xm5jn"]
 [ext_resource type="Script" path="res://test/FPS.gd" id="11_ni3o8"]
 [ext_resource type="PackedScene" uid="uid://c3j1rnw6mno83" path="res://ui/level-change/LevelChange.tscn" id="11_x5wsm"]
-[ext_resource type="PackedScene" uid="uid://dxiyrjjkt2urt" path="res://hud/FleetProgression.tscn" id="12_v6rqd"]
+[ext_resource type="PackedScene" uid="uid://c0stsb46ep6ul" path="res://hud/FleetProgression/FleetProgression.tscn" id="12_v6rqd"]
 [ext_resource type="PackedScene" uid="uid://xho5akt8v5eo" path="res://ship-upgrades/ShipUpgradeHandler.tscn" id="15_h3hr7"]
 [ext_resource type="PackedScene" uid="uid://bkvoa2jj6g6ks" path="res://hud/HurtIndicator.tscn" id="16_6torn"]
 
@@ -67,7 +67,12 @@ size_flags_vertical = 8
 [node name="SectorInfo" parent="CanvasLayer/HUD" instance=ExtResource("6_ixfnp")]
 layout_mode = 2
 
-[node name="FleetProgression" parent="CanvasLayer/HUD" instance=ExtResource("12_v6rqd")]
+[node name="TopRight" type="VBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="FleetProgression" parent="CanvasLayer/HUD/TopRight" instance=ExtResource("12_v6rqd")]
 layout_mode = 2
 
 [node name="ShipUpgradeHandler" parent="CanvasLayer" instance=ExtResource("15_h3hr7")]
