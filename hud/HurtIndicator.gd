@@ -1,6 +1,7 @@
 extends Control
 
 @onready var animation_player = $AnimationPlayer
+@onready var hurt_container = $HurtContainer
 
 @export_range(0.0, 1.0, 0.1) var health_percentage_before_appearing = 0.7
 @export_range(1.0, 4.0, 0.1) var max_blinking_speed_scale = 2.0
@@ -21,9 +22,11 @@ func _on_hp_changed(health, max_health):
 	# If percentage_relative_to_appearance is 100% -> value is min_alpha_level
 	# If percentage_relative_to_appearance is 0% -> value is 1.0
 	var percentage_relative_to_appearance = health_percentage / health_percentage_before_appearing
-	self.modulate.a = 1 - (percentage_relative_to_appearance * (1.0 - min_alpha_level))
+	hurt_container.modulate.a = 1 - (percentage_relative_to_appearance * (1.0 - min_alpha_level))
 
 	# If percentage_relative_to_appearance is 100% -> value is 1.0
 	# If percentage_relative_to_appearance is 0% -> value is max_blinking_speed_scale
 	var speed_scale = max_blinking_speed_scale - (percentage_relative_to_appearance * (max_blinking_speed_scale - 1.0))
 	animation_player.speed_scale = speed_scale
+
+	self.create_tween().tween_property(self, "modulate:a", 0, 3.0).from(1.0)
