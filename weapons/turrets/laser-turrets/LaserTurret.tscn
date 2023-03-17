@@ -6,3 +6,4 @@
 [node name="LaserTurret" instance=ExtResource("1_clfbt")]
 script = ExtResource("2_bk67q")
 laser_range = 300.0
+damage = 1

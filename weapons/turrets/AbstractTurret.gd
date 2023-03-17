@@ -4,6 +4,8 @@ extends Area2D
 
 @export_range(0, PI, PI/32) var rotation_range: float = PI
 @export_range(0.1,10.0,0.1,"or_greater") var rotation_speed = 5.0
+## Useful for precision turrets. Ignores rotation speed completely.
+@export var instant_rotation = false
 
 @export_range(0.5,50.0) var shots_per_second = 5.0
 @onready var shooting_speed = 1.0 / shots_per_second
@@ -47,7 +49,10 @@ func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
 
-	rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)
+	if instant_rotation:
+		rotation = rotation_target
+	else:
+		rotation = lerp_angle(rotation, _clamp_to_angle_range(rotation_target), rotation_speed * delta)
 
 # Overload with shooting behavior
 func _on_shoot():
