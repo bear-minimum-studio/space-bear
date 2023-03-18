@@ -16,8 +16,12 @@ enum Type {
 @onready var is_attacked_label = $IsAttackedContainer/IsAttacked
 
 const sprites_mapping = {
-	Type.MOTHERSHIP: preload("res://hud/FleetAttackIndicator/mothership_fleet_part.png"),
-	Type.FLEET: preload("res://hud/FleetAttackIndicator/fleet_part.png"),
+	Type.MOTHERSHIP: [preload("res://hud/FleetAttackIndicator/mothership_fleet_part.png")],
+	Type.FLEET: [
+		preload("res://hud/FleetAttackIndicator/fleet_part1.png"),
+		preload("res://hud/FleetAttackIndicator/fleet_part2.png"),
+		preload("res://hud/FleetAttackIndicator/fleet_part3.png"),
+	],
 }
 
 func _ready():
@@ -27,10 +31,13 @@ func _ready():
 func _update_sprite():
 	if sprite == null:
 		return
-
-	sprite.texture = sprites_mapping[type]
+	var current_sprite_mapping = sprites_mapping[type]
+	sprite.texture = current_sprite_mapping[get_index() % current_sprite_mapping.size()]
 
 func _hide_is_attacked():
+	if Engine.is_editor_hint():
+		return
+
 	is_attacked_label.modulate.a = 0.0
 
 var timer
