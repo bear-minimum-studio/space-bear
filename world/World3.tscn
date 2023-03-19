@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2r8gk2at0gdw"]
 
-[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_x28o6"]
+[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://world/AbstractWorld.tscn" id="1_x28o6"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="2_2by15"]
 [ext_resource type="PackedScene" uid="uid://muoegcv2qwhy" path="res://npc/enemies/BaseEnemy.tscn" id="3_8fx1y"]
 

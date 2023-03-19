@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d16posr0pgyus"]
 
-[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_fj8i6"]
+[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://world/AbstractWorld.tscn" id="1_fj8i6"]
 [ext_resource type="PackedScene" path="res://npc/enemies/BaseEnemy.tscn" id="2_gvp05"]
 [ext_resource type="PackedScene" path="res://npc/enemies/VultureEnemy.tscn" id="3_06oy0"]
 [ext_resource type="PackedScene" path="res://npc/enemies/Enemy.tscn" id="4_xgq5p"]

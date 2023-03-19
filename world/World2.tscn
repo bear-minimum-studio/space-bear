@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgkkbhp6eam8m"]
 
-[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_tdmob"]
-[ext_resource type="PackedScene" uid="uid://b6g43s4jgo74o" path="res://InitialFlock.tscn" id="2_2p4en"]
+[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://world/AbstractWorld.tscn" id="1_tdmob"]
+[ext_resource type="PackedScene" uid="uid://b6g43s4jgo74o" path="res://world/InitialFlock.tscn" id="2_2p4en"]
 [ext_resource type="PackedScene" uid="uid://cgjq1jul4iip3" path="res://npc/enemies/Enemy.tscn" id="6_m2i0p"]
 [ext_resource type="PackedScene" uid="uid://muoegcv2qwhy" path="res://npc/enemies/BaseEnemy.tscn" id="6_q52vq"]
 

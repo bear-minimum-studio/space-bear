@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bd36dg3q1e3xy"]
 
-[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://AbstractWorld.tscn" id="1_euu80"]
+[ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://world/AbstractWorld.tscn" id="1_euu80"]
 [ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wqd16"]
 [ext_resource type="PackedScene" uid="uid://dhhcyl4sosjuq" path="res://asteroids/Asteroid.tscn" id="4_loucl"]
 

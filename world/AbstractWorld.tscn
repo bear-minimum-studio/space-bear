@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://ujm2pogbpnnp"]
 
-[ext_resource type="Script" path="res://AbstractWorld.gd" id="1_kjg2t"]
-[ext_resource type="PackedScene" uid="uid://di6a53gnk5t2n" path="res://player/Player.tscn" id="1_yasag"]
-[ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_3j3ax"]
-[ext_resource type="PackedScene" uid="uid://cxp6qscivdlgl" path="res://npc/mother-ship/MotherShip.tscn" id="3_jfgia"]
-[ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="4_u5hvj"]
-[ext_resource type="Script" path="res://helpers/Guide.gd" id="5_js3wj"]
-[ext_resource type="Script" path="res://Camera.gd" id="6_1s6pw"]
-[ext_resource type="Script" path="res://npc/ship-behaviors/squadron/SquadronsHandler.gd" id="7_hb3lf"]
+[ext_resource type="Script" path="res://world/AbstractWorld.gd" id="1_oipqh"]
+[ext_resource type="PackedScene" uid="uid://cm0sum8oi2m1s" path="res://background/ParallaxBackground.tscn" id="2_v0g8j"]
+[ext_resource type="PackedScene" uid="uid://bvnsas5vp1sl7" path="res://environment/wormhole/Wormhole.tscn" id="3_13r8k"]
+[ext_resource type="PackedScene" uid="uid://cxp6qscivdlgl" path="res://npc/mother-ship/MotherShip.tscn" id="4_tjj8d"]
+[ext_resource type="PackedScene" uid="uid://di6a53gnk5t2n" path="res://player/Player.tscn" id="5_etj6f"]
+[ext_resource type="Script" path="res://Camera.gd" id="6_hbfo0"]
+[ext_resource type="Script" path="res://helpers/Guide.gd" id="7_htrv5"]
+[ext_resource type="Script" path="res://npc/ship-behaviors/squadron/SquadronsHandler.gd" id="8_7sht2"]
 
 [sub_resource type="Environment" id="Environment_uyldo"]
 background_mode = 3
@@ -20,14 +20,14 @@ glow_blend_mode = 0
 adjustment_brightness = 1.57
 
 [node name="AbstractWorld" type="Node2D"]
-script = ExtResource("1_kjg2t")
+script = ExtResource("1_oipqh")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_3j3ax")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_v0g8j")]
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
 scroll_ignore_camera_zoom = true
 
-[node name="Wormhole" parent="." instance=ExtResource("4_u5hvj")]
+[node name="Wormhole" parent="." instance=ExtResource("3_13r8k")]
 position = Vector2(1447, -727)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -35,7 +35,7 @@ environment = SubResource("Environment_uyldo")
 
 [node name="Flock" type="Node2D" parent="."]
 
-[node name="MotherShip" parent="Flock" instance=ExtResource("3_jfgia")]
+[node name="MotherShip" parent="Flock" instance=ExtResource("4_tjj8d")]
 position = Vector2(481, 47)
 rotation = -0.683586
 
@@ -43,7 +43,7 @@ rotation = -0.683586
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("1_yasag")]
+[node name="Player" parent="." instance=ExtResource("5_etj6f")]
 position = Vector2(159, 130)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -56,15 +56,15 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
-script = ExtResource("6_1s6pw")
+script = ExtResource("6_hbfo0")
 
 [node name="Guide" type="Node2D" parent="."]
 z_index = 10
 position = Vector2(0, -1.52588e-05)
-script = ExtResource("5_js3wj")
+script = ExtResource("7_htrv5")
 width = 26.0
 
 [node name="SquadronsHandler" type="Node2D" parent="."]
-script = ExtResource("7_hb3lf")
+script = ExtResource("8_7sht2")
 
 [connection signal="shoot_grappling_hook" from="Player" to="." method="_on_player_shoot_grappling_hook"]
