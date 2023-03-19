@@ -18,6 +18,9 @@ class_name AbstractWorld
 
 func _ready():
 	WorldReference.current_world = self
+	var initial_flock = get_node_or_null("Flock/InitialFlock")
+	if initial_flock != null:
+		initial_flock.initialize()
 	get_tree().call_group("flock", "set_convoy_path", wormhole.global_position, mother_ship.global_position)
 
 func _get_wormhole_percentage():

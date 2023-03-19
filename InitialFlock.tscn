@@ -1,0 +1,303 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6g43s4jgo74o"]
+
+[ext_resource type="Script" path="res://InitialFlock.gd" id="1_ivhep"]
+[ext_resource type="PackedScene" uid="uid://brx2iptg2gq3" path="res://npc/civilians/TransportShip.tscn" id="1_mxdy6"]
+[ext_resource type="PackedScene" uid="uid://cb8xhpqcuwf8r" path="res://npc/civilians/CivilianShip.tscn" id="2_wrkir"]
+
+[node name="InitialFlock" type="Node2D"]
+script = ExtResource("1_ivhep")
+
+[node name="TransportShip" parent="." instance=ExtResource("1_mxdy6")]
+position = Vector2(-187, 331)
+
+[node name="TransportShip2" parent="." instance=ExtResource("1_mxdy6")]
+position = Vector2(-493, 304)
+
+[node name="TransportShip3" parent="." instance=ExtResource("1_mxdy6")]
+position = Vector2(-575, 579)
+
+[node name="TransportShip4" parent="." instance=ExtResource("1_mxdy6")]
+position = Vector2(-838, 557)
+
+[node name="TransportShip5" parent="." instance=ExtResource("1_mxdy6")]
+position = Vector2(-846, 781)
+
+[node name="CivilianShip" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-90, 15)
+rotation = -0.698132
+
+[node name="CivilianShip2" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-10, 33)
+rotation = -0.698132
+
+[node name="CivilianShip3" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-38, -28)
+rotation = -0.698132
+
+[node name="CivilianShip4" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-106, -37)
+rotation = -0.698132
+
+[node name="CivilianShip5" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(35, 83)
+rotation = -0.698132
+
+[node name="CivilianShip6" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-37, 97)
+rotation = -0.698132
+
+[node name="CivilianShip7" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-95, 126)
+rotation = -0.698132
+
+[node name="CivilianShip8" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-129, 66)
+rotation = -0.698132
+
+[node name="CivilianShip9" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-194, 19)
+rotation = -0.698132
+
+[node name="CivilianShip10" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-26, 182)
+rotation = -0.698132
+
+[node name="CivilianShip11" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-241, 138)
+rotation = -0.698132
+
+[node name="CivilianShip12" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-161, 156)
+rotation = -0.698132
+
+[node name="CivilianShip13" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-189, 95)
+rotation = -0.698132
+
+[node name="CivilianShip14" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-257, 86)
+rotation = -0.698132
+
+[node name="CivilianShip15" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-116, 206)
+rotation = -0.698132
+
+[node name="CivilianShip16" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-188, 220)
+rotation = -0.698132
+
+[node name="CivilianShip17" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-246, 249)
+rotation = -0.698132
+
+[node name="CivilianShip18" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-280, 189)
+rotation = -0.698132
+
+[node name="CivilianShip19" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-335, 117)
+rotation = -0.698132
+
+[node name="CivilianShip20" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-95, 275)
+rotation = -0.698132
+
+[node name="CivilianShip21" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-408, 267)
+rotation = -0.698132
+
+[node name="CivilianShip22" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-328, 285)
+rotation = -0.698132
+
+[node name="CivilianShip23" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-356, 224)
+rotation = -0.698132
+
+[node name="CivilianShip24" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-455, 215)
+rotation = -0.698132
+
+[node name="CivilianShip25" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-283, 335)
+rotation = -0.698132
+
+[node name="CivilianShip26" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-355, 349)
+rotation = -0.698132
+
+[node name="CivilianShip27" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-402, 442)
+rotation = -0.698132
+
+[node name="CivilianShip28" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-423, 359)
+rotation = -0.698132
+
+[node name="CivilianShip29" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-380, 161)
+rotation = -0.698132
+
+[node name="CivilianShip30" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-318, 410)
+rotation = -0.698132
+
+[node name="CivilianShip31" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-584, 391)
+rotation = -0.698132
+
+[node name="CivilianShip32" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-504, 409)
+rotation = -0.698132
+
+[node name="CivilianShip33" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-727, 410)
+rotation = -0.698132
+
+[node name="CivilianShip34" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-600, 339)
+rotation = -0.698132
+
+[node name="CivilianShip35" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-459, 459)
+rotation = -0.698132
+
+[node name="CivilianShip36" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-531, 473)
+rotation = -0.698132
+
+[node name="CivilianShip37" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-589, 502)
+rotation = -0.698132
+
+[node name="CivilianShip38" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-623, 442)
+rotation = -0.698132
+
+[node name="CivilianShip39" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-678, 370)
+rotation = -0.698132
+
+[node name="CivilianShip40" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-477, 543)
+rotation = -0.698132
+
+[node name="CivilianShip41" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-753, 514)
+rotation = -0.698132
+
+[node name="CivilianShip42" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-673, 532)
+rotation = -0.698132
+
+[node name="CivilianShip43" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-701, 471)
+rotation = -0.698132
+
+[node name="CivilianShip44" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-769, 462)
+rotation = -0.698132
+
+[node name="CivilianShip45" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-639, 644)
+rotation = -0.698132
+
+[node name="CivilianShip46" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-700, 596)
+rotation = -0.698132
+
+[node name="CivilianShip47" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-758, 625)
+rotation = -0.698132
+
+[node name="CivilianShip48" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-766, 573)
+rotation = -0.698132
+
+[node name="CivilianShip49" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-851, 477)
+rotation = -0.698132
+
+[node name="CivilianShip50" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-689, 681)
+rotation = -0.698132
+
+[node name="CivilianShip51" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-927, 640)
+rotation = -0.698132
+
+[node name="CivilianShip52" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-847, 658)
+rotation = -0.698132
+
+[node name="CivilianShip53" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-933, 523)
+rotation = -0.698132
+
+[node name="CivilianShip54" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-943, 588)
+rotation = -0.698132
+
+[node name="CivilianShip55" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-759, 708)
+rotation = -0.698132
+
+[node name="CivilianShip56" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-883, 706)
+rotation = -0.698132
+
+[node name="CivilianShip57" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-947, 771)
+rotation = -0.698132
+
+[node name="CivilianShip58" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-966, 691)
+rotation = -0.698132
+
+[node name="CivilianShip59" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1021, 619)
+rotation = -0.698132
+
+[node name="CivilianShip60" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-905, 858)
+rotation = -0.698132
+
+[node name="CivilianShip61" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1094, 776)
+rotation = -0.698132
+
+[node name="CivilianShip62" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1014, 794)
+rotation = -0.698132
+
+[node name="CivilianShip63" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1042, 733)
+rotation = -0.698132
+
+[node name="CivilianShip64" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1110, 724)
+rotation = -0.698132
+
+[node name="CivilianShip65" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-969, 844)
+rotation = -0.698132
+
+[node name="CivilianShip66" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1041, 858)
+rotation = -0.698132
+
+[node name="CivilianShip67" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1099, 887)
+rotation = -0.698132
+
+[node name="CivilianShip68" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1133, 827)
+rotation = -0.698132
+
+[node name="CivilianShip69" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1188, 755)
+rotation = -0.698132
+
+[node name="CivilianShip70" parent="." instance=ExtResource("2_wrkir")]
+position = Vector2(-1030, 943)
+rotation = -0.698132
