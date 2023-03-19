@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d16posr0pgyus"]
 
 [ext_resource type="PackedScene" uid="uid://ujm2pogbpnnp" path="res://world/AbstractWorld.tscn" id="1_fj8i6"]
-[ext_resource type="PackedScene" path="res://npc/enemies/BaseEnemy.tscn" id="2_gvp05"]
-[ext_resource type="PackedScene" path="res://npc/enemies/VultureEnemy.tscn" id="3_06oy0"]
-[ext_resource type="PackedScene" path="res://npc/enemies/Enemy.tscn" id="4_xgq5p"]
+[ext_resource type="PackedScene" uid="uid://muoegcv2qwhy" path="res://npc/enemies/BaseEnemy.tscn" id="2_gvp05"]
+[ext_resource type="PackedScene" uid="uid://483wj65cn18a" path="res://npc/enemies/VultureEnemy.tscn" id="3_06oy0"]
+[ext_resource type="PackedScene" uid="uid://cgjq1jul4iip3" path="res://npc/enemies/Enemy.tscn" id="4_xgq5p"]
 
 [node name="World" instance=ExtResource("1_fj8i6")]
 mission = "Watch your back!"
