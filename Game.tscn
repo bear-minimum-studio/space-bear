@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Game.gd" id="1_6gu75"]
 [ext_resource type="PackedScene" uid="uid://bu7nycnekir1f" path="res://hud/HealthHUD.tscn" id="2_7pate"]
-[ext_resource type="PackedScene" uid="uid://cgkkbhp6eam8m" path="res://World.tscn" id="2_or2gc"]
-[ext_resource type="PackedScene" uid="uid://d2r8gk2at0gdw" path="res://World2.tscn" id="3_l2vpx"]
-[ext_resource type="PackedScene" uid="uid://d16posr0pgyus" path="res://World3.tscn" id="4_tbmh4"]
+[ext_resource type="PackedScene" uid="uid://cgkkbhp6eam8m" path="res://World2.tscn" id="2_or2gc"]
+[ext_resource type="PackedScene" uid="uid://d2r8gk2at0gdw" path="res://World3.tscn" id="3_l2vpx"]
+[ext_resource type="PackedScene" uid="uid://d16posr0pgyus" path="res://World4.tscn" id="4_tbmh4"]
 [ext_resource type="PackedScene" uid="uid://y06kauv13cvq" path="res://hud/CiviliansLeft.tscn" id="5_5vxw4"]
 [ext_resource type="PackedScene" uid="uid://upooccvpprh4" path="res://hud/SectorInfo/SectorInfo.tscn" id="6_ixfnp"]
 [ext_resource type="PackedScene" uid="uid://dsmalws6v4e8y" path="res://ui/game-over/GameOver.tscn" id="8_rpob0"]
