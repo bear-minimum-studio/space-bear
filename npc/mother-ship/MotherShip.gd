@@ -15,3 +15,7 @@ func _on_dead():
 
 func get_global_position_to_fleet_proportion(node: Node2D) -> float:
 	return fleet_position_indicator.get_global_position_to_fleet_proportion(node)
+
+
+func _on_shield_shield_hp_changed(shield_hp, shield_max_hp, difference):
+	Events.mothership_shield_hp_changed.emit(shield_hp, shield_max_hp, difference)

@@ -248,3 +248,4 @@ shield_size = 50.0
 
 [connection signal="dead" from="HealthSystem" to="." method="_on_health_system_dead"]
 [connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
+[connection signal="shield_hp_changed" from="Shield" to="." method="_on_shield_shield_hp_changed"]

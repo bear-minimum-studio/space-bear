@@ -167,3 +167,7 @@ func _on_health_system_dead():
 	# Play the explosion even through the game over
 	new_explosion.process_mode = PROCESS_MODE_ALWAYS
 	WorldReference.current_world.add_child(new_explosion)
+
+
+func _on_shield_shield_hp_changed(shield_hp, shield_max_hp, difference):
+	Events.player_shield_hp_changed.emit(shield_hp, shield_max_hp, difference)

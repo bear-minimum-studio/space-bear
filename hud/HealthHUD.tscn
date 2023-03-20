@@ -9,6 +9,7 @@
 [node name="HealthHUD" type="HBoxContainer"]
 offset_right = 123.0
 offset_bottom = 19.0
+theme_override_constants/separation = 0
 script = ExtResource("3_pqavy")
 
 [node name="ShipIcon" type="TextureRect" parent="."]
@@ -20,11 +21,22 @@ stretch_mode = 5
 
 [node name="HurtAnimation" parent="ShipIcon" instance=ExtResource("3_rp61y")]
 
-[node name="Health" parent="." instance=ExtResource("2_mxb6i")]
+[node name="Superpose" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Health" parent="Superpose" instance=ExtResource("2_mxb6i")]
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+
+[node name="ShieldHealth" parent="Superpose" instance=ExtResource("2_mxb6i")]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+tint_progress = Color(0.501961, 0.254902, 0.85098, 1)
 
 [node name="HealthIcon" type="TextureRect" parent="."]
 visible = false

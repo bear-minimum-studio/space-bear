@@ -89,3 +89,5 @@ modulate = Color(0.419608, 1, 0.145098, 1)
 position = Vector2(-350, -1)
 scale = Vector2(0.421875, 0.421875)
 texture = ExtResource("8_doa43")
+
+[connection signal="shield_hp_changed" from="Shield" to="." method="_on_shield_shield_hp_changed"]

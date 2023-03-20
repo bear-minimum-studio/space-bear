@@ -28,6 +28,8 @@ const COLLISION_MARGIN = 10
 		_update_shield_size()
 
 
+signal shield_hp_changed
+
 var timer_before_heal: SceneTreeTimer = null
 
 func _ready():
@@ -90,3 +92,7 @@ func _toggle_shield(is_enabled: bool):
 	else:
 		self.visible = false
 		self.collision_layer = 0
+
+
+func _on_health_system_hp_changed(hp, max_hp, difference):
+	shield_hp_changed.emit(hp, max_hp, difference)

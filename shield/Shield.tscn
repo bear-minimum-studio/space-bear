@@ -41,3 +41,5 @@ should_free_on_death = false
 material = SubResource("ShaderMaterial_j0dvw")
 scale = Vector2(0.837607, 0.837607)
 texture = ExtResource("5_8sh2p")
+
+[connection signal="hp_changed" from="HealthSystem" to="." method="_on_health_system_hp_changed"]
