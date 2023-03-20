@@ -53,18 +53,25 @@ var joystick_direction:
 var wheel_center:
 	get: return Helpers.get_screen_center(self)
 
-var _rotation_step: float:
-	get: return 2 * PI / elements.size()
+var _number_of_sectors: int:
+	get: return max(3,elements.size())
 
+var _rotation_step: float:
+	get: return 2 * PI / _number_of_sectors
+
+## starts top-left (more or less) and rotates clockwise
 var selected_index:
 	get:
+		var i = floori((selection_angle + PI/2 + _rotation_step) / _rotation_step)
+		if abs(i) >= elements.size():
+			return null
 		if !selecting:
 			return null
-		return floori((selection_angle + PI/2) / _rotation_step)
+		return i
 
 var selected:
 	get:
-		if !selecting:
+		if selected_index == null:
 			return null
 		return elements[selected_index]
 
@@ -105,11 +112,12 @@ func _add_buttons():
 		button.position = wheel_center + button_distance_to_center * Vector2.from_angle(mid_angle)
 		buttons.append(button)
 
+
 func _button_start_angle(i: int) -> float:
-	return -PI/2 + i * _rotation_step
+	return -PI/2 + (i-1) * _rotation_step
 
 func _button_end_angle(i: int) -> float:
-	return _button_start_angle(i) +  _rotation_step
+	return _button_start_angle(i) + _rotation_step
 
 func _is_button_selectable(i: int) -> bool:
 	return elements[i].is_selectable
@@ -128,14 +136,15 @@ func _draw_deadzone():
 	
 
 func _draw_sectors():
-	for i in range(buttons.size()):
+	var n = min(_number_of_sectors, buttons.size() + 1)
+	for i in range(n):
 		var line_angle = _button_start_angle(i)
 		var line_start = wheel_center + screen_dead_zone * Vector2.from_angle(line_angle)
 		var line_end = wheel_center + line_length * Vector2.from_angle(line_angle)
 		draw_line(line_start, line_end, color, line_width, antialiasing)
 
 func _draw_background():
-	draw_circle_donut_poly(wheel_center, screen_dead_zone, 3*line_length, 0, 2*PI, background_color)
+	draw_circle_donut_poly(wheel_center, screen_dead_zone, 3*line_length, background_color)
 
 func _emphasis():
 	if selected_index == null:
@@ -146,25 +155,28 @@ func _emphasis():
 		_draw_button_background(selected_index, color_hover_not_selectable)
 
 func _draw_button_background(i: int, bckgrnd_color: Color):
+	_draw_slice_background(i, bckgrnd_color)
+
+func _draw_slice_background(i: int, bckgrnd_color: Color):
 	var start_angle = _button_start_angle(i)
 	var end_angle =  _button_end_angle(i)
 	var shifted_center = wheel_center + (line_width / 2) * Vector2.from_angle((start_angle + end_angle) / 2)
 	draw_circle_arc_poly(shifted_center, screen_dead_zone, 3*line_length, start_angle, end_angle, bckgrnd_color)
 
 
-func draw_circle_donut_poly(center, inner_radius, outer_radius, angle_from, angle_to, bckgrnd_color):  
+func draw_circle_donut_poly(center, inner_radius, outer_radius, bckgrnd_color):
 	var nb_points = 32
 	var points_arc = PackedVector2Array()
 	var colors = PackedColorArray([])
 
 	for i in range(nb_points+1):
-		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
-		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * outer_radius)
-		colors.push_back(bckgrnd_color)
-	
-	for i in range(nb_points,-1,-1):
-		var angle_point = angle_from + i * (angle_to - angle_from) / nb_points - 90
+		var angle_point = i * 2 * PI / nb_points - 90
 		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * inner_radius)
+		colors.push_back(bckgrnd_color)
+
+	for i in range(nb_points+1):
+		var angle_point = -i * 2 * PI / nb_points - 90
+		points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * outer_radius)
 		colors.push_back(bckgrnd_color)
 	draw_polygon(points_arc, colors)
 
