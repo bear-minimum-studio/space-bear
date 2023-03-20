@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu7nycnekir1f"]
+[gd_scene load_steps=6 format=3 uid="uid://bu7nycnekir1f"]
 
 [ext_resource type="Texture2D" uid="uid://b1kusnad64tx" path="res://ui/health.png" id="1_tcr4q"]
 [ext_resource type="Texture2D" uid="uid://c6rge1fruy4k8" path="res://hud/vaisseau_joueur_ui.png" id="2_hgpfo"]
 [ext_resource type="PackedScene" uid="uid://cy5srf1xm0us3" path="res://ui/ProgressBar.tscn" id="2_mxb6i"]
 [ext_resource type="Script" path="res://hud/Health.gd" id="3_pqavy"]
+[ext_resource type="PackedScene" uid="uid://b1a6w4bh4br5v" path="res://helpers/hurt-animation/HurtAnimation.tscn" id="3_rp61y"]
 
 [node name="HealthHUD" type="HBoxContainer"]
 offset_right = 123.0
@@ -16,6 +17,8 @@ layout_mode = 2
 texture = ExtResource("2_hgpfo")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="HurtAnimation" parent="ShipIcon" instance=ExtResource("3_rp61y")]
 
 [node name="Health" parent="." instance=ExtResource("2_mxb6i")]
 custom_minimum_size = Vector2(100, 2.08165e-12)

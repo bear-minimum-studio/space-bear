@@ -142,7 +142,7 @@ func _on_health_system_hp_changed(health, max_health, difference):
 		hurt_animation.animate_heal(player_sprite)
 	else:
 		hurt_animation.animate_hurt(player_sprite)
-	Events.emit_signal("player_hp_changed", health, max_health)
+	Events.emit_signal("player_hp_changed", health, max_health, difference)
 	damage_sprites.show_sprite_for_damage_level(float(health) / float(max_health))
 
 func _input(event):

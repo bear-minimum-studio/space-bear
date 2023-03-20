@@ -11,7 +11,7 @@ func _ready():
 	Events.player_hp_changed.connect(_on_hp_changed)
 	self.visible = false
 	
-func _on_hp_changed(health, max_health):
+func _on_hp_changed(health, max_health, _difference):
 	var health_percentage = float(health) / float(max_health)
 	if health_percentage > health_percentage_before_appearing:
 		self.visible = false
